@@ -1,0 +1,28 @@
+a,
+a:visited {
+	color: #fff;
+}
+
+* {
+	box-sizing: border-box;
+	word-break: break-all;
+}
+
+.mui-bar {
+	height: 1.2rem;
+	line-height: 1.2rem;
+	padding-right: 0.26rem;
+	padding-left: 0.26rem;
+}
+
+.f-left {
+	float: left;
+}
+
+.f-right {
+	float: right;
+}
+
+.mui-bar-nav~.mui-content {
+	padding-top: 1.2rem;
+}

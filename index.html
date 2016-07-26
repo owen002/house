@@ -1,304 +1,422 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="css/mui.min.css" rel="stylesheet" />
-		<link href="css/base.css" rel="stylesheet" />
-		<title></title>
-	</head>
-	<style>
-		html,
-		body {
-			background-color: #efeff4;
-		}
-		#header {
-			background-color: #2E65C3;
-			color: #fff;
-		}
-		#header img {
-			width: 100%;
-		}
-		.left-menu-icon {
-			width: 0.6rem;
-			padding-top: 0.1rem;
-			height: 100%;
-		}
-		.right-contact-a {
-			transform: rotateY(180deg);
-		}
-		.message-items-amount {
-			height: 1.2rem;
-			line-height: 1.2rem;
-			color: #FAA619;
-			font-size: 0.4rem;
-			margin: 0 0 0 0.1rem;
-			width: 0.3rem;
-		}
-		.location-city {
-			width: 1.7rem;
-			margin-left: 0.4rem;
-		}
-		.location-city-inner {
-			overflow: hidden;
-			height: 0.8rem;
-			padding-left: 0.2rem;
-			margin-top: 0.2rem;
-			border-left: 1px solid #fff;
-		}
-		.location-city-inner .f-left {
-			height: 100%;
-			line-height: 0.93rem;
-			width: 1rem;
-		}
-		.location-city-inner .location-select {
-			width: 0.25rem;
-			line-height: 0.8rem;
-		}
-		.search-box {
-			width: 5.4rem!important;
-			margin-bottom: 0!important;
-			border: none;
-			color: #464646;
-			margin-top: 0.1rem;
-			height: 1rem!important;
-			line-height: 1rem!important;
-		}
-		.mui-bar-nav.mui-bar .mui-icon {
-			padding: 0;
-			margin: 0
-		}
-		.location-city-name {
-			font-size: 0.45rem;
-		}
-		.right-contact-a {
-			margin: 0.25rem 0!important;
-			width: 0.7rem;
-			font-size: 0.7rem;
-		}
-		.bzm-user-wrap {
-			margin-bottom: 0.7rem;
-			font-size: 0.5rem;
-		}
-		.bzm-user-wrap img {
-			width: 2rem;
-			display: block;
-			margin: 1rem auto 0.4rem;
-		}
-		.bzm-user-name {
-			text-align: center;
-		}
-		.bzm-user-menu {
-			width: 7rem;
-			margin: 0 auto 0.7rem;
-			font-size: 0.4rem;
-			overflow: hidden;
-		}
-		.bzm-user-menu li {
-			float: left;
-			width: 33.33%;
-			border-left: 1px solid #2E65C3;
-		}
-		.menu-pub {
-			background: url(res/img/sp1.png) no-repeat;
-			background-size: cover;
-			width: 0.8rem;
-			height: 0.8rem;
-			margin: 0 auto;
-		}
-		.menu-fj {
-			background-position: 0 -1.25rem;
-		}
-		.menu-fx {
-			background-position: 0 -2.38rem;
-		}
-		.menu-pub-title {
-			text-align: center;
-		}
-	</style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/base.css" rel="stylesheet"/>
+    <title></title>
+</head>
+<style>
+    html,
+    body {
+        background-color: #efeff4;
+    }
 
-	<body>
-		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
-			<!--侧滑菜单部分-->
-			<aside id="offCanvasSide" class="mui-off-canvas-left">
-				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<div class="bzm-user-wrap">
-							<img src="res/img/user-photo.png" alt="" />
-							<div class='bzm-user-name'>账户名字1234</div>
-						</div>
-						<ul class='bzm-user-menu'>
-							<li style="border:none;">
-								<div class='menu-sy menu-pub'>&nbsp;</div>
-								<div class='menu-pub-title'>首页</div>
-							</li>
-							<li>
-								<div class='menu-fj menu-pub'>&nbsp;</div>
-								<div class='menu-pub-title'>附近</div>
-							</li>
-							<li>
-								<div class='menu-fx menu-pub'>&nbsp;</div>
-								<div class='menu-pub-title'>发现</div>
-							</li>
-						</ul>
-						<ul>
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									Item 1
-								</a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									Item 2
-								</a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									Item 3
-								</a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									Item 4
-								</a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									Item 5
-								</a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a class="mui-navigate-right">
-									Item 6
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</aside>
-			<!--主界面部分-->
-			<section class="mui-inner-wrap">
-				<header id="header" class="mui-bar mui-bar-nav">
-					<a class="left-menu-icon f-left" id='offCanvasShow'>
-						<img src='res/img/left-menu.png' />
-					</a>
-					<div class='location-city f-left'>
-						<div class='location-city-inner'>
-							<div class='location-city-name f-left'>西安</div>
-							<div class='location-select f-left'><img src='res/img/arrow.png' /></div>
-						</div>
-					</div>
-					<input class='search-box f-left' type="text" placeholder="好房尽在包租妹" />
-					<div class='message-items-amount f-right'>3</div>
-					<a class="mui-icon-chatbubble f-right right-contact-a mui-icon ">
-					</a>
-				</header>
-				<article class="mui-content">
-					<section id="slider" class="mui-slider">
-						<div class="mui-slider-group mui-slider-loop">
-							<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
-							<div class="mui-slider-item mui-slider-item-duplicate">
-								<a href="#">
-									<img src="images/yuantiao.jpg">
-									<p class="mui-slider-title">静静看这界</p>
-								</a>
-							</div>
-							<div class="mui-slider-item">
-								<a href="#">
-									<img src="images/shuijiao.jpg">
-									<p class="mui-slider-title">幸福就是可以一起睡觉</p>
-								</a>
-							</div>
-							<div class="mui-slider-item">
-								<a href="#">
-									<img src="images/muwu.jpg">
-									<p class="mui-slider-title">想要一间这样的木屋，静静的喝咖啡</p>
-								</a>
-							</div>
-							<div class="mui-slider-item">
-								<a href="#">
-									<img src="images/cbd.jpg">
-									<p class="mui-slider-title">Color of SIP CBD</p>
-								</a>
-							</div>
-							<div class="mui-slider-item">
-								<a href="#">
-									<img src="images/yuantiao.jpg">
-									<p class="mui-slider-title">静静看这世界</p>
-								</a>
-							</div>
-							<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
-							<div class="mui-slider-item mui-slider-item-duplicate">
-								<a href="#">
-									<img src="images/shuijiao.jpg">
-									<p class="mui-slider-title">幸福就是可以一起睡觉</p>
-								</a>
-							</div>
-						</div>
-						<div class="mui-slider-indicator mui-text-right">
-							<div class="mui-indicator mui-active"></div>
-							<div class="mui-indicator"></div>
-							<div class="mui-indicator"></div>
-							<div class="mui-indicator"></div>
-						</div>
-					</section>
-					<section id="Gallery" class="mui-slider">
-						<div class="mui-slider-group">
-							<div class="mui-slider-item">
-								<ul class="mui-table-view mui-grid-view mui-grid-9">
-									<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-										<a href="#">
-											<span class="mui-icon mui-icon-home"></span>
-											<div class="mui-media-body">Home</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-										<a href="#">
-											<span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
-											<div class="mui-media-body">Email</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-										<a href="#">
-											<span class="mui-icon mui-icon-chatbubble"></span>
-											<div class="mui-media-body">Chat</div>
-										</a>
-									</li>
-								</ul>
-							</div>
-							<div class="mui-slider-item">
-								<ul class="mui-table-view mui-grid-view mui-grid-9">
-									<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-										<a href="#">
-											<span class="mui-icon mui-icon-home"></span>
-											<div class="mui-media-body">Home</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-										<a href="#">
-											<span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
-											<div class="mui-media-body">Email</div>
-										</a>
-									</li>
-									<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-										<a href="#">
-											<span class="mui-icon mui-icon-chatbubble"></span>
-											<div class="mui-media-body">Chat</div>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</section>
+    #header {
+        background-color: #2E65C3;
+        color: #fff;
+    }
 
-				</article>
-				<div class="mui-off-canvas-backdrop"></div>
-			</section>
-		</div>
-	</body>
-	<script src="js/mui.min.js"></script>
-	<script src="js/base.js"></script>
-	<script src="js/index.js"></script>
+    #header img {
+        width: 100%;
+    }
+
+    .left-menu-icon {
+        width: 0.6rem;
+        padding-top: 0.1rem;
+        height: 100%;
+    }
+
+    .right-contact-a {
+        transform: rotateY(180deg);
+    }
+
+    .message-items-amount {
+        height: 1.2rem;
+        line-height: 1.2rem;
+        color: #FAA619;
+        font-size: 0.4rem;
+        margin: 0 0 0 0.1rem;
+        width: 0.3rem;
+    }
+
+    .location-city {
+        width: 1.7rem;
+        margin-left: 0.4rem;
+    }
+
+    .location-city-inner {
+        overflow: hidden;
+        height: 0.8rem;
+        padding-left: 0.2rem;
+        margin-top: 0.2rem;
+        border-left: 1px solid #fff;
+    }
+
+    .location-city-inner .f-left {
+        height: 100%;
+        line-height: 0.93rem;
+        width: 1rem;
+    }
+
+    .location-city-inner .location-select {
+        width: 0.25rem;
+        line-height: 0.8rem;
+    }
+
+    .search-box {
+        width: 5.4rem !important;
+        margin-bottom: 0 !important;
+        border: none;
+        color: #464646;
+        margin-top: 0.1rem;
+        height: 1rem !important;
+        line-height: 1rem !important;
+    }
+
+    .mui-bar-nav.mui-bar .mui-icon {
+        padding: 0;
+        margin: 0
+    }
+
+    .location-city-name {
+        font-size: 0.45rem;
+    }
+
+    .right-contact-a {
+        margin: 0.25rem 0 !important;
+        width: 0.7rem;
+        font-size: 0.7rem;
+    }
+
+    .bzm-user-wrap {
+        margin-bottom: 0.4rem;
+        font-size: 0.5rem;
+    }
+
+    .bzm-user-wrap img {
+        width: 1.8rem;
+        display: block;
+        margin: 0.8rem auto 0.4rem;
+    }
+
+    .bzm-user-name {
+        text-align: center;
+    }
+
+    .bzm-user-menu {
+        width: 7rem;
+        margin: 0 auto 0.4rem;
+        font-size: 0.4rem;
+        overflow: hidden;
+    }
+
+    .bzm-user-menu li {
+        float: left;
+        width: 33.33%;
+        border-left: 1px solid #2E65C3;
+    }
+
+    .menu-pub {
+        background: url(res/img/sp1.png) no-repeat;
+        background-size: cover;
+        width: 0.8rem;
+        height: 0.8rem;
+        margin: 0 auto;
+    }
+
+    .menu-fj {
+        background-position: 0 -1.25rem;
+    }
+
+    .menu-fx {
+        background-position: 0 -2.38rem;
+    }
+
+    .menu-pub-title {
+        text-align: center;
+    }
+
+    .navigate-menus li {
+        padding: 0.38rem 0 0.38rem 1rem;
+        width: 90%;
+        margin-left: 10%;
+        position: relative;
+        border-bottom: 1px solid #2E65C3;
+        font-size:0.44rem;
+    }
+
+    .bzm-navigate-right:after {
+        right: 0.1rem;
+        content: '\e470';
+        font-family: Muiicons;
+        font-size: inherit;
+        line-height: 1;
+        position: absolute;
+        top: 50%;
+        display: inline-block;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        text-decoration: none;
+        color: #fff;
+        -webkit-font-smoothing: antialiased;
+        font-size: 0.8rem;
+    }
+
+    .navigate-item-each {
+        width: 0.8rem;
+        height: 0.8rem;
+        left: 0;
+        top: 50%;
+        margin-top: -0.4rem;
+        background: url("res/img/sp1.png") no-repeat;
+        background-size: cover;
+        position: absolute;
+    }
+
+    .navigate-mybm {
+        background-position: 0 -3.6rem;
+    }
+
+    .navigate-mysc {
+        background-position: 0 -4.78rem;
+    }
+
+    .navigate-lljl {
+        background-position: 0 -5.95rem;
+    }
+
+    .navigate-myyhq {
+        background-position: 0 -7.05rem;
+    }
+
+    .navigate-yqhy {
+        background-position: 0 -8.23rem;
+    }
+
+    .navigate-sz {
+        background-position: 0 -9.52rem;
+    }
+    .navigate-nums{
+        position: absolute;
+        right: 0.45rem;
+        top: 0.4rem;
+    }
+    .logout-btn{
+        margin:0.4rem auto 0.3rem;
+        width:70%;
+        text-align: center;
+        height:1.3rem;
+        line-height: 1.3rem;
+        border:1px solid #2E65C3;
+    }
+    .n-footer{
+        text-align: center;
+    }
+    .nf-about{
+        height:1rem;
+        line-height: 1rem;
+    }
+</style>
+
+<body>
+<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+    <!--侧滑菜单部分-->
+    <aside id="offCanvasSide" class="mui-off-canvas-left">
+        <div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <div class="bzm-user-wrap">
+                    <img src="res/img/user-photo.png" alt=""/>
+                    <div class='bzm-user-name'>账户名字1234</div>
+                </div>
+                <ul class='bzm-user-menu'>
+                    <li style="border:none;">
+                        <div class='menu-sy menu-pub'>&nbsp;</div>
+                        <div class='menu-pub-title'>首页</div>
+                    </li>
+                    <li>
+                        <div class='menu-fj menu-pub'>&nbsp;</div>
+                        <div class='menu-pub-title'>附近</div>
+                    </li>
+                    <li>
+                        <div class='menu-fx menu-pub'>&nbsp;</div>
+                        <div class='menu-pub-title'>发现</div>
+                    </li>
+                </ul>
+                <ul class="navigate-menus">
+                    <li style=" border-top: 1px solid #2E65C3;">
+                        <a class="bzm-navigate-right">
+                            <div class="navigate-item-each navigate-mybm">&nbsp;</div>
+                            <span>我的报名</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <div class="navigate-item-each navigate-mysc">&nbsp;</div>
+                            <span>我的收藏</span>
+                            <div class="navigate-nums">1</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <div class="navigate-item-each navigate-lljl">&nbsp;</div>
+                            <span>浏览记录</span>
+                            <div class="navigate-nums">12</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <div class="navigate-item-each navigate-myyhq">&nbsp;</div>
+                            <span>我的优惠券</span>
+                            <div class="navigate-nums">7</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="bzm-navigate-right">
+                            <div class="navigate-item-each navigate-yqhy">&nbsp;</div>
+                            <span>邀请好友下载包租妹APP</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="bzm-navigate-right">
+                            <div class="navigate-item-each navigate-sz">&nbsp;</div>
+                            <span>设置</span>
+                        </a>
+                    </li>
+                </ul>
+                <section class="navigator-footer">
+                    <div class="logout-btn">退出账号</div>
+                    <div class="n-footer nf-version">当前版本<span>1.0</span></div>
+                    <div class="n-footer nf-about">关于我们</div>
+                </section>
+            </div>
+        </div>
+    </aside>
+    <!--主界面部分-->
+    <section class="mui-inner-wrap">
+        <header id="header" class="mui-bar mui-bar-nav">
+            <a class="left-menu-icon f-left" id='offCanvasShow'>
+                <img src='res/img/left-menu.png'/>
+            </a>
+            <div class='location-city f-left'>
+                <div class='location-city-inner'>
+                    <div class='location-city-name f-left'>西安</div>
+                    <div class='location-select f-left'><img src='res/img/arrow.png'/></div>
+                </div>
+            </div>
+            <input class='search-box f-left' type="text" placeholder="好房尽在包租妹"/>
+            <div class='message-items-amount f-right'>3</div>
+            <a class="mui-icon-chatbubble f-right right-contact-a mui-icon ">
+            </a>
+        </header>
+        <article class="mui-content">
+            <section id="slider" class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="#">
+                            <img src="images/yuantiao.jpg">
+                            <p class="mui-slider-title">静静看这界</p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="images/shuijiao.jpg">
+                            <p class="mui-slider-title">幸福就是可以一起睡觉</p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="images/muwu.jpg">
+                            <p class="mui-slider-title">想要一间这样的木屋，静静的喝咖啡</p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="images/cbd.jpg">
+                            <p class="mui-slider-title">Color of SIP CBD</p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="images/yuantiao.jpg">
+                            <p class="mui-slider-title">静静看这世界</p>
+                        </a>
+                    </div>
+                    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="#">
+                            <img src="images/shuijiao.jpg">
+                            <p class="mui-slider-title">幸福就是可以一起睡觉</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="mui-slider-indicator mui-text-right">
+                    <div class="mui-indicator mui-active"></div>
+                    <div class="mui-indicator"></div>
+                    <div class="mui-indicator"></div>
+                    <div class="mui-indicator"></div>
+                </div>
+            </section>
+            <section id="Gallery" class="mui-slider">
+                <div class="mui-slider-group">
+                    <div class="mui-slider-item">
+                        <ul class="mui-table-view mui-grid-view mui-grid-9">
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#">
+                                    <span class="mui-icon mui-icon-home"></span>
+                                    <div class="mui-media-body">Home</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#">
+                                    <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
+                                    <div class="mui-media-body">Email</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#">
+                                    <span class="mui-icon mui-icon-chatbubble"></span>
+                                    <div class="mui-media-body">Chat</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mui-slider-item">
+                        <ul class="mui-table-view mui-grid-view mui-grid-9">
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#">
+                                    <span class="mui-icon mui-icon-home"></span>
+                                    <div class="mui-media-body">Home</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#">
+                                    <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
+                                    <div class="mui-media-body">Email</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#">
+                                    <span class="mui-icon mui-icon-chatbubble"></span>
+                                    <div class="mui-media-body">Chat</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+        <div class="mui-off-canvas-backdrop"></div>
+    </section>
+</div>
+</body>
+<script src="js/mui.min.js"></script>
+<script src="js/base.js"></script>
+<script src="js/index.js"></script>
 
 </html>

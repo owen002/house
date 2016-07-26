@@ -9,25 +9,25 @@
 		<title></title>
 	</head>
 	<style>
+		html,
+		body {
+			background-color: #efeff4;
+		}
 		#header {
 			background-color: #2E65C3;
 			color: #fff;
 		}
-		
 		#header img {
 			width: 100%;
 		}
-		
 		.left-menu-icon {
 			width: 0.6rem;
 			padding-top: 0.1rem;
 			height: 100%;
 		}
-		
 		.right-contact-a {
 			transform: rotateY(180deg);
 		}
-		
 		.message-items-amount {
 			height: 1.2rem;
 			line-height: 1.2rem;
@@ -36,12 +36,10 @@
 			margin: 0 0 0 0.1rem;
 			width: 0.3rem;
 		}
-		
 		.location-city {
 			width: 1.7rem;
 			margin-left: 0.4rem;
 		}
-		
 		.location-city-inner {
 			overflow: hidden;
 			height: 0.8rem;
@@ -49,18 +47,15 @@
 			margin-top: 0.2rem;
 			border-left: 1px solid #fff;
 		}
-		
 		.location-city-inner .f-left {
 			height: 100%;
 			line-height: 0.93rem;
 			width: 1rem;
 		}
-		
 		.location-city-inner .location-select {
 			width: 0.25rem;
 			line-height: 0.8rem;
 		}
-		
 		.search-box {
 			width: 5.4rem!important;
 			margin-bottom: 0!important;
@@ -70,15 +65,56 @@
 			height: 1rem!important;
 			line-height: 1rem!important;
 		}
-		
 		.mui-bar-nav.mui-bar .mui-icon {
 			padding: 0;
 			margin: 0
 		}
-		
+		.location-city-name {
+			font-size: 0.45rem;
+		}
 		.right-contact-a {
 			margin: 0.25rem 0!important;
 			width: 0.7rem;
+			font-size: 0.7rem;
+		}
+		.bzm-user-wrap {
+			margin-bottom: 0.7rem;
+			font-size: 0.5rem;
+		}
+		.bzm-user-wrap img {
+			width: 2rem;
+			display: block;
+			margin: 1rem auto 0.4rem;
+		}
+		.bzm-user-name {
+			text-align: center;
+		}
+		.bzm-user-menu {
+			width: 7rem;
+			margin: 0 auto 0.7rem;
+			font-size: 0.4rem;
+			overflow: hidden;
+		}
+		.bzm-user-menu li {
+			float: left;
+			width: 33.33%;
+			border-left: 1px solid #2E65C3;
+		}
+		.menu-pub {
+			background: url(res/img/sp1.png) no-repeat;
+			background-size: cover;
+			width: 0.8rem;
+			height: 0.8rem;
+			margin: 0 auto;
+		}
+		.menu-fj {
+			background-position: 0 -1.25rem;
+		}
+		.menu-fx {
+			background-position: 0 -2.38rem;
+		}
+		.menu-pub-title {
+			text-align: center;
 		}
 	</style>
 
@@ -88,18 +124,25 @@
 			<aside id="offCanvasSide" class="mui-off-canvas-left">
 				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
 					<div class="mui-scroll">
-						<div class="title">侧滑导航</div>
-						<div class="content">
-							这是可拖动式侧滑菜单示例，你可以在这里放置任何内容；关闭侧滑菜单有多种方式： 1.在手机屏幕任意位置向左拖动(drag)；2.点击本侧滑菜单页之外的任意位置; 3.点击如下红色按钮
-							<span class="android-only">；4.Android手机按back键；5.Android手机按menu键
-							</span>。
-							<p style="margin: 10px 15px;">
-								<button id="offCanvasHide" type="button" class="mui-btn mui-btn-danger mui-btn-block" style="padding: 5px 20px;">关闭侧滑菜单</button>
-							</p>
-
+						<div class="bzm-user-wrap">
+							<img src="res/img/user-photo.png" alt="" />
+							<div class='bzm-user-name'>账户名字1234</div>
 						</div>
-						<div class="title" style="margin-bottom: 25px;">侧滑列表示例</div>
-						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+						<ul class='bzm-user-menu'>
+							<li style="border:none;">
+								<div class='menu-sy menu-pub'>&nbsp;</div>
+								<div class='menu-pub-title'>首页</div>
+							</li>
+							<li>
+								<div class='menu-fj menu-pub'>&nbsp;</div>
+								<div class='menu-pub-title'>附近</div>
+							</li>
+							<li>
+								<div class='menu-fx menu-pub'>&nbsp;</div>
+								<div class='menu-pub-title'>发现</div>
+							</li>
+						</ul>
+						<ul>
 							<li class="mui-table-view-cell">
 								<a class="mui-navigate-right">
 									Item 1
@@ -158,7 +201,7 @@
 							<div class="mui-slider-item mui-slider-item-duplicate">
 								<a href="#">
 									<img src="images/yuantiao.jpg">
-									<p class="mui-slider-title">静静这界</p>
+									<p class="mui-slider-title">静静看这界</p>
 								</a>
 							</div>
 							<div class="mui-slider-item">
@@ -250,7 +293,8 @@
 					</section>
 
 				</article>
-		</div>
+				<div class="mui-off-canvas-backdrop"></div>
+			</section>
 		</div>
 	</body>
 	<script src="js/mui.min.js"></script>

@@ -25,7 +25,7 @@
 			offCanvasSide.classList.remove('mui-transitioning');
 			offCanvasSide.setAttribute('style', '');
 			classList.add('mui-scalable');
-
+//			classList.add('mui-slide-in');
 			//主界面‘显示侧滑菜单’按钮的点击事件
 			document.getElementById('offCanvasShow').addEventListener('tap', function() {
 				offCanvasWrapper.offCanvas('show');

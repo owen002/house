@@ -81,7 +81,7 @@ body {
 }
 
 .zhuce {
-	margin-top: 3rem;
+	margin-top: 1rem;
 }
 .login-btn-zhuce {
 	color: #222;
@@ -90,6 +90,12 @@ body {
 	width: 10rem;
 	margin-left: 8rem;
 	margin-top: 0.6rem;
+}
+
+.wangjimima {
+	color: #222;
+	margin-left: 25rem;
+	font-size: 0.9rem;
 }
 
 .nobaozhumei {

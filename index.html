@@ -76,6 +76,7 @@
         line-height: 1rem !important;
         position: relative;
         padding-left: 1rem !important;
+        font-size: 0.45rem;
     }
 
     .mui-bar-nav.mui-bar .mui-icon {
@@ -239,26 +240,180 @@
         top: 0.3rem;
         width: 0.6rem !important;
     }
-    .first-page-menu{
+
+    .first-page-menu {
         overflow: hidden;
     }
-    .first-page-menu li{
-        width:25%;
+
+    .first-page-menu li {
+        width: 25%;
         text-align: center;
         float: left;
-        font-size:0.34rem;
+        font-size: 0.34rem;
         color: #505050;
     }
-    .first-page-menu li img{
+
+    .first-page-menu li img {
         width: 65%;
         margin: 0.4rem auto 0.2rem;
         display: block;
     }
-    .mui-inner-wrap{
-        background-color:#F2F2F2;
+
+    .mui-inner-wrap {
+        background-color: #F2F2F2;
     }
-    .mui-slider{
+
+    .mui-slider {
         background-color: #fff;
+    }
+
+    .header-marq-wrap {
+        width: 100%;
+        padding: 0 0.3rem;
+    }
+
+    .header-mar-inner {
+        background-color: #FFE5CA;
+        padding: 0.2rem;
+        overflow: hidden;
+    }
+
+    .menu-wrapper {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .marq-title {
+        border-right: 1px solid #FCC999;
+        padding-right: 0.3rem;
+        font-size: 0.5rem;
+        font-weight: bold;
+        font-style: italic;
+        color: #ff5300;
+        height: 1.2rem;
+    }
+
+    .marq-content {
+        height: 1.2rem;
+        font-size: 0.35rem;
+        padding-left: 0.3rem;
+        overflow: hidden;
+        color: #555555;
+    }
+
+    .marq-title div {
+        height: 0.6rem;
+    }
+
+    .marq-content li {
+        height: 0.6rem;
+    }
+
+    .spot {
+        color: #7D7D7D;
+        margin-right: 0.15rem;
+    }
+
+    #Gallery {
+        padding-bottom: 0.4rem;
+        box-shadow: 0 0 0.1rem #bfbfbf;
+    }
+
+    .guess-you-like {
+        margin-top: 0.3rem;
+        padding: 0.3rem;
+        background-color: #fff;
+        box-shadow: 0 0 0.1rem #bfbfbf;
+    }
+
+    .like-icon {
+        width: 0.6rem;
+        height: 0.6rem;
+        background: url("res/img/sp3.png") no-repeat 0 -2.5rem;
+        background-size: cover;
+    }
+    .zf-icon{
+        width: 0.5rem;
+        height: 0.5rem;
+        background: url("res/img/sp3.png") no-repeat 0 -0.99rem;
+        background-size: cover;
+        margin: 0 0.2rem 0 0.4rem;
+    }
+
+    .guyl-header {
+        overflow: hidden;
+        font-size: 0.4rem;
+        padding-bottom: 0.2rem;
+    }
+
+    .tbfy {
+        line-height: 0.7rem;
+        margin-left: 0.2rem;
+        color: #F26521;
+        font-weight: bold;
+    }
+
+    .mui-icon-arrowright2:after {
+        content: '\e583';
+        font-family: Muiicons;
+    }
+
+    .mui-icon-arrowright2 {
+        color: #ACACAC;
+    }
+
+    .gus-list-ul li {
+        border-top: 1px solid #e4e4e4;
+        padding: 0.4rem 0;
+        overflow: hidden;
+    }
+
+    .gus-list-ul li img {
+        width: 100%;
+    }
+
+    .house-img {
+        width: 35%;
+    }
+
+    .house-content {
+        width: 65%;
+        padding-left:0.3rem;
+        overflow: hidden;
+    }
+    .hc-title{
+        font-weight: bold;
+        font-size: 0.5rem;
+    }
+    .hc-name{
+        font-size:0.36rem;
+        color: #707070;
+        width:55%;
+    }
+    .hc-price-per{
+        width:45%;
+        color: #EB601D;
+        font-size: 0.45rem;
+        font-weight: bold;
+        text-align: right;
+        padding-left: 0.2rem;
+    }
+    .house-biaoqian,.zan-and-focus{
+        overflow: hidden;
+    }
+    .house-biaoqian dd{
+        float: left;
+        border: 1px solid #bdbdbd;
+        padding: 0 0.1rem;
+        font-size: 0.3rem;
+        color: #707070;
+        margin: 0 0.1rem 0.1rem 0;
+    }
+    .zan-and-focus div{
+        float: left;
+    }
+    .zan-and-focus{
+        float: right;
     }
 </style>
 
@@ -366,6 +521,7 @@
                             <p class="mui-slider-title">静静看这界</p>
                         </a>
                     </div>
+
                     <div class="mui-slider-item">
                         <a href="#">
                             <img src="res/img/banner1.png">
@@ -390,7 +546,8 @@
                             <p class="mui-slider-title">静静看这世界</p>
                         </a>
                     </div>
-                    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+
+                    <!--额外增加的一个节点(循环轮播：最后一个节点是第一张轮播)-->
                     <div class="mui-slider-item mui-slider-item-duplicate">
                         <a href="#">
                             <img src="res/img/banner1.png">
@@ -406,28 +563,102 @@
                 </div>
             </section>
             <section id="Gallery" class="mui-slider">
-                <ul class="first-page-menu">
-                    <li>
-                        <img src="res/img/menu1.png" alt="">
-                        <div>租房</div>
-                    </li>
-                    <li>
-                        <img src="res/img/menu2.png" alt="">
-                        <div>售房</div>
-                    </li>
-                    <li>
-                        <img src="res/img/menu3.png" alt="">
-                        <div>众筹</div>
-                    </li>
-                    <li>
-                        <img src="res/img/menu4.png" alt="">
-                        <div>房主租售</div>
-                    </li>
-                </ul>
-                <div>
+                <div class="menu-wrapper">
+                    <ul class="first-page-menu">
+                        <li>
+                            <img src="res/img/menu1.png" alt="">
+                            <div>租房</div>
+                        </li>
+                        <li>
+                            <img src="res/img/menu2.png" alt="">
+                            <div>售房</div>
+                        </li>
+                        <li>
+                            <img src="res/img/menu3.png" alt="">
+                            <div>众筹</div>
+                        </li>
+                        <li>
+                            <img src="res/img/menu4.png" alt="">
+                            <div>房主租售</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-marq-wrap">
+                    <div class="header-mar-inner">
+                        <div class="f-left marq-title">
+                            <div>包租</div>
+                            <div>头条</div>
+                        </div>
+                        <ul class="f-left marq-content">
+                            <li><span class="spot">&bull;</span>挑选地铁房看这里 上周西安楼盘TOP10</li>
+                            <li><span class="spot">&bull;</span>华清学府城5套特价房随时秒杀！</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
-
+            <section class="guess-you-like">
+                <div class="guyl-header">
+                    <div class="like-icon f-left">&nbsp</div>
+                    <div class="f-left tbfy">特包房源</div>
+                    <div class="f-right mui-icon-arrowright2">更多</div>
+                </div>
+                <ul class="gus-list-ul">
+                    <li>
+                        <div class="f-left house-img">
+                            <img src="res/img/house.jpg" alt="">
+                        </div>
+                        <div class="house-content f-left">
+                            <div class="hc-title">
+                                坤元TIME
+                            </div>
+                            <div style="overflow: hidden">
+                                <div class="hc-name f-left">城南-高新万达现房</div>
+                                <div class="hc-price-per f-left">8000元/m²</div>
+                            </div>
+                            <dl class="house-biaoqian">
+                                <dd>3号线</dd>
+                                <dd>交通枢纽</dd>
+                                <dd>医院</dd>
+                                <dd>刚需房</dd>
+                                <dd>学校</dd>
+                            </dl>
+                            <div class="zan-and-focus">
+                                <div class="zan-icon zf-icon"></div>
+                                <div>23</div>
+                                <div class="focus-icon zf-icon"></div>
+                                <div>223</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-left house-img">
+                            <img src="res/img/house.jpg" alt="">
+                        </div>
+                        <div class="house-content f-left">
+                            <div class="hc-title">
+                                坤元TIME
+                            </div>
+                            <div style="overflow: hidden">
+                                <div class="hc-name f-left">城南-高新万达现房</div>
+                                <div class="hc-price-per f-left">8000元/m²</div>
+                            </div>
+                            <dl class="house-biaoqian">
+                                <dd>3号线</dd>
+                                <dd>交通枢纽</dd>
+                                <dd>医院</dd>
+                                <dd>刚需房</dd>
+                                <dd>学校</dd>
+                            </dl>
+                            <div class="zan-and-focus">
+                                <div class="zan-icon zf-icon"></div>
+                                <div>23</div>
+                                <div class="focus-icon zf-icon"></div>
+                                <div>223</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
         </article>
         <div class="mui-off-canvas-backdrop"></div>
     </section>

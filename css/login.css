@@ -1,0 +1,99 @@
+.ui-page-login,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-color: #0;
+}
+
+.mui-content {
+	height: 100%;
+	background-color: #0;
+}
+
+.area {
+	margin: 20px auto 0px auto;
+}
+
+.mui-input-group {
+	margin-top: 10px;
+}
+
+.mui-input-group:first-child {
+	margin-top: 20px;
+}
+
+.mui-input-group label {
+	width: 22%;
+}
+
+.mui-input-row label~input,
+.mui-input-row label~select,
+.mui-input-row label~textarea {
+	width: 78%;
+}
+
+.mui-checkbox input[type=checkbox],
+.mui-radio input[type=radio] {
+	top: 6px;
+}
+
+.mui-content-padded {
+	margin-top: 25px;
+}
+
+.mui-btn {
+	padding: 10px;
+}
+
+.link-area {
+	display: block;
+	margin-top: 25px;
+	text-align: center;
+}
+
+.spliter {
+	color: #bbb;
+	padding: 0px 8px;
+}
+
+.mui-btn-orange {
+	color: #fff;
+	border: 1px solid #F26521;
+	background-color: #F26521;
+}
+
+.login-head-background {
+	background: url(../images/login/toppic.png);
+	height: 16rem;
+	margin-bottom: 10rem;
+	position: relative;
+}
+.login-head-div {
+	position: absolute;
+	margin-top: 10rem;
+	margin-left: 8rem;
+}
+.login-head-div img {
+	width:11rem;
+	height:10rem;
+}
+
+.zhuce {
+	margin-top: 3rem;
+}
+.login-btn-zhuce {
+	color: #222;
+	border: 1px solid #E1E1E1;
+	background-color: #E1E1E1;
+	width: 10rem;
+	margin-left: 8rem;
+	margin-top: 0.6rem;
+}
+
+.nobaozhumei {
+	color: #222;
+	margin-left: 9rem;
+	font-size: 0.9rem;
+}

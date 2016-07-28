@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
 		<link href="../../css/login.css" rel="stylesheet" />
 
 	</head>
@@ -17,15 +18,14 @@
 			<div sr></div>
 		</header>
 		<div class="mui-content">
-			<div class="login-head-background">
-				<div class="login-head-div">
-					<img src="../../res/img/login/head.png">
+			<div style="position: relative;">
+				<img src="../../images/login/toppic.png" style="display: width: 10rem;display: block;"/>
+				<div>
+					<img src="../../res/img/login/head.png" style="display: block;bottom: -1.5rem;left: 3.5rem;z-index: 999;position: absolute;">
 				</div>
 			</div>
 				
-			
-
-			<form id='login-form' class="mui-input-group">
+			<form id='login-form' class="mui-input-group" style="margin-top: 2rem">
 				<div class="mui-input-row">
 					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入手机号">
 				</div>
@@ -45,9 +45,11 @@
 				</button>
 			</div>			
 		</div>
-		
-		<script src= "../../js/base.js"></script>
 		<script src="../../js/mui.min.js"></script>
+		<script src= "../../js/base.js"></script>
+	
 	</body>
-
+<script type="text/javascript">
+	base.setPageRem();
+</script>
 </html>

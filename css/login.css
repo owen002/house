@@ -103,3 +103,10 @@ body {
 	margin-left: 9rem;
 	font-size: 0.9rem;
 }
+
+.reginputico {
+	width: 0.6rem;
+    height: 0.6rem;
+    background: url("res/img/sp3.png") no-repeat 0 -2.5rem;
+    background-size: cover;
+}

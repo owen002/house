@@ -42,9 +42,3 @@ body {
 	margin-top: 0.3rem;
 }
 
-.reginputico {
-	width: 1rem;
-    height: 2rem;
-    background: url(../res/img/login/regico.png) no-repeat 0 -2.5rem;
-    background-size: cover;
-}

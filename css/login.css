@@ -44,3 +44,6 @@ body {
     background: url(../res/img/login/regico.png) no-repeat 0 -2.5rem;
     background-size: cover;
 }
+body,.mui-content{
+	background-color: #fff;
+}

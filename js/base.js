@@ -1,7 +1,8 @@
 var base = (function() {
+	var baseUrl = '/';
 	var api = {
 
-	}
+	};
 
 	function setPageRem() {
 		var cwidth = document.body.clientWidth;

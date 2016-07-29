@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+		<link href="../../css/login.css" rel="stylesheet" />
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">手机登录</h1>
+			<div sr></div>
+		</header>
+		<div class="mui-content">
+			<div style="position: relative;">
+				<img src="../../images/login/toppic.png" style="display: width: 10rem;display: block;"/>
+				<div>
+					<img src="../../res/img/login/head.png" style="display: block;bottom: -1.5rem;left: 3.5rem;z-index: 999;position: absolute;">
+				</div>
+			</div>
+				
+			<form id='login-form' class="mui-input-group" style="margin-top: 2rem">
+				<div class="mui-input-row">
+					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入手机号">
+				</div>
+				<div class="mui-input-row">
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+				</div>
+			</form>
+			<div class="mui-content-padded">
+				<button id='login' class="mui-btn mui-btn-block mui-btn-orange">登录</button>
+				<a href="" class="wangjimima">忘记密码</a>
+			</div>
+			
+			<div class="mui-content-padded zhuce">
+				<a href="" class="nobaozhumei">还没有包租妹帐号？</a>
+				<button id='login' type="button" class="mui-btn login-btn-zhuce">
+					注册
+				</button>
+			</div>			
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src= "../../js/base.js"></script>
+	
+	</body>
+<script type="text/javascript">
+	base.setPageRem();
+</script>
+</html>

@@ -23,6 +23,7 @@ body {
 
 .reginput {
 	width: 9rem !important;
+	float: left !important;
 }
 
 .reginput1 {
@@ -60,9 +61,14 @@ body {
 }
 
 .mui-btn-grey {
-	width: 2rem !important;
+	width: 2.3rem !important;
 	height: 0.6rem !important;
 	margin-top: 0.2rem;
 	margin-right: 0.2rem;
 	padding: 0.1rem  0.1rem !important;
+}
+
+.mui-switch-blue.mui-active {
+    border: 2px solid #F26521;
+    background-color: #F26521;
 }

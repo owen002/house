@@ -4,9 +4,12 @@ body {
 	height: 100%;
 	margin: 0px;
 	padding: 0px;
-	background-color: #0;
+	background-color: #fff;
 }
 
+.mui-content{
+	background-color: #fff;
+}
 .mui-btn-orange {
 	color: #fff;
 	border: 1px solid #F26521;
@@ -43,7 +46,4 @@ body {
     height: 2rem;
     background: url(../res/img/login/regico.png) no-repeat 0 -2.5rem;
     background-size: cover;
-}
-body,.mui-content{
-	background-color: #fff;
 }

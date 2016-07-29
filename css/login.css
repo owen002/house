@@ -21,15 +21,16 @@ body {
 }
 
 .wangjimima {
-	color: #222;
-	margin-left: 8.5rem;
+	margin-left: 8rem;
 	font-size: 0.2rem;
+	color: #7B7676 !important;
+	
 }
 
 .nobaozhumei {
-	color: #222;
 	margin-left: 3rem;
-	font-size: 0.5rem;
+	font-size: 0.4rem;
+	color: #7B7676 !important;
 }
 
 .login-btn-zhuce {

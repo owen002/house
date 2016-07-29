@@ -332,7 +332,8 @@
         background: url("res/img/sp3.png") no-repeat 0 -2.5rem;
         background-size: cover;
     }
-    .zf-icon{
+
+    .zf-icon {
         width: 0.5rem;
         height: 0.5rem;
         background: url("res/img/sp3.png") no-repeat 0 -0.99rem;
@@ -366,6 +367,7 @@
         border-top: 1px solid #e4e4e4;
         padding: 0.4rem 0;
         overflow: hidden;
+        color:#000;
     }
 
     .gus-list-ul li img {
@@ -374,34 +376,40 @@
 
     .house-img {
         width: 35%;
+        margin-top: 0.2rem;
     }
 
     .house-content {
         width: 65%;
-        padding-left:0.3rem;
+        padding-left: 0.3rem;
         overflow: hidden;
     }
-    .hc-title{
+
+    .hc-title {
         font-weight: bold;
         font-size: 0.5rem;
     }
-    .hc-name{
-        font-size:0.36rem;
+
+    .hc-name {
+        font-size: 0.36rem;
         color: #707070;
-        width:55%;
+        width: 55%;
     }
-    .hc-price-per{
-        width:45%;
+
+    .hc-price-per {
+        width: 45%;
         color: #EB601D;
         font-size: 0.45rem;
         font-weight: bold;
         text-align: right;
         padding-left: 0.2rem;
     }
-    .house-biaoqian,.zan-and-focus{
+
+    .house-biaoqian, .zan-and-focus {
         overflow: hidden;
     }
-    .house-biaoqian dd{
+
+    .house-biaoqian dd {
         float: left;
         border: 1px solid #bdbdbd;
         padding: 0 0.1rem;
@@ -409,11 +417,26 @@
         color: #707070;
         margin: 0 0.1rem 0.1rem 0;
     }
-    .zan-and-focus div{
+
+    .zan-and-focus div {
         float: left;
     }
-    .zan-and-focus{
+
+    .zan-and-focus {
         float: right;
+        color:#707070;
+    }
+    .mui-inner-wrap{
+        height: auto;
+    }
+    .focus-icon{
+        background-position: 0 -1.5rem;
+    }
+    .focus-active-icon{
+        background-position: 0 -0.47rem!important;
+    }
+    .zan-active-icon{
+        background-position: 0 0.09rem!important;
     }
 </style>
 
@@ -511,154 +534,156 @@
             <a class="mui-icon-chatbubble f-right right-contact-a mui-icon ">
             </a>
         </header>
-        <article class="mui-content">
-            <section id="slider" class="mui-slider">
-                <div class="mui-slider-group mui-slider-loop">
-                    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
-                    <div class="mui-slider-item mui-slider-item-duplicate">
-                        <a href="#">
-                            <img src="res/img/banner1.png">
-                            <p class="mui-slider-title">静静看这界</p>
-                        </a>
-                    </div>
-
-                    <div class="mui-slider-item">
-                        <a href="#">
-                            <img src="res/img/banner1.png">
-                            <p class="mui-slider-title">幸福就是可以一起睡觉</p>
-                        </a>
-                    </div>
-                    <div class="mui-slider-item">
-                        <a href="#">
-                            <img src="res/img/banner1.png">
-                            <p class="mui-slider-title">想要一间这样的木屋，静静的喝咖啡</p>
-                        </a>
-                    </div>
-                    <div class="mui-slider-item">
-                        <a href="#">
-                            <img src="res/img/banner1.png">
-                            <p class="mui-slider-title">Color of SIP CBD</p>
-                        </a>
-                    </div>
-                    <div class="mui-slider-item">
-                        <a href="#">
-                            <img src="res/img/banner1.png">
-                            <p class="mui-slider-title">静静看这世界</p>
-                        </a>
-                    </div>
-
-                    <!--额外增加的一个节点(循环轮播：最后一个节点是第一张轮播)-->
-                    <div class="mui-slider-item mui-slider-item-duplicate">
-                        <a href="#">
-                            <img src="res/img/banner1.png">
-                            <p class="mui-slider-title">幸福就是可以一起睡觉</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="mui-slider-indicator mui-text-right">
-                    <div class="mui-indicator mui-active"></div>
-                    <div class="mui-indicator"></div>
-                    <div class="mui-indicator"></div>
-                    <div class="mui-indicator"></div>
-                </div>
-            </section>
-            <section id="Gallery" class="mui-slider">
-                <div class="menu-wrapper">
-                    <ul class="first-page-menu">
-                        <li>
-                            <img src="res/img/menu1.png" alt="">
-                            <div>租房</div>
-                        </li>
-                        <li>
-                            <img src="res/img/menu2.png" alt="">
-                            <div>售房</div>
-                        </li>
-                        <li>
-                            <img src="res/img/menu3.png" alt="">
-                            <div>众筹</div>
-                        </li>
-                        <li>
-                            <img src="res/img/menu4.png" alt="">
-                            <div>房主租售</div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="header-marq-wrap">
-                    <div class="header-mar-inner">
-                        <div class="f-left marq-title">
-                            <div>包租</div>
-                            <div>头条</div>
+        <article class="mui-content mui-scroll-wrapper" style="background-color: #efeff4" id="offCanvasContentScroll">
+            <div class="mui-scroll">
+                <section id="slider" class="mui-slider">
+                    <div class="mui-slider-group mui-slider-loop">
+                        <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                        <div class="mui-slider-item mui-slider-item-duplicate">
+                            <a href="#">
+                                <img src="res/img/banner1.png">
+                                <p class="mui-slider-title">静静看这界</p>
+                            </a>
                         </div>
-                        <ul class="f-left marq-content">
-                            <li><span class="spot">&bull;</span>挑选地铁房看这里 上周西安楼盘TOP10</li>
-                            <li><span class="spot">&bull;</span>华清学府城5套特价房随时秒杀！</li>
+
+                        <div class="mui-slider-item">
+                            <a href="#">
+                                <img src="res/img/banner1.png">
+                                <p class="mui-slider-title">幸福就是可以一起睡觉</p>
+                            </a>
+                        </div>
+                        <div class="mui-slider-item">
+                            <a href="#">
+                                <img src="res/img/banner1.png">
+                                <p class="mui-slider-title">想要一间这样的木屋，静静的喝咖啡</p>
+                            </a>
+                        </div>
+                        <div class="mui-slider-item">
+                            <a href="#">
+                                <img src="res/img/banner1.png">
+                                <p class="mui-slider-title">Color of SIP CBD</p>
+                            </a>
+                        </div>
+                        <div class="mui-slider-item">
+                            <a href="#">
+                                <img src="res/img/banner1.png">
+                                <p class="mui-slider-title">静静看这世界</p>
+                            </a>
+                        </div>
+
+                        <!--额外增加的一个节点(循环轮播：最后一个节点是第一张轮播)-->
+                        <div class="mui-slider-item mui-slider-item-duplicate">
+                            <a href="#">
+                                <img src="res/img/banner1.png">
+                                <p class="mui-slider-title">幸福就是可以一起睡觉</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mui-slider-indicator mui-text-right">
+                        <div class="mui-indicator mui-active"></div>
+                        <div class="mui-indicator"></div>
+                        <div class="mui-indicator"></div>
+                        <div class="mui-indicator"></div>
+                    </div>
+                </section>
+                <section id="Gallery" class="mui-slider">
+                    <div class="menu-wrapper">
+                        <ul class="first-page-menu">
+                            <li>
+                                <img src="res/img/menu1.png" alt="">
+                                <div>租房</div>
+                            </li>
+                            <li>
+                                <img src="res/img/menu2.png" alt="">
+                                <div>售房</div>
+                            </li>
+                            <li>
+                                <img src="res/img/menu3.png" alt="">
+                                <div>众筹</div>
+                            </li>
+                            <li>
+                                <img src="res/img/menu4.png" alt="">
+                                <div>房主租售</div>
+                            </li>
                         </ul>
                     </div>
-                </div>
-            </section>
-            <section class="guess-you-like">
-                <div class="guyl-header">
-                    <div class="like-icon f-left">&nbsp</div>
-                    <div class="f-left tbfy">特包房源</div>
-                    <div class="f-right mui-icon-arrowright2">更多</div>
-                </div>
-                <ul class="gus-list-ul">
-                    <li>
-                        <div class="f-left house-img">
-                            <img src="res/img/house.jpg" alt="">
+                    <div class="header-marq-wrap">
+                        <div class="header-mar-inner">
+                            <div class="f-left marq-title">
+                                <div>包租</div>
+                                <div>头条</div>
+                            </div>
+                            <ul class="f-left marq-content">
+                                <li><span class="spot">&bull;</span>挑选地铁房看这里 上周西安楼盘TOP10</li>
+                                <li><span class="spot">&bull;</span>华清学府城5套特价房随时秒杀！</li>
+                            </ul>
                         </div>
-                        <div class="house-content f-left">
-                            <div class="hc-title">
-                                坤元TIME
+                    </div>
+                </section>
+                <section class="guess-you-like">
+                    <div class="guyl-header">
+                        <div class="like-icon f-left">&nbsp</div>
+                        <div class="f-left tbfy">特包房源</div>
+                        <div class="f-right mui-icon-arrowright2">更多</div>
+                    </div>
+                    <ul class="gus-list-ul">
+                        <li>
+                            <div class="f-left house-img">
+                                <img src="res/img/house.jpg" alt="">
                             </div>
-                            <div style="overflow: hidden">
-                                <div class="hc-name f-left">城南-高新万达现房</div>
-                                <div class="hc-price-per f-left">8000元/m²</div>
+                            <div class="house-content f-left">
+                                <div class="hc-title">
+                                    坤元TIME
+                                </div>
+                                <div style="overflow: hidden">
+                                    <div class="hc-name f-left">城南-高新万达现房</div>
+                                    <div class="hc-price-per f-left">8000元/m²</div>
+                                </div>
+                                <dl class="house-biaoqian">
+                                    <dd>3号线</dd>
+                                    <dd>交通枢纽</dd>
+                                    <dd>医院</dd>
+                                    <dd>刚需房</dd>
+                                    <dd>学校</dd>
+                                </dl>
+                                <div class="zan-and-focus">
+                                    <div class="zan-icon zf-icon"></div>
+                                    <div>23</div>
+                                    <div class="focus-icon zf-icon"></div>
+                                    <div>223</div>
+                                </div>
                             </div>
-                            <dl class="house-biaoqian">
-                                <dd>3号线</dd>
-                                <dd>交通枢纽</dd>
-                                <dd>医院</dd>
-                                <dd>刚需房</dd>
-                                <dd>学校</dd>
-                            </dl>
-                            <div class="zan-and-focus">
-                                <div class="zan-icon zf-icon"></div>
-                                <div>23</div>
-                                <div class="focus-icon zf-icon"></div>
-                                <div>223</div>
+                        </li>
+                        <li>
+                            <div class="f-left house-img">
+                                <img src="res/img/house.jpg" alt="">
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="f-left house-img">
-                            <img src="res/img/house.jpg" alt="">
-                        </div>
-                        <div class="house-content f-left">
-                            <div class="hc-title">
-                                坤元TIME
+                            <div class="house-content f-left">
+                                <div class="hc-title">
+                                    坤元TIME
+                                </div>
+                                <div style="overflow: hidden">
+                                    <div class="hc-name f-left">城南-高新万达现房</div>
+                                    <div class="hc-price-per f-left">8000元/m²</div>
+                                </div>
+                                <dl class="house-biaoqian">
+                                    <dd>3号线</dd>
+                                    <dd>交通枢纽</dd>
+                                    <dd>医院</dd>
+                                    <dd>刚需房</dd>
+                                    <dd>学校</dd>
+                                </dl>
+                                <div class="zan-and-focus">
+                                    <div class="zan-icon zf-icon zan-active-icon"></div>
+                                    <div>23</div>
+                                    <div class="focus-icon zf-icon focus-active-icon"></div>
+                                    <div>223</div>
+                                </div>
                             </div>
-                            <div style="overflow: hidden">
-                                <div class="hc-name f-left">城南-高新万达现房</div>
-                                <div class="hc-price-per f-left">8000元/m²</div>
-                            </div>
-                            <dl class="house-biaoqian">
-                                <dd>3号线</dd>
-                                <dd>交通枢纽</dd>
-                                <dd>医院</dd>
-                                <dd>刚需房</dd>
-                                <dd>学校</dd>
-                            </dl>
-                            <div class="zan-and-focus">
-                                <div class="zan-icon zf-icon"></div>
-                                <div>23</div>
-                                <div class="focus-icon zf-icon"></div>
-                                <div>223</div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+                        </li>
+                    </ul>
+                </section>
+            </div>
         </article>
         <div class="mui-off-canvas-backdrop"></div>
     </section>

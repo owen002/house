@@ -2,7 +2,7 @@ a,
 a:visited {
 	color: #fff;
 }
-ul{
+ul,dl,dd{
 	list-style: none;
 	padding:0;
 	margin:0;
@@ -32,4 +32,7 @@ ul{
 .mui-scroll-wrapper {
 	background-color: #303030;
 	color:#fff;
+}
+body{
+	font-size:0.4rem;
 }

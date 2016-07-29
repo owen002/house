@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="ui-page-login">
+<html>
 
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<link href="../../css/mui.min.css" rel="stylesheet" />
-		<link href="../../css/login.css" rel="stylesheet" />
+		<link href="../../css/reg.css" rel="stylesheet" />
 	</head>
 
 	<body>
@@ -17,28 +17,42 @@
 		<div class="mui-content">
 			<form class="mui-input-group">
 				<div class="mui-input-row">
-					<label><div class="reginputico"></div></label>
-					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入手机号">
+					<label><div class="reginputico1"></div></label>
+					<input id='account' type="tel" class="mui-input-clear mui-input reginput" placeholder="请输入手机号">
 				</div>
 				<div class="mui-input-row">
-					<label><div class="reginputico"></div></label>
-					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="验证码">
+					<label><div class="reginputico2"></div></label>
+					<input id='password' type="text" class="mui-input-clear mui-input reginput1" placeholder="验证码">
+					<button type="button" class="mui-btn mui-btn-grey">获取验证码</button>
 				</div>
 				<div class="mui-input-row">
-					<label></label>
-					<input id='password_confirm' type="password" class="mui-input-clear mui-input" placeholder="密码6-14位">
+					<label><div class="reginputico3"></div></label>
+					<input id='password_confirm' type="text" class="mui-input-clear mui-input reginput1" placeholder="密码6-14位">
+
+					    <div class="mui-switch mui-active mui-switch-blue">
+					        <div class="mui-switch-handle"></div>
+					    </div>
 				</div>
 				<div class="mui-input-row">
-					<label></label>
-					<input id='email' type="email" class="mui-input-clear mui-input" placeholder="邀请码(选填)">
+					<label><div class="reginputico4"></div></label>
+					<input id='email' type="text" class="mui-input-clear mui-input reginput" placeholder="邀请码(选填)">
 				</div>
 			</form>
+			
+			<div class="mui-input-row mui-checkbox mui-left">
+			  <label>同意</label>
+			  <input name="checkbox1" type="checkbox" >
+			</div>
+			
 			<div class="mui-content-padded">
 				<button id='reg' class="mui-btn mui-btn-block mui-btn-orange">立即注册</button>
 			</div>
+			
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script src= "../../js/base.js"></script>
 	</body>
-
+<script type="text/javascript">
+	base.setPageRem();
+</script>
 </html>

@@ -4,9 +4,12 @@ body {
 	height: 100%;
 	margin: 0px;
 	padding: 0px;
-	background-color: #0;
+	background-color: #fff;
 }
 
+.mui-content{
+	background-color: #fff;
+}
 .mui-btn-orange {
 	color: #fff;
 	border: 1px solid #F26521;
@@ -18,15 +21,16 @@ body {
 }
 
 .wangjimima {
-	color: #222;
-	margin-left: 8.5rem;
+	margin-left: 8rem;
 	font-size: 0.2rem;
+	color: #7B7676 !important;
+	
 }
 
 .nobaozhumei {
-	color: #222;
 	margin-left: 3rem;
-	font-size: 0.5rem;
+	font-size: 0.4rem;
+	color: #7B7676 !important;
 }
 
 .login-btn-zhuce {
@@ -38,12 +42,3 @@ body {
 	margin-top: 0.3rem;
 }
 
-.reginputico {
-	width: 1rem;
-    height: 2rem;
-    background: url(../res/img/login/regico.png) no-repeat 0 -2.5rem;
-    background-size: cover;
-}
-body,.mui-content{
-	background-color: #fff;
-}

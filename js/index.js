@@ -9,7 +9,7 @@
 			mui("#slider").slider({
 				interval: 3000
 			});
-
+			page.bind();
 		},
 		initSliderMenu: function() {
 			//侧滑容器父节点
@@ -41,6 +41,11 @@
 					});
 				});
 			}
+		},
+		bind:function(){
+			mui("#gussULikeUl").on('tap','li',function(){
+				location.href='page/rent.html';
+			})
 		}
 	}
 	page.init();

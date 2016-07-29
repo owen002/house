@@ -20,6 +20,9 @@ ul,dl,dd{
 .f-left {
 	float: left;
 }
+.dis-inline{
+	display: inline-block;
+}
 .f-right {
 	float: right;
 }
@@ -35,4 +38,7 @@ ul,dl,dd{
 }
 body{
 	font-size:0.4rem;
+}
+.color-orange{
+	color:#F26520;
 }

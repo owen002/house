@@ -7,6 +7,33 @@ body {
 	background-color: #fff;
 }
 
+.mui-bar {
+  background-color: #F26520;
+  overflow: hidden;
+  color: #fff;
+}
+.mui-content {
+  color: #000;
+}
+.right-contact-a img {
+  width: 0.8rem;
+  margin-top: 0.2rem;
+}
+.left-menu-icon img {
+  width: 0.7rem;
+}
+.back-img {
+  padding-right: 0.25rem;
+  border-right: 1px solid #F5844D;
+  height: 0.8rem;
+  margin-top: 0.2rem;
+}
+.page-title {
+  width: 7.7rem;
+  display: inline-block;
+  text-align: center;
+}
+
 .mui-content{
 	background-color: #fff;
 }

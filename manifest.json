@@ -257,7 +257,8 @@
 					"images/login/toppic.png",
 					"js/login/login.js",
 					"js/common/common.js",
-					"js/common/constant.js"
+					"js/common/constant.js",
+					"res/img/login/backico.png"
 				],
 				"refer": [
 					"page/login/reg.html"
@@ -274,9 +275,12 @@
 					"css/mui.min.css",
 					"js/common/constant.js",
 					"js/mui.min.js",
-					"js/login/reg.js"
+					"js/login/reg.js",
+					"res/img/login/backico.png"
 				],
-				"refer": [],
+				"refer": [
+					"page/login/login.html"
+				],
 				"priority": 0
 			}
 		},

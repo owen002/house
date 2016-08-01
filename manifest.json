@@ -196,7 +196,85 @@
 				"resources": [
 					"js/mui.min.js",
 					"css/mui.min.css",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"res/img/menu4.png",
+					"css/base.css",
+					"res/img/search.png",
+					"res/img/arrow.png",
+					"res/img/menu2.png",
+					"res/img/left-menu.png",
+					"res/img/sp1.png",
+					"res/img/banner1.png",
+					"res/img/user-photo.png",
+					"res/img/arcode.png",
+					"js/base.js",
+					"css/index.css",
+					"res/img/menu1.png",
+					"res/img/house.jpg",
+					"res/img/sp3.png",
+					"res/img/menu3.png",
+					"js/index.js",
+					"page/rent.html",
+					"js/common/common.js",
+					"js/common/constant.js"
+				],
+				"refer": [
+					"page/login/login.html"
+				],
+				"priority": 0
+			},
+			"page/rent.html": {
+				"resources": [
+					"res/img/house-icons/pz01.png",
+					"res/img/house-icons/pz07.png",
+					"res/img/login/backico.png",
+					"res/img/like.png",
+					"res/img/zsh.png",
+					"res/img/house-icons/pz06.png",
+					"res/img/house-icons/pz10.png",
+					"res/img/house-icons/pz05.png",
+					"res/img/house-detail.jpg",
+					"res/img/house-icons/pz03.png",
+					"res/img/house-icons/pz04.png",
+					"res/img/house-icons/pz02.png",
+					"res/img/house-icons/pz08.png",
+					"res/img/house-icons/pz09.png",
+					"res/img/call-contact.png",
+					"index.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/login/login.html": {
+				"resources": [
+					"js/base.js",
+					"css/base.css",
+					"js/mui.min.js",
+					"css/login.css",
+					"res/img/login/head.png",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/login/toppic.png",
+					"js/login/login.js",
+					"js/common/common.js",
+					"js/common/constant.js"
+				],
+				"refer": [
+					"page/login/reg.html"
+				],
+				"priority": 0
+			},
+			"page/login/reg.html": {
+				"resources": [
+					"res/img/login/regico.png",
+					"css/reg.css",
+					"js/base.js",
+					"js/common/common.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/common/constant.js",
+					"js/mui.min.js",
+					"js/login/reg.js"
 				],
 				"refer": [],
 				"priority": 0

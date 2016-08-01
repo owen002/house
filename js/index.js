@@ -28,7 +28,11 @@
 //			classList.add('mui-slide-in');
 			//主界面‘显示侧滑菜单’按钮的点击事件
 			document.getElementById('offCanvasShow').addEventListener('tap', function() {
-				offCanvasWrapper.offCanvas('show');
+				var pageObj={
+					pageUrl:"page/login/login.html"
+				};
+				pageChange(pageObj);
+//				offCanvasWrapper.offCanvas('show');
 			});
 			//主界面和侧滑菜单界面均支持区域滚动；
 			mui('#offCanvasSideScroll').scroll();

@@ -16,58 +16,60 @@
             <div class="mui-scroll">
                 <div class="bzm-user-wrap">
                     <img src="res/img/user-photo.png" alt=""/>
-                    <div class='bzm-user-name'>账户名字1234</div>
+                    <!--<div class='bzm-user-name'>登录</div>-->
+                    <div class='go-to-login' id="goToLogin">
+                        登录
+                    </div>
                 </div>
                 <ul class='bzm-user-menu'>
-                    <li style="border:none;">
+                    <li id="myFirstPage" style="border:none;">
                         <div class='menu-sy menu-pub'>&nbsp;</div>
                         <div class='menu-pub-title'>首页</div>
                     </li>
-                    <li>
+                    <li id="myNearBy">
                         <div class='menu-fj menu-pub'>&nbsp;</div>
                         <div class='menu-pub-title'>附近</div>
                     </li>
-                    <li>
+                    <li id="mySetUp">
                         <div class='menu-fx menu-pub'>&nbsp;</div>
                         <div class='menu-pub-title'>设置</div>
                     </li>
                 </ul>
-                <ul class="navigate-menus">
-                    <li style=" border-top: 1px solid #555555;">
+                <ul class="navigate-menus" id="navigateMenus">
+                    <li data-type="1" style=" border-top: 1px solid #555555;">
                         <a class="bzm-navigate-right">
                             <div class="navigate-item-each navigate-mybm">&nbsp;</div>
                             <span>我的发布</span>
                         </a>
-                        <div class="li-touched">&nbsp;</div>
                     </li>
-                    <li>
+                    <li data-type="2">
                         <a class="bzm-navigate-right">
                             <div class="navigate-item-each navigate-mysc">&nbsp;</div>
                             <span>我的报名</span>
                         </a>
                     </li>
-                    <li>
+                    <li data-type="3">
                         <a>
                             <div class="navigate-item-each navigate-lljl">&nbsp;</div>
                             <span>我的收藏</span>
-                            <div class="navigate-nums">12</div>
+                            <div class="navigate-nums"></div>
                         </a>
                     </li>
-                    <li>
+                    <li data-type="4">
                         <a>
                             <div class="navigate-item-each navigate-myyhq">&nbsp;</div>
                             <span>浏览记录</span>
-                            <div class="navigate-nums">7</div>
+                            <div class="navigate-nums"></div>
                         </a>
                     </li>
-                    <li>
+                    <li data-type="5">
                         <a>
                             <div class="navigate-item-each navigate-yqhy">&nbsp;</div>
                             <span>我的优惠券</span>
-                            <div class="navigate-nums">1</div>
+                            <div class="navigate-nums"></div>
                         </a>
                     </li>
-                    <li>
+                    <li data-type="6">
                         <a class="bzm-navigate-right">
                             <div class="navigate-item-each navigate-sz">&nbsp;</div>
                             <span>邀请好友下载包租妹APP</span>
@@ -75,8 +77,8 @@
                     </li>
                 </ul>
                 <section class="navigator-footer">
-                    <div class="logout-btn">退出账号</div>
-                    <div class="n-footer nf-version">当前版本<span>1.0</span></div>
+                    <div class="logout-btn" id="loginBtn">退出账号</div>
+                    <div class="n-footer nf-version">当前版本<span id="currentVersion">1.0</span></div>
                     <div class="n-footer nf-about">关于我们</div>
                 </section>
             </div>

@@ -124,6 +124,21 @@
                     }
                     pageChange(pageObj);
                 }
+            }).on('tap','#myFirstPage',function(){
+                var pageObj = {
+                    pageUrl: "index.html"
+                };
+                pageChange(pageObj);
+            }).on('tap','#myNearBy',function(){
+                var pageObj = {
+                    pageUrl: ""
+                };
+                pageChange(pageObj);
+            }).on('tap','#mySetUp',function(){
+                var pageObj = {
+                    pageUrl: ""
+                };
+                pageChange(pageObj);
             });
         }
     }

@@ -21,6 +21,11 @@ body {
 	padding: 4px 15px;
 }
 
+.tongyilabel {
+	width: 5rem !important;
+	padding: 4px 15px;
+}
+
 .reginput {
 	width: 9rem !important;
 	float: left !important;

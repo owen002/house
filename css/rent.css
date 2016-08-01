@@ -1,0 +1,147 @@
+.mui-bar {
+  background-color: #F26520;
+  overflow: hidden;
+  color: #fff;
+}
+.mui-content {
+  color: #000;
+}
+.right-contact-a img {
+  width: 0.8rem;
+  margin-top: 0.2rem;
+}
+.left-menu-icon img {
+  width: 0.7rem;
+}
+.back-img {
+  padding-right: 0.25rem;
+  border-right: 1px solid #F5844D;
+  height: 0.8rem;
+  margin-top: 0.2rem;
+}
+.page-title {
+  width: 7.7rem;
+  display: inline-block;
+  text-align: center;
+}
+.bzm-house-detail-header {
+  background-color: #fff;
+  box-shadow: 0 0 0.1rem #bfbfbf;
+}
+.bzm-house-detail-header .detail-img {
+  display: block;
+  width: 10rem;
+}
+.bzm-house-detail-header .bzm-house-dh-content {
+  padding: 0.2rem 0.4rem;
+  overflow: hidden;
+}
+.bzm-house-detail-header .bzm-house-dh-content .bzm-detail-title {
+  width: 6rem;
+  padding-right: 0.8rem;
+}
+.bzm-house-detail-header .bzm-house-dh-content .detail-op-icon {
+  width: 3rem;
+}
+.bzm-house-detail-header .bzm-house-dh-content .detail-op-icon img {
+  display: inline-block;
+  width: 1.2rem;
+  margin-left: 0.2rem;
+}
+.house-detail-section {
+  background-color: #fff;
+  box-shadow: 0 0 0.1rem #bfbfbf;
+  margin-top: 0.3rem;
+}
+.house-content-items ul {
+  overflow: hidden;
+}
+.house-content-items ul li {
+  padding: 0.13rem 0.1rem;
+  float: left;
+  width: 50%;
+}
+.house-detail-section {
+  padding: 0.3rem 0.4rem;
+}
+.house-detail-section .device-items-head {
+  border-bottom: 1px solid #ccc;
+  height: 1rem;
+}
+.house-detail-section .device-items-head .bzm-fjpz {
+  border-left: 0.15rem solid #F5844D;
+  padding-left: 0.2rem;
+  font-weight: bold;
+}
+.device-items-section ul {
+  padding: 0.4rem 0.1rem;
+  overflow: hidden;
+}
+.device-items-section ul li {
+  width: 33.3%;
+  float: left;
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+}
+.device-items-section ul li .items-name {
+  float: left;
+  margin: 0.02rem 0 0 0.3rem;
+}
+.device-items-section ul li img {
+  width: 0.5rem;
+  height: 0.55rem;
+  float: left;
+}
+.house-location-section ul li {
+  margin-top: 0.2rem;
+}
+.nearby-section .gus-list-ul li {
+  overflow: hidden;
+  margin: 0.4rem 0;
+}
+.nearby-section .gus-list-ul li img {
+  width: 3.5rem;
+  display: block;
+}
+.nearby-section .gus-list-ul li .house-content {
+  width: 5.7rem;
+  padding-left: 0.3rem;
+}
+.nearby-section .gus-list-ul li .house-content .hc-title {
+  font-size: 0.45rem;
+  font-weight: bold;
+}
+.nearby-section .gus-list-ul li .house-content .nearby-house-items {
+  color: #707070;
+  margin-top: 0.15rem;
+}
+.nearby-section .gus-list-ul li .house-content .zan-and-focus {
+  float: right;
+  margin-top: -0.6rem;
+}
+.nearby-section .gus-list-ul li .house-content .zan-and-focus .rent-price {
+  color: #F5844D;
+  font-size: 0.45rem;
+  text-align: right;
+  font-weight: bold;
+}
+.nearby-section .gus-list-ul li .house-content .zan-and-focus .focus-icon {
+  background-position: 0 -1.5rem !important;
+}
+.nearby-section .gus-list-ul li .house-content .zan-and-focus .focus-active-icon {
+  background-position: 0 -0.47rem !important;
+}
+.nearby-section .gus-list-ul li .house-content .zan-and-focus .zan-active-icon {
+  background-position: 0 0.09rem!important;
+}
+.nearby-section .gus-list-ul li .house-content .zan-and-focus .zf-icon {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: url("../res/img/sp3.png") no-repeat 0 -0.99rem;
+  background-size: cover;
+  margin: 0 0.2rem 0 0.4rem;
+}
+.nearby-section .gus-list-ul li .house-content .zan-and-focus .zan-focus-area div {
+  float: left;
+  overflow: hidden;
+}

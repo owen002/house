@@ -126,9 +126,10 @@
     mui(document).on('tap', '.slider-menu-choose li', function () {
         var cLocation = mui('.choose-location')[0];
         if (cLocation.style.display == 'none') {
-            base.slideDown(cLocation);
+
+            base.Slider.slideDown(cLocation,100);
         } else {
-            base.slideUp(cLocation);
+            base.Slider.slideUp(cLocation,100);
         }
     })
 </script>

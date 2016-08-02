@@ -139,6 +139,11 @@
                     pageUrl: ""
                 };
                 pageChange(pageObj);
+            }).on('tap','#bzmZf',function(){
+                var pageObj = {
+                    pageUrl: "page/rentList.html"
+                };
+                pageChange(pageObj);
             });
         }
     }

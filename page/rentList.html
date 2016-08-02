@@ -57,7 +57,7 @@
             <div class="device-items-head">
                 <div class="bzm-fjpz color-orange">猜你喜欢</div>
             </div>
-            <ul class="gus-list-ul">
+            <ul class="gus-list-ul" id="guessUlike">
                 <li>
                     <div class="f-left house-img">
                         <img src="../res/img/house.jpg" alt="">
@@ -119,21 +119,8 @@
 
 </body>
 <script src="../js/mui.min.js"></script>
+<script src="../js/common/constant.js"></script>
+<script src="../js/common/common.js"></script>
 <script src="../js/base.js"></script>
-<script type="text/javascript">
-    base.setPageRem();
-    base.setMuiBackHeight();
-
-    var muiBack =  mui('.mui-back')[0];
-    mui(document).on('tap', '.slider-menu-choose li', function () {
-        var cLocation = mui('.choose-location')[0];
-        if (cLocation.style.display == 'none') {
-            base.Slider.slideDown(cLocation,100);
-            muiBack.style.display = 'block';
-        } else {
-            base.Slider.slideUp(cLocation,100);
-            muiBack.style.display = 'none';
-        }
-    })
-</script>
+<script src="../js/rentList.js" type="text/javascript"></script>
 </html>

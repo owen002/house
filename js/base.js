@@ -142,6 +142,9 @@ var base = (function () {
         return Slider;
     })();
 
+    mui(document).on('tap','.back-img',function(){
+        history.back();
+    });
     return {
         api: api,
         setPageRem: setPageRem,

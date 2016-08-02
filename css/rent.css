@@ -145,3 +145,57 @@
   float: left;
   overflow: hidden;
 }
+.mui-slider {
+  overflow: inherit;
+}
+.mui-back {
+  display: none;
+  background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
+  width: 100%;
+  position: absolute;
+  top: 42px;
+  left: 0;
+  z-index: 99;
+}
+.slider-menu-choose {
+  position: relative;
+  background-color: #fff;
+}
+.slider-menu-choose ul {
+  padding: 0.3rem 0.8rem;
+  overflow: hidden;
+}
+.slider-menu-choose li {
+  width: 25%;
+  height: 0.62rem;
+  line-height: 0.62rem;
+  font-size: 0.4rem;
+  float: left;
+  border-left: 1px solid #ccc;
+  padding-left: 0.3rem;
+  position: relative;
+}
+.choose-down-arrow {
+  position: absolute;
+  right: 0.2rem;
+  width: 0.5rem;
+  font-size: 0.5rem;
+  height: 0.62rem;
+  line-height: 0.62rem;
+}
+.choose-location {
+  width: 100%;
+  height: 7rem;
+  position: absolute;
+  z-index: 110;
+  background-color: #fff;
+}
+.search-input-icon {
+  position: absolute;
+  left: 0.2rem;
+  top: 0.3rem;
+  width: 0.6rem !important;
+}
+.search-box {
+  padding-left: 1rem!important;
+}

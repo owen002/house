@@ -7,7 +7,7 @@
     <title></title>
     <link href="../css/mui.min.css" rel="stylesheet"/>
     <link href="../css/base.css" rel="stylesheet"/>
-    <link href="../css/rentList.css" rel="stylesheet"/>
+    <link href="../css/rent.css" rel="stylesheet"/>
 </head>
 <style>
 
@@ -19,12 +19,12 @@
             <img src='../res/img/login/backico.png'/>
         </div>
     </a>
-    <div class="f-left" style="position:relative;margin-left: 0.5rem;">
+    <div class="f-left" style="position:relative;">
         <input class='search-box' type="text" placeholder="好房尽在包租妹"/>
         <img src="../res/img/search.png" class="search-input-icon" alt="">
     </div>
     <div class='message-items-amount f-right'>3</div>
-    <a class="mui-icon-chatbubble f-right right-contact-a mui-icon " style="margin-top: 0.3rem;">
+    <a class="mui-icon-chatbubble f-right right-contact-a mui-icon ">
     </a>
 </header>
 <div class="mui-content">
@@ -50,6 +50,8 @@
             </ul>
             <div class="choose-location" style="display: none;">
             </div>
+
+            <div class="mui-back"></div>
         </section>
         <section class="house-detail-section nearby-section">
             <div class="device-items-head">
@@ -114,7 +116,6 @@
         </section>
     </div>
 </div>
-<div class="mui-back"></div>
 
 </body>
 <script src="../js/mui.min.js"></script>
@@ -123,12 +124,15 @@
     base.setPageRem();
     base.setMuiBackHeight();
 
+    var muiBack =  mui('.mui-back')[0];
     mui(document).on('tap', '.slider-menu-choose li', function () {
         var cLocation = mui('.choose-location')[0];
         if (cLocation.style.display == 'none') {
             base.Slider.slideDown(cLocation,100);
+            muiBack.style.display = 'block';
         } else {
             base.Slider.slideUp(cLocation,100);
+            muiBack.style.display = 'none';
         }
     })
 </script>

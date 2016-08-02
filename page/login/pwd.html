@@ -17,19 +17,38 @@
     </a>
     <div class="page-title">找回密码</div>
 </header>
-<div>
-	安全保护问题将作为重要身份验证方式，请认真填写
-</div>
 <div class="mui-content">
-	<form class="mui-input-group">
-		<div class="mui-input-row">
-			<label><div class="reginputico1"></div></label>
-			<input id='phone' type="text" class="mui-input-clear mui-input reginput" placeholder="请输入手机号码">
-		</div>
-	</form>
-	<div class="mui-content-padded">
-		<button id='reg' class="mui-btn mui-btn-block mui-btn-orange">下一步</button>
-	</div>
+    <div class="find-pwd-wrapper">
+        <div class="find-pwd-tips">
+            安全保护问题将作为重要身份验证方式，请认真填写
+        </div>
+        <section class="pwd-title-icon">
+            <div class="step-rect step-active">填写</div>
+            <div class="step-jh no-step-active1">
+                <div class="triangle-lb triangle step-active"></div>
+            </div>
+            <div class="step-rect no-step-active1">验证</div>
+            <div class="step-jh no-step-active2">
+                <div class="triangle-lb triangle no-step-active1"></div>
+            </div>
+            <div class="step-rect no-step-active2">设置</div>
+            <div class="step-jh">
+                <div class="triangle-lb triangle no-step-active2"></div>
+            </div>
+            <div class="step-rect">完成</div>
+        </section>
+        <form class="mui-input-group">
+            <div class="mui-input-row">
+                <label>
+                    <div class="reginputico1"></div>
+                </label>
+                <input id='phone' type="text" class="mui-input-clear mui-input reginput" placeholder="请输入手机号码">
+            </div>
+        </form>
+        <div class="mui-content-padded">
+            <button id='reg' class="mui-btn mui-btn-block mui-btn-orange">下一步</button>
+        </div>
+    </div>
 </div>
 </body>
 <script src="../../js/mui.min.js"></script>

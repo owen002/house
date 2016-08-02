@@ -1,57 +1,127 @@
 body {
-	width: 100%;
-	height: 100%;
-	margin: 0px;
-	padding: 0px;
-	background-color: #fff;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #fff;
 }
+
 .mui-bar {
-  background-color: #F26520;
-  overflow: hidden;
-  color: #fff;
+    background-color: #F26520;
+    overflow: hidden;
+    color: #fff;
 }
+
 .mui-content {
-  color: #000;
+    color: #000;
 }
+
 .right-contact-a img {
-  width: 0.8rem;
-  margin-top: 0.2rem;
+    width: 0.8rem;
+    margin-top: 0.2rem;
 }
+
 .left-menu-icon img {
-  width: 0.7rem;
+    width: 0.7rem;
 }
+
 .back-img {
-  padding-right: 0.25rem;
-  border-right: 1px solid #F5844D;
-  height: 0.8rem;
-  margin-top: 0.2rem;
+    padding-right: 0.25rem;
+    border-right: 1px solid #F5844D;
+    height: 0.8rem;
+    margin-top: 0.2rem;
 }
+
 .page-title {
-  width: 7.7rem;
-  display: inline-block;
-  text-align: center;
+    width: 7.7rem;
+    display: inline-block;
+    text-align: center;
 }
+
 .mui-btn-orange {
-	color: #fff;
-	border: 1px solid #F26521;
-	background-color: #F26521;
+    color: #fff;
+    border: 1px solid #F26521;
+    background-color: #F26521;
 }
+
 .reginputico1 {
-	width: 0.4rem;
+    width: 0.4rem;
     height: 0.5rem;
     margin-top: 0rem;
     background: url(../res/img/login/regico.png) no-repeat 0 0rem;
     background-size: cover;
 }
 
-.mui-input-row label{
-	width: 10%;
+.mui-input-row label {
+    width: 10%;
 }
 
-.mui-input-row label~input, .mui-input-row label~select, .mui-input-row label~textarea {
+.mui-input-row label ~ input, .mui-input-row label ~ select, .mui-input-row label ~ textarea {
     float: right;
     width: 85%;
     margin-bottom: 0;
     padding-left: 0;
     border: 0;
+}
+
+.mui-content {
+    background-color: #fff;
+}
+
+.find-pwd-wrapper {
+    padding: 1rem 0.5rem;
+}
+
+.find-pwd-tips {
+    font-size: 0.35rem;
+    margin-bottom: 0.6rem;
+}
+
+.pwd-title-icon {
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.step-rect {
+    width: 1.8rem;
+    height: 1rem;
+    line-height: 1rem;
+    background-color: #D7D7D7;
+    float: left;
+    text-align: center;
+    position: relative;
+    z-index: 999;
+}
+.step-jh{
+    width:0.5rem;
+    height: 1rem;
+    line-height: 1rem;
+    background-color: #D7D7D7;
+    float: left;
+    position:relative;
+}
+.step-active{
+    background-color: #F26520;
+    color:#fff;
+}
+.triangle{
+    width:0.7rem;
+    height:0.7rem;
+    position:absolute;
+    z-index: 99;
+}
+.triangle-lb{
+    transform: rotate(45deg);
+    left: -0.35rem;
+    top: 0.16rem;
+}
+.no-step-active1{
+    background-color: #B7B7B7;
+}
+.no-step-active2{
+    background-color: #C2C2C2;
+}
+.mui-content-padded{
+    padding:1rem 0;
+    margin:0;
 }

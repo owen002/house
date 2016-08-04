@@ -121,3 +121,7 @@ body {
 .mui-checkbox.mui-left label, .mui-radio.mui-left label{
     padding-left: 1.2rem;
 }
+
+.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before {
+    color: #BDBAAF
+}

@@ -45,8 +45,9 @@ body {
 }
 
 .wangjimima {
-	margin-left: 8rem;
-	font-size: 0.2rem;
+	float:right;
+	margin-right:0.2rem;
+	font-size: 0.35rem;
 	color: #7B7676 !important;
 	
 }
@@ -65,4 +66,9 @@ body {
 	margin-left: 2rem;
 	margin-top: 0.3rem;
 }
-
+.mui-bar{
+	box-shadow: none!important;
+}
+.mui-content-padded{
+	overflow: hidden;
+}

@@ -1,6 +1,10 @@
 (function () {
-
-    var userinfo = '';
+    var userinfo = localStorage.getItem('userinfo');
+    var isLogin = false;
+    if (userinfo && userinfo != {}) {
+        isLogin = true;
+        userinfo = JSON.parse(decodeURIComponent(userinfo));
+    }
     var page = {
         init: function () {
             mui.init();
@@ -24,6 +28,13 @@
             }
         },
         initSliderMenu: function () {
+            if (isLogin) {
+                base.$('#goToLogin').style.display = 'none';
+                base.$('#bzm_username').style.display = 'block';
+                base.$('#bzm_username').innerHTML = userinfo.username || '已登录';
+                base.$('#loginBtn').style.display = 'block';
+            }
+
             //侧滑容器父节点
             var offCanvasWrapper = mui('#offCanvasWrapper');
             //主界面容器
@@ -65,15 +76,6 @@
                 location.href = 'page/rent.html';
             });
             mui(document).on('tap', '#goToLogin', function () {
-                var dom = this;
-                if (!base.hasClass(dom, 'go-to-login-active')) {
-                    base.addClass(dom, 'go-to-login-active');
-                }
-                base.delay(function () {
-                    if (base.hasClass(dom, 'go-to-login-active')) {
-                        base.removeClass(dom, 'go-to-login-active');
-                    }
-                }, 2000);
                 var pageObj = {
                     pageUrl: "page/login/login.html"
                 };
@@ -81,7 +83,7 @@
             }).on('tap', '#navigateMenus li', function () {
                 var id = this.getAttribute('data-type');
                 var pageObj = {};
-                if (!userinfo) {
+                if (!isLogin) {
                     switch (id) {
                         case '1':
                         case '2':
@@ -124,24 +126,36 @@
                     }
                     pageChange(pageObj);
                 }
-            }).on('tap','#myFirstPage',function(){
+            }).on('tap', '#myFirstPage', function () {
                 var pageObj = {
                     pageUrl: "index.html"
                 };
                 pageChange(pageObj);
-            }).on('tap','#myNearBy',function(){
+            }).on('tap', '#myNearBy', function () {
                 var pageObj = {
                     pageUrl: ""
                 };
                 pageChange(pageObj);
-            }).on('tap','#mySetUp',function(){
+            }).on('tap', '#mySetUp', function () {
                 var pageObj = {
                     pageUrl: ""
                 };
                 pageChange(pageObj);
-            }).on('tap','#bzmZf',function(){
+            }).on('tap', '#bzmZf', function () {
                 var pageObj = {
                     pageUrl: "page/rentList.html"
+                };
+                pageChange(pageObj);
+            }).on('tap', '#bzmSF', function () {
+                var pageObj = {
+                    pageUrl: "page/salehouseList.html"
+                };
+                pageChange(pageObj);
+            }).on('tap', '#loginBtn', function () {
+                localStorage.setItem('userinfo', '');
+                isLogin = false;
+                var pageObj = {
+                    pageUrl: "index.html"
                 };
                 pageChange(pageObj);
             });

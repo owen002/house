@@ -1,7 +1,6 @@
 var base = (function () {
     var baseUrl = '/';
     var baseRemSize = 0;
-    var api = {};
 
     function delay(callback, time) {
         time = time || 500;
@@ -37,7 +36,7 @@ var base = (function () {
     }
 
     function setMuiBackHeight() {
-        mui('.mui-back')[0].style.height = window.screen.height - 1.2 * baseRemSize + 'px';
+        mui('.mui-back')[0].style.height = window.screen.height - 2.4 * baseRemSize + 'px';
         mui('.mui-back')[0].style.top = 1.2 * baseRemSize + 'px';
     }
 
@@ -142,17 +141,21 @@ var base = (function () {
         return Slider;
     })();
 
-    mui(document).on('tap','.back-img',function(){
-        history.back();
-    });
+    function querySelect(select){
+        return document.querySelector(select);
+    }
+
+    // mui(document).on('tap','.back',function(){
+    //     history.back();
+    // });
     return {
-        api: api,
         setPageRem: setPageRem,
         hasClass: hasClass,
         addClass: addClass,
         removeClass: removeClass,
         delay: delay,
         setMuiBackHeight: setMuiBackHeight,
-        Slider:Slider
+        Slider:Slider,
+        $:querySelect
     }
 })();

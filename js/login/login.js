@@ -1,5 +1,5 @@
 mui.init();//初始化
-mui.plusReady(function() {//plus基座准备好后执行
+// mui.plusReady(function() {//plus基座准备好后执行
 	// 点击登录按钮事件
 	var loginObj={
 		eventId:'login',
@@ -19,7 +19,18 @@ mui.plusReady(function() {//plus基座准备好后执行
 	};
 	elementBindEvent(regObj);//登录按钮绑定tap事件
 	
-});
+	var pwdObj={
+		eventId:'frogetpwd',
+		eventFunction:function(){
+			 var pageObj={
+			 	 pageUrl:'pwd.html'
+			 };
+			 pageChange(pageObj);
+		}
+	};
+	elementBindEvent(pwdObj);//登录按钮绑定tap事件
+	
+// });
 
 function loginEvent(){
 	document.activeElement.blur(); //关闭键盘
@@ -44,14 +55,20 @@ function loginEvent(){
 		var loginSettings = {
 			data:data,
 			type: "post",
-			url: Constants.urlPath + "front/login"
+			url: Constants.login
 		};
 
 		document.getElementById("login").disabled = true;
 
 		muiAjax(loginSettings, function(data) {
 			if(data.status=='200'){//登录成功
-				
+				var userinfo = {phone:data.memberPhone,username:data.memberName,uid:data.memberID};
+				localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(userinfo)));
+				var pageObj={
+					// pageUrl:plus.webview.getLaunchWebview().id
+					pageUrl:'../../index.html'
+				}
+				pageChange(pageObj);
 			}else{//登录失败
 				mui.toast(data.message);
 				document.getElementById("login").disabled = false;
@@ -61,5 +78,5 @@ function loginEvent(){
 		});
 }
 window.addEventListener('refreshMe',function(){//页面刷新时需要执行的逻辑
-	
+	plus.webview.currentWebview().reload();
 });

@@ -88,43 +88,43 @@ function unsafe_tap() {
 // settings.postData：目标页面参数
 // settings.aniShow：页面加载动态效果,默认为slide-in-right
 function pageChange(settings) {
-    // location.href = settings.pageUrl;
-    settings.postData = settings.postData || {};
-    settings.postData.webViewId = plus.webview.currentWebview().id;
-    var defaults = {
-    	aniShow: "pop-in"
-    };
-    settings = extendSettings(defaults, settings);
-    document.activeElement.blur(); //跳转时关闭软键盘
-    //id去除timestamp
-    	var pos = settings.pageUrl.indexOf("?");
-    	var viewId;
-    	if(pos <= -1) {
-    		viewId = settings.pageUrl;
-    	} else {
-    		viewId = settings.pageUrl.substr(0, pos);
-    	}
-    settings.id=viewId;
-    var ycjw=plus.webview.getWebviewById(settings.id);
-    if(ycjw){
-    	mui.fire(ycjw,'refreshMe');//如果webview已存在，自动刷新，每个页面必须自定义refreshMe事件函数，表示页面刷新逻辑
-    }
-    	mui.openWindow({
-    		id: settings.id,
-    		url: settings.pageUrl,
-    		show: {
-    			autoShow: true, //页面loaded事件发生后自动显示，默认为true
-    			aniShow: settings.aniShow, //页面显示动画，默认为”slide-in-right“；
-    			duration: 200 //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
-    		},
-    		waiting: {
-    			autoShow: false
-    		},
-    		extras: {
-    			param: settings.postData
-    		},
-    		createNew:false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
-    	});
+    location.href = settings.pageUrl;
+    // settings.postData = settings.postData || {};
+    // settings.postData.webViewId = plus.webview.currentWebview().id;
+    // var defaults = {
+    // 	aniShow: "pop-in"
+    // };
+    // settings = extendSettings(defaults, settings);
+    // document.activeElement.blur(); //跳转时关闭软键盘
+    // //id去除timestamp
+    // 	var pos = settings.pageUrl.indexOf("?");
+    // 	var viewId;
+    // 	if(pos <= -1) {
+    // 		viewId = settings.pageUrl;
+    // 	} else {
+    // 		viewId = settings.pageUrl.substr(0, pos);
+    // 	}
+    // settings.id=viewId;
+    // var ycjw=plus.webview.getWebviewById(settings.id);
+    // if(ycjw){
+    // 	mui.fire(ycjw,'refreshMe');//如果webview已存在，自动刷新，每个页面必须自定义refreshMe事件函数，表示页面刷新逻辑
+    // }
+    // 	mui.openWindow({
+    // 		id: settings.id,
+    // 		url: settings.pageUrl,
+    // 		show: {
+    // 			autoShow: true, //页面loaded事件发生后自动显示，默认为true
+    // 			aniShow: settings.aniShow, //页面显示动画，默认为”slide-in-right“；
+    // 			duration: 200 //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+    // 		},
+    // 		waiting: {
+    // 			autoShow: false
+    // 		},
+    // 		extras: {
+    // 			param: settings.postData
+    // 		},
+    // 		createNew:false //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+    // 	});
 };
 
 // 获取请求参数

@@ -216,11 +216,13 @@
 					"js/index.js",
 					"page/rent.html",
 					"js/common/common.js",
-					"js/common/constant.js"
+					"js/common/constant.js",
+					"page/login/login.html",
+					"page/rentList.html",
+					"page/salehouse.html",
+					"page/salehouseList.html"
 				],
-				"refer": [
-					"page/login/login.html"
-				],
+				"refer": [],
 				"priority": 0
 			},
 			"page/rent.html": {
@@ -240,7 +242,8 @@
 					"res/img/house-icons/pz08.png",
 					"res/img/house-icons/pz09.png",
 					"res/img/call-contact.png",
-					"index.html"
+					"index.html",
+					"css/rent.css"
 				],
 				"refer": [],
 				"priority": 0
@@ -258,11 +261,12 @@
 					"js/login/login.js",
 					"js/common/common.js",
 					"js/common/constant.js",
-					"res/img/login/backico.png"
+					"res/img/login/backico.png",
+					"page/login/reg.html",
+					"index.html",
+					"page/login/pwd.html"
 				],
-				"refer": [
-					"page/login/reg.html"
-				],
+				"refer": [],
 				"priority": 0
 			},
 			"page/login/reg.html": {
@@ -276,11 +280,49 @@
 					"js/common/constant.js",
 					"js/mui.min.js",
 					"js/login/reg.js",
-					"res/img/login/backico.png"
-				],
-				"refer": [
+					"res/img/login/backico.png",
 					"page/login/login.html"
 				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/login/pwd.html": {
+				"resources": [
+					"css/pwd.css",
+					"page/login/login.html",
+					"res/img/login/regico.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/rentList.html": {
+				"resources": [
+					"index.html",
+					"res/img/login/backico.png",
+					"css/rentList.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/salehouse.html": {
+				"resources": [
+					"res/img/house-detail.jpg",
+					"css/rent.css",
+					"index.html",
+					"res/img/like.png",
+					"res/img/zsh.png",
+					"res/img/call-contact.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/salehouseList.html": {
+				"resources": [
+					"res/img/login/backico.png",
+					"css/rentList.css",
+					"index.html"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},

@@ -64,43 +64,60 @@ body {
 }
 
 .reginputico1 {
-	width: 0.4rem;
-    height: 0.5rem;
+    width: 0.5rem;
+    height: 1rem;
     margin-top: 0.1rem;
-    background: url(../res/img/login/regico.png) no-repeat 0 0rem;
+    background: url(../res/img/login/regico.png) no-repeat 0 0.22rem;
     background-size: cover;
 }
 
 .reginputico2 {
-	width: 0.4rem;
-    height: 0.5rem;
-    background: url(../res/img/login/regico.png) no-repeat 0 -1.13rem;
+    width: 0.5rem;
+    height: 1rem;
+    background: url(../res/img/login/regico.png) no-repeat 0 -1.24rem;
     background-size: cover;
 }
 
 .reginputico3 {
-	width: 0.4rem;
-    height: 0.5rem;
-    background: url(../res/img/login/regico.png) no-repeat 0 -2.2rem;
+    width: 0.5rem;
+    height: 1rem;
+    background: url(../res/img/login/regico.png) no-repeat 0 -2.55rem;
     background-size: cover;
 }
 
 .reginputico4 {
-	width: 0.4rem;
-    height: 0.5rem;
-    background: url(../res/img/login/regico.png) no-repeat 0 -3.3rem;
+    width: 0.5rem;
+    height: 1rem;
+    background: url(../res/img/login/regico.png) no-repeat 0 -3.94rem;
     background-size: cover;
 }
 
 .mui-btn-grey {
-	width: 2.3rem !important;
-	height: 0.6rem !important;
-	margin-top: 0.2rem;
-	margin-right: 0.2rem;
-	padding: 0.1rem  0.1rem !important;
+    margin-top: 0.15rem;
+    width: 2.5rem !important;
+    font-size: 0.35rem;
+    height: 1.1rem!important;
+    line-height: 1.1rem!important;
+    padding: 0!important;
+    margin-right: 0.3rem;
 }
 
-.mui-switch-blue.mui-active {
+.mui-switch-blue .mui-active {
     border: 2px solid #F26521;
     background-color: #F26521;
+}
+.mui-input-group .mui-input-row{
+    height:auto;
+}
+.mui-input-row input{
+    height:1.5rem;
+    line-height: 1.5rem;
+    padding-left:0.2rem!important;
+}
+.mui-input-row .mui-switch{
+    margin-top: 0.31rem;
+    margin-right: 0.5rem;
+}
+.mui-checkbox.mui-left label, .mui-radio.mui-left label{
+    padding-left: 1.2rem;
 }

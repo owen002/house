@@ -52,6 +52,22 @@ body {
     background-size: cover;
 }
 
+.reginputico2 {
+    width: 0.4rem;
+    height: 0.5rem;
+    margin-top: 0rem;
+    background: url(../res/img/login/regico.png) no-repeat 0 -1.2rem;
+    background-size: cover;
+}
+
+.reginputico3 {
+    width: 0.4rem;
+    height: 0.5rem;
+    margin-top: 0rem;
+    background: url(../res/img/login/regico.png) no-repeat 0 -2.2rem;
+    background-size: cover;
+}
+
 .mui-input-row label {
     width: 10%;
 }

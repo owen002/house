@@ -35,6 +35,30 @@
 .bzm-house-detail-header {
   background-color: #fff;
   box-shadow: @border-bottom-shadow;
+  .zc-detail-mondy {
+    padding: 0.3rem 0.4rem;
+    overflow: hidden;
+  }
+  .zc-jdt-wrapper {
+    position: relative;
+    background-color: #D7D7D7;
+    overflow: hidden;
+    z-index: 99;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .jdu-public {
+    height: 0.4rem;
+    border-radius: 0.2rem;
+  }
+  .zc-jdt {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: -50%;
+    background-color: #F26520;
+    z-index: 999;
+  }
   .detail-img {
     display: block;
     width: 10rem;
@@ -45,6 +69,7 @@
     .bzm-detail-title {
       width: 6rem;
       padding-right: 0.8rem;
+      font-weight: bold;
     }
     .detail-op-icon {
       width: 3rem;
@@ -63,7 +88,33 @@
   margin-top: 0.3rem;
 }
 
+.zc-bzm-detail-section {
+  padding: 0 !important;
+  ul {
+    padding: 0.3rem 0.4rem;
+  }
+}
+
 .house-content-items {
+  .zc-detail-menu-bar {
+    overflow: hidden;
+    .menu-bar-pub {
+      height: 1rem;
+      line-height: 1rem;
+      font-size: 0.5rem;
+      text-align: center;
+      background-color: #EBEBEB;
+      width: 50%;
+      float: left;
+    }
+    .menu-bar-active {
+      border-top: 1px solid #F26520;
+      background-color: #fff;
+      font-weight: bold;
+    }
+    .fyxx {
+    }
+  }
   ul {
     overflow: hidden;
     li {
@@ -140,7 +191,7 @@
         }
         .zan-and-focus {
           float: right;
-          margin-top: -0.6rem;
+          margin-top: -0.4rem;
           .rent-price {
             color: @color-orange;
             font-size: 0.45rem;
@@ -148,20 +199,20 @@
             font-weight: bold;
           }
           .focus-icon {
-            background-position: 0 -1.5rem !important;
+            background-position: 0 -1.54rem !important;
           }
           .focus-active-icon {
-            background-position: 0 -0.47rem !important;
+            background-position: 0 -0.51rem !important;
           }
           .zan-active-icon {
-            background-position: 0 0.09rem !important;
+            background-position: 0 0.05rem !important;
           }
           .zf-icon {
             width: 0.5rem;
             height: 0.5rem;
-            background: url("../res/img/sp3.png") no-repeat 0 -0.99rem;
+            background: url("../res/img/sp3.png") no-repeat 0 -1.01rem;
             background-size: cover;
-            margin: 0 0.2rem 0 0.4rem;
+            margin: 0 0.2rem;
           }
           .zan-focus-area {
             div {
@@ -170,6 +221,61 @@
             }
           }
         }
+        .nearby-house-items {
+          .zc-detail-right {
+            margin-left: 0.2rem;
+          }
+        }
+      }
+    }
+    .croudfunding-li {
+      font-size: 0.35rem;
+    }
+  }
+}
+
+.zc-im-go-tz {
+  padding: 0.3rem;
+  margin: 0.4rem auto;
+  background-color: #F26520;
+  color: #fff;
+  width: 90% !important;
+}
+
+.bzm-croudfunding {
+  .gus-list-ul {
+    border-top: 1px solid #ccc;
+    li {
+      border: none !important;
+      .zc-house-content {
+        padding-left: 0;
+        width: 7.5rem;
+      }
+    }
+    .bzm-zc {
+      position: relative;
+      background-color: #EAEAEA;
+      padding: 0.15rem 0 !important;
+      .zc-zan-and-focus {
+        float: none !important;
+        margin-top: 0 !important;
+        .zc-amount {
+          margin-left: 0.3rem;
+          font-size: 0.5rem;
+          color: #f26520;
+          font-weight: bold;
+        }
+      }
+      .zc-go-detail {
+        text-align: center;
+        width: 1.7rem;
+        height: 0.9rem;
+        line-height: 0.9rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: #f26520;
+        color: #fff;
       }
     }
   }
@@ -257,13 +363,85 @@
 .search-box {
   padding-left: 1rem !important;
   width: 7.3rem !important;
-  height: 0.99rem!important;
+  height: 0.99rem !important;
 }
+
 .mui-bar-nav.mui-bar .mui-icon {
   padding: 0;
   margin: 0
 }
-.right-contact-a{
+
+.message-bzm {
   margin: 0.23rem 0 !important;
   width: 0.7rem;
+}
+
+.transition-action {
+  -webkit-transition: all;
+  transition: all;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transition-duration: .2s;
+  transition-duration: .2s;
+}
+
+.color-F26520 {
+  color: #F26520;
+}
+
+.bzm-dialog, .bzm-dialog-back {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.33);
+  z-index: 9999;
+  display: none;
+}
+
+.bzm-dialog-content {
+  width: 8rem;
+  padding: 1.5rem 0 0.5rem;
+  position: fixed;
+  z-index: 10000;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 0.15rem;
+  left: 1rem;
+  top: 2rem;
+  .zc-left-amount {
+    width: 2.5rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    text-align: right;
+    padding-right: 0.2rem;
+  }
+  input {
+    position: absolute;
+    width: 5.2rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    border: none;
+    z-index: 11111;
+    left: -0.1rem;
+    top: -0.1rem;
+    font-size:0.4rem;
+  }
+  .bzm-zc-amount-input-wrap {
+    position: relative;
+    .bzm-zc-amount-input-down{
+      position: relative;
+      width: 5rem;
+      height: 0.8rem;
+      border: 1px solid #ccc;
+      z-index:11100;
+    }
+    .qitzj{
+      padding:0.6rem 0 0.1rem;
+    }
+    .one-year-sy{
+      padding:0.2rem 0 0.8rem;
+    }
+  }
 }

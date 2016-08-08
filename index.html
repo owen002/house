@@ -108,8 +108,8 @@
         <article class="mui-content mui-scroll-wrapper" style="background-color: #efeff4" id="offCanvasContentScroll">
             <div class="mui-scroll">
                 <section id="slider" class="mui-slider">
-                    <div class="mui-slider-group mui-slider-loop">
-                        <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                    <!--<div class="mui-slider-group mui-slider-loop">
+                        	 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) 
                         <div class="mui-slider-item mui-slider-item-duplicate">
                             <a href="#">
                                 <img src="res/img/banner1.png">
@@ -123,26 +123,8 @@
                                 <p class="mui-slider-title">幸福就是可以一起睡觉</p>
                             </a>
                         </div>
-                        <div class="mui-slider-item">
-                            <a href="#">
-                                <img src="res/img/banner1.png">
-                                <p class="mui-slider-title">想要一间这样的木屋，静静的喝咖啡</p>
-                            </a>
-                        </div>
-                        <div class="mui-slider-item">
-                            <a href="#">
-                                <img src="res/img/banner1.png">
-                                <p class="mui-slider-title">Color of SIP CBD</p>
-                            </a>
-                        </div>
-                        <div class="mui-slider-item">
-                            <a href="#">
-                                <img src="res/img/banner1.png">
-                                <p class="mui-slider-title">静静看这世界</p>
-                            </a>
-                        </div>
 
-                        <!--额外增加的一个节点(循环轮播：最后一个节点是第一张轮播)-->
+                         	额外增加的一个节点(循环轮播：最后一个节点是第一张轮播)
                         <div class="mui-slider-item mui-slider-item-duplicate">
                             <a href="#">
                                 <img src="res/img/banner1.png">
@@ -153,9 +135,26 @@
                     <div class="mui-slider-indicator mui-text-right">
                         <div class="mui-indicator mui-active"></div>
                         <div class="mui-indicator"></div>
-                        <div class="mui-indicator"></div>
-                        <div class="mui-indicator"></div>
-                    </div>
+                    </div>-->
+                    
+                    <script id="index-guangao-template" type="x-tmpl-mustache">
+	                    <div class="mui-slider-group mui-slider-loop">
+						{{#rows}}
+	                        <div class="mui-slider-item mui-slider-item-duplicate">
+	                            <a href="#">
+	                                <img src="res/img/banner1.png">
+	                                <p class="mui-slider-title">{{advertisementName}}</p>
+	                            </a>
+	                        </div>
+						{{/rows}}
+						</div>
+						<div class="mui-slider-indicator mui-text-right">
+						{{#rows}}
+	                        <div class="mui-indicator"></div>
+						{{/rows}}
+						</div>
+					</script>
+					
                 </section>
                 <section id="Gallery" class="mui-slider">
                     <div class="menu-wrapper">
@@ -264,6 +263,8 @@
 <script src="js/base.js"></script>
 <script src="js/common/constant.js"></script>
 <script src="js/common/common.js"></script>
-<script src="js/index.js"></script>
+<!--<script src="js/common/geo.js"></script>-->
+<script src="js/index.source.js"></script>
+<script src="js/common/mustache.min.js"></script>
 
 </html>

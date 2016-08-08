@@ -1,6 +1,6 @@
 {
 	"@platforms": ["android", "iPhone", "iPad"],
-	"id": "H54C0C752",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"id": "Baozumei",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "house",/*应用名称，程序桌面图标名称*/
 	"version": {
 		"name": "1.0.0",/*应用版本名称*/
@@ -110,7 +110,7 @@
 		},
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
 		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
-		"distribute": {
+		"distribute": {"plugins":{"maps":{"baidu":{"appkey_ios":"","appkey_android":"wILCdicbD0gokTVFKFowE1L8VGuDVbtQ","appkey":"","description":"百度地图"}}},
 			"apple": {
 				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
 				"mobileprovision": "",/*iOS应用打包配置文件*/
@@ -220,7 +220,9 @@
 					"page/login/login.html",
 					"page/rentList.html",
 					"page/salehouse.html",
-					"page/salehouseList.html"
+					"page/salehouseList.html",
+					"page/croudfunding.html",
+					"js/common/geo.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -299,7 +301,9 @@
 				"resources": [
 					"index.html",
 					"res/img/login/backico.png",
-					"css/rentList.css"
+					"css/rentList.css",
+					"css/rent.css",
+					"js/rentList.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -311,7 +315,8 @@
 					"index.html",
 					"res/img/like.png",
 					"res/img/zsh.png",
-					"res/img/call-contact.png"
+					"res/img/call-contact.png",
+					"page/salehouseList.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -320,6 +325,29 @@
 				"resources": [
 					"res/img/login/backico.png",
 					"css/rentList.css",
+					"index.html",
+					"js/salehouseList.js",
+					"css/rent.css",
+					"page/salehouse.html",
+					"js/base.js",
+					"css/base.css",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/search.png",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/common/constant.js",
+					"css/salehouseList.css",
+					"js/common/mui.pullToRefresh.material.js",
+					"js/common/mui.pullToRefresh.js",
+					"js/common/mustache.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/croudfunding.html": {
+				"resources": [
+					"js/croundfunding.js",
 					"index.html"
 				],
 				"refer": [],

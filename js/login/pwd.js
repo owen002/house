@@ -96,8 +96,8 @@ function updatePwdEvent() {
 		muiAjax(pwdSettings, function(data) {
 			if(data.status==='200') {
 				// 取得验证码成功
+				mui.toast("密码设置成功");
 				var pageObj={
-					mui.toast("密码设置成功");
 					//pageUrl:plus.webview.getLaunchWebview().id
 					pageUrl:'../../page/login/login.html'
 				}

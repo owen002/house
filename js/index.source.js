@@ -6,6 +6,28 @@
         userinfo = JSON.parse(decodeURIComponent(userinfo));
     }
     var page = {
+    	//获取图片轮播
+    	getSliderImage:function () {
+			var setting = {
+				url:baseUrl + 'front/json_advertisement',
+				type: 'get',
+				contentType: "application/json"
+			};
+			muiAjax(setting, function(data) {
+				var obj = {
+					imgUrl: baseUrl,
+					rows: data.rows
+				};
+				var tmpl = mui('#index-guangao-template')[0].innerHTML;
+				mui('#slider')[0].innerHTML = Mustache.render(tmpl, obj);
+                var pclass = mui('.mui-indicator')[0].className;
+		        mui('.mui-indicator')[0].className = pclass + ' mui-active';
+			}, function(status) {
+				//异常处理
+			});
+        },
+    	
+    	
         init: function () {
             mui.init();
             base.setPageRem();
@@ -167,4 +189,5 @@
         }
     }
     page.init();
+    page.getSliderImage();
 })()

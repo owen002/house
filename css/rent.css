@@ -166,7 +166,7 @@
 }
 .nearby-section .gus-list-ul li .house-content .zan-and-focus {
   float: right;
-  margin-top: -0.4rem;
+  margin-top: -0.55rem;
 }
 .nearby-section .gus-list-ul li .house-content .zan-and-focus .rent-price {
   color: #F5844D;
@@ -190,6 +190,10 @@
   background-size: cover;
   margin: 0 0.2rem;
 }
+.nearby-section .gus-list-ul li .house-content .zan-and-focus .zan-focus-area {
+  overflow: hidden;
+  margin-top: 0.15rem;
+}
 .nearby-section .gus-list-ul li .house-content .zan-and-focus .zan-focus-area div {
   float: left;
   overflow: hidden;
@@ -211,6 +215,7 @@
   border-top: 1px solid #ccc;
 }
 .bzm-croudfunding .gus-list-ul li {
+  position: relative;
   border: none !important;
 }
 .bzm-croudfunding .gus-list-ul li .zc-house-content {

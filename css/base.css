@@ -45,3 +45,14 @@ body{
 .mui-btn-block{
 	padding:0.3rem;
 }
+.mui-pull-bottom-tips{
+	display: none;
+}
+.mui-pull-bottom-tips{
+	display: block;
+}
+.mui-pull-bottom-wrapper{
+	text-align: center;
+	font-size: 0.4rem;
+	color: #a9a9a9;
+}

@@ -1,7 +1,5 @@
 (function () {
     mui.init();
-    var pageSize = 10, pageNo = 1, canPull = true;
-    var $guessUlike = base.$('#guessUlike');
     var page = {
         init: function () {
             base.setPageRem();
@@ -63,22 +61,6 @@
             });
         },
         bind: function () {
-            mui('.gueulike-wrapper').pullToRefresh({
-                //上拉加载更多
-                up: {
-                    callback: function () {
-                        var self = this;
-                        setTimeout(function () {
-                            if (canPull) {
-                                pageNo += 1;
-                                page.queryList();
-                            }
-                            self.endPullUpToRefresh(!canPull);
-                        }, 500);
-                    }
-                }
-            });
-
             var muiBack = mui('.mui-back')[0];
             mui(document).on('tap', '.slider-menu-choose li', function () {
                 var cLocation = mui('.choose-location')[0];

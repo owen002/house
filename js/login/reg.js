@@ -34,10 +34,10 @@ function hqyzmEvent() {
 		document.getElementById("hqyzm").disabled = true;
 		document.getElementById("hqyzm").innerHTML = "发送中...";
 
-		var loginSettings = {
-			"url": Constants.urlPath + "front/get_checkcode/" + sjh
+		var codeSettings = {
+			"url": Constants.getCode + "/" + sjh
 		};
-		muiAjax(loginSettings, function(data) {
+		muiAjax(codeSettings, function(data) {
 			if(data.status==='200') {
 				yzmtime(30);
 				// 取得验证码成功
@@ -99,7 +99,7 @@ function regEvent() {
     	data:JSON.stringify(dataObj),
     	type:'post',
     	contentType: "application/json",
-    	url:Constants.urlPath+'front/save_member'
+    	url:Constants.regAccount
     };
     muiAjax(setting,function(data){
     	if(data.status==='200'){

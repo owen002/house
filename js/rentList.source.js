@@ -1,6 +1,7 @@
 (function () {
     mui.init();
     var pageSize = 10, pageNo = 1, canPull = true;
+    var trimVal = base.trimVal;
     var $guessUlike = base.$('#guessUlike');
     var page = {
         init: function () {
@@ -44,13 +45,12 @@
                         var rent = rentArr[i];
                         // rent.mainImage
                         liDom += '<div class="f-left house-img"><img src="' + '../res/img/house.jpg' + '"></div><div class="house-content f-left">' +
-                            '<div class="hc-title">' + rent.title + '</div><div class="nearby-house-items"><div><span>' + rent.platName + ' ' + rent.villageName + '</span></div>' +
-                            '<div><span>' + rent.rooms + '室' + rent.halls + '厅' + ' ' + rent.rentalMode + '</span></div></div>' +
-                            '<div class="zan-and-focus"><div class="rent-price">' + rent.rental + '元/月</div>' +
-                            '<div class="zan-focus-area"><div class="zan-active-icon zf-icon"></div><div>' + rent.supportNum + '</div>' +
-                            '<div class="focus-active-icon zf-icon"></div><div>' + rent.viewNum + '</div></div></div></div>';
+                            '<div class="hc-title">' + trimVal(rent.title) + '</div><div class="nearby-house-items"><div><span>' + trimVal(rent.platName) + ' ' + trimVal(rent.villageName) + '</span></div>' +
+                            '<div><span>' + trimVal(rent.rooms) + '室' + trimVal(rent.halls) + '厅' + ' ' + trimVal(rent.rentalMode) + '</span></div></div>' +
+                            '<div class="zan-and-focus"><div class="rent-price">' + trimVal(rent.rental) + '元/月</div>' +
+                            '<div class="zan-focus-area"><div class="zan-active-icon zf-icon"></div><div>' + trimVal(rent.supportNum) + '</div>' +
+                            '<div class="focus-active-icon zf-icon"></div><div>' + trimVal(rent.viewNum) + '</div></div></div></div>';
                         li.innerHTML = liDom;
-                        li.className = 'mui-table-view-cell';
                         li.setAttribute('data-id', rent.rentalHousingID);
                         fragment.appendChild(li);
                     }
@@ -98,5 +98,6 @@
             })
         }
     };
+
     page.init();
 })();

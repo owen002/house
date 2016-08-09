@@ -20,8 +20,8 @@
 				};
 				var tmpl = mui('#index-guangao-template')[0].innerHTML;
 				mui('#slider')[0].innerHTML = Mustache.render(tmpl, obj);
-                var pclass = mui('.mui-indicator')[0].className;
-		        mui('.mui-indicator')[0].className = pclass + ' mui-active';
+				var pclass = mui('.mui-indicator')[0].className;
+		        mui('.mui-indicator')[0].className = mui('.mui-indicator')[0].className + ' mui-active';
 			}, function(status) {
 				//异常处理
 			});
@@ -189,5 +189,5 @@
         }
     }
     page.init();
-    page.getSliderImage();
+  //  page.getSliderImage();
 })()

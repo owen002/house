@@ -15,7 +15,7 @@
             <img src='../res/img/login/backico.png'/>
         </div>
     </a>
-    <div class="page-title">东方罗马花园二期</div>
+    <div class="page-title" id="pageTitle"></div>
     <a class="f-right right-contact-a">
         <img src="../res/img/like.png" alt="">
     </a>
@@ -25,8 +25,7 @@
         <section class="bzm-house-detail-header">
             <img class="detail-img" src="../res/img/house-detail.jpg" alt="图片">
             <div class="bzm-house-dh-content">
-                <div class="f-left bzm-detail-title">
-                    凤城五路小区900元拎包入住 拎包入住 快来看房
+                <div class="f-left bzm-detail-title" id="houseDesc">
                 </div>
                 <div class="f-left detail-op-icon">
                     <img src="../res/img/call-contact.png" alt="">
@@ -34,39 +33,7 @@
                 </div>
             </div>
         </section>
-        <section class="house-content-items house-detail-section">
-            <ul>
-                <li>
-                    租金：<span class="color-orange" style="font-weight: bold">900元/月</span>
-                </li>
-                <li>
-                    押付：<span>押三付一</span>
-                </li>
-                <li>
-                    房型：<span>1室1厅1卫(整租)</span>
-                </li>
-                <li>
-                    装修：<span>简单装修</span>
-                </li>
-                <li>
-                    面积：<span>52平米</span>
-                </li>
-                <li>
-                    朝向：<span>南</span>
-                </li>
-                <li>
-                    楼层：<span>3层/7层</span>
-                </li>
-                <li>
-                    类型：<span>普通住宅</span>
-                </li>
-                <li>
-                    小区：<span>凤城五路小区</span>
-                </li>
-                <li>
-                    时间：<span>2016-07-15</span>
-                </li>
-            </ul>
+        <section class="house-content-items house-detail-section" id="rentDetail">
         </section>
         <section class="house-detail-section device-items-section">
             <div class="device-items-head">
@@ -122,7 +89,7 @@
             <ul>
                 <li>
                     <div class="dis-inline">小区地址：</div>
-                    <div class="dis-inline">凤城五路东</div>
+                    <div class="dis-inline" id="addrDesc">凤城五路东</div>
                 </li>
                 <li>
                     <div class="dis-inline">小区交通：</div>
@@ -130,7 +97,7 @@
                 </li>
                 <li>
                     <div class="dis-inline">小区介绍：</div>
-                    <div class="dis-inline">海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于</div>
+                    <div class="dis-inline" id="villDesc">海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于</div>
                 </li>
             </ul>
         </section>
@@ -203,8 +170,4 @@
 <script src="../js/common/common.js"></script>
 <script src="../js/base.js"></script>
 <script src="../js/rent.source.js"></script>
-<script>
-    base.setPageRem();
-    mui('#offCanvasContentScroll').scroll();
-</script>
 </html>

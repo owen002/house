@@ -5,9 +5,10 @@
 }
 .mui-content {
   color: #000;
+  padding-top: 2.4rem!important;
 }
 .right-contact-a img {
-  width: 0.8rem;
+  width: 0.7rem;
   margin-top: 0.2rem;
 }
 .left-menu-icon img {
@@ -240,8 +241,7 @@
 .bzm-croudfunding .gus-list-ul .bzm-zc .zc-go-detail {
   text-align: center;
   width: 1.7rem;
-  height: 0.9rem;
-  line-height: 0.9rem;
+  padding: 0.15rem;
   position: absolute;
   right: 0;
   top: 0;
@@ -278,7 +278,10 @@
   z-index: 99;
 }
 .slider-menu-choose {
-  position: relative;
+  top: 1.2rem;
+  width: 100%;
+  z-index: 999;
+  position: fixed;
   background-color: #fff;
 }
 .slider-menu-choose ul {
@@ -326,8 +329,8 @@
   margin: 0;
 }
 .message-bzm {
-  margin: 0.23rem 0 !important;
-  width: 0.7rem;
+  margin: 0.09rem 0 !important;
+  width: 0.8rem;
 }
 .transition-action {
   -webkit-transition: all;

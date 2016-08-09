@@ -40,30 +40,31 @@ var base = (function () {
         mui('.mui-back')[0].style.top = 1.2 * baseRemSize + 'px';
     }
 
-    var Slider = (function() {
+    var Slider = (function () {
         var Slider = {};
+
         function TimerManager() {
             this.timers = [];
             this.args = [];
             this.isFiring = false;
         }
 
-        TimerManager.makeInstance = function(element) {
+        TimerManager.makeInstance = function (element) {
             if (!element.__TimerManager__ || element.__TimerManager__.constructor != TimerManager) {
                 element.__TimerManager__ = new TimerManager();
             }
         };
 
-        TimerManager.prototype.add = function(timer, args) {
+        TimerManager.prototype.add = function (timer, args) {
             this.timers.push(timer);
             this.args.push(args);
             this.fire();
         };
 
-        TimerManager.prototype.fire = function() {
-            if ( !this.isFiring ) {
+        TimerManager.prototype.fire = function () {
+            if (!this.isFiring) {
                 var timer = this.timers.shift(),        // 取出定时器
-                    args  = this.args.shift();          // 取出定时器参数
+                    args = this.args.shift();          // 取出定时器参数
                 if (timer && args) {
                     this.isFiring = true;
                     timer(args[0], args[1]);
@@ -71,7 +72,7 @@ var base = (function () {
             }
         };
 
-        TimerManager.prototype.next = function() {
+        TimerManager.prototype.next = function () {
             this.isFiring = false;
             this.fire();
         };
@@ -83,7 +84,7 @@ var base = (function () {
                 var totalHeight = element.offsetHeight;
                 element.style.height = "0px";
                 var currentHeight = 0;
-                var increment = totalHeight / (time/10);
+                var increment = totalHeight / (time / 10);
                 var timer = setInterval(function () {
                     currentHeight = currentHeight + increment;
                     element.style.height = currentHeight + "px";
@@ -106,8 +107,8 @@ var base = (function () {
             if (element.offsetHeight > 0) {
                 var totalHeight = element.offsetHeight;
                 var currentHeight = totalHeight;
-                var decrement = totalHeight / (time/10);
-                var timer = setInterval(function() {
+                var decrement = totalHeight / (time / 10);
+                var timer = setInterval(function () {
                     currentHeight = currentHeight - decrement;
                     element.style.height = currentHeight + "px";
                     if (currentHeight <= 0) {
@@ -126,13 +127,13 @@ var base = (function () {
             }
         }
 
-        Slider.slideDown = function(element, time) {
+        Slider.slideDown = function (element, time) {
             TimerManager.makeInstance(element);
             element.__TimerManager__.add(fnSlideDown, arguments);
             return this;
         };
 
-        Slider.slideUp = function(element, time) {
+        Slider.slideUp = function (element, time) {
             TimerManager.makeInstance(element);
             element.__TimerManager__.add(fnSlideUp, arguments);
             return this;
@@ -141,10 +142,24 @@ var base = (function () {
         return Slider;
     })();
 
-    function querySelect(select){
+    function querySelect(select) {
         return document.querySelector(select);
     }
 
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        } else {
+            return '';
+        }
+    }
+
+    function trimVal(val) {
+        return (!val || val == 'null' || val == 'undefined') ? '' : val
+    }
     // mui(document).on('tap','.back',function(){
     //     history.back();
     // });
@@ -155,7 +170,9 @@ var base = (function () {
         removeClass: removeClass,
         delay: delay,
         setMuiBackHeight: setMuiBackHeight,
-        Slider:Slider,
-        $:querySelect
+        Slider: Slider,
+        $: querySelect,
+        param:GetQueryString,
+        trimVal:trimVal
     }
 })();

@@ -1,45 +1,68 @@
 (function () {
-    var pageSize = 15, pageNo = 1;
+    mui.init();
+    var pageSize = 10, pageNo = 1, canPull = true;
+    var trimVal = base.trimVal;
     var $guessUlike = base.$('#guessUlike');
     var page = {
         init: function () {
             base.setPageRem();
             base.setMuiBackHeight();
-            //查询租房列表
-            var querySettings = {
-                url: Constants.rentlist,
-                data: {
-                    pageSize: pageSize,
-                    pageNo: pageNo
-                },
-                type:'post'
-            }
-            page.queryList(querySettings);
+            //列表
+            page.queryList();
             page.bind();
         },
-        queryList: function (querySettings) {
-            muiAjax(querySettings, function (data) {
-                if (data.status == '200') {
-                    var rentArr = data.rows;
-                    if (rentArr.length > 0) {
-                        var listDom = '';
-                        for (var i = 0, j = rentArr.length; i < j; i++) {
-                            var rent = rentArr[i];
-                            listDom += '<li><div class="f-left house-img"><img src="' + rent.mainImage + '"></div><div class="house-content f-left">' +
-                                '<div class="hc-title">' + rent.title + ' ' + rent.advantage + '</div><div class="nearby-house-items"><div><span>' + rent.platName + ' ' + rent.villageName + '</span></div>' +
-                                '<div><span>' + rent.rooms + '室' + rent.halls + '厅' + rent.toilet + '卫 ' + rent.rentalMode + '</span></div></div>' +
-                                '<div class="zan-and-focus"><div class="rent-price">' + rent.rental + '元/月</div>' +
-                                '<div class="zan-focus-area"><div class="zan-icon zf-icon"></div><div>' + rent.supportNum + '</div>' +
-                                '<div class="focus-icon zf-icon"></div><div>' + rent.viewNum + '</div></div></div></div></li>'
-                        }
+        queryList: function () {
+            var querySettings = {
+                url: Constants.crowdfundlist,
+                data: {
+                    'pager.pageSize': pageSize,
+                    'pager.pageNo': pageNo
+                },
+                type: 'get'
+            };
 
+            muiAjax(querySettings, function (data) {
+                var rows = data.rows;
+                var rentlength = rows.length, totalLength = data.totalRows;
+                if (rows.length > 0) {
+                    if (rentlength < pageSize) {
+                        canPull = false;
+                    } else if (totalLength == (pageSize * (pageNo - 1) + rentlength)) {
+                        canPull = false
+                    } else {
+                        canPull = true;
                     }
+                    
+                    var obj = {
+						rows: rows
+				    };
+				    
+				    var tmpl = mui('#rows-li-template')[0].innerHTML;
+					mui('#guessUlike')[0].innerHTML += Mustache.render(tmpl, obj);                    
                 } else {
+                    canPull = false;
                 }
             }, function (status) {
+
             });
         },
         bind: function () {
+            mui('.gueulike-wrapper').pullToRefresh({
+                //上拉加载更多
+                up: {
+                    callback: function () {
+                        var self = this;
+                        setTimeout(function () {
+                            if (canPull) {
+                                pageNo += 1;
+                                page.queryList();
+                            }
+                            self.endPullUpToRefresh(!canPull);
+                        }, 500);
+                    }
+                }
+            });
+
             var muiBack = mui('.mui-back')[0];
             mui(document).on('tap', '.slider-menu-choose li', function () {
                 var cLocation = mui('.choose-location')[0];
@@ -51,13 +74,14 @@
                     muiBack.style.display = 'none';
                 }
             }).on('tap', '#guessUlike li', function () {
+                var id = this.getAttribute('data-id');
                 var pageObj = {
-                    pageUrl: "croudfundingdetail.html"
+                    pageUrl: "croudfundingdetail.html?rentid=" + id
                 };
                 pageChange(pageObj);
             })
         }
-    }
-    page.init();
+    };
 
+    page.init();
 })();

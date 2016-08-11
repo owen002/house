@@ -160,6 +160,16 @@ var base = (function () {
     function trimVal(val) {
         return (!val || val == 'null' || val == 'undefined') ? '' : val
     }
+
+    function startSlider($){
+        $('.mui-slider').slider();
+        $('.mui-scroll-wrapper.mui-slider-indicator.mui-segmented-control').scroll({
+            scrollY: false,
+            scrollX: true,
+            indicators: false,
+            snap: '.mui-control-item'
+        });
+    }
     // mui(document).on('tap','.back',function(){
     //     history.back();
     // });
@@ -173,6 +183,7 @@ var base = (function () {
         Slider: Slider,
         $: querySelect,
         param:GetQueryString,
-        trimVal:trimVal
+        trimVal:trimVal,
+        startSlider:startSlider
     }
 })();

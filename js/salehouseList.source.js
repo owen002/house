@@ -13,7 +13,7 @@
         },
         queryList: function () {
             var querySettings = {
-                url: Constants.rentlist,
+                url: Constants.salelist,
                 data: {
                     'pager.pageSize': pageSize,
                     'pager.pageNo': pageNo
@@ -22,9 +22,9 @@
             };
 
             muiAjax(querySettings, function (data) {
-                var rentArr = data.rows;
-                var rentlength = rentArr.length, totalLength = data.totalRows;
-                if (rentArr.length > 0) {
+                var rows = data.rows;
+                var rentlength = rows.length, totalLength = data.totalRows;
+                if (rows.length > 0) {
                     if (rentlength < pageSize) {
                         canPull = false;
                     } else if (totalLength == (pageSize * (pageNo - 1) + rentlength)) {
@@ -32,22 +32,30 @@
                     } else {
                         canPull = true;
                     }
-                    var fragment = document.createDocumentFragment();
-                    for (var i = 0, j = rentArr.length; i < j; i++) {
-                        var li = document.createElement('li'), liDom = '';
-                        var rent = rentArr[i];
-                        // rent.mainImage
-                        liDom += '<div class="f-left house-img"><img src="' + '../res/img/house.jpg' + '"></div><div class="house-content f-left">' +
-                            '<div class="hc-title">' + trimVal(rent.title) + '</div><div class="nearby-house-items"><div><span>' + trimVal(rent.platName) + ' ' + trimVal(rent.villageName) + '</span></div>' +
-                            '<div><span>' + trimVal(rent.rooms) + '室' + trimVal(rent.halls) + '厅' + ' ' + trimVal(rent.rentalMode) + '</span></div></div>' +
-                            '<div class="zan-and-focus"><div class="rent-price">' + trimVal(rent.rental) + '元/月</div>' +
-                            '<div class="zan-focus-area"><div class="zan-active-icon zf-icon"></div><div>' + trimVal(rent.supportNum) + '</div>' +
-                            '<div class="focus-active-icon zf-icon"></div><div>' + trimVal(rent.viewNum) + '</div></div></div></div>';
-                        li.innerHTML = liDom;
-                        li.setAttribute('data-id', rent.rentalHousingID);
-                        fragment.appendChild(li);
-                    }
-                    $guessUlike.appendChild(fragment);
+                    
+                    var obj = {
+						rows: rows
+				    };
+				    
+				    var tmpl = mui('#rows-li-template')[0].innerHTML;
+					mui('#guessUlike')[0].innerHTML += Mustache.render(tmpl, obj);
+                    
+//                  var fragment = document.createDocumentFragment();
+//                  for (var i = 0, j = rentArr.length; i < j; i++) {
+//                      var li = document.createElement('li'), liDom = '';
+//                      var rent = rentArr[i];
+//                      // rent.mainImage
+//                      liDom += '<div class="f-left house-img"><img src="' + '../res/img/house.jpg' + '"></div><div class="house-content f-left">' +
+//                          '<div class="hc-title">' + trimVal(rent.title) + '</div><div class="nearby-house-items"><div><span>' + trimVal(rent.platName) + ' ' + trimVal(rent.villageName) + '</span></div>' +
+//                          '<div><span>' + trimVal(rent.rooms) + '室' + trimVal(rent.halls) + '厅' + ' ' + trimVal(rent.rentalMode) + '</span></div></div>' +
+//                          '<div class="zan-and-focus"><div class="rent-price">' + trimVal(rent.price) + '万</div>' +
+//                          '<div class="zan-focus-area"><div class="zan-active-icon zf-icon"></div><div>' + trimVal(rent.supportNum) + '</div>' +
+//                          '<div class="focus-active-icon zf-icon"></div><div>' + trimVal(rent.viewNum) + '</div></div></div></div>';
+//                      li.innerHTML = liDom;
+//                      li.setAttribute('data-id', rent.rentalHousingID);
+//                      fragment.appendChild(li);
+//                  }
+//                  $guessUlike.appendChild(fragment);
                 } else {
                     canPull = false;
                 }
@@ -85,7 +93,7 @@
             }).on('tap', '#guessUlike li', function () {
                 var id = this.getAttribute('data-id');
                 var pageObj = {
-                    pageUrl: "rent.html?rentid=" + id
+                    pageUrl: "salehouse.html?rentid=" + id
                 };
                 pageChange(pageObj);
             })

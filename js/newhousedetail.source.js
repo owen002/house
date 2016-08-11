@@ -42,7 +42,6 @@
                         bdom += '<div class="mui-indicator"></div>';
                     }
                 }
-                bdom += '<div class="mui-indicator"></div>';
                 ldom += '<div class="mui-slider-item mui-slider-item-duplicate"><img src="' + picPub + data.rentalHousing.mainImage + '"></div>';
                 ldom += '</div>' + bdom + '</section>';
                 base.$('#houseDetailImg').innerHTML = ldom;

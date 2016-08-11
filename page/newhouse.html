@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title></title>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/base.css" rel="stylesheet"/>
+    <link href="../css/rent.css" rel="stylesheet"/>
+</head>
+<style>
+    .mui-table-view {
+        position: relative;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+        list-style: none;
+        background-color: #fff;
+    }
+
+    .mui-content {
+        color: #000;
+        padding-top: 2.4rem !important;
+    }
+
+    .rent-price {
+        color: #F5844D;
+        font-size: 0.45rem;
+        text-align: right;
+        font-weight: bold;
+        float: right;
+    }
+
+    .zan-and-focus {
+        margin-top: 0 !important;
+    }
+
+    .nearby-section .gus-list-ul li {
+        padding: 0.4rem 0 0.2rem;
+    }
+</style>
+<body>
+<header id="header" class="mui-bar mui-bar-nav">
+    <a class="mui-action-back left-menu-icon f-left back">
+        <div class="back-img">
+            <img src='../res/img/login/backico.png'/>
+        </div>
+    </a>
+    <div class="f-left" style="position:relative;">
+        <input class='search-box' type="text" placeholder="好房尽在包租妹"/>
+        <img src="../res/img/search.png" class="search-input-icon" alt="">
+    </div>
+    <div class='message-items-amount f-right'>3</div>
+    <a class="f-right right-contact-a message-bzm">
+        <img src="../res/img/message.png" alt="">
+    </a>
+</header>
+<section class="slider-menu-choose">
+    <ul>
+        <li style="border:none">
+            区域
+            <div class="mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
+        </li>
+        <li>
+            租金
+            <div class="mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
+        </li>
+        <li>
+            房型
+            <div class="mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
+        </li>
+        <li>
+            更多
+            <div class="mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
+        </li>
+    </ul>
+    <div class="choose-location" style="display: none;">
+    </div>
+
+    <div class="mui-back"></div>
+</section>
+<div class="mui-content">
+    <div class="mui-slider">
+        <section class="house-detail-section nearby-section">
+            <div class="guyl-header">
+                <div class="like-icon f-left">&nbsp</div>
+                <div class="f-left tbfy">猜你喜欢</div>
+            </div>
+            <!--<div class="mui-scroll-wrapper" style="height: 500px;">-->
+            <div class="gueulike-wrapper">
+                <ul class="gus-list-ul" id="guessUlike">
+                    <li data-id="1">
+                        <div class="f-left house-img">
+                            <img src="../res/img/house.jpg" alt="">
+                        </div>
+                        <div class="house-content f-left">
+                            <div class="hc-title">
+                                西大街附近900元拎包入住
+                            </div>
+                            <div class="nearby-house-items">
+                                <div>
+                                    <span style="font-size: 0.45rem">含光门迎春小区</span>
+                                    <span class="rent-price">900元/月</span>
+                                </div>
+                                <div style="font-size: 0.35rem;">
+                                    <span class="newh-adv">免中介费</span>
+                                    <span class="newh-adv">送保洁</span>
+                                    <span class="newh-adv">高速口</span>
+                                    <span class="newh-adv">地铁口</span>
+                                </div>
+                            </div>
+                            <div class="zan-and-focus">
+                                <div class="zan-focus-area">
+                                    <div class="zan-icon zf-icon"></div>
+                                    <div>23</div>
+                                    <div class="focus-icon zf-icon"></div>
+                                    <div>223</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--</div>-->
+        </section>
+    </div>
+</div>
+
+</body>
+<script src="../js/mui.min.js"></script>
+<script src="../js/common/mui.pullToRefresh.js"></script>
+<script src="../js/common/mui.pullToRefresh.material.js"></script>
+<script src="../js/common/constant.js"></script>
+<script src="../js/common/common.js"></script>
+<script src="../js/base.js"></script>
+<script src="../js/newhouse.source.js" type="text/javascript"></script>
+</html>

@@ -5,7 +5,7 @@
 }
 .mui-content {
   color: #000;
-  padding-top: 1.2rem!important;
+  padding-top: 1.2rem !important;
 }
 .right-contact-a img {
   width: 0.7rem;
@@ -189,7 +189,7 @@
   height: 0.5rem;
   background: url("../res/img/sp3.png") no-repeat 0 -1.01rem;
   background-size: cover;
-  margin: 0 0.2rem;
+  margin: 0 0.1rem;
 }
 .nearby-section .gus-list-ul li .house-content .zan-and-focus .zan-focus-area {
   overflow: hidden;
@@ -250,8 +250,8 @@
 }
 .like-icon {
   width: 0.6rem;
-  height: 0.6rem;
-  background: url("../res/img/sp3.png") no-repeat 0 -2.46rem;
+  height: 0.7rem;
+  background: url("../res/img/sp3.png") no-repeat 0 -2.51rem;
   background-size: cover;
 }
 .guyl-header {
@@ -398,4 +398,66 @@
 }
 .bzm-dialog-content .bzm-zc-amount-input-wrap .one-year-sy {
   padding: 0.2rem 0 0.8rem;
+}
+#houseDetailImg img {
+  max-height: 10rem;
+  display: block;
+  width: 100%;
+}
+.newh-adv {
+  padding: 0.05rem 0.1rem;
+  border: 1px solid #dcdcdc;
+}
+.newhouse-tsfw ul li {
+  margin: 0.2rem 0;
+  overflow: hidden;
+}
+.newhouse-tsfw ul li .new-each-div {
+  width: 33.33%;
+  float: left;
+  overflow: hidden;
+}
+.newhouse-tsfw ul li .new-each-div img {
+  width: 0.5rem;
+  height: 0.5rem;
+  float: left;
+}
+.newhouse-tsfw ul li .new-each-div .items-name {
+  width: 2.1rem;
+  margin: 0 0 0 0.3rem;
+  float: left;
+  font-size: 0.35rem;
+}
+.newhouse-hx ul {
+  width: 18.4rem;
+  overflow: hidden;
+}
+.newhouse-hx ul li {
+  padding: 0.1rem;
+  width: 3.08rem;
+  float: left;
+}
+.newhouse-hx ul li img {
+  width: 100%;
+}
+.newhouse-hx ul li .new-house-font {
+  font-size: 0.35rem;
+  color: #8e8e8e;
+}
+.newhouse-hx ul li .nh-titile {
+  font-size: 0.4rem;
+  font-weight: bold;
+  color: #000;
+}
+.nearby-house-items .rent-price {
+  font-size: 0.45rem;
+  float: right;
+  font-weight: bold;
+  color: #F5844D;
+}
+.nearby-house-items .newh-detail-adv {
+  max-width: 2.7rem;
+}
+.nearby-house-items .newh-detail-adv span {
+  border: 1px solid #e2e2e2;
 }

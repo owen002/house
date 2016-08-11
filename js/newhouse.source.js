@@ -8,7 +8,7 @@
             base.setPageRem();
             base.setMuiBackHeight();
             //查询租房列表
-            page.queryList();
+            // page.queryList();
             page.bind();
         },
         queryList: function () {
@@ -37,12 +37,7 @@
                         var li = document.createElement('li'), liDom = '';
                         var rent = rentArr[i];
                         // rent.mainImage
-                        liDom += '<div class="f-left house-img"><img src="' + '../res/img/house.jpg' + '"></div><div class="house-content f-left">' +
-                            '<div class="hc-title">' + trimVal(rent.title) + '</div><div class="nearby-house-items"><div><span>' + trimVal(rent.platName) + ' ' + trimVal(rent.villageName) + '</span></div>' +
-                            '<div><span>' + trimVal(rent.rooms) + '室' + trimVal(rent.halls) + '厅' + ' ' + trimVal(rent.rentalMode) + '</span></div></div>' +
-                            '<div class="zan-and-focus"><div class="rent-price">' + trimVal(rent.rental) + '元/月</div>' +
-                            '<div class="zan-focus-area"><div class="zan-active-icon zf-icon"></div><div>' + trimVal(rent.supportNum) + '</div>' +
-                            '<div class="focus-active-icon zf-icon"></div><div>' + trimVal(rent.viewNum) + '</div></div></div></div>';
+                        liDom += '';
                         li.innerHTML = liDom;
                         li.setAttribute('data-id', rent.rentalHousingID);
                         fragment.appendChild(li);
@@ -85,7 +80,7 @@
             }).on('tap', '#guessUlike li', function () {
                 var id = this.getAttribute('data-id');
                 var pageObj = {
-                    pageUrl: "rent.html?rentid=" + id
+                    pageUrl: "newhousedetail.html?houseid=" + id
                 };
                 pageChange(pageObj);
             })

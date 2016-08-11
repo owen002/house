@@ -6,7 +6,16 @@
         userinfo = JSON.parse(decodeURIComponent(userinfo));
     }
     var page = {
-    	//获取图片轮播
+        init: function () {
+            mui.init();
+            base.setPageRem();
+            page.getSliderImage();
+            page.initSliderMenu();
+            page.checkUser();
+            page.bind();
+            
+        },
+        //获取轮播图片
     	getSliderImage:function () {
 			var setting = {
 				url:baseUrl + 'front/json_advertisement',
@@ -14,30 +23,33 @@
 				contentType: "application/json"
 			};
 			muiAjax(setting, function(data) {
+				//添加第一个和最后一个
+				var rowsArr = data.rows;
+				var arr = new Array();
+				arr[0] = rowsArr[rowsArr.length-1];
+				arr[rowsArr.length+1] = rowsArr[0];
+				for (var i = 0, j = rowsArr.length; i < j; i++) {
+					arr[i+1] = rowsArr[i];
+				}
+				
 				var obj = {
-					imgUrl: baseUrl,
-					rows: data.rows
+					rowsArr:rowsArr,
+					rows: arr
 				};
 				var tmpl = mui('#index-guangao-template')[0].innerHTML;
 				mui('#slider')[0].innerHTML = Mustache.render(tmpl, obj);
-				var pclass = mui('.mui-indicator')[0].className;
+
+                mui('.mui-slider-item')[0].className = mui('.mui-slider-item')[0].className + ' mui-slider-item-duplicate';
+                mui('.mui-slider-item')[rowsArr.length+1].className = mui('.mui-slider-item')[rowsArr.length+1].className + ' mui-slider-item-duplicate';
 		        mui('.mui-indicator')[0].className = mui('.mui-indicator')[0].className + ' mui-active';
+		        
+		        //图片轮播
+		        mui("#slider").slider({
+                	interval: 3000
+            	});
 			}, function(status) {
 				//异常处理
 			});
-        },
-    	
-    	
-        init: function () {
-            mui.init();
-            base.setPageRem();
-            page.initSliderMenu();
-            //图片轮播
-            mui("#slider").slider({
-                interval: 3000
-            });
-            page.checkUser();
-            page.bind();
         },
         checkUser: function () {
             if (!!userinfo) {
@@ -178,6 +190,11 @@
                     pageUrl: "page/croudfunding.html"
                 };
                 pageChange(pageObj);
+            }).on('tap', '#bzmXF', function () {
+                var pageObj = {
+                    pageUrl: "page/newhouse.html"
+                };
+                pageChange(pageObj);
             }).on('tap', '#loginBtn', function () {
                 localStorage.setItem('userinfo', '');
                 isLogin = false;
@@ -189,5 +206,4 @@
         }
     }
     page.init();
-  //  page.getSliderImage();
 })()

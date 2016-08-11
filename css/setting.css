@@ -1,0 +1,134 @@
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-color: #fff;
+}
+
+.mui-bar {
+  background-color: #F26520;
+  overflow: hidden;
+  color: #fff;
+}
+.mui-content {
+  color: #000;
+}
+.right-contact-a img {
+  width: 0.8rem;
+  margin-top: 0.2rem;
+}
+.left-menu-icon img {
+  width: 0.7rem;
+}
+.back-img {
+  padding-right: 0.25rem;
+  border-right: 1px solid #F5844D;
+  height: 0.8rem;
+  margin-top: 0.2rem;
+}
+.page-title {
+  margin-left: 0.5rem;
+  width: 7.7rem;
+  display: inline-block;
+  text-align: left;
+}
+
+.mui-content{
+	background-color: #fff;
+}
+.mui-btn-orange {
+	margin-top: 1.5rem;
+	color: #fff;
+	border: 1px solid #F26521;
+	background-color: #F26521;
+}
+
+.mui-input-row label {
+	width: 1rem;
+	padding: 4px 15px;
+}
+
+.tongyilabel {
+	width: 5rem !important;
+	padding: 4px 15px;
+	color: #888888;
+}
+
+.reginput {
+	width: 9rem !important;
+	float: left !important;
+}
+
+.reginput1 {
+	width: 6rem !important;
+	float: left !important;
+}
+
+.reginputico1 {
+    width: 0.5rem;
+    height: 1rem;
+    margin-top: 0.1rem;
+    background: url(../res/img/login/regico.png) no-repeat 0 0.22rem;
+    background-size: cover;
+}
+
+.reginputico2 {
+    width: 0.5rem;
+    height: 1rem;
+    background: url(../res/img/login/regico.png) no-repeat 0 -1.24rem;
+    background-size: cover;
+}
+
+.reginputico3 {
+    width: 0.5rem;
+    height: 1rem;
+    background: url(../res/img/login/regico.png) no-repeat 0 -2.55rem;
+    background-size: cover;
+}
+
+.reginputico4 {
+    width: 0.5rem;
+    height: 1rem;
+    background: url(../res/img/login/regico.png) no-repeat 0 -3.94rem;
+    background-size: cover;
+}
+
+.mui-btn-grey {
+    margin-top: 0.15rem;
+    width: 2.5rem !important;
+    font-size: 0.35rem;
+    height: 1.1rem!important;
+    line-height: 1.1rem!important;
+    padding: 0!important;
+    margin-right: 0.3rem;
+}
+
+.mui-switch-blue .mui-active {
+    border: 2px solid #F26521;
+    background-color: #F26521;
+}
+.mui-input-group .mui-input-row{
+    height:1.4rem;
+}
+.mui-input-row input{
+    height:0.5rem;
+    line-height: 0.5rem;
+    padding-left:0.2rem!important;
+    margin-top: 0.5rem;
+}
+.mui-input-row .mui-switch{
+    margin-top: 0.31rem;
+    margin-right: 0.5rem;
+}
+.mui-checkbox.mui-left label, .mui-radio.mui-left label{
+    padding-left: 1.2rem;
+}
+
+.mui-checkbox input[type=checkbox] {
+	margin-top: 0.3rem;
+}
+.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before {
+    color: #BDBAAF
+}

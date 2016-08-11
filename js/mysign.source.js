@@ -8,12 +8,12 @@
             base.setPageRem();
             base.setMuiBackHeight();
             //查询租房列表
-            page.queryList();
+            // page.queryList();
             page.bind();
         },
         queryList: function () {
             var querySettings = {
-                url: Constants.salelist,
+                url: Constants.rentlist,
                 data: {
                     'pager.pageSize': pageSize,
                     'pager.pageNo': pageNo
@@ -22,9 +22,9 @@
             };
 
             muiAjax(querySettings, function (data) {
-                var rows = data.rows;
-                var rentlength = rows.length, totalLength = data.totalRows;
-                if (rows.length > 0) {
+                var rentArr = data.rows;
+                var rentlength = rentArr.length, totalLength = data.totalRows;
+                if (rentArr.length > 0) {
                     if (rentlength < pageSize) {
                         canPull = false;
                     } else if (totalLength == (pageSize * (pageNo - 1) + rentlength)) {
@@ -32,14 +32,17 @@
                     } else {
                         canPull = true;
                     }
-                    
-                    var obj = {
-						rows: rows
-				    };
-				    
-				    var tmpl = mui('#rows-li-template')[0].innerHTML;
-					mui('#guessUlike')[0].innerHTML += Mustache.render(tmpl, obj);
-                    
+                    var fragment = document.createDocumentFragment();
+                    for (var i = 0, j = rentArr.length; i < j; i++) {
+                        var li = document.createElement('li'), liDom = '';
+                        var rent = rentArr[i];
+                        // rent.mainImage
+                        liDom += '';
+                        li.innerHTML = liDom;
+                        li.setAttribute('data-id', rent.rentalHousingID);
+                        fragment.appendChild(li);
+                    }
+                    $guessUlike.appendChild(fragment);
                 } else {
                     canPull = false;
                 }
@@ -77,7 +80,7 @@
             }).on('tap', '#guessUlike li', function () {
                 var id = this.getAttribute('data-id');
                 var pageObj = {
-                    pageUrl: "salehouse.html?saleHousingID=" + id
+                    pageUrl: "newhousedetail.html?houseid=" + id
                 };
                 pageChange(pageObj);
             })

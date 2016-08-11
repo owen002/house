@@ -144,7 +144,7 @@
                             break;
                         case '3':
                             pageObj = {
-                                pageUrl: ""
+                                pageUrl: "page/myfavo.html"
                             };
                             break;
                         case '4':

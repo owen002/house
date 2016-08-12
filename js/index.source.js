@@ -202,6 +202,16 @@
                     pageUrl: "index.html"
                 };
                 pageChange(pageObj);
+            }).on('tap', '#mySetUp', function () {
+                var pageObj = {
+                    pageUrl: "page/setup/setmain.html"
+                };
+                pageChange(pageObj);
+            }).on('tap', '#locationCity', function () {
+                var pageObj = {
+                    pageUrl: "page/location.html"
+                };
+                pageChange(pageObj);
             });
         }
     }

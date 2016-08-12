@@ -1,6 +1,7 @@
 (function () {
     mui.init();
-    var pageSize = 10, pageNo = 1, canPull = true;
+    mui('#location1,#choose2Scroll,#locationcontent1').scroll();
+    var pageSize = 10, pageNo = 1, canPull = true, showChooseMenuFlag = false;
     var trimVal = base.trimVal;
     var $guessUlike = base.$('#guessUlike');
     var page = {
@@ -73,12 +74,33 @@
             });
 
             var muiBack = mui('.mui-back')[0];
-            mui(document).on('tap', '.slider-menu-choose li', function () {
-                var cLocation = mui('.choose-location')[0];
+            mui(document).on('tap', '.slider-menu-choose .header-menu-select li', function () {
+                var $this = this;
+                var type = $this.getAttribute('data-type');
+                var cLocation = base.$('.choose-content' + type);
                 if (cLocation.style.display == 'none') {
-                    base.Slider.slideDown(cLocation, 100);
-                    muiBack.style.display = 'block';
+                    if (showChooseMenuFlag) {
+                        var ac = base.$('.revert-img');
+                        var cutype = ac.getAttribute('data-type');
+                        var currentcLocation = base.$('.choose-content' + cutype);
+                        base.Slider.slideUp(currentcLocation, 100);
+                        base.removeClass(ac, 'revert-img');
+                        muiBack.style.display = 'none';
+                        showChooseMenuFlag = false;
+                        // base.delay(function(){
+                        //     base.addClass($this, 'revert-img');
+                        //     base.Slider.slideDown(cLocation, 100);
+                        //     muiBack.style.display = 'block';
+                        // },100)
+                    }else{
+                        showChooseMenuFlag = true;
+                        base.addClass($this, 'revert-img');
+                        base.Slider.slideDown(cLocation, 100);
+                        muiBack.style.display = 'block';
+                    }
                 } else {
+                    showChooseMenuFlag = false;
+                    base.removeClass($this, 'revert-img');
                     base.Slider.slideUp(cLocation, 100);
                     muiBack.style.display = 'none';
                 }

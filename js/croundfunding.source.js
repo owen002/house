@@ -18,7 +18,7 @@
                     'pager.pageSize': pageSize,
                     'pager.pageNo': pageNo
                 },
-                type: 'get'
+                type: 'post'
             };
 
             muiAjax(querySettings, function (data) {

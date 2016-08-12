@@ -326,12 +326,12 @@
   background-color: #fff;
 }
 
-.slider-menu-choose ul {
+.slider-menu-choose .header-menu-select {
   padding: 0.3rem 0.8rem;
   overflow: hidden;
 }
 
-.slider-menu-choose li {
+.slider-menu-choose .header-menu-select li {
   width: 25%;
   height: 0.62rem;
   line-height: 0.62rem;
@@ -462,23 +462,24 @@
   padding: 0.05rem 0.1rem;
   border: 1px solid #dcdcdc;
 }
-.newhouse-tsfw{
-  ul{
-    li{
+
+.newhouse-tsfw {
+  ul {
+    li {
       margin: 0.2rem 0;
       overflow: hidden;
-      .new-each-div{
-        width:33.33%;
+      .new-each-div {
+        width: 33.33%;
         float: left;
         overflow: hidden;
-        img{
-          width:0.5rem;
-          height:0.5rem;
+        img {
+          width: 0.5rem;
+          height: 0.5rem;
           float: left;
         }
-        .items-name{
+        .items-name {
           width: 2.1rem;
-          margin:0 0 0 0.3rem;
+          margin: 0 0 0 0.3rem;
           float: left;
           font-size: 0.35rem;
         }
@@ -487,40 +488,41 @@
   }
 }
 
-.newhouse-hx{
-  ul{
-    width:18.4rem;
+.newhouse-hx {
+  ul {
+    width: 18.4rem;
     overflow: hidden;
-    li{
-      padding:0.1rem;
-      width:3.08rem;
+    li {
+      padding: 0.1rem;
+      width: 3.08rem;
       float: left;
-      img{
-        width:100%;
+      img {
+        width: 100%;
       }
-      .new-house-font{
-        font-size:0.35rem;
-        color:#8e8e8e;
+      .new-house-font {
+        font-size: 0.35rem;
+        color: #8e8e8e;
       }
-      .nh-titile{
-        font-size:0.4rem;
+      .nh-titile {
+        font-size: 0.4rem;
         font-weight: bold;
-        color:#000;
+        color: #000;
       }
     }
   }
 }
-.nearby-house-items{
-  .rent-price{
+
+.nearby-house-items {
+  .rent-price {
     font-size: 0.45rem;
     float: right;
     font-weight: bold;
-    color:@color-orange;
+    color: @color-orange;
   }
-  .newh-detail-adv{
-    max-width:2.7rem;
-    span{
-      border:1px solid #e2e2e2;
+  .newh-detail-adv {
+    max-width: 2.7rem;
+    span {
+      border: 1px solid #e2e2e2;
     }
   }
 }
@@ -528,8 +530,69 @@
 .house-detail-section .device-sales-items-head {
   height: 0.8rem;
 }
+
 .house-detail-section .device-sales-items-head .bzm-fjpz {
   border-left: 0.15rem solid #F5844D;
   padding-left: 0.2rem;
   font-weight: bold;
+}
+
+.revert-img .choose-down-arrow {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+}
+
+.revert-img {
+  color: @color-orange !important;
+}
+
+.choose-content1 {
+  .mui-scroll-wrapper {
+    width: 5rem;
+    li {
+      padding: 0.3rem 0.5rem;
+      position: relative;
+    }
+  }
+  .choose-right {
+    left: 5rem;
+    ul {
+      background-color: #E6E6E6;
+    }
+  }
+}
+
+.choose-left-active {
+  background: #eee !important;
+  color: @color-orange !important;
+}
+
+.show-active {
+  display: block !important;
+}
+
+.bzm-navigate-right:after {
+  right: 0.1rem;
+  content: '\e470';
+  font-family: Muiicons;
+  font-size: inherit;
+  line-height: 1;
+  position: absolute;
+  top: 46%;
+  display: inline-block;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-decoration: none;
+  color: #8d8d8d;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.5rem;
+}
+
+.choose-content2-inner-ul {
+  li {
+    padding: 0.2rem 0.5rem;
+  }
 }

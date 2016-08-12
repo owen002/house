@@ -23,7 +23,6 @@ var base = (function () {
     }
 
     function addClass(domA, className) {
-
         if (domA.length) {
             var len = domA.length;
             for (var i = 0; i < len; i++) {

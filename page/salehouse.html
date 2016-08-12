@@ -38,7 +38,7 @@
     <img class="detail-img" src="../res/img/house-detail.jpg" alt="图片">
     <div class="bzm-house-dh-content">
         <div class="f-left bzm-detail-title">
-                    {{orientation}}<br />
+                    {{saleHousing.villageName}}<br />
                     准现房  3室通透 可取公积金
         </div>
         <div class="f-left detail-op-icon">
@@ -50,30 +50,43 @@
 <section class="house-content-items house-detail-section">
     <ul>
         <li>
-            价格：<span class="color-orange" style="font-weight: bold">64万</span>
+            价格：<span class="color-orange" style="font-weight: bold">{{saleHousing.totalPrice}}万</span>
         </li>
         <li>
-            单价：<span>8000元&#47平米</span>
+            单价：<span>{{saleHousing.price}}元&#47平米</span>
         </li>
         <li>
-            房型：<span>3室2厅1卫(整租)</span>
+            房型：<span>{{saleHousing.rooms}}室{{saleHousing.halls}}厅{{saleHousing.toilet}}卫</span>
         </li>
         <li>
-            面积：<span>92平米</span>
+            面积：<span>{{saleHousing.housingArea}}平米</span>
         </li>
         <li>
-            朝向：<span>南</span>
+            朝向：<span>{{saleHousing.orientation}}</span>
         </li>
         <li>
-            楼层：<span>3层/7层</span>
+            楼层：<span>{{saleHousing.locationFloor}}层/{{saleHousing.totalFloor}}层</span>
         </li>
         <li>
-            年代：<span>2010年</span>
+            年代：<span>{{saleHousing.years}}年</span>  
         </li>
         <li>
-            小区：<span>大华曲江</span>
+            小区：<span>{{saleHousing.villageName}}</span>
         </li>
         <li>
+</section>
+<section class="house-detail-section device-items-section">
+    <div class="device-items-head">
+        <div class="bzm-fjpz color-orange">特色服务</div>
+    </div>
+    <ul>
+    	{{#rentalServiceList}}
+        <li>
+            <img src="../res/img/house-icons/pz01.png" alt="">
+            <div class="items-name">{{serviceName}}</div>
+        </li>
+        {{/rentalServiceList}}
+    </ul>
 </section>
 <section class="house-detail-section house-location-section">
     <div class="device-items-head">
@@ -82,7 +95,7 @@
     <ul>
         <li>
             <div class="dis-inline">房源介绍：</div>
-            <div class="dis-inline">92平米南北通透双阳台，五证齐全，产权清晰</div>
+            <div class="dis-inline">{{saleHousing.housingDesc}}</div>
         </li>
         <li>
             <div class="dis-inline">在售户型：</div>

@@ -132,3 +132,20 @@ body {
 .mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before {
     color: #BDBAAF
 }
+
+.bzm-navigate-right:after {
+  right: 0.1rem;
+  content: '\e470';
+  font-family: Muiicons;
+  font-size: inherit;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-decoration: none;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.8rem;
+}

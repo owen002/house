@@ -1,12 +1,10 @@
 (function () {
     mui.init();
     var pageSize = 10, pageNo = 1, canPull = true;
-    var trimVal = base.trimVal;
-    var $guessUlike = base.$('#guessUlike');
+    var currentid = '';
     var page = {
         init: function () {
             base.setPageRem();
-            base.setMuiBackHeight();
             //查询租房列表
             // page.queryList();
             page.bind();
@@ -51,6 +49,10 @@
             });
         },
         bind: function () {
+            mui('.ms-header-menu').on('tap', '.ms-m', function () {
+                switchTab(this);
+            });
+
             mui('.gueulike-wrapper').pullToRefresh({
                 //上拉加载更多
                 up: {
@@ -86,6 +88,14 @@
             })
         }
     };
+
+    function switchTab($this) {
+        currentid = $this.getAttribute('data-type');
+        base.removeClass(base.$s('.ms-m'), 'ms-menu-active');
+        base.addClass($this, 'ms-menu-active');
+        base.removeClass(base.$('.section-active'), 'section-active');
+        base.addClass(base.$('.ms-con' + currentid), 'section-active');
+    }
 
     page.init();
 })();

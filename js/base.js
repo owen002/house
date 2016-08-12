@@ -22,17 +22,42 @@ var base = (function () {
         }
     }
 
-    function addClass(dom, className) {
-        var classNames = dom.getAttribute('class');
-        classNames += ' ' + className;
-        dom.setAttribute('class', classNames);
+    function addClass(domA, className) {
+
+        if (domA.length) {
+            var len = domA.length;
+            for (var i = 0; i < len; i++) {
+                var dom = domA[i];
+                var classNames = dom.getAttribute('class');
+                classNames += ' ' + className;
+                dom.setAttribute('class', classNames);
+            }
+        } else {
+            var dom = domA;
+            var classNames = dom.getAttribute('class');
+            classNames += ' ' + className;
+            dom.setAttribute('class', classNames);
+        }
     }
 
-    function removeClass(dom, className) {
-        var classNames = dom.getAttribute('class');
-        var reg = new RegExp(className, 'g');
-        classNames = classNames.replace(reg, '');
-        dom.setAttribute('class', classNames);
+    function removeClass(domA, className) {
+        if (domA.length) {
+            var len = domA.length;
+            for (var i = 0; i < len; i++) {
+                var dom = domA[i];
+                var classNames = dom.getAttribute('class');
+                var reg = new RegExp(className, 'g');
+                classNames = classNames.replace(reg, '');
+                dom.setAttribute('class', classNames);
+            }
+        } else {
+            var dom = domA;
+            var classNames = dom.getAttribute('class');
+            var reg = new RegExp(className, 'g');
+            classNames = classNames.replace(reg, '');
+            dom.setAttribute('class', classNames);
+        }
+
     }
 
     function setMuiBackHeight() {
@@ -146,6 +171,9 @@ var base = (function () {
         return document.querySelector(select);
     }
 
+    function querySelectAll(select) {
+        return document.querySelectorAll(select);
+    }
 
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -161,7 +189,7 @@ var base = (function () {
         return (!val || val == 'null' || val == 'undefined') ? '' : val
     }
 
-    function startSlider($){
+    function startSlider($) {
         $('.mui-slider').slider();
         $('.mui-scroll-wrapper.mui-slider-indicator.mui-segmented-control').scroll({
             scrollY: false,
@@ -170,6 +198,7 @@ var base = (function () {
             snap: '.mui-control-item'
         });
     }
+
     // mui(document).on('tap','.back',function(){
     //     history.back();
     // });
@@ -182,8 +211,9 @@ var base = (function () {
         setMuiBackHeight: setMuiBackHeight,
         Slider: Slider,
         $: querySelect,
-        param:GetQueryString,
-        trimVal:trimVal,
-        startSlider:startSlider
+        $s: querySelectAll,
+        param: GetQueryString,
+        trimVal: trimVal,
+        startSlider: startSlider
     }
 })();

@@ -461,3 +461,11 @@
 .nearby-house-items .newh-detail-adv span {
   border: 1px solid #e2e2e2;
 }
+.house-detail-section .device-sales-items-head {
+  height: 0.8rem;
+}
+.house-detail-section .device-sales-items-head .bzm-fjpz {
+  border-left: 0.15rem solid #F5844D;
+  padding-left: 0.2rem;
+  font-weight: bold;
+}

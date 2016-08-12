@@ -23,24 +23,24 @@
 <div class="mui-content">
     <section class="mysign-head-select-section">
         <ul class="ms-header-menu">
-            <li class="ms-menu-active">
+            <li class="ms-menu-active ms-m" data-type="1">
                 众筹
             </li>
-            <li>
+            <li class=" ms-m" data-type="2">
                 租房
             </li>
-            <li>
+            <li class=" ms-m" data-type="3">
                 出租
             </li>
-            <li>
+            <li class=" ms-m" data-type="4">
                 买房
             </li>
-            <li>
+            <li class=" ms-m" data-type="5">
                 卖房
             </li>
         </ul>
     </section>
-    <section class="mysign-content ">
+    <section class="mysign-content ms-con1 section-active">
         <ul class="mysign-items-ul">
             <li class="mysign-item-li">
                 <div style="overflow: hidden">
@@ -82,7 +82,7 @@
             </li>
         </ul>
     </section>
-    <section class="mysign-content ">
+    <section class="mysign-content ms-con2">
         <ul class="mysign-items-ul">
             <li class="mysign-item-li">
                 <div class="mysign-zuf-title">
@@ -113,7 +113,7 @@
             </li>
         </ul>
     </section>
-    <section class="mysign-content ">
+    <section class="mysign-content ms-con3">
         <ul class="mysign-items-ul">
             <li class="mysign-item-li zuf-mysign-item-li">
                 <div class="f-left house-img">
@@ -141,7 +141,7 @@
             </li>
         </ul>
     </section>
-    <section class="mysign-content ">
+    <section class="mysign-content ms-con4">
         <ul class="mysign-items-ul">
             <li class="mysign-item-li">
                 <div class="mysign-zuf-title">
@@ -172,7 +172,7 @@
             </li>
         </ul>
     </section>
-    <section class="mysign-content section-active">
+    <section class="mysign-content ms-con5">
         <ul class="mysign-items-ul">
             <li class="mysign-item-li zuf-mysign-item-li">
                 <div class="f-left house-img">
@@ -210,4 +210,38 @@
 <script src="../js/common/common.js"></script>
 <script src="../js/base.js"></script>
 <script src="../js/mysign.source.js" type="text/javascript"></script>
+<script>
+    (function($) {
+        $('.mui-scroll-wrapper').scroll({
+            indicators: true //是否显示滚动条
+        });
+        var html2 = '<ul class="mui-table-view"><li class="mui-table-view-cell">第二个选项卡子项-1</li><li class="mui-table-view-cell">第二个选项卡子项-2</li><li class="mui-table-view-cell">第二个选项卡子项-3</li><li class="mui-table-view-cell">第二个选项卡子项-4</li><li class="mui-table-view-cell">第二个选项卡子项-5</li></ul>';
+        var html3 = '<ul class="mui-table-view"><li class="mui-table-view-cell">第三个选项卡子项-1</li><li class="mui-table-view-cell">第三个选项卡子项-2</li><li class="mui-table-view-cell">第三个选项卡子项-3</li><li class="mui-table-view-cell">第三个选项卡子项-4</li><li class="mui-table-view-cell">第三个选项卡子项-5</li></ul>';
+        var item2 = document.getElementById('item2mobile');
+        var item3 = document.getElementById('item3mobile');
+        document.getElementById('slider').addEventListener('slide', function(e) {
+            if (e.detail.slideNumber === 1) {
+                if (item2.querySelector('.mui-loading')) {
+                    setTimeout(function() {
+                        item2.querySelector('.mui-scroll').innerHTML = html2;
+                    }, 500);
+                }
+            } else if (e.detail.slideNumber === 2) {
+                if (item3.querySelector('.mui-loading')) {
+                    setTimeout(function() {
+                        item3.querySelector('.mui-scroll').innerHTML = html3;
+                    }, 500);
+                }
+            }
+        });
+        var sliderSegmentedControl = document.getElementById('sliderSegmentedControl');
+        $('.mui-input-group').on('change', 'input', function() {
+            if (this.checked) {
+                sliderSegmentedControl.className = 'mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-' + this.value;
+                //force repaint
+                sliderProgressBar.setAttribute('style', sliderProgressBar.getAttribute('style'));
+            }
+        });
+    })(mui);
+</script>
 </html>

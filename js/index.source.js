@@ -139,7 +139,7 @@
                             break;
                         case '2':
                             pageObj = {
-                                pageUrl: ""
+                                pageUrl: "page/mysign.html"
                             };
                             break;
                         case '3':

@@ -1,6 +1,6 @@
 (function () {
     mui.init();
-    mui('#location1,#choose2Scroll,#locationcontent1').scroll();
+    mui('#location1,#choose2Scroll,#locationcontent1,#choose3Scroll,#choose4Scroll').scroll();
     var pageSize = 10, pageNo = 1, canPull = true, showChooseMenuFlag = false;
     var trimVal = base.trimVal;
     var $guessUlike = base.$('#guessUlike');

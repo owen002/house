@@ -515,6 +515,8 @@
   -webkit-font-smoothing: antialiased;
   font-size: 0.5rem;
 }
-.choose-content2-inner-ul li {
+.choose-content2-inner-ul li,
+.choose-content3-inner-ul li,
+.choose-content4-inner-ul li {
   padding: 0.2rem 0.5rem;
 }

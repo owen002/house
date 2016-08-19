@@ -44,24 +44,140 @@
 </header>
 <section class="slider-menu-choose">
     <ul class="header-menu-select">
-        <li style="border:none">
+        <li style="border:none" class="slider-choose-li" data-type="1">
             区域
-            <div class="mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
+            <div class="transition-action  mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
         </li>
-        <li>
+        <li class="slider-choose-li" data-type="2">
             租金
-            <div class="mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
+            <div class="mui-icon-arrowdown transition-action mui-icon choose-down-arrow">&nbsp;</div>
         </li>
-        <li>
+        <li class="slider-choose-li" data-type="3">
             房型
-            <div class="mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
+            <div class="mui-icon-arrowdown mui-icon choose-down-arrow transition-action ">&nbsp;</div>
         </li>
-        <li>
+        <li class="slider-choose-li" data-type="4">
             更多
-            <div class="mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
+            <div class="mui-icon-arrowdown mui-icon transition-action choose-down-arrow">&nbsp;</div>
         </li>
     </ul>
-    <div class="choose-location" style="display: none;">
+    <div class="choose-location choose-content1" style="display: none;">
+        <div id="location1" class="mui-scroll-wrapper choose-left">
+            <div class="mui-scroll">
+                <ul id="areaList">
+                    <li class="choose-left-active">
+                        <div class="bzm-navigate-right">
+                            不限
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--<div id="locationcontent1" class="mui-scroll-wrapper choose-right">-->
+        <!--<div class="mui-scroll">-->
+        <!--<ul>-->
+        <!--<li>附近</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+    <div class="choose-location choose-content2" style="display: none;">
+        <div id="choose2Scroll" class="mui-scroll-wrapper choose-content2-inner">
+            <div class="mui-scroll">
+                <ul id="amountArea" class="choose-content2-inner-ul">
+                    <li class="choose-left-active">
+                        不限
+                    </li>
+                    <li data-max="600">
+                        600元以下
+                    </li>
+                    <li data-min="600" data-max="1200">
+                        600-1200元
+                    </li>
+                    <li data-min="1200" data-max="1800">
+                        1200-1800元
+                    </li>
+                    <li data-min="1800" data-max="3000">
+                        1800-3000元
+                    </li>
+                    <li data-min="3000">
+                        3000元以上
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="choose-location choose-content3" style="display: none;">
+        <div id="choose3Scroll" class="mui-scroll-wrapper choose-content3-inner">
+            <div class="mui-scroll">
+                <ul id="sortLiveUl" class="choose-content3-inner-ul">
+                    <li class="choose-left-active">
+                        不限
+                    </li>
+                    <li data-id="1">
+                        住宅
+                    </li>
+                    <li data-id="2">
+                        别墅
+                    </li>
+                    <li data-id="3">
+                        写字楼
+                    </li>
+                    <li data-id="4">
+                        商铺
+                    </li>
+                    <li data-id="5">
+                        厂房仓库车库
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="choose-location choose-content4" style="display: none;">
+        <div id="choose4Scroll" class="mui-scroll-wrapper choose-content4-inner">
+            <div class="mui-scroll">
+                <ul class="choose-content4-inner-ul" id="moreItems">
+                    <li>
+                        <div class="more-rent-title">
+                            户型
+                        </div>
+                        <div class="more-rent-wrapper huxing">
+                            <div class="rent-content choose-left-active">不限</div>
+                            <div class="rent-content" data-type="1">2居</div>
+                            <div class="rent-content" data-type="2">3居</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="more-rent-title ">
+                            租赁方式
+                        </div>
+                        <div class="more-rent-wrapper zulinfangshi">
+                            <div class="rent-content choose-left-active">不限</div>
+                            <div class="rent-content" data-type="1">整租</div>
+                            <div class="rent-content" data-type="2">转租</div>
+                            <div class="rent-content" data-type="3">合租</div>
+                            <div class="rent-content" data-type="4">日租</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="more-rent-title ">
+                            装修
+                        </div>
+                        <div class="more-rent-wrapper zhuangxiu">
+                            <div class="rent-content choose-left-active">不限</div>
+                            <div class="rent-content" data-type="1">毛坯</div>
+                            <div class="rent-content" data-type="2">简装</div>
+                            <div class="rent-content" data-type="3">中装</div>
+                            <div class="rent-content" data-type="4">精装</div>
+                            <div class="rent-content" data-type="5">豪华装</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="confirm-btn">
+                <button class="mui-btn mui-btn-block mui-btn-blue confirm-btn-ac" id="confirmChooseBtn">确定</button>
+            </div>
+        </div>
     </div>
 
     <div class="mui-back"></div>
@@ -83,9 +199,9 @@
 </body>
 <script id="rows-li-template" type="x-tmpl-mustache">
 	{{#rows}}
-    <li class="croudfunding-li">
+    <li class="croudfunding-li"  data-id="{{crowdfundingHousingID}}">
         <div class="f-left house-img">
-            <img src="../res/img/house.jpg" alt="">
+            <img src="{{mainImage}}" alt="">
         </div>
         <div class="house-content f-left">
             <div class="hc-title">
@@ -94,18 +210,18 @@
             <div class="nearby-house-items">
                 <div>
                     <span>{{districtName}}</span>
-                    <span class="zc-detail-right">金辉公园里</span>
+                    <span class="zc-detail-right">{{platName}}</span>
                 </div>
                 <div>
                     <span>{{rooms}}室{{halls}}厅{{toilet}}卫</span>
                     <span class="zc-detail-right">{{housingArea}}平米</span>
                 </div>
                 <div>
-                    <span>期限：<span>12月</span></span>
-                    <span class="zc-detail-right">年租金收益：<span>22万</span></span>
+                    <span>期限:<span>{{deadline}}月</span></span>
+                    <span class="zc-detail-right">年租金收益:<span>{{rentalIncome}}万</span></span>
                 </div>
                 <div>
-                    <span>还款方式：按月付息，到期还本</span>
+                    <span>{{repaymentMethod}}</span>
                 </div>
             </div>
         </div>
@@ -115,12 +231,12 @@
             <div class="zan-and-focus zc-zan-and-focus">
                 <div class="zan-focus-area">
                     <div class="zan-active-icon zf-icon"></div>
-                    <div>23</div>
+                    <div>{{supportNum}}</div>
                     <div class="focus-active-icon zf-icon"></div>
-                    <div>23</div>
+                    <div>{{viewNum}}</div>
                 </div>
                 <div class="f-left zc-amount">
-                    剩50万/总100万
+                    剩万/总{{totalPrice}}万
                 </div>
             </div>
         </div>

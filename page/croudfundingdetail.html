@@ -9,6 +9,9 @@
     <link href="../css/rent.css" rel="stylesheet"/>
 </head>
 <body>
+
+</body>
+<script id="detail-template" type="x-tmpl-mustache">
 <header id="header" class="mui-bar mui-bar-nav">
     <a class="mui-action-back left-menu-icon f-left back">
         <div class="back-img">
@@ -48,7 +51,7 @@
             <img class="detail-img" src="../res/img/house-detail.jpg" alt="图片">
             <div class="bzm-house-dh-content">
                 <div class="f-left bzm-detail-title">
-                    凤城五路小区900元拎包入住 拎包入住 快来看房
+                    {{crowdfundingHousing.title}}
                 </div>
                 <div class="f-left detail-op-icon">
                     <img src="../res/img/call-contact.png" alt="">
@@ -65,36 +68,36 @@
                     100元起
                 </div>
                 <div class="f-right">
-                    剩50万<span class="color-F26520">/总100万</span>
+                   {{crowdfundingHousing.atualInvestment}}<span class="color-F26520">/{{crowdfundingHousing.totalPrice}}</span>
                 </div>
             </div>
         </section>
         <section class="house-content-items house-detail-section zc-bzm-detail-section">
             <div class="zc-detail-menu-bar">
-                <div class="menu-bar-pub fyxx menu-bar-active">房源信息</div>
-                <div class="menu-bar-pub tzjl">投资记录</div>
+                <div class="menu-bar-pub fyxx menu-bar-active" id="fyxx">房源信息</div>
+                <div class="menu-bar-pub tzjl" id="tzjl">投资记录</div>
             </div>
             <ul>
                 <li>
-                    价格：<span class="color-orange" style="font-weight: bold">64万</span>
+                    价格：<span class="color-orange" style="font-weight: bold">{{crowdfundingHousing.totalPrice}}万元</span>
                 </li>
                 <li>
-                    单价：<span>8000元/平米</span>
+                    单价：<span>{{crowdfundingHousing.price}}元/平米</span>
                 </li>
                 <li>
                     房型：<span>3室2厅1卫</span>
                 </li>
                 <li>
-                    面积：<span>92平米</span>
+                    面积：<span>{{crowdfundingHousing.housingArea}}平米</span>
                 </li>
                 <li>
-                    朝向：<span>南</span>
+                    朝向：<span>{{crowdfundingHousing.orientation}}</span>
                 </li>
                 <li>
-                    楼层：<span>3层/7层</span>
+                    楼层：<span>{{crowdfundingHousing.locationFloor}}层/{{crowdfundingHousing.totalFloor}}层</span>
                 </li>
                 <li>
-                    年代：<span>2010年</span>
+                    年代：<span>{{crowdfundingHousing.years}}年</span>
                 </li>
                 <li>
                     小区：<span>大华曲江</span>
@@ -112,11 +115,11 @@
                 </li>
                 <li>
                     <div class="dis-inline">期限：</div>
-                    <div class="dis-inline">12月</div>
+                    <div class="dis-inline">{{crowdfundingHousing.deadline}}月</div>
                 </li>
                 <li>
                     <div class="dis-inline">年租金收益：</div>
-                    <div class="dis-inline">22万</div>
+                    <div class="dis-inline">{{crowdfundingHousing.rentalIncome}}万</div>
                 </li>
                 <li>
                     <div class="dis-inline">还款方式：</div>
@@ -131,7 +134,7 @@
             <ul>
                 <li>
                     <div class="dis-inline">房源介绍：</div>
-                    <div class="dis-inline">92平米南北通透爽阳台，五证齐全，产权清晰，低首付，首付20%</div>
+                    <div class="dis-inline">{{crowdfundingHousing.housingDesc}}</div>
                 </li>
                 <li>
                     <div class="dis-inline">在售户型：</div>
@@ -172,10 +175,12 @@
         </button>
     </div>
 </article>
-</body>
+</script>
 <script src="../js/mui.min.js"></script>
 <script src="../js/common/constant.js"></script>
 <script src="../js/common/common.js"></script>
 <script src="../js/base.js"></script>
+<script src="../js/common/mustache.min.js"></script>
 <script src="../js/croundfundingdetail.source.js"></script>
+
 </html>

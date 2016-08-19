@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title></title>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/base.css" rel="stylesheet"/>
+    <link href="../css/myfabu.css" rel="stylesheet"/>
+</head>
+<body>
+<header id="header" class="mui-bar mui-bar-nav">
+    <a class="mui-action-back left-menu-icon f-left back">
+        <div class="back-img">
+            <img src='../res/img/login/backico.png'/>
+        </div>
+    </a>
+    <div class="f-left" style="position:relative;margin-left:0.3rem;">
+        我的发布
+    </div>
+</header>
+<div class="mui-content">
+    <section class="mysign-head-select-section">
+        <ul class="ms-header-menu">
+            <li class="ms-menu-active ms-m" data-type="1">
+                	租房
+            </li>
+            <li class=" ms-m" data-type="2">
+                	买房
+            </li>
+        </ul>
+    </section>
+    <section style="margin-top: 2rem;">
+		<form class="mui-input-group">
+			<div class="mui-input-row">
+				<label><div class="reginputico2"></div></label>
+				<input id='name' type="text" class="mui-input-clear mui-input reginput1" placeholder="请输入姓名">
+			</div>
+			<div class="mui-input-row">
+				<label><div class="reginputico1"></div></label>
+				<input id='phonenum' type="text" class="mui-input-clear mui-input reginput1" placeholder="请输入手机号">
+			</div>
+		</form>
+		
+		<div class="mui-content-padded margintop2">
+				<button id='fabu' class="mui-btn mui-btn-block mui-btn-orange">提交</button>
+		</div>
+	</section>	
+</div>
+
+</body>
+<script src="../js/mui.min.js"></script>
+<script src="../js/common/constant.js"></script>
+<script src="../js/common/common.js"></script>
+<script src="../js/base.js"></script>
+<script src="../js/myfabu.source.js" type="text/javascript"></script>
+</html>

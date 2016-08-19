@@ -1,53 +1,68 @@
-(function () {
-    var pageSize = 15, pageNo = 1;
-    var $guessUlike = base.$('#guessUlike'),$bzmDialog = base.$('.bzm-dialog');
+(function ($) {
+    var trimVal = base.trimVal;
     var page = {
         init: function () {
+            mui.init();
             base.setPageRem();
             mui('#offCanvasContentScroll').scroll();
-            //查询租房列表
-            var querySettings = {
-                url: Constants.rentlist,
-                data: {
-                    pageSize: pageSize,
-                    pageNo: pageNo
-                },
-                type:'post'
-            }
-            page.queryList(querySettings);
+
+            var crowdfundingHousingID = base.param('crowdfundingHousingID');
+            page.queryDetail(crowdfundingHousingID);
             page.bind();
         },
-        queryList: function (querySettings) {
-            muiAjax(querySettings, function (data) {
-                if (data.status == '200') {
-                    var rentArr = data.rows;
-                    if (rentArr.length > 0) {
-                        var listDom = '';
-                        for (var i = 0, j = rentArr.length; i < j; i++) {
-                            var rent = rentArr[i];
-                            listDom += '<li><div class="f-left house-img"><img src="' + rent.mainImage + '"></div><div class="house-content f-left">' +
-                                '<div class="hc-title">' + rent.title + ' ' + rent.advantage + '</div><div class="nearby-house-items"><div><span>' + rent.platName + ' ' + rent.villageName + '</span></div>' +
-                                '<div><span>' + rent.rooms + '室' + rent.halls + '厅' + rent.toilet + '卫 ' + rent.rentalMode + '</span></div></div>' +
-                                '<div class="zan-and-focus"><div class="rent-price">' + rent.rental + '元/月</div>' +
-                                '<div class="zan-focus-area"><div class="zan-icon zf-icon"></div><div>' + rent.supportNum + '</div>' +
-                                '<div class="focus-icon zf-icon"></div><div>' + rent.viewNum + '</div></div></div></div></li>'
-                        }
+        queryDetail: function (crowdfundingHousingID) {
+            var querySettings = {
+                url: Constants.crowdfunddetail + '/' + crowdfundingHousingID,
+                type: 'get'
+            };
 
-                    }
-                } else {
-                }
-            }, function (status) {
-            });
+            if (crowdfundingHousingID) {
+                muiAjax(querySettings, function (data) {
+                    var tmpl = mui('#detail-template')[0].innerHTML;
+					document.body.innerHTML = Mustache.render(tmpl, data);
+					mui('#offCanvasContentScroll').scroll();
+                }, function (status) {
+
+                });
+            }
         },
         bind: function () {
             var muiBack = mui('.mui-back')[0];
-            mui(document).on('tap', '#liZc', function () {
-                $bzmDialog.style.display = 'block';
-            }).on('tap', '#agreeZc', function () {
-                $bzmDialog.style.display = 'none';
+            mui(document).on('tap', '.slider-menu-choose li', function () {
+                var cLocation = mui('.choose-location')[0];
+                if (cLocation.style.display == 'none') {
+                    base.Slider.slideDown(cLocation, 100);
+                    muiBack.style.display = 'block';
+                } else {
+                    base.Slider.slideUp(cLocation, 100);
+                    muiBack.style.display = 'none';
+                }
+            }).on('tap', '#guessUlike li', function () {
+                var id = this.getAttribute('data-id');
+                var pageObj = {
+                    pageUrl: "rent.html?rentid=" + id
+                };
+                pageChange(pageObj);
+            }).on('tap', '#fyxx', function () {
+                mui('#fyxx')[0].className = 'menu-bar-pub fyxx menu-bar-active';
+                mui('#tzjl')[0].className = 'menu-bar-pub tzjl';
+            }).on('tap', '#tzjl', function () {
+                mui('#fyxx')[0].className = 'menu-bar-pub fyxx';
+                mui('#tzjl')[0].className = 'menu-bar-pub tzjl menu-bar-active';
             })
         }
-    }
-    page.init();
+    };
 
-})();
+    function getStandardTime(date) {
+        return date.getFullYear() + '-' + modifyStandTime(date.getMonth() + 1) + '-' + modifyStandTime(date.getDate());
+    }
+
+    function modifyStandTime(time) {
+        if (time < 10) {
+            time = '0' + time;
+        }
+        return time;
+    }
+
+    page.init();
+})(mui);

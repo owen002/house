@@ -3,6 +3,21 @@
     var pageSize = 10, pageNo = 1, canPull = true;
     var trimVal = base.trimVal;
     var $guessUlike = base.$('#guessUlike');
+
+    var param = {
+        'pager.pageSize': pageSize,
+        'pager.pageNo': pageNo,
+        'parameters[cityID]': '',
+        'parameters[minRental]': '',
+        'parameters[maxRental]': '',
+        'parameters[residentialProperty]': '',
+        'parameters[districtID]': '',
+        'parameters[minLocationFloor]': '',
+        'parameters[minRooms]': '',
+        'parameters[maxRooms]': '',
+        'parameters[rentalMode]': '',
+        'parameters[decoration]': ''
+    };
     var page = {
         init: function () {
             base.setPageRem();
@@ -74,14 +89,25 @@
                     muiBack.style.display = 'none';
                 }
             }).on('tap', '#guessUlike li', function () {
-                var id = this.getAttribute('data-id');
+                var crowdfundingHousingID = this.getAttribute('data-id');
                 var pageObj = {
-                    pageUrl: "croudfundingdetail.html?rentid=" + id
+                    pageUrl: "croudfundingdetail.html?crowdfundingHousingID=" + crowdfundingHousingID
                 };
                 pageChange(pageObj);
             })
         }
     };
 
+    function closeSelect() {
+        if (showChooseMenuFlag) {
+            var ac = base.$('.revert-img');
+            var cutype = ac.getAttribute('data-type');
+            var currentcLocation = base.$('.choose-content' + cutype);
+            base.Slider.slideUp(currentcLocation, 100);
+            base.removeClass(ac, 'revert-img');
+            muiBack.style.display = 'none';
+            showChooseMenuFlag = false;
+        }
+    }
     page.init();
 })();

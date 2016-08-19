@@ -521,6 +521,7 @@
     mui.ready(function () {
         var header = document.querySelector('header.mui-bar');
         var list = document.getElementById('list');
+        query();
         //calc hieght
         list.style.height = (document.body.offsetHeight - header.offsetHeight) + 'px';
         //create
@@ -534,5 +535,17 @@
             pageChange(pageObj);
         });
     });
+    function query() {
+        var querySettings = {
+            url: Constants.citylist,
+            type: 'post'
+        };
+
+        muiAjax(querySettings, function (data) {
+
+        }, function () {
+
+        });
+    }
 </script>
 </html>

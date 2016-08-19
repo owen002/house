@@ -28,7 +28,7 @@
             }
         },
         setHeadImg: function (data) {
-            var imgArr = data.attachmentList, picPub = data.pictureServer, j = imgArr.length, ldom = '<section class="mui-slider">', bdom = '<div class="mui-slider-indicator mui-text-right">';
+            var imgArr = data.attachmentList, picPub = '', j = imgArr.length, ldom = '<section class="mui-slider">', bdom = '<div class="mui-slider-indicator mui-text-right">';
             if (j > 0) {
                 ldom += '<div class="mui-slider-group mui-slider-loop">';
                 ldom += '<div class="mui-slider-item mui-slider-item-duplicate"><img src="' + picPub + imgArr[j - 1].attachmentName + '"></div>';

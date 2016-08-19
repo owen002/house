@@ -28,6 +28,9 @@
         background-color: #fff;
         color: #707370;
     }
+    .zan-and-focus{
+        margin-top:0!important;
+    }
 </style>
 <body>
 <header id="header" class="mui-bar mui-bar-nav">
@@ -67,95 +70,44 @@
     <div class="choose-location choose-content1" style="display: none;">
         <div id="location1" class="mui-scroll-wrapper choose-left">
             <div class="mui-scroll">
-                <ul>
+                <ul id="areaList">
                     <li class="choose-left-active">
                         <div class="bzm-navigate-right">
-                            附近
-                        </div>
-                    </li>
-                    <li>
-                        <div class="bzm-navigate-right">
-                            附近
-                        </div>
-                    </li>
-                    <li>
-                        <div class="bzm-navigate-right">
-                            附近
-                        </div>
-                    </li>
-                    <li>
-                        <div class="bzm-navigate-right">
-                            附近
-                        </div>
-                    </li>
-                    <li>
-                        <div class="bzm-navigate-right">
-                            附近
-                        </div>
-                    </li>
-                    <li>
-                        <div class="bzm-navigate-right">
-                            附近
-                        </div>
-                    </li>
-                    <li>
-                        <div class="bzm-navigate-right">
-                            附近
+                            不限
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
-        <div id="locationcontent1" class="mui-scroll-wrapper choose-right">
-            <div class="mui-scroll">
-                <ul>
-                    <li>不限</li>
-                    <li>不限</li>
-                    <li>不限</li>
-                    <li>不限</li>
-                    <li>不限</li>
-                    <li>不限</li>
-                    <li>不限</li>
-                    <li>不限</li>
-                    <li>不限</li>
-                    <li>不限</li>
-                </ul>
-            </div>
-        </div>
+        <!--<div id="locationcontent1" class="mui-scroll-wrapper choose-right">-->
+        <!--<div class="mui-scroll">-->
+        <!--<ul>-->
+        <!--<li>附近</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
     </div>
     <div class="choose-location choose-content2" style="display: none;">
         <div id="choose2Scroll" class="mui-scroll-wrapper choose-content2-inner">
             <div class="mui-scroll">
-                <ul class="choose-content2-inner-ul">
+                <ul id="amountArea" class="choose-content2-inner-ul">
                     <li class="choose-left-active">
                         不限
                     </li>
-                    <li>
-                        30W以下
+                    <li data-max="600">
+                        600元以下
                     </li>
-                    <li>
-                        不限
+                    <li data-min="600" data-max="1200">
+                        600-1200元
                     </li>
-                    <li>
-                        30W以下
+                    <li data-min="1200" data-max="1800">
+                        1200-1800元
                     </li>
-                    <li>
-                        不限
+                    <li data-min="1800" data-max="3000">
+                        1800-3000元
                     </li>
-                    <li>
-                        30W以下
-                    </li>
-                    <li>
-                        不限
-                    </li>
-                    <li>
-                        30W以下
-                    </li>
-                    <li>
-                        不限
-                    </li>
-                    <li>
-                        30W以下
+                    <li data-min="3000">
+                        3000元以上
                     </li>
                 </ul>
             </div>
@@ -164,35 +116,23 @@
     <div class="choose-location choose-content3" style="display: none;">
         <div id="choose3Scroll" class="mui-scroll-wrapper choose-content3-inner">
             <div class="mui-scroll">
-                <ul class="choose-content3-inner-ul">
+                <ul id="sortLiveUl" class="choose-content3-inner-ul">
                     <li class="choose-left-active">
+                        不限
+                    </li>
+                    <li data-id="1">
                         住宅
                     </li>
-                    <li>
+                    <li data-id="2">
                         别墅
                     </li>
-                    <li>
+                    <li data-id="3">
                         写字楼
                     </li>
-                    <li>
+                    <li data-id="4">
                         商铺
                     </li>
-                    <li>
-                        厂房仓库车库
-                    </li>
-                    <li>
-                        住宅
-                    </li>
-                    <li>
-                        别墅
-                    </li>
-                    <li>
-                        写字楼
-                    </li>
-                    <li>
-                        商铺
-                    </li>
-                    <li>
+                    <li data-id="5">
                         厂房仓库车库
                     </li>
                 </ul>
@@ -202,38 +142,46 @@
     <div class="choose-location choose-content4" style="display: none;">
         <div id="choose4Scroll" class="mui-scroll-wrapper choose-content4-inner">
             <div class="mui-scroll">
-                <ul class="choose-content4-inner-ul">
-                    <li class="choose-left-active">
-                        更多1
+                <ul class="choose-content4-inner-ul" id="moreItems">
+                    <li>
+                        <div class="more-rent-title">
+                            户型
+                        </div>
+                        <div class="more-rent-wrapper huxing">
+                            <div class="rent-content choose-left-active">不限</div>
+                            <div class="rent-content" data-type="1">2居</div>
+                            <div class="rent-content" data-type="2">3居</div>
+                        </div>
                     </li>
                     <li>
-                        更多1
+                        <div class="more-rent-title ">
+                            租赁方式
+                        </div>
+                        <div class="more-rent-wrapper zulinfangshi">
+                            <div class="rent-content choose-left-active">不限</div>
+                            <div class="rent-content" data-type="1">整租</div>
+                            <div class="rent-content" data-type="2">转租</div>
+                            <div class="rent-content" data-type="3">合租</div>
+                            <div class="rent-content" data-type="4">日租</div>
+                        </div>
                     </li>
                     <li>
-                        更多1
-                    </li>
-                    <li>
-                        更多1
-                    </li>
-                    <li>
-                        更多1
-                    </li>
-                    <li>
-                        更多1
-                    </li>
-                    <li>
-                        更多1
-                    </li>
-                    <li>
-                        更多1
-                    </li>
-                    <li>
-                        更多1
-                    </li>
-                    <li>
-                        更多1
+                        <div class="more-rent-title ">
+                            装修
+                        </div>
+                        <div class="more-rent-wrapper zhuangxiu">
+                            <div class="rent-content choose-left-active">不限</div>
+                            <div class="rent-content" data-type="1">毛坯</div>
+                            <div class="rent-content" data-type="2">简装</div>
+                            <div class="rent-content" data-type="3">中装</div>
+                            <div class="rent-content" data-type="4">精装</div>
+                            <div class="rent-content" data-type="5">豪华装</div>
+                        </div>
                     </li>
                 </ul>
+            </div>
+            <div class="confirm-btn">
+                <button class="mui-btn mui-btn-block mui-btn-blue confirm-btn-ac" id="confirmChooseBtn">确定</button>
             </div>
         </div>
     </div>
@@ -264,37 +212,10 @@
                                  </div>
                                  <div>
                                      <span>1室1厅 整租</span>
+                                     <div class="rent-price f-right">900元/月</div>
                                  </div>
                              </div>
                              <div class="zan-and-focus">
-                                 <div class="rent-price">900元/月</div>
-                                 <div class="zan-focus-area">
-                                     <div class="zan-icon zf-icon"></div>
-                                     <div>23</div>
-                                     <div class="focus-icon zf-icon"></div>
-                                     <div>223</div>
-                                 </div>
-                             </div>
-                         </div>
-                     </li>
-                     <li>
-                         <div class="f-left house-img">
-                             <img src="../res/img/house.jpg" alt="">
-                         </div>
-                         <div class="house-content f-left">
-                             <div class="hc-title">
-                                 西大街附近900元拎包入住
-                             </div>
-                             <div class="nearby-house-items">
-                                 <div>
-                                     <span>含光门 迎春小区</span>
-                                 </div>
-                                 <div>
-                                     <span>1室1厅 整租</span>
-                                 </div>
-                             </div>
-                             <div class="zan-and-focus">
-                                 <div class="rent-price">900元/月</div>
                                  <div class="zan-focus-area">
                                      <div class="zan-icon zf-icon"></div>
                                      <div>23</div>

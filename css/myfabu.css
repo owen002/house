@@ -1,0 +1,167 @@
+.mui-bar {
+  background-color: #F26520;
+  overflow: hidden;
+  color: #fff;
+}
+.mui-content {
+  color: #000;
+  padding-top: 1.2rem !important;
+  background-color: #F2F2F2;
+}
+.right-contact-a img {
+  width: 0.7rem;
+  margin-top: 0.2rem;
+}
+.left-menu-icon img {
+  width: 0.7rem;
+}
+.back-img {
+  padding-right: 0.25rem;
+  border-right: 1px solid #F5844D;
+  height: 0.8rem;
+  margin-top: 0.2rem;
+}
+.mysign-head-select-section {
+  margin: 0.2rem 0 0;
+  color: #717171;
+  background-color: #fff;
+}
+.mysign-head-select-section .ms-header-menu {
+  background-color: #EBEBEB;
+  overflow: hidden;
+}
+.mysign-head-select-section .ms-header-menu li {
+  float: left;
+  width: 5rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  border-left: 1px solid #d6d6d6;
+  border-top: 1px solid #d6d6d6;
+  border-bottom: 1px solid #d6d6d6;
+  text-align: center;
+}
+.mysign-head-select-section .ms-menu-active {
+  border-top: 2px solid #F5844D !important;
+  border-bottom: none !important;
+  background-color: #fff !important;
+  color: #000 !important;
+  font-weight: bold;
+}
+.mysign-content {
+  display: none;
+  background-color: #fff;
+}
+.mysign-content .mysign-items-ul {
+  padding: 0.2rem 0.3rem;
+}
+.mysign-content .mysign-items-ul .mysign-item-li {
+  padding: 0.1rem 0;
+  overflow: hidden;
+}
+.mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-ul {
+  padding: 0 0.2rem;
+  width: 5.9rem;
+  color: #5d5d5d;
+}
+.mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-ul .header-title {
+  font-size: 0.45rem;
+  font-weight: bold;
+  color: #000;
+}
+.mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-ul li {
+  overflow: hidden;
+}
+.mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-ul li div {
+  width: 42%;
+  float: left;
+}
+.mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-ul li div:nth-of-type(2) {
+  width: 58%;
+}
+.mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-footer {
+  overflow: hidden;
+  height: 1rem;
+  background-color: #EAEAEA;
+}
+.mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-footer .my-sign-amount {
+  font-size: 0.5rem;
+  font-weight: bold;
+  padding: 0 0.3rem;
+  line-height: 1rem;
+}
+.mysign-content .mysign-items-ul .mysign-item-li .mysign-zuf-title {
+  font-size: 0.45rem;
+  font-weight: bold;
+  color: #000;
+}
+.mysign-content .mysign-items-ul .mysign-item-li .mysign-zuf-inner-ul {
+  color: #5d5d5d;
+  border-bottom: 1px solid #ccc;
+}
+.mysign-content .mysign-items-ul .mysign-item-li .mysign-zuf-inner-ul li {
+  overflow: hidden;
+  padding: 0.1rem 0;
+}
+.mysign-content .mysign-items-ul .mysign-item-li .mysign-zuf-inner-ul li div {
+  float: left;
+  width: 33.33%;
+}
+
+.mui-content{
+	background-color: #fff;
+}
+.mui-btn-orange {
+	color: #fff;
+	border: 1px solid #F26521;
+	background-color: #F26521;
+}
+
+.mui-input-row label {
+	width: 1rem;
+	padding: 4px 15px;
+}
+
+.tongyilabel {
+	width: 5rem !important;
+	padding: 4px 15px;
+	color: #888888;
+}
+
+.reginput {
+	width: 9rem !important;
+	float: left !important;
+}
+
+.reginput1 {
+	width: 6rem !important;
+	float: left !important;
+}
+
+.reginputico1 {
+    width: 0.5rem;
+    height: 1rem;
+    margin-top: 0.1rem;
+    background: url(../res/img/login/regico.png) no-repeat 0 0.22rem;
+    background-size: cover;
+}
+
+.reginputico2 {
+    width: 0.5rem;
+    height: 1rem;
+    background: url(../res/img/login/regico.png) no-repeat 0 -1.24rem;
+    background-size: cover;
+}
+
+.mui-input-group .mui-input-row{
+    height:1.5rem;
+}
+.mui-input-row input{
+    height:0.5rem;
+    line-height: 0.5rem;
+    padding-left:0.2rem!important;
+    margin-top: 0.5rem;
+}
+
+.margintop2 {
+	margin-top: 1rem;
+}

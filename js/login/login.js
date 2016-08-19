@@ -62,11 +62,11 @@ function loginEvent(){
 
 		muiAjax(loginSettings, function(data) {
 			if(data.status=='200'){//登录成功
-				var userinfo = {phone:data.memberPhone,username:data.memberName,uid:data.memberID};
+				var userinfo = {phone:data.memberPhone,username:data.memberName,uid:data.memberID,headerPic:data.headerPic};
 				localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(userinfo)));
 				var pageObj={
-					// pageUrl:plus.webview.getLaunchWebview().id
-					pageUrl:'../../index.html'
+					 pageUrl:plus.webview.getLaunchWebview().id
+//					pageUrl:'../../index.html'
 				}
 				pageChange(pageObj);
 			}else{//登录失败

@@ -1,245 +1,252 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
-    <link href="css/mui.min.css" rel="stylesheet"/>
-    <link href="css/base.css" rel="stylesheet"/>
-    <link href="css/index.css" rel="stylesheet"/>
-</head>
-<body>
-<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
-    <!--侧滑菜单部分-->
-    <aside id="offCanvasSide" class="mui-off-canvas-left">
-        <div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-            <div class="mui-scroll">
-                <div class="bzm-user-wrap">
-                    <img src="res/img/user-photo.png" alt=""/>
-                    <div class='bzm-user-name' id="bzm_username"></div>
-                    <button class='go-to-login mui-btn-block' id="goToLogin">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/index.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="bzm-user-wrap">
+							<img src="res/img/user-photo.png" alt="" />
+							<div class='bzm-user-name' id="bzm_username"></div>
+							<button class='go-to-login mui-btn-block' id="goToLogin">
                         登录
                     </button>
-                </div>
-                <ul class='bzm-user-menu'>
-                    <li id="myFirstPage" style="border:none;">
-                        <div class='menu-sy menu-pub'>&nbsp;</div>
-                        <div class='menu-pub-title'>首页</div>
-                    </li>
-                    <li id="myNearBy">
-                        <div class='menu-fj menu-pub'>&nbsp;</div>
-                        <div class='menu-pub-title'>附近</div>
-                    </li>
-                    <li id="mySetUp">
-                        <div class='menu-fx menu-pub'>&nbsp;</div>
-                        <div class='menu-pub-title'>设置</div>
-                    </li>
-                </ul>
-                <ul class="navigate-menus" id="navigateMenus">
-                    <li data-type="1" style=" border-top: 1px solid #555555;">
-                        <a class="bzm-navigate-right">
-                            <div class="navigate-item-each navigate-mybm">&nbsp;</div>
-                            <span>我的发布</span>
-                        </a>
-                    </li>
-                    <li data-type="2">
-                        <a class="bzm-navigate-right">
-                            <div class="navigate-item-each navigate-mysc">&nbsp;</div>
-                            <span>我的报名</span>
-                        </a>
-                    </li>
-                    <li data-type="3">
-                        <a>
-                            <div class="navigate-item-each navigate-lljl">&nbsp;</div>
-                            <span>我的收藏</span>
-                            <div class="navigate-nums"></div>
-                        </a>
-                    </li>
-                    <li data-type="4">
-                        <a>
-                            <div class="navigate-item-each navigate-myyhq">&nbsp;</div>
-                            <span>浏览记录</span>
-                            <div class="navigate-nums"></div>
-                        </a>
-                    </li>
-                    <li data-type="5">
-                        <a>
-                            <div class="navigate-item-each navigate-yqhy">&nbsp;</div>
-                            <span>我的优惠券</span>
-                            <div class="navigate-nums"></div>
-                        </a>
-                    </li>
-                    <li data-type="6">
-                        <a class="bzm-navigate-right">
-                            <div class="navigate-item-each navigate-sz">&nbsp;</div>
-                            <span>邀请好友下载包租妹APP</span>
-                        </a>
-                    </li>
-                </ul>
-                <section class="navigator-footer">
-                    <div class="logout-btn" id="loginBtn">退出账号</div>
-                    <div class="n-footer nf-version">当前版本<span id="currentVersion">1.0</span></div>
-                    <div class="n-footer nf-about">关于我们</div>
-                </section>
-            </div>
-        </div>
-    </aside>
-    <!--主界面部分-->
-    <section class="mui-inner-wrap">
-        <header id="header" class="mui-bar mui-bar-nav">
-            <a class="left-menu-icon f-left" id='offCanvasShow'>
-                <img src='res/img/left-menu.png'/>
-            </a>
-            <div class='location-city f-left' id="locationCity">
-                <div class='location-city-inner'>
-                    <div class='location-city-name f-left'>西安</div>
-                    <div class='location-select f-left'><img src='res/img/arrow.png'/></div>
-                </div>
-            </div>
-            <div class="f-left" style="position:relative;">
-                <input class='search-box' type="text" placeholder="好房尽在包租妹"/>
-                <img src="res/img/search.png" class="search-input-icon" alt="">
-                <img src="res/img/arcode.png" class="search-arcode-icon" alt="">
-            </div>
-            <div class='message-items-amount f-right'>3</div>
-            <a class="f-right right-contact-a mui-icon ">
-                <img src="res/img/message.png" alt="">
-            </a>
-        </header>
-        <article class="mui-content mui-scroll-wrapper" style="background-color: #efeff4" id="offCanvasContentScroll">
-            <div class="mui-scroll">
-                <section id="slider" class="mui-slider">
-                    <script id="index-guangao-template" type="x-tmpl-mustache">
-	                    <div class="mui-slider-group mui-slider-loop">
-						{{#rows}}
-	                        <div class="mui-slider-item">
-	                            <a href="#">
-	                                <img src="{{imagePath}}">
-	                                <p class="mui-slider-title">{{advertisementName}}</p>
-	                            </a>
-	                        </div>
-						{{/rows}}
 						</div>
-						<div class="mui-slider-indicator mui-text-right">
-						{{#rowsArr}}
-	                        <div class="mui-indicator"></div>
-						{{/rowsArr}}
+						<ul class='bzm-user-menu'>
+							<li id="myFirstPage" style="border:none;">
+								<div class='menu-sy menu-pub'>&nbsp;</div>
+								<div class='menu-pub-title'>首页</div>
+							</li>
+							<li id="myNearBy">
+								<div class='menu-fj menu-pub'>&nbsp;</div>
+								<div class='menu-pub-title'>附近</div>
+							</li>
+							<li id="mySetUp">
+								<div class='menu-fx menu-pub'>&nbsp;</div>
+								<div class='menu-pub-title'>设置</div>
+							</li>
+						</ul>
+						<ul class="navigate-menus" id="navigateMenus">
+							<li data-type="1" style=" border-top: 1px solid #555555;">
+								<a class="bzm-navigate-right">
+									<div class="navigate-item-each navigate-mybm">&nbsp;</div>
+									<span>我的发布</span>
+								</a>
+							</li>
+							<li data-type="2">
+								<a class="bzm-navigate-right">
+									<div class="navigate-item-each navigate-mysc">&nbsp;</div>
+									<span>我的报名</span>
+								</a>
+							</li>
+							<li data-type="3">
+								<a>
+									<div class="navigate-item-each navigate-lljl">&nbsp;</div>
+									<span>我的收藏</span>
+									<div class="navigate-nums"></div>
+								</a>
+							</li>
+							<li data-type="4">
+								<a>
+									<div class="navigate-item-each navigate-myyhq">&nbsp;</div>
+									<span>浏览记录</span>
+									<div class="navigate-nums"></div>
+								</a>
+							</li>
+							<li data-type="5">
+								<a>
+									<div class="navigate-item-each navigate-yqhy">&nbsp;</div>
+									<span>我的优惠券</span>
+									<div class="navigate-nums"></div>
+								</a>
+							</li>
+							<li data-type="6">
+								<a class="bzm-navigate-right">
+									<div class="navigate-item-each navigate-sz">&nbsp;</div>
+									<span>邀请好友下载包租妹APP</span>
+								</a>
+							</li>
+						</ul>
+						<section class="navigator-footer">
+							<div class="logout-btn" id="loginBtn">退出账号</div>
+							<div class="n-footer nf-version">当前版本<span id="currentVersion">1.0</span></div>
+							<div class="n-footer nf-about">关于我们</div>
+						</section>
+					</div>
+				</div>
+			</aside>
+			<!--主界面部分-->
+			<section class="mui-inner-wrap">
+				<header id="header" class="mui-bar mui-bar-nav">
+					<a class="left-menu-icon f-left" id='offCanvasShow'>
+						<img src='res/img/left-menu.png' />
+					</a>
+					<div class='location-city f-left' id="locationCity">
+						<div class='location-city-inner'>
+							<div class='location-city-name f-left'>西安</div>
+							<div class='location-select f-left'><img src='res/img/arrow.png' /></div>
 						</div>
-					</script>
-                </section>
-                <section id="Gallery" class="mui-slider">
-                    <div class="menu-wrapper">
-                        <ul class="first-page-menu">
-                            <li id="bzmZf">
-                                <img src="res/img/menu1.png" alt="">
-                                <div>租房</div>
-                            </li>
-                            <li id="bzmSF">
-                                <img src="res/img/menu2.png" alt="">
-                                <div>售房</div>
-                            </li>
-                            <li id="bzmZC">
-                                <img src="res/img/menu3.png" alt="">
-                                <div>众筹</div>
-                            </li>
-                            <!--<li>-->
-                                <!--<img src="res/img/menu4.png" alt="">-->
-                                <!--<div>房主租售</div>-->
-                            <!--</li>-->
-                            <li id="bzmXF">
-                                <img src="res/img/menu4.png" alt="">
-                                <div>新房</div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="header-marq-wrap">
-                        <div class="header-mar-inner">
-                            <div class="f-left marq-title">
-                                <div>包租</div>
-                                <div>头条</div>
-                            </div>
-                            <ul class="f-left marq-content">
-                                <li><span class="spot">&bull;</span>挑选地铁房看这里 上周西安楼盘TOP10</li>
-                                <li><span class="spot">&bull;</span>华清学府城5套特价房随时秒杀！</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-                <section class="guess-you-like">
-                    <div class="guyl-header">
-                        <div class="like-icon f-left">&nbsp</div>
-                        <div class="f-left tbfy">特包房源</div>
-                        <div class="f-right mui-icon-arrowright2">更多</div>
-                    </div>
-                    <ul class="gus-list-ul" id="gussULikeUl">
-                        <li>
-                            <div class="f-left house-img">
-                                <img src="res/img/house.jpg" alt="">
-                            </div>
-                            <div class="house-content f-left">
-                                <div class="hc-title">
-                                    坤元TIME
-                                </div>
-                                <div style="overflow: hidden">
-                                    <div class="hc-name f-left">城南-高新万达现房</div>
-                                    <div class="hc-price-per f-left">8000元/m²</div>
-                                </div>
-                                <dl class="house-biaoqian">
-                                    <dd>3号线</dd>
-                                    <dd>交通枢纽</dd>
-                                    <dd>医院</dd>
-                                    <dd>刚需房</dd>
-                                    <dd>学校</dd>
-                                </dl>
-                                <div class="zan-and-focus">
-                                    <div class="zan-icon zf-icon"></div>
-                                    <div>23</div>
-                                    <div class="focus-icon zf-icon"></div>
-                                    <div>223</div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="f-left house-img">
-                                <img src="res/img/house.jpg" alt="">
-                            </div>
-                            <div class="house-content f-left">
-                                <div class="hc-title">
-                                    坤元TIME
-                                </div>
-                                <div style="overflow: hidden">
-                                    <div class="hc-name f-left">城南-高新万达现房</div>
-                                    <div class="hc-price-per f-left">8000元/m²</div>
-                                </div>
-                                <dl class="house-biaoqian">
-                                    <dd>3号线</dd>
-                                    <dd>交通枢纽</dd>
-                                    <dd>医院</dd>
-                                    <dd>刚需房</dd>
-                                    <dd>学校</dd>
-                                </dl>
-                                <div class="zan-and-focus">
-                                    <div class="zan-icon zf-icon zan-active-icon"></div>
-                                    <div>23</div>
-                                    <div class="focus-icon zf-icon focus-active-icon"></div>
-                                    <div>223</div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-        </article>
-        <div class="mui-off-canvas-backdrop"></div>
-    </section>
-</div>
-</body>
-<script src="js/mui.min.js"></script>
-<script src="js/base.js"></script>
-<script src="js/common/constant.js"></script>
-<script src="js/common/common.js"></script>
-<!--<script src="js/common/geo.js"></script>-->
-<script src="js/index.source.js"></script>
-<script src="js/common/mustache.min.js"></script>
+					</div>
+					<div class="f-left" style="position:relative;">
+						<input class='search-box' type="text" placeholder="好房尽在包租妹" />
+						<img src="res/img/search.png" class="search-input-icon" alt="">
+						<img src="res/img/arcode.png" class="search-arcode-icon" alt="">
+					</div>
+					<div class='message-items-amount f-right'>3</div>
+					<a class="f-right right-contact-a mui-icon ">
+						<img src="res/img/message.png" alt="">
+					</a>
+				</header>
+				<article class="mui-content mui-scroll-wrapper" style="background-color: #efeff4" id="offCanvasContentScroll">
+					<div class="mui-scroll">
+						<section id="slider" class="mui-slider">
+							<script id="index-guangao-template" type="x-tmpl-mustache">
+								<div class="mui-slider-group mui-slider-loop">
+									{{#rows}}
+									<div class="mui-slider-item">
+										<a href="#">
+											<img src="{{imagePath}}">
+											<p class="mui-slider-title">{{advertisementName}}</p>
+										</a>
+									</div>
+									{{/rows}}
+								</div>
+								<div class="mui-slider-indicator mui-text-right">
+									{{#rowsArr}}
+									<div class="mui-indicator"></div>
+									{{/rowsArr}}
+								</div>
+							</script>
+						</section>
+						<section id="Gallery" class="mui-slider">
+							<div class="menu-wrapper">
+								<ul class="first-page-menu">
+									<li id="bzmZf">
+										<img src="res/img/menu1.png" alt="">
+										<div>租房</div>
+									</li>
+									<li id="bzmSF">
+										<img src="res/img/menu2.png" alt="">
+										<div>售房</div>
+									</li>
+									<li id="bzmZC">
+										<img src="res/img/menu3.png" alt="">
+										<div>众筹</div>
+									</li>
+									<!--<li>-->
+									<!--<img src="res/img/menu4.png" alt="">-->
+									<!--<div>房主租售</div>-->
+									<!--</li>-->
+									<li id="bzmXF">
+										<img src="res/img/menu4.png" alt="">
+										<div>新房</div>
+									</li>
+								</ul>
+							</div>
+							<div class="header-marq-wrap">
+								<div class="header-mar-inner">
+									<div class="f-left marq-title">
+										<div>包租</div>
+										<div>头条</div>
+									</div>
+									<ul class="f-left marq-content" id="bzttul">
+								<!--<li><span class="spot">&bull;</span>挑选地铁房看这里 上周西安楼盘TOP10</li>
+                                <li><span class="spot">&bull;</span>华清学府城5套特价房随时秒杀！</li>-->	
+									</ul>
+								</div>
+							</div>
+						</section>
+						<section class="guess-you-like">
+							<div class="guyl-header">
+								<div class="like-icon f-left">&nbsp</div>
+								<div class="f-left tbfy">特包房源</div>
+								<div class="f-right mui-icon-arrowright2">更多</div>
+							</div>
+							<ul class="gus-list-ul" id="gussULikeUl">
+								<li>
+									<div class="f-left house-img">
+										<img src="res/img/house.jpg" alt="">
+									</div>
+									<div class="house-content f-left">
+										<div class="hc-title">
+											坤元TIME
+										</div>
+										<div style="overflow: hidden">
+											<div class="hc-name f-left">城南-高新万达现房</div>
+											<div class="hc-price-per f-left">8000元/m²</div>
+										</div>
+										<dl class="house-biaoqian">
+											<dd>3号线</dd>
+											<dd>交通枢纽</dd>
+											<dd>医院</dd>
+											<dd>刚需房</dd>
+											<dd>学校</dd>
+										</dl>
+										<div class="zan-and-focus">
+											<div class="zan-icon zf-icon"></div>
+											<div>23</div>
+											<div class="focus-icon zf-icon"></div>
+											<div>223</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="f-left house-img">
+										<img src="res/img/house.jpg" alt="">
+									</div>
+									<div class="house-content f-left">
+										<div class="hc-title">
+											坤元TIME
+										</div>
+										<div style="overflow: hidden">
+											<div class="hc-name f-left">城南-高新万达现房</div>
+											<div class="hc-price-per f-left">8000元/m²</div>
+										</div>
+										<dl class="house-biaoqian">
+											<dd>3号线</dd>
+											<dd>交通枢纽</dd>
+											<dd>医院</dd>
+											<dd>刚需房</dd>
+											<dd>学校</dd>
+										</dl>
+										<div class="zan-and-focus">
+											<div class="zan-icon zf-icon zan-active-icon"></div>
+											<div>23</div>
+											<div class="focus-icon zf-icon focus-active-icon"></div>
+											<div>223</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</section>
+					</div>
+				</article>
+				<div class="mui-off-canvas-backdrop"></div>
+			</section>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script src="js/base.js"></script>
+	<script src="js/common/constant.js"></script>
+	<script src="js/common/common.js"></script>
+	<!--<script src="js/common/geo.js"></script>-->
+	<script src="js/index.source.js"></script>
+	<script src="js/common/mustache.min.js"></script>
+	<!--包租头条模板-->
+	<script id="bztttpl" type="x-mustache-tmpl">
+		{{#rows}}
+		<li><span class="spot">&bull;</span>{{title}}</li>
+		{{/rows}}
+	</script>
 
 </html>

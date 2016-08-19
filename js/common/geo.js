@@ -26,7 +26,7 @@ function get_loc(options) {
 				console.log(JSON.stringify(data));
 				if(data.status == 0) {
 					if(options && options.success) {
-						options.success(data.result.addressComponent);
+						options.success(data.result);
 					}
 				} else {
 					if(options && options.error) {

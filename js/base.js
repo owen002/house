@@ -11,6 +11,7 @@ var base = (function () {
         var cwidth = document.body.clientWidth;
         document.getElementsByTagName("html")[0].style.fontSize = cwidth / 10 + 'px';
         baseRemSize = cwidth / 10;
+        return baseRemSize;
     }
 
     function hasClass(dom, className) {

@@ -1,61 +1,116 @@
 a,
 a:visited {
-	color: #fff;
+  color: #fff;
 }
-ul,dl,dd{
-	list-style: none;
-	padding:0;
-	margin:0;
+ul,
+dl,
+dd {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 * {
-	box-sizing: border-box;
-	word-break: break-all;
+  box-sizing: border-box;
+  word-break: break-all;
 }
 .mui-bar {
-	height: 1.2rem;
-	line-height: 1.2rem;
-	padding-right: 0.26rem;
-	padding-left: 0.26rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  padding-right: 0.26rem;
+  padding-left: 0.26rem;
 }
 .f-left {
-	float: left;
+  float: left;
 }
-.dis-inline{
-	display: inline-block;
+.dis-inline {
+  display: inline-block;
 }
 .f-right {
-	float: right;
+  float: right;
 }
-.mui-bar-nav~.mui-content {
-	padding-top: 1.2rem;
+.mui-bar-nav ~ .mui-content {
+  padding-top: 1.2rem;
 }
 .mui-off-canvas-wrap:not(.mui-slide-in).mui-scalable {
-	background-color: #303030;
+  background-color: #303030;
 }
 .mui-scroll-wrapper {
-	background-color: #303030;
-	color:#fff;
+  background-color: #303030;
+  color: #fff;
 }
-body{
-	font-size:0.4rem;
+body {
+  font-size: 0.4rem;
 }
-.color-orange{
-	color:#F26520;
+.color-orange {
+  color: #F26520;
 }
-.mui-btn-block{
-	padding:0.3rem;
+.mui-btn-block {
+  padding: 0.3rem;
 }
-.mui-pull-bottom-tips{
-	display: none;
+.mui-pull-bottom-tips {
+  display: none;
 }
-.mui-pull-bottom-tips{
-	display: block;
+.mui-pull-bottom-tips {
+  display: block;
 }
-.mui-pull-bottom-wrapper{
-	text-align: center;
-	font-size: 0.4rem;
-	color: #a9a9a9;
+.mui-pull-bottom-wrapper {
+  text-align: center;
+  font-size: 0.4rem;
+  color: #a9a9a9;
 }
-.search-box{
-    font-size: 0.4rem!important;
+.bzm-dialog,
+.bzm-dialog-back {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.33);
+  z-index: 9999;
+  display: none;
+}
+.bzm-dialog-content {
+  width: 8rem;
+  padding: 1.5rem 0 0.5rem;
+  position: fixed;
+  z-index: 10000;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 0.15rem;
+  left: 1rem;
+  top: 70px;
+}
+.bzm-dialog-content .zc-left-amount {
+  width: 2.5rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  text-align: right;
+  padding-right: 0.2rem;
+}
+.bzm-dialog-content input {
+  position: absolute;
+  width: 5.2rem;
+  height: 0.7rem;
+  line-height: 0.7rem;
+  border: none;
+  z-index: 11111;
+  left: -0.1rem;
+  top: -0.1rem;
+  font-size: 0.4rem;
+}
+.bzm-dialog-content .bzm-zc-amount-input-wrap {
+  position: relative;
+}
+.bzm-dialog-content .bzm-zc-amount-input-wrap .bzm-zc-amount-input-down {
+  position: relative;
+  width: 5rem;
+  height: 0.8rem;
+  border: 1px solid #ccc;
+  z-index: 11100;
+}
+.bzm-dialog-content .bzm-zc-amount-input-wrap .qitzj {
+  padding: 0.6rem 0 0.1rem;
+}
+.bzm-dialog-content .bzm-zc-amount-input-wrap .one-year-sy {
+  padding: 0.2rem 0 0.8rem;
 }

@@ -4,8 +4,8 @@
 var Constants = window.Constants || {};
 Constants.TIMEOUT = 2000;
 // var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
-var baseUrl = "http://10040.snail.com/rental_interface/";
-   // var baseUrl="http://agent.snail.com/rental_interface/";
+// var baseUrl = "http://10040.snail.com/rental_interface/";
+   var baseUrl="http://agent.snail.com/rental_interface/";
 
 Constants.login = baseUrl + "front/login";
 Constants.getCode = baseUrl + "front/get_checkcode";

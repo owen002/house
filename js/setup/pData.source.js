@@ -147,7 +147,7 @@
 
 	//拍照
 	function cameraImg() {
-		var cmr = plus.camera.getCamera();
+		
 		if(mui.os.ios) {
 			var AVCaptureDevice = plus.ios.importClass("AVCaptureDevice");
 			var Status = AVCaptureDevice.authorizationStatusForMediaType("vide");
@@ -189,11 +189,13 @@
 				isCanuse = false;
 			} finally {
 				if(camera != null) {
+					camera.setPreviewCallback(null);
 					camera.release();
 					camera = null;
 				}
 			}
 			if(isCanuse) {
+				var cmr = plus.camera.getCamera();
 				cmr.captureImage(function(p) {
 					plus.io.resolveLocalFileSystemURL(p, function(entry) {
 						var localurl = entry.toLocalURL(); //把拍照的目录路径，变成本地url路径，例如file:///........之类的。

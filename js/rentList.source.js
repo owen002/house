@@ -82,7 +82,7 @@
                 var ldom = '<li class="choose-left-active"><div class="bzm-navigate-right">不限</div></li>';
                 for (var i = 0; i < areaArr.length; i++) {
                     var area = areaArr[i];
-                    ldom += '<li data-id="' + area.districtID + '"><div class="bzm-navigate-right">' + area.districtName + '</div></li>'
+                    ldom += '<li data-name="' + area.districtName + '" data-id="' + area.districtID + '"><div class="bzm-navigate-right">' + area.districtName + '</div></li>'
                 }
                 $areaList.innerHTML = ldom;
             }, function (status) {
@@ -98,8 +98,8 @@
                         setTimeout(function () {
                             if (canPull) {
                                 pageNo += 1;
-                                param['pager.pageNo'] =pageNo;
-                                    page.queryList();
+                                param['pager.pageNo'] = pageNo;
+                                page.queryList();
                             }
                             self.endPullUpToRefresh(!canPull);
                         }, 500);
@@ -140,9 +140,11 @@
                 pageChange(pageObj);
             }).on('tap', '#areaList li', function () {
                 var id = this.getAttribute('data-id') || '';
+                var name = this.getAttribute('data-name') || '区域';
                 base.removeClass(mui('#areaList li'), 'choose-left-active');
                 base.addClass(this, 'choose-left-active');
                 param['parameters[districtID]'] = id;
+                base.$('#quyu').innerHTML = name;
                 $guessUlike.innerHTML = '';
                 page.queryList();
                 closeSelect();
@@ -153,14 +155,25 @@
                 var max = this.getAttribute('data-max') || '';
                 param['parameters[minRental]'] = min;
                 param['parameters[maxRental]'] = max;
+                if (min || max) {
+                    base.$('#zujin').innerHTML = this.innerHTML;
+                } else {
+                    base.$('#zujin').innerHTML = '租金';
+                }
                 $guessUlike.innerHTML = '';
                 page.queryList();
                 closeSelect();
             }).on('tap', '#sortLiveUl li', function () {
                 base.removeClass(mui('#sortLiveUl li'), 'choose-left-active');
                 base.addClass(this, 'choose-left-active');
-                param['parameters[residentialProperty]'] = (this.getAttribute('data-id') || '');
+                var id = this.getAttribute('data-id') || ''
+                param['parameters[residentialProperty]'] = id;
                 $guessUlike.innerHTML = '';
+                if (id) {
+                    base.$('#fangxing').innerHTML = this.innerHTML;
+                } else {
+                    base.$('#fangxing').innerHTML = '房型';
+                }
                 page.queryList();
                 closeSelect();
             }).on('tap', '#moreItems .huxing .rent-content', function () {

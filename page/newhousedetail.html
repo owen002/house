@@ -21,7 +21,18 @@
     </a>
 </header>
 <article class="mui-content mui-scroll-wrapper" style="background-color: #efeff4" id="offCanvasContentScroll">
-    <div class="mui-scroll">
+    <div class="mui-scroll" id="newhouse-detail-id">
+
+    </div>
+</article>
+</body>
+<script src="../js/mui.min.js"></script>
+<script src="../js/common/constant.js"></script>
+<script src="../js/common/common.js"></script>
+<script src="../js/base.js"></script>
+<script src="../js/newhousedetail.source.js"></script>
+<script src="../js/common/mustache.min.js"></script>
+<script id="newhouse-detail-template" type="x-tmpl-mustache">
         <section class="bzm-house-detail-header">
             <div id="houseDetailImg">
                 <section class="mui-slider">
@@ -76,7 +87,8 @@
             </div>
             <div class="bzm-house-dh-content">
                 <div class="f-left bzm-detail-title" id="houseDesc">
-                    123
+                    {{newHousing.villageName}}
+                    {{newHousing.title}}
                 </div>
                 <div class="f-left detail-op-icon">
                     <img src="../res/img/call-contact.png" alt="">
@@ -86,10 +98,10 @@
         </section>
         <section class="house-content-items house-detail-section" id="rentDetail">
             <ul>
-                <li>城北-背靠市政府</li>
-                <li>开盘时间：2016-08-09</li>
-                <li>单价：<span class="color-orange" style="font-weight: bold">7200元/月</span></li>
-                <li>折扣：<span class="color-orange" style="font-weight: bold">8折</span></li>
+                <li>{{newHousing.villageName}}</li>
+                <li>开盘时间：{{newHousing.openTime}}</li>
+                <li>单价：<span class="color-orange" style="font-weight: bold">{{newHousing.price}}元/平米</span></li>
+                <li>折扣：<span class="color-orange" style="font-weight: bold">{{newHousing.discount}}折</span></li>
             </ul>
         </section>
         <section class="house-detail-section house-content-items">
@@ -97,16 +109,16 @@
                 <div class="bzm-fjpz color-orange">详情</div>
             </div>
             <ul>
-                <li>交房时间：2015-09-09</li>
-                <li>物业类型：住宅</li>
-                <li>装修情况：毛坯</li>
-                <li>产权年限：70年</li>
-                <li>物业公司：包夜集团</li>
-                <li>建筑类型：高层</li>
-                <li>车位配比：1:0.8</li>
-                <li>容积率：住宅4.00</li>
-                <li>开发商：北京万科失业有限公司</li>
-                <li>绿化率：37%</li>
+                <li>交房时间：{{newHousing.transferTime}}</li>
+                <li>物业类型：{{newHousing.residentialProperty}}</li>
+                <li>装修情况：{{newHousing.decoration}}</li>
+                <li>产权年限：{{newHousing.propertyAge}}年</li>
+                <li>物业公司：{{newHousing.estaeCompany}}</li>
+                <li>建筑类型：{{newHousing.architectureKind}}</li>
+                <li>车位配比：{{newHousing.parkingRatio}}</li>
+                <li>容积率：住宅{{newHousing.parkingRatio}}</li>
+                <li>开发商：{{newHousing.developer}}</li>
+                <li>绿化率：{{newHousing.greeningRate}}%</li>
             </ul>
         </section>
         <section class="house-detail-section newhouse-hx">
@@ -174,14 +186,6 @@
                         </div>
                     </div>
                 </div>
-                <!--<li>-->
-                <!--<img src="../res/img/house-11.png" alt="">-->
-                <!--<div>-->
-                <!--<div>户型1</div>-->
-                <!--<div>1室1厅1卫 40平</div>-->
-                <!--<div>约36万元</div>-->
-                <!--</div>-->
-                <!--</li>-->
             </ul>
         </section>
         <section class="house-detail-section newhouse-tsfw">
@@ -247,79 +251,5 @@
             </ul>
         </section>
         <section class="house-detail-section nearby-section">
-            <div class="device-items-head">
-                <div class="bzm-fjpz color-orange">附近推荐</div>
-            </div>
-            <ul class="gus-list-ul">
-                <li>
-                    <div class="f-left house-img">
-                        <img src="../res/img/house.jpg" alt="">
-                    </div>
-                    <div class="house-content f-left">
-                        <div class="hc-title">
-                            西大街附近900元拎包入住
-                        </div>
-                        <div class="nearby-house-items">
-                            <div>
-                                <span>含光门 迎春小区</span>
-                            </div>
-                            <div>
-                                <span>1室1厅 整租</span>
-                                <span class="rent-price">900元/月</span>
-                            </div>
-                            <div>
-                                <div class="f-left newh-detail-adv">
-                                    <span>代金券</span>
-                                    <span>送保洁</span>
-                                    <span>补贴</span>
-                                </div>
-                                <div class="zan-and-focus" style="margin-top: 0;min-width:2.5rem;">
-                                    <div class="zan-focus-area">
-                                        <div class="zan-icon zf-icon"></div>
-                                        <div>23</div>
-                                        <div class="focus-icon zf-icon"></div>
-                                        <div>223</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="f-left house-img">
-                        <img src="../res/img/house.jpg" alt="">
-                    </div>
-                    <div class="house-content f-left">
-                        <div class="hc-title">
-                            西大街附近900元拎包入住
-                        </div>
-                        <div class="nearby-house-items">
-                            <div>
-                                <span>含光门 迎春小区</span>
-                            </div>
-                            <div>
-                                <span>1室1厅 整租</span>
-                            </div>
-                        </div>
-                        <div class="zan-and-focus">
-                            <div class="rent-price">900元/月</div>
-                            <div class="zan-focus-area">
-                                <div class="zan-icon zf-icon"></div>
-                                <div>23</div>
-                                <div class="focus-icon zf-icon"></div>
-                                <div>223</div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </section>
-    </div>
-</article>
-</body>
-<script src="../js/mui.min.js"></script>
-<script src="../js/common/constant.js"></script>
-<script src="../js/common/common.js"></script>
-<script src="../js/base.js"></script>
-<script src="../js/newhousedetail.source.js"></script>
+</script>
 </html>

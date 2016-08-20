@@ -88,63 +88,63 @@ function unsafe_tap() {
 // settings.postData：目标页面参数
 // settings.aniShow：页面加载动态效果,默认为slide-in-right
 function pageChange(settings) {
-// location.href = settings.pageUrl;//浏览器模式
-          settings.postData = settings.postData || {};
-          settings.postData.webViewId = plus.webview.currentWebview().id;
-          var defaults = {
-          	aniShow: "pop-in"
-          };
-          settings = extendSettings(defaults, settings);
-          document.activeElement.blur(); //跳转时关闭软键盘
-          //id去除timestamp
-          	var pos = settings.pageUrl.indexOf("?");
-          	var viewId;
-          	if(pos <= -1) {
-          		viewId = settings.pageUrl;
-          	} else {
-          		viewId = settings.pageUrl.substr(0, pos);
-          	}
-          settings.id=viewId;
-          var ycjwvnums=localStorage.getItem('bzmcjwv');
-          if(ycjwvnums==null||ycjwvnums==undefined||ycjwvnums==''){
-          	ycjwvnums=0;
-          }
-          if(ycjwvnums>=25){//系统已创建的webview超过23，关闭先前的10个webview，释放资源
-          	var allwv=plus.webview.all();
-          	var cwv=0;
-          	for(var o=0;o<allwv.length&&cwv<=10;o++){
-          		if((allwv[o].parent&&allwv[o].parent.id==plus.webview.getLaunchWebview().id)
-          		||(allwv[o].id==plus.webview.getLaunchWebview().id)){//首页及其加载的子页不销毁
-          			
-          		}
-          		else{
-          			allwv.close();
-          			cwv++;
-          		}
-          	}
-          }
-          if(viewId==plus.webview.getLaunchWebview().id){//首页不重复创建
-          	plus.webview.getLaunchWebview().reload();
-          	plus.webview.getLaunchWebview().show();
-          	return;
-          }
-          	mui.openWindow({
-          		id: settings.id,
-          		url: settings.pageUrl,
-          		show: {
-          			autoShow: true, //页面loaded事件发生后自动显示，默认为true
-          			aniShow: settings.aniShow, //页面显示动画，默认为”slide-in-right“；
-          			duration: 200 //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
-          		},
-          		waiting: {
-          			autoShow: false
-          		},
-          		extras: {
-          			param: settings.postData
-          		},
-          		createNew:true //是否重复创建同样id的webview，默认为false:不重复创建，直接显示，此处设为true，主要是考虑回退
-          	});
-          	localStorage.setItem('bzmcjwv',plus.webview.all().length+1);
+location.href = settings.pageUrl;//浏览器模式
+//           settings.postData = settings.postData || {};
+//           settings.postData.webViewId = plus.webview.currentWebview().id;
+//           var defaults = {
+//           	aniShow: "pop-in"
+//           };
+//           settings = extendSettings(defaults, settings);
+//           document.activeElement.blur(); //跳转时关闭软键盘
+//           //id去除timestamp
+//           	var pos = settings.pageUrl.indexOf("?");
+//           	var viewId;
+//           	if(pos <= -1) {
+//           		viewId = settings.pageUrl;
+//           	} else {
+//           		viewId = settings.pageUrl.substr(0, pos);
+//           	}
+//           settings.id=viewId;
+//           var ycjwvnums=localStorage.getItem('bzmcjwv');
+//           if(ycjwvnums==null||ycjwvnums==undefined||ycjwvnums==''){
+//           	ycjwvnums=0;
+//           }
+//           if(ycjwvnums>=25){//系统已创建的webview超过23，关闭先前的10个webview，释放资源
+//           	var allwv=plus.webview.all();
+//           	var cwv=0;
+//           	for(var o=0;o<allwv.length&&cwv<=10;o++){
+//           		if((allwv[o].parent&&allwv[o].parent.id==plus.webview.getLaunchWebview().id)
+//           		||(allwv[o].id==plus.webview.getLaunchWebview().id)){//首页及其加载的子页不销毁
+//
+//           		}
+//           		else{
+//           			allwv.close();
+//           			cwv++;
+//           		}
+//           	}
+//           }
+//           if(viewId==plus.webview.getLaunchWebview().id){//首页不重复创建
+//           	plus.webview.getLaunchWebview().reload();
+//           	plus.webview.getLaunchWebview().show();
+//           	return;
+//           }
+//           	mui.openWindow({
+//           		id: settings.id,
+//           		url: settings.pageUrl,
+//           		show: {
+//           			autoShow: true, //页面loaded事件发生后自动显示，默认为true
+//           			aniShow: settings.aniShow, //页面显示动画，默认为”slide-in-right“；
+//           			duration: 200 //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+//           		},
+//           		waiting: {
+//           			autoShow: false
+//           		},
+//           		extras: {
+//           			param: settings.postData
+//           		},
+//           		createNew:true //是否重复创建同样id的webview，默认为false:不重复创建，直接显示，此处设为true，主要是考虑回退
+//           	});
+//           	localStorage.setItem('bzmcjwv',plus.webview.all().length+1);
 };
 
 // 获取请求参数

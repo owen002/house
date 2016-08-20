@@ -58,6 +58,10 @@ body {
   font-size: 0.4rem;
   color: #a9a9a9;
 }
+.search-box {
+  font-size: 0.4rem !important;
+  color: #505050 !important;
+}
 .bzm-dialog,
 .bzm-dialog-back {
   position: fixed;
@@ -113,4 +117,12 @@ body {
 }
 .bzm-dialog-content .bzm-zc-amount-input-wrap .one-year-sy {
   padding: 0.2rem 0 0.8rem;
+}
+.transition-action {
+  -webkit-transition: all;
+  transition: all;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transition-duration: .2s;
+  transition-duration: .2s;
 }

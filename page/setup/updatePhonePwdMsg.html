@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/base.css" rel="stylesheet"/>
+		<link href="../../css/phone.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back left-menu-icon f-left back">
+				<div class="back-img">
+					<img src='../../res/img/login/backico.png' />
+				</div>
+			</a>
+			<div class="page-title">密码</div>
+		</header>		
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label><div class="reginputico1"></div></label>
+					<input id='account' type="tel" class="mui-input-clear mui-input reginput" placeholder="请输入手机号">
+					<button  id='hqyzm' type="button" class="mui-btn mui-btn-grey">获取验证码</button>
+				</div>
+				<div class="mui-input-row">
+					<label><div class="reginputico2"></div></label>
+					<input id='yzma' type="text" class="mui-input-clear mui-input reginput1" placeholder="验证码">
+				</div>
+				
+			</form>
+			
+			<div class="mui-content-padded">
+				<button id='nextStep' class="mui-btn mui-btn-block mui-btn-orange">下一步</button>
+			</div>
+			
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src= "../../js/base.js"></script>
+		<script src="../../js/common/constant.js"></script>
+        <script src="../../js/common/common.js"></script>
+	    <script src= "../../js/setup/updatePwd.js"></script>
+	</body>
+</html>

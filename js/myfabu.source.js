@@ -21,21 +21,19 @@
 
     function switchTab($this) {
         currentid = $this.getAttribute('data-type');
-        mui.each(document.querySelectorAll('.ms-m'),function(index){
-        	this.classList.toggle('ms-menu-active');
-        });
-//      base.removeClass(base.$s('.ms-m'), 'ms-menu-active');
-//      base.addClass($this, 'ms-menu-active');
-//      base.removeClass(base.$('.section-active'), 'section-active');
-//      base.addClass(base.$('.ms-con' + currentid), 'section-active');
+
+        base.removeClass(base.$s('.ms-m'), 'ms-menu-active');
+        base.addClass($this, 'ms-menu-active');
+        base.removeClass(base.$('.section-active'), 'section-active');
+        base.addClass(base.$('.ms-con' + currentid), 'section-active');
     }
 function fabuEvent(){
 	document.activeElement.blur(); //关闭键盘
-		var name = document.querySelector("#name").value;
+		var content = document.querySelector("#content").value;
 		var sjh = document.querySelector("#phonenum").value;
 
-		if(name == null || name == "") {
-			mui.toast("请输入名称");
+		if(content == null || content == "") {
+			mui.toast("请输入小区");
 			return;
 		}
 
@@ -51,15 +49,13 @@ function fabuEvent(){
 		}
         
         var data={
-        	contacts:name,
+        	content:content,
+        	kind:currentid,
         	contactsNumber:sjh
         };
         var fburl='';
-        if(currentid==='1'){
-        	fburl=Constants.myfabuZf;
-        }else{
-        	fburl=Constants.myfabuMf;
-        }
+        //统一修改成我的需求
+        fburl=Constants.myneed;
 		var fabuSettings = {
 			data:JSON.stringify(data),
 			type: "post",

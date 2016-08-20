@@ -283,6 +283,9 @@
         base.$('#rent3').style.display = 'none';
         base.$('#rent4').style.display = 'none';
         base.$('.bzm-dialog').style.display = 'none';
-
     }
+
+    mui(document).on('tap', '.search-box', function () {
+        base.goSearch('index');
+    });
 })();

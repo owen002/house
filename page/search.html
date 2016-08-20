@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/base.css" rel="stylesheet"/>
+    <style>
+        .mui-bar {
+            background-color: #F8F8F8;
+            color: #6f6e6e;
+            position: relative;
+        }
+
+        .arrow-grey {
+            width: 0.3rem;
+            float: right;
+            margin-top: 0.5rem;
+        }
+
+        #searchContent {
+            border: 1px solid #eee;
+            width: 6.3rem;
+            font-size: 0.4rem;
+            height: 1rem;
+            line-height: 1rem;
+            padding-left: 1rem;
+        }
+
+        .search-input-icon {
+            position: absolute;
+            left: 0.2rem;
+            top: 0.3rem;
+            width: 0.6rem !important;
+        }
+
+        .arrow-top {
+            position: absolute;
+            width: 0.6rem;
+            left: 1.45rem;
+            top: 1.3rem;
+        }
+
+        .search-items-ul {
+            width: 3.1rem;
+            left: 0.2rem;
+            top: 1.6rem;
+            position: absolute;
+            background-color: #5E5E5E;
+            color: #fff;
+        }
+
+        .search-items-ul li {
+            border-bottom: 1px solid #908f8f;
+            height: 1.2rem;
+            line-height: 1.2rem;
+            padding-left: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+<header id="header" class="mui-bar mui-bar-nav">
+    <div class="f-left" id="headerMenu" style="text-align: center;width: 1.65rem;">
+        <span id="tttitle">二手房</span>
+        <img class="arrow-grey" src="../res/img/arrow-grey.png" alt="">
+    </div>
+    <div class="f-left" style="position: relative;margin-left: 0.4rem;">
+        <input id="searchContent" type="text" placeholder="请输入小区名或地址">
+        <img src="../res/img/search.png" class="search-input-icon" alt="">
+    </div>
+    <div class="f-right mui-action-back">
+        取消
+    </div>
+    <div class="mui-clearfix"></div>
+    <div id="searchItems" class="search-items transition-action" style="display: none;">
+        <img class="arrow-top" src="../res/img/arrow-top.png" alt="">
+        <ul class="search-items-ul">
+            <li>租房</li>
+            <li>二手房</li>
+            <li>新房</li>
+            <li>众筹</li>
+        </ul>
+    </div>
+</header>
+</body>
+<script src="../js/mui.min.js"></script>
+<script src="../js/common/constant.js"></script>
+<script src="../js/common/common.js"></script>
+<script src="../js/base.js"></script>
+<script>
+    (function () {
+        base.setPageRem();
+        base.$('#searchContent').focus();
+        mui(document).on('tap', '#headerMenu', function () {
+            base.toggle(base.$('#searchItems'));
+        }).on('tap', '.search-items-ul li', function () {
+            base.toggle(base.$('#searchItems'));
+            base.$('#tttitle').innerText = this.innerText;
+        })
+    })()
+</script>
+</html>

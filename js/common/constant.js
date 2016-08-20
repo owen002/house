@@ -3,9 +3,12 @@
  */
 var Constants = window.Constants || {};
 Constants.TIMEOUT = 2000;
+ // var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
+//var baseUrl = "http://10040.snail.com/rental_interface/";
+   var baseUrl="http://agent.snail.com/rental_interface/";
 // var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
 // var baseUrl = "http://10040.snail.com/rental_interface/";
-   var baseUrl="http://agent.snail.com/rental_interface/";
+//   var baseUrl="http://agent.snail.com/rental_interface/";
 
 Constants.login = baseUrl + "front/login";
 Constants.getCode = baseUrl + "front/get_checkcode";
@@ -26,5 +29,14 @@ Constants.bztt=baseUrl+"front/json_information";
 //我的众筹
 Constants.myenrollList=baseUrl+'json_member_enroll';
 //我的发布
-Constants.myfabuZf=baseUrl+'save_member_rental';
-Constants.myfabuMf=baseUrl+'save_member_buy';
+//Constants.myfabuZf=baseUrl+'save_member_rental';
+//Constants.myfabuMf=baseUrl+'save_member_buy';
+//我的需求[我的发布合并成我的需求]
+Constants.myneed=baseUrl+'save_member_demand';
+//新房
+Constants.newhouselist=baseUrl+'front/json_new_housing';
+Constants.newhousedetail=baseUrl+'front/view_new_housing';
+//上传图像
+Constants.mysctx=baseUrl+'upload_header_portrait';
+//浏览记录
+Constants.browseRecord=baseUrl+'/json_member_browse';

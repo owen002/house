@@ -204,9 +204,39 @@ var base = (function () {
         });
     }
 
-    // mui(document).on('tap','.back',function(){
-    //     history.back();
-    // });
+    function goSearch(type) {
+        var pageObj = {
+            pageUrl: "search.html"
+        };
+        if (type && type == 'index') {
+            pageObj.pageUrl = 'page/search.html'
+        }
+        pageChange(pageObj);
+    }
+
+    function isPhoneNum(sjh) {
+        if (sjh == null || sjh == "") {
+            mui.toast("请输入手机号");
+            return false;
+        }
+
+        var reg = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        if (!reg.test(sjh)) {
+            mui.toast("手机号格式不正确");
+            return false;
+        }
+        return true;
+    }
+
+    function toggle(ele) {
+        var dis = ele.style.display || '';
+        if (dis == 'none') {
+            ele.style.display = 'block';
+        } else {
+            ele.style.display = 'none';
+        }
+    }
+
     return {
         setPageRem: setPageRem,
         hasClass: hasClass,
@@ -219,6 +249,9 @@ var base = (function () {
         $s: querySelectAll,
         param: GetQueryString,
         trimVal: trimVal,
-        startSlider: startSlider
+        startSlider: startSlider,
+        isPhoneNum: isPhoneNum,
+        goSearch: goSearch,
+        toggle:toggle
     }
 })();

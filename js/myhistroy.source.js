@@ -1,23 +1,20 @@
 (function () {
     mui.init();
     var pageSize = 10, pageNo = 1, canPull = true;
-    var trimVal = base.trimVal;
-    var $guessUlike = base.$('#guessUlike');
+    var currentid = 1;
     var page = {
         init: function () {
             base.setPageRem();
-            base.setMuiBackHeight();
-            //列表
-            page.queryList();
+            page.queryList(2);
             page.bind();
         },
-        queryList: function () {
+        queryList: function (type) {
             var querySettings = {
-                url: Constants.newhouselist,
+                url: Constants.browseRecord,
                 data: {
                     'pager.pageSize': pageSize,
                     'pager.pageNo': pageNo,
-                    'parameters[cityID]':1
+                    'parameters[kind]':currentid,
                 },
                 type: 'post'
             };
@@ -38,8 +35,13 @@
 						rows: rows
 				    };
 				    
-				    var tmpl = mui('#rows-li-template')[0].innerHTML;
-					mui('#guessUlike')[0].innerHTML += Mustache.render(tmpl, obj);
+				    var tmpl = mui('#rows-li-template'+currentid)[0].innerHTML;
+				    //下拉
+				    if(type ==1)
+						mui('#guessUlike'+currentid)[0].innerHTML += Mustache.render(tmpl, obj);
+					//tab切换
+					else if(type ==2)
+					    mui('#guessUlike'+currentid)[0].innerHTML = Mustache.render(tmpl, obj);
                     
                 } else {
                     canPull = false;
@@ -48,7 +50,12 @@
 
             });
         },
+
         bind: function () {
+            mui('.ms-header-menu').on('tap', '.ms-m', function () {
+                switchTab(this);
+            });
+
             mui('.gueulike-wrapper').pullToRefresh({
                 //上拉加载更多
                 up: {
@@ -57,7 +64,7 @@
                         setTimeout(function () {
                             if (canPull) {
                                 pageNo += 1;
-                                page.queryList();
+                                page.queryList(1);
                             }
                             self.endPullUpToRefresh(!canPull);
                         }, 500);
@@ -76,14 +83,23 @@
                     muiBack.style.display = 'none';
                 }
             }).on('tap', '#guessUlike li', function () {
-                var newHousingID = this.getAttribute('data-id');
+                var id = this.getAttribute('data-id');
                 var pageObj = {
-                    pageUrl: "newhousedetail.html?newHousingID=" + newHousingID
+                    pageUrl: "newhousedetail.html?houseid=" + id
                 };
                 pageChange(pageObj);
             })
         }
     };
+
+    function switchTab($this) {
+        currentid = $this.getAttribute('data-type');
+        base.removeClass(base.$s('.ms-m'), 'ms-menu-active');
+        base.addClass($this, 'ms-menu-active');
+        base.removeClass(base.$('.section-active'), 'section-active');
+        base.addClass(base.$('.ms-con' + currentid), 'section-active');
+        page.queryList(2);
+    }
 
     page.init();
 })();

@@ -308,7 +308,7 @@ body {
   display: block;
   float: left;
   width: 1rem;
-  margin: 0.5rem 0.2rem 0 0.4rem;
+  margin: 0.23rem 0.2rem 0.2rem 0.4rem;
 }
 .menu-item-un-ul li .item-li .item-li-det {
   margin-left: 0.3rem;
@@ -320,6 +320,12 @@ body {
   color: #F5844D;
   font-size: 0.45rem;
   font-weight: bold;
+  height: 0.5rem;
+  line-height: 0.5rem;
+}
+.menu-item-un-ul li .item-li .item-li-det .tedian-dett {
+  height: 0.5rem;
+  line-height: 0.5rem;
 }
 .gus-list-ul li {
   position: relative;

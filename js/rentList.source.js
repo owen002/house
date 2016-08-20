@@ -55,8 +55,8 @@
                             '<div class="hc-title">' + trimVal(rent.title) + '</div><div class="nearby-house-items"><div><span>' + trimVal(rent.platName) + ' ' + trimVal(rent.villageName) + '</span></div>' +
                             '<div><span>' + trimVal(rent.rooms) + '室' + trimVal(rent.halls) + '厅' + ' ' + trimVal(rent.rentalMode) + '</span><div class="rent-price">' + trimVal(rent.rental) + '元/月</div></div></div>' +
                             '<div class="zan-and-focus">' +
-                            '<div class="zan-focus-area"><div class="zan-active-icon zf-icon"></div><div>' + trimVal(rent.supportNum) + '</div>' +
-                            '<div class="focus-active-icon zf-icon"></div><div>' + trimVal(rent.viewNum) + '</div></div></div></div>';
+                            '<div class="zan-focus-area"><div> <img class="z-img" src="../res/img/new/zan.png" alt=""></div><div>' + trimVal(rent.supportNum) + '</div>' +
+                            '<div> <img class="f-img" src="../res/img/new/focus.png" alt=""></div><div>' + trimVal(rent.viewNum) + '</div></div></div></div>';
                         li.innerHTML = liDom;
                         li.setAttribute('data-id', rent.rentalHousingID);
                         fragment.appendChild(li);

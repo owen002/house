@@ -8,7 +8,15 @@
     <link href="../css/mui.min.css" rel="stylesheet"/>
     <link href="../css/base.css" rel="stylesheet"/>
     <link href="../css/myhistroy.css" rel="stylesheet"/>
-    
+    <style>
+        .zan-and-focus .zan-focus-area {
+            margin-top: 0 !important;
+        }
+
+        .zan-and-focus {
+            margin-top: 0 !important;
+        }
+    </style>
 </head>
 <body>
 <header id="header" class="mui-bar mui-bar-nav">
@@ -25,16 +33,16 @@
     <section class="mysign-head-select-section">
         <ul class="ms-header-menu">
             <li class="ms-menu-active ms-m" data-type="1">
-                	租房
+                租房
             </li>
             <li class=" ms-m" data-type="2">
-           			售房     
+                售房
             </li>
             <li class=" ms-m" data-type="3">
-                	众筹
+                众筹
             </li>
             <li class=" ms-m" data-type="4">
-                	新房
+                新房
             </li>
         </ul>
     </section>
@@ -61,6 +69,7 @@
                             <span style="font-size: 0.45rem">1室1厅 75平米</span>
                             <span class="rent-price">900元/月</span>
                         </div>
+                        <div class="mui-clearfix"></div>
                         <div>
                             <span class="f-right">
                             2016-07-28
@@ -79,7 +88,7 @@
                 </div>
                 <div class="house-content f-left">
                     <div class="hc-title">
-                        	众筹街附近900元拎包入住
+                        众筹街附近900元拎包入住
                     </div>
                     <div class="nearby-house-items">
                         <div>
@@ -107,7 +116,7 @@
                 </div>
                 <div class="house-content f-left">
                     <div class="hc-title">
-                        	众筹街附近900元拎包入住
+                        众筹街附近900元拎包入住
                     </div>
                     <div class="nearby-house-items">
                         <div>
@@ -159,12 +168,17 @@
             </div>
             <div class="zan-and-focus">
                  <div class="zan-focus-area">
-                     <div class="zan-icon zf-icon"></div>
+                     <div>
+                        <img class="z-img" src="../res/img/new/zan.png" alt="">
+                     </div>
                      <div>{{supportNum}}</div>
-                     <div class="focus-icon zf-icon"></div>
+                     <div>
+                        <img class="f-img" src="../res/img/new/focus.png" alt="">
+                     </div>
                      <div>{{viewNum}}</div>
                  </div>
             </div>
+            <div class="mui-clearfix"></div>
             <div>
                 <span class="f-right">
                 2016-07-28
@@ -174,6 +188,9 @@
     </div>
 </li>
 {{/rows}}
+
+
+
 </script>
 
 <!--售房模板-->
@@ -197,12 +214,17 @@
             </div>
             <div class="zan-and-focus">
                  <div class="zan-focus-area">
-                     <div class="zan-icon zf-icon"></div>
+                     <div>
+                        <img class="z-img" src="../res/img/new/zan.png" alt="">
+                     </div>
                      <div>{{supportNum}}</div>
-                     <div class="focus-icon zf-icon"></div>
+                     <div>
+                        <img class="f-img" src="../res/img/new/focus.png" alt="">
+                     </div>
                      <div>{{viewNum}}</div>
                  </div>
             </div>
+            <div class="mui-clearfix"></div>
             <div>
                 <span class="f-right">
                 2016-07-28
@@ -212,6 +234,9 @@
     </div>
 </li>
 {{/rows}}
+
+
+
 </script>
 
 <!--众筹-->
@@ -235,12 +260,17 @@
             </div>
             <div class="zan-and-focus">
                  <div class="zan-focus-area">
-                     <div class="zan-icon zf-icon"></div>
+                     <div>
+                        <img class="z-img" src="../res/img/new/zan.png" alt="">
+                     </div>
                      <div>{{supportNum}}</div>
-                     <div class="focus-icon zf-icon"></div>
+                     <div>
+                        <img class="f-img" src="../res/img/new/focus.png" alt="">
+                     </div>
                      <div>{{viewNum}}</div>
                  </div>
             </div>
+            <div class="mui-clearfix"></div>
             <div>
                 <span class="f-right">
                 2016-07-28
@@ -250,6 +280,9 @@
     </div>
 </li>
 {{/rows}}
+
+
+
 </script>
 
 <!--新房模板-->
@@ -273,12 +306,17 @@
             </div>
             <div class="zan-and-focus">
                  <div class="zan-focus-area">
-                     <div class="zan-icon zf-icon"></div>
+                     <div>
+                        <img class="z-img" src="../res/img/new/zan.png" alt="">
+                     </div>
                      <div>{{supportNum}}</div>
-                     <div class="focus-icon zf-icon"></div>
+                     <div>
+                        <img class="f-img" src="../res/img/new/focus.png" alt="">
+                     </div>
                      <div>{{viewNum}}</div>
                  </div>
             </div>
+            <div class="mui-clearfix"></div>
             <div>
                 <span class="f-right">
                 2016-07-28
@@ -288,6 +326,9 @@
     </div>
 </li>
 {{/rows}}
+
+
+
 </script>
 
 </html>

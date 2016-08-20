@@ -65,8 +65,8 @@ function loginEvent(){
 				var userinfo = {phone:data.memberPhone,username:data.memberName,uid:data.memberID,headerPic:data.headerPic};
 				localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(userinfo)));
 				var pageObj={
-					 pageUrl:plus.webview.getLaunchWebview().id
-//					pageUrl:'../../index.html'
+					 // pageUrl:plus.webview.getLaunchWebview().id
+					pageUrl:'../../index.html'
 				}
 				pageChange(pageObj);
 			}else{//登录失败

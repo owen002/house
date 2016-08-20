@@ -47,17 +47,26 @@
     z-index: 99;
     width: 90%;
     margin: 0 auto;
+    .amount-percent {
+      position: absolute;
+      color: #ffffff;
+      left: 50%;
+      top: 0;
+      height: 0.3rem;
+      font-size: 0.3rem;
+      line-height: 0.35rem;
+    }
   }
   .jdu-public {
-    height: 0.4rem;
-    border-radius: 0.2rem;
+    height: 0.3rem;
+    border-radius: 0.15rem;
   }
   .zc-jdt {
     width: 100%;
     position: absolute;
     top: 0;
     left: -50%;
-    background-color: #F26520;
+    background-color: #4ACB28;
     z-index: 999;
   }
   .detail-img {
@@ -574,4 +583,13 @@
       margin-left: 2rem;
     }
   }
+}
+
+.grad {
+  background: -moz-linear-gradient(top, #8AEE55 0%, #45C123 50%, #29890D 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8AEE55), color-stop(100%, #29890D));
+  background: -webkit-linear-gradient(top, #8AEE55 0%, #45C123 50%, #29890D 100%);
+  background: -o-linear-gradient(top, #8AEE55 0%, #45C123 50%, #29890D 100%);
+  background: -ms-linear-gradient(top, #8AEE55 0%, #45C123 50%, #29890D 100%);
+  background: linear-gradient(to bottom, #8AEE55 0%, #45C123 50%, #29890D 100%);
 }

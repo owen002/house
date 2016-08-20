@@ -10,22 +10,33 @@
     <link href="../css/rent.css" rel="stylesheet"/>
 </head>
 <style>
-.mui-table-view{
-    position: relative;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
-    list-style: none;
-    background-color: #fff;
-}
-.mui-content {
-    color: #000;
-    padding-top:2.4rem!important;
-}
-.zan-focus-area{
-    margin-top: 0 !important;
-    float: left!important;
-}
+    .mui-table-view {
+        position: relative;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+        list-style: none;
+        background-color: #fff;
+    }
+
+    .mui-content {
+        color: #000;
+        padding-top: 2.4rem !important;
+    }
+
+    .zan-focus-area {
+        margin-top: 0 !important;
+        float: left !important;
+    }
+
+    .bzm-house-detail-header {
+        box-shadow: none;
+        margin: 0.1rem 0;
+    }
+
+    .zc-jdt-wrapper {
+        width: 100%!important;
+    }
 </style>
 <body>
 <header id="header" class="mui-bar mui-bar-nav">
@@ -190,7 +201,7 @@
                 <div class="f-left tbfy">猜你喜欢</div>
             </div>
             <ul class="gus-list-ul" id="guessUlike">
-  
+
             </ul>
         </section>
     </div>
@@ -207,6 +218,7 @@
             <div class="hc-title">
                 	{{title}}
             </div>
+            <div class="mui-clearfix"></div>
             <div class="nearby-house-items">
                 <div>
                     <span>{{districtName}}</span>
@@ -223,6 +235,14 @@
                 <div>
                     <span>{{repaymentMethod}}</span>
                 </div>
+                <section class="bzm-house-detail-header">
+                    <div class="zc-jdt-wrapper jdu-public jdu-public">
+                        <div class='amount-percent'>50%</div>
+                        <div class="zc-jdt grad jdu-public transition-action">
+                            &nbsp;
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </li>
@@ -230,13 +250,17 @@
         <div class="house-content f-left zc-house-content">
             <div class="zan-and-focus zc-zan-and-focus">
                 <div class="zan-focus-area">
-                    <div class="zan-active-icon zf-icon"></div>
+                    <div>
+                        <img class="z-img" src="../res/img/new/zan.png" alt="">
+                    </div>
                     <div>{{supportNum}}</div>
-                    <div class="focus-active-icon zf-icon"></div>
+                    <div>
+                        <img class="f-img" src="../res/img/new/focus.png" alt="">
+                    </div>
                     <div>{{viewNum}}</div>
-                </div>
-                <div class="f-left zc-amount">
-                    剩万/总{{totalPrice}}万
+                    <div class="f-right zc-amount">
+                        剩万/总{{totalPrice}}万
+                    </div>
                 </div>
             </div>
         </div>
@@ -245,6 +269,7 @@
         </div>
     </li>
     {{/rows}}
+
 </script>
 <script src="../js/mui.min.js"></script>
 <script src="../js/common/constant.js"></script>

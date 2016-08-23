@@ -50,11 +50,12 @@
     .amount-percent {
       position: absolute;
       color: #ffffff;
-      left: 50%;
+      left: 45%;
       top: 0;
       height: 0.3rem;
       font-size: 0.3rem;
       line-height: 0.35rem;
+      z-index: 99999;
     }
   }
   .jdu-public {
@@ -224,14 +225,6 @@
             background-size: cover;
             margin: 0 0.1rem;
           }
-          .zan-focus-area {
-            overflow: hidden;
-            margin-top: 0.15rem;
-            div {
-              float: left;
-              overflow: hidden;
-            }
-          }
         }
         .nearby-house-items {
           .zc-detail-right {
@@ -244,6 +237,20 @@
       font-size: 0.35rem;
     }
   }
+}
+
+.zan-focus-area {
+  overflow: hidden;
+  margin-top: 0.15rem;
+  div {
+    float: left;
+    overflow: hidden;
+  }
+}
+
+.right-contact-a{
+  width: 0.7rem;
+  font-size: 0.7rem;
 }
 
 .zc-im-go-tz {
@@ -260,6 +267,12 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.zc-amount {
+  margin-left: 0.1rem;
+  font-size: 0.42rem;
+  color: #f26520;
 }
 
 .bzm-croudfunding {
@@ -280,12 +293,6 @@
       .zc-zan-and-focus {
         float: none !important;
         margin-top: 0 !important;
-        .zc-amount {
-          margin-left: 0.3rem;
-          font-size: 0.5rem;
-          color: #f26520;
-          font-weight: bold;
-        }
       }
       .zc-go-detail {
         text-align: center;
@@ -299,6 +306,11 @@
       }
     }
   }
+}
+
+.month-price {
+  color: #F26521;
+  background-color: #FFE6CA;
 }
 
 .like-icon {

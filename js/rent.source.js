@@ -1,12 +1,14 @@
 (function ($) {
     var trimVal = base.trimVal;
+    var rentid = "";
+    var contact = "";//联系电话，用来调取电话
     var page = {
         init: function () {
             mui.init();
             base.setPageRem();
             mui('#offCanvasContentScroll').scroll();
 
-            var rentid = base.param('rentid');
+            rentid = base.param('rentid');
             //查询租房详情
             page.queryDetail(rentid);
             page.bind();
@@ -55,6 +57,7 @@
         },
         setTitleInfo: function (data) {
             var house = data.rentalHousing;
+            contact = house.contactNumber;
             base.$('#pageTitle').innerText = trimVal(house.villageName);
             base.$('#houseDesc').innerText = trimVal(house.title);
             base.$('#villDesc').innerText = trimVal(house.housingDesc);
@@ -88,6 +91,34 @@
                     pageUrl: "rent.html?rentid=" + id
                 };
                 pageChange(pageObj);
+            }).on('tap', '#dzan', function () {
+                var dzsetting={
+                	url:Constants.dzan+'/'+rentid+'/1',
+                	type:'post'
+                };
+                muiAjax(dzsetting, function (data) {
+                    mui.toast(data.message);
+                }, function (status) {
+
+                });
+            }).on('tap', '#callphone', function () {//拨打电话
+                var btnArray = ['拨打', '取消']; 
+                var Phone =parseInt(contact);
+                mui.confirm('是否拨打 ' + Phone + ' ？', '', btnArray, function(e) { 
+                    if (e.index == 0) { 
+                        plus.device.dial(Phone, true); 
+                    }  
+                }); 
+            }).on('tap', '#fav', function () {//加入收藏
+                var dzsetting={
+                	url:Constants.memberFav+'/'+rentid+'/1',
+                	type:'post'
+                };
+                muiAjax(dzsetting, function (data) {
+                    mui.toast(data.message);
+                }, function (status) {
+
+                });
             })
         }
     };

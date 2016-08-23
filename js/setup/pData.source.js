@@ -1,10 +1,12 @@
 (function() {
 	mui.init();
 	var currentid = '1';
+	var nickName = '';
 	var page = {
 		init: function() {
 			base.setPageRem();
 			page.bind();
+			page.loaduserInfo();
 			page.loadImg();
 		},
 
@@ -13,10 +15,25 @@
 			mui.plusReady(function() {
 				mui(document).on('tap', '#grtxspan', scTx);
 			});
+			
+			mui(document).on('tap', '#setsex', function () {
+	            setsex();
+	        }).on('tap', '#sub2', function () {
+	            savesex();
+	        }).on('tap', '#setnickname', function () {
+	            var pageObj={
+					pageUrl:'../../page/setup/nickname.html'
+				}
+				pageChange(pageObj);
+	        }).on('tap', '#updatepwd', function () {
+	            var pageObj={
+					pageUrl:'../../page/setup/updatePhonePwdMsg.html'
+				}
+				pageChange(pageObj);
+	        })
 		},
 		loadImg: function() { //从本地localstorage里加载会员图像
-			var userinfo = decodeURIComponent(localStorage.getItem('userinfo'));
-			var grtx = JSON.parse(userinfo).headerPic;
+			var grtx = locgetuserinfo(headerPic);
 			if(grtx==undefined||grtx==null||grtx==''){
 				grtx='../../images/login/head.png';
 			}
@@ -28,6 +45,14 @@
 				}
 			};
 			getTemplate(txtmpl);
+		},
+		loaduserInfo: function() { //从本地localstorage里加载会员图像
+			var userinfo = localStorage.getItem('userinfo');
+		    userinfo = JSON.parse(decodeURIComponent(userinfo));
+		    base.$('#account').innerHTML = userinfo.phone;
+		    nickName = userinfo.nickName;
+		    base.$('#nickName').innerHTML = nickName;
+		    
 		}
 	};
 
@@ -106,6 +131,8 @@
 							obj: data
 						};
 						getTemplate(txtmpl);
+						locsaveuserinfo('headerPic',data.headerPic);
+						
 					} else if(data.status === '401') {//未登录
 						var pageObj = {
 							pageUrl: '../../page/login/login.html'
@@ -255,6 +282,46 @@
 		}
 
 	}
+	
+	function setsex() { 
+		base.$('#setsex').style.display="block";
+	}
+	
+	function savesex() { 
+		//alert(document.getElementByName("se-type"));return;
+        var gender = 2;
+		if(gender == null || gender == "") {
+			mui.toast("请选择性别");
+			return;
+		}
+		
+		dataObj={
+        	gender:gender
+        };
+        
+		var setings = {
+			data:JSON.stringify(dataObj),
+	    	type:'post',
+	    	contentType: "application/json",
+	    	url: Constants.updateMember
+		};
+		
+		muiAjax(setings, function(data) {
+			if(data.status==='200') {
+				mui.alert(data.message);
+				var pageObj={
+					pageUrl:'../../page/setup/personalData.html'
+				}
+				pageChange(pageObj);
+			} else {
+				//错误处理
+				mui.toast(data.message);
+			}
+		}, function(status) {
+			//当前ajax错误预留
+		});
+	}
+	
 	page.init();
 })();
 

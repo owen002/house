@@ -237,6 +237,11 @@ var base = (function () {
         }
     }
 
+    function trimBlank(str) {
+        str += '';
+        return str.replace(/\s*/g, '');
+    }
+
     return {
         setPageRem: setPageRem,
         hasClass: hasClass,
@@ -252,6 +257,7 @@ var base = (function () {
         startSlider: startSlider,
         isPhoneNum: isPhoneNum,
         goSearch: goSearch,
-        toggle:toggle
+        toggle: toggle,
+        trimBlank:trimBlank
     }
 })();

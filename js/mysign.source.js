@@ -1,29 +1,28 @@
 (function () {
     mui.init();
     var pageSize = 10, pageNo = 1, canPull = true;
-    var currentid = '';
+    var currentid = 1;
     var page = {
         init: function () {
             base.setPageRem();
-            //查询租房列表
-            // page.queryList();
-            page.queryZqList();//众筹
+            page.queryList(2);
             page.bind();
         },
-        queryList: function () {
+        queryList: function (type) {
             var querySettings = {
-                url: Constants.rentlist,
+                url: Constants.memberSign,
                 data: {
                     'pager.pageSize': pageSize,
-                    'pager.pageNo': pageNo
+                    'pager.pageNo': pageNo,
+                    'parameters[kind]':currentid,
                 },
                 type: 'post'
             };
 
             muiAjax(querySettings, function (data) {
-                var rentArr = data.rows;
-                var rentlength = rentArr.length, totalLength = data.totalRows;
-                if (rentArr.length > 0) {
+                var rows = data.rows;
+                var rentlength = rows.length, totalLength = data.totalRows;
+                if (rows.length > 0) {
                     if (rentlength < pageSize) {
                         canPull = false;
                     } else if (totalLength == (pageSize * (pageNo - 1) + rentlength)) {
@@ -31,17 +30,19 @@
                     } else {
                         canPull = true;
                     }
-                    var fragment = document.createDocumentFragment();
-                    for (var i = 0, j = rentArr.length; i < j; i++) {
-                        var li = document.createElement('li'), liDom = '';
-                        var rent = rentArr[i];
-                        // rent.mainImage
-                        liDom += '';
-                        li.innerHTML = liDom;
-                        li.setAttribute('data-id', rent.rentalHousingID);
-                        fragment.appendChild(li);
-                    }
-                    $guessUlike.appendChild(fragment);
+                    
+                    var obj = {
+						rows: rows
+				    };
+				    
+				    var tmpl = mui('#rows-li-template'+currentid)[0].innerHTML;
+				    //下拉
+				    if(type ==1)
+						mui('#guessUlike'+currentid)[0].innerHTML += Mustache.render(tmpl, obj);
+					//tab切换
+					else if(type ==2)
+					    mui('#guessUlike'+currentid)[0].innerHTML = Mustache.render(tmpl, obj);
+                    
                 } else {
                     canPull = false;
                 }
@@ -49,44 +50,7 @@
 
             });
         },
-        queryZqList: function () {
-            var querySettings = {
-                url: Constants.myenrollList,
-                data: {
-                    'pager.pageSize': pageSize,
-                    'pager.pageNo': pageNo
-                }
-            };
 
-            muiAjax(querySettings, function (data) {
-                var rentArr = data.rows;
-                var rentlength = rentArr.length, totalLength = data.totalRows;
-                if (rentArr.length > 0) {
-                    if (rentlength < pageSize) {
-                        canPull = false;
-                    } else if (totalLength == (pageSize * (pageNo - 1) + rentlength)) {
-                        canPull = false
-                    } else {
-                        canPull = true;
-                    }
-                    var fragment = document.createDocumentFragment();
-                    for (var i = 0, j = rentArr.length; i < j; i++) {
-                        var li = document.createElement('li'), liDom = '';
-                        var rent = rentArr[i];
-                        // rent.mainImage
-                        liDom += '';
-                        li.innerHTML = liDom;
-                        li.setAttribute('data-id', rent.rentalHousingID);
-                        fragment.appendChild(li);
-                    }
-                    $guessUlike.appendChild(fragment);
-                } else {
-                    canPull = false;
-                }
-            }, function (status) {
-
-            });
-        },
         bind: function () {
             mui('.ms-header-menu').on('tap', '.ms-m', function () {
                 switchTab(this);
@@ -100,7 +64,7 @@
                         setTimeout(function () {
                             if (canPull) {
                                 pageNo += 1;
-                                page.queryList();
+                                page.queryList(1);
                             }
                             self.endPullUpToRefresh(!canPull);
                         }, 500);
@@ -134,6 +98,7 @@
         base.addClass($this, 'ms-menu-active');
         base.removeClass(base.$('.section-active'), 'section-active');
         base.addClass(base.$('.ms-con' + currentid), 'section-active');
+        page.queryList(2);
     }
 
     page.init();

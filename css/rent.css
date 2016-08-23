@@ -44,11 +44,12 @@
 .bzm-house-detail-header .zc-jdt-wrapper .amount-percent {
   position: absolute;
   color: #ffffff;
-  left: 50%;
+  left: 45%;
   top: 0;
   height: 0.3rem;
   font-size: 0.3rem;
   line-height: 0.35rem;
+  z-index: 99999;
 }
 .bzm-house-detail-header .jdu-public {
   height: 0.3rem;
@@ -200,19 +201,23 @@
   background-size: cover;
   margin: 0 0.1rem;
 }
-.nearby-section .gus-list-ul li .house-content .zan-and-focus .zan-focus-area {
-  overflow: hidden;
-  margin-top: 0.15rem;
-}
-.nearby-section .gus-list-ul li .house-content .zan-and-focus .zan-focus-area div {
-  float: left;
-  overflow: hidden;
-}
 .nearby-section .gus-list-ul li .house-content .nearby-house-items .zc-detail-right {
   margin-left: 0.2rem;
 }
 .nearby-section .gus-list-ul .croudfunding-li {
   font-size: 0.35rem;
+}
+.zan-focus-area {
+  overflow: hidden;
+  margin-top: 0.15rem;
+}
+.zan-focus-area div {
+  float: left;
+  overflow: hidden;
+}
+.right-contact-a {
+  width: 0.7rem;
+  font-size: 0.7rem;
 }
 .zc-im-go-tz {
   padding: 0.3rem;
@@ -227,6 +232,11 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.zc-amount {
+  margin-left: 0.1rem;
+  font-size: 0.42rem;
+  color: #f26520;
 }
 .bzm-croudfunding .gus-list-ul {
   border-top: 1px solid #ccc;
@@ -248,12 +258,6 @@
   float: none !important;
   margin-top: 0 !important;
 }
-.bzm-croudfunding .gus-list-ul .bzm-zc .zc-zan-and-focus .zc-amount {
-  margin-left: 0.3rem;
-  font-size: 0.5rem;
-  color: #f26520;
-  font-weight: bold;
-}
 .bzm-croudfunding .gus-list-ul .bzm-zc .zc-go-detail {
   text-align: center;
   width: 1.7rem;
@@ -263,6 +267,10 @@
   top: 0;
   background-color: #f26520;
   color: #fff;
+}
+.month-price {
+  color: #F26521;
+  background-color: #FFE6CA;
 }
 .like-icon {
   width: 0.6rem;

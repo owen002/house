@@ -25,7 +25,10 @@
             font-size: 0.4rem;
             height: 1rem;
             line-height: 1rem;
-            padding-left: 1rem;
+            padding: 0 0 0 1rem;
+            background: #fff;
+            margin: 0;
+            text-align: left;
         }
 
         .search-input-icon {
@@ -62,11 +65,11 @@
 <body>
 <header id="header" class="mui-bar mui-bar-nav">
     <div class="f-left" id="headerMenu" style="text-align: center;width: 1.65rem;">
-        <span id="tttitle">二手房</span>
+        <span id="tttitle">租房</span>
         <img class="arrow-grey" src="../res/img/arrow-grey.png" alt="">
     </div>
     <div class="f-left" style="position: relative;margin-left: 0.4rem;">
-        <input id="searchContent" type="text" placeholder="请输入小区名或地址">
+        <input id="searchContent" type="search" placeholder="请输入小区名或地址">
         <img src="../res/img/search.png" class="search-input-icon" alt="">
     </div>
     <div class="f-right mui-action-back">
@@ -76,10 +79,10 @@
     <div id="searchItems" class="search-items transition-action" style="display: none;">
         <img class="arrow-top" src="../res/img/arrow-top.png" alt="">
         <ul class="search-items-ul">
-            <li>租房</li>
-            <li>二手房</li>
-            <li>新房</li>
-            <li>众筹</li>
+            <li data-type="1" class="ss-active">租房</li>
+            <li data-type="2">二手房</li>
+            <li data-type="3">新房</li>
+            <li data-type="4">众筹</li>
         </ul>
     </div>
 </header>
@@ -95,8 +98,34 @@
         mui(document).on('tap', '#headerMenu', function () {
             base.toggle(base.$('#searchItems'));
         }).on('tap', '.search-items-ul li', function () {
+            base.removeClass(base.$s('.search-items-ul li'), 'ss-active');
+            base.addClass(this, 'ss-active');
             base.toggle(base.$('#searchItems'));
             base.$('#tttitle').innerText = this.innerText;
+        }).on('keyup', '#searchContent', function (e) {
+            if (e.keyCode == 13) {
+                var type = base.$('.ss-active').getAttribute('data-type'), jurl = '';
+                switch (type) {
+                    case '1':
+                        jurl = 'rentList.html'
+                        break;
+                    case '2':
+                        jurl = 'salehouseList.html'
+                        break;
+                    case '3':
+                        jurl = 'croudfunding.html'
+                        break;
+                    case '4':
+                        jurl = 'newhouse.html'
+                        break;
+                }
+                var pa = this.value || '';
+                pa = base.trimBlank(pa);
+                var pageObj = {
+                    pageUrl: jurl + '?pa=' + pa
+                };
+                pageChange(pageObj);
+            }
         })
     })()
 </script>

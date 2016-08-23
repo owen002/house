@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>附近</title>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/base.css" rel="stylesheet"/>
+    <link href="../css/myhistroy.css" rel="stylesheet"/>
+    <style>
+        .zan-and-focus .zan-focus-area {
+            margin-top: 0 !important;
+        }
+
+        .zan-and-focus {
+            margin-top: 0 !important;
+        }
+    </style>
+</head>
+<body>
+<header id="header" class="mui-bar mui-bar-nav">
+    <a class="mui-action-back left-menu-icon f-left back">
+        <div class="back-img">
+            <img src='../res/img/login/backico.png'/>
+        </div>
+    </a>
+    <div class="f-left" style="position:relative;margin-left:0.3rem;">
+        附近
+    </div>
+</header>
+<div class="mui-content">
+    <section class="mysign-head-select-section">
+        <ul class="ms-header-menu">
+            <li class="ms-menu-active ms-m" data-type="1">
+                租房
+            </li>
+            <li class=" ms-m" data-type="2">
+                售房
+            </li>
+            <li class=" ms-m" data-type="3">
+                众筹
+            </li>
+            <li class=" ms-m" data-type="4">
+                新房
+            </li>
+        </ul>
+    </section>
+    <section class="mysign-content ms-con1 section-active">
+        <ul class="mysign-items-ul" id="guessUlike1">
+            
+        </ul>
+    </section>
+    <section class="mysign-content ms-con2">
+        <ul class="mysign-items-ul" id="guessUlike2">
+        </ul>
+    </section>
+    <section class="mysign-content ms-con3">
+        <ul class="mysign-items-ul" id="guessUlike3">
+
+        </ul>
+    </section>
+    <section class="mysign-content ms-con4">
+        <ul class="mysign-items-ul" id="guessUlike4">
+
+        </ul>
+    </section>
+</div>
+
+</body>
+<script src="../js/mui.min.js"></script>
+<script src="../js/common/mui.pullToRefresh.js"></script>
+<script src="../js/common/mui.pullToRefresh.material.js"></script>
+<script src="../js/common/constant.js"></script>
+<script src="../js/common/common.js"></script>
+<script src="../js/base.js"></script>
+<script src="../js/common/mustache.min.js"></script>
+<script src="../js/mynearby.source.js" type="text/javascript"></script>
+<!--租房模板-->
+<script id='rows-li-template1' type="x-mustache-tmpl">
+{{#rows}}
+<li class="mysign-item-li zuf-mysign-item-li">
+    <div class="f-left house-img">
+        <img src="{{mainImage}}">
+    </div>
+    <div class="house-content f-left">
+        <div class="hc-title">
+              {{title}}
+        </div>
+        <div class="nearby-house-items">
+            <div>
+                <span>{{platName}}-{{villageName}}</span>
+            </div>
+            <div>
+                <span class="rent-price">{{rental}}元/月</span>
+                <div class="mui-clearfix"></div>
+            </div>
+            <div class="newh-detail-adv">
+            	    {{#labels}}
+                    <span>{{.}}</span>
+                    {{/labels}}
+                </div>
+            <div class="zan-and-focus">
+                 <div class="zan-focus-area">
+                     <div>
+                        <img class="z-img" src="../res/img/new/zan.png" alt="">
+                     </div>
+                     <div>{{supportNum}}</div>
+                     <div>
+                        <img class="f-img" src="../res/img/new/focus.png" alt="">
+                     </div>
+                     <div>{{viewNum}}</div>
+                 </div>
+            </div>
+            <div class="mui-clearfix"></div>
+        </div>
+    </div>
+</li>
+{{/rows}}
+</script>
+
+<!--售房模板-->
+<script id='rows-li-template2' type="x-mustache-tmpl">
+{{#rows}}
+<li class="mysign-item-li zuf-mysign-item-li">
+    <div class="f-left house-img">
+        <img src="{{mainImage}}">
+    </div>
+    <div class="house-content f-left">
+        <div class="hc-title">
+              {{title}}
+        </div>
+        <div class="nearby-house-items">
+            <div>
+                <span>{{platName}}-{{villageName}}</span>
+            </div>
+            <div>
+                <span class="rent-price">{{rental}}元/月</span>
+                <div class="mui-clearfix"></div>
+            </div>
+            <div class="newh-detail-adv">
+                    <span>代金券</span>
+                    <span>送保洁</span>
+                    <span>补贴</span>
+                </div>
+            <div class="zan-and-focus">
+                 <div class="zan-focus-area">
+                     <div>
+                        <img class="z-img" src="../res/img/new/zan.png" alt="">
+                     </div>
+                     <div>{{supportNum}}</div>
+                     <div>
+                        <img class="f-img" src="../res/img/new/focus.png" alt="">
+                     </div>
+                     <div>{{viewNum}}</div>
+                 </div>
+            </div>
+            <div class="mui-clearfix"></div>
+        </div>
+    </div>
+</li>
+{{/rows}}
+</script>
+
+<!--众筹-->
+<script id='rows-li-template3' type="x-mustache-tmpl">
+{{#rows}}
+<li class="mysign-item-li zuf-mysign-item-li">
+    <div class="f-left house-img">
+        <img src="{{mainImage}}">
+    </div>
+    <div class="house-content f-left">
+        <div class="hc-title">
+              {{title}}
+        </div>
+        <div class="nearby-house-items">
+            <div>
+                <span>{{platName}}-{{villageName}}</span>
+            </div>
+            <div>
+                <span class="rent-price">{{rental}}元/月</span>
+                <div class="mui-clearfix"></div>
+            </div>
+            <div class="newh-detail-adv">
+                    <span>代金券</span>
+                    <span>送保洁</span>
+                    <span>补贴</span>
+                </div>
+            <div class="zan-and-focus">
+                 <div class="zan-focus-area">
+                     <div>
+                        <img class="z-img" src="../res/img/new/zan.png" alt="">
+                     </div>
+                     <div>{{supportNum}}</div>
+                     <div>
+                        <img class="f-img" src="../res/img/new/focus.png" alt="">
+                     </div>
+                     <div>{{viewNum}}</div>
+                 </div>
+            </div>
+            <div class="mui-clearfix"></div>
+        </div>
+    </div>
+</li>
+{{/rows}}
+</script>
+
+<!--新房模板-->
+<script id='rows-li-template4' type="x-mustache-tmpl">
+{{#rows}}
+<li class="mysign-item-li zuf-mysign-item-li">
+    <div class="f-left house-img">
+        <img src="{{mainImage}}">
+    </div>
+    <div class="house-content f-left">
+        <div class="hc-title">
+              {{title}}
+        </div>
+        <div class="nearby-house-items">
+            <div>
+                <span>{{platName}}-{{villageName}}</span>
+            </div>
+            <div>
+                <span class="rent-price">{{rental}}元/月</span>
+                <div class="mui-clearfix"></div>
+            </div>
+            <div class="newh-detail-adv">
+                    <span>代金券</span>
+                    <span>送保洁</span>
+                    <span>补贴</span>
+                </div>
+            <div class="zan-and-focus">
+                 <div class="zan-focus-area">
+                     <div>
+                        <img class="z-img" src="../res/img/new/zan.png" alt="">
+                     </div>
+                     <div>{{supportNum}}</div>
+                     <div>
+                        <img class="f-img" src="../res/img/new/focus.png" alt="">
+                     </div>
+                     <div>{{viewNum}}</div>
+                 </div>
+            </div>
+            <div class="mui-clearfix"></div>
+        </div>
+    </div>
+</li>
+{{/rows}}
+</script>
+
+</html>

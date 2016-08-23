@@ -179,3 +179,8 @@
 .zuf-mysign-item-li {
   border-bottom: 1px solid #ccc;
 }
+.newh-detail-adv span {
+  padding: 0.05rem 0.1rem;
+  font-size: 0.3rem;
+  border: 1px solid #e2e2e2;
+}

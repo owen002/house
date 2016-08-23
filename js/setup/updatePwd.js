@@ -4,22 +4,46 @@
         init: function () {
             base.setPageRem();
             page.bind();
+            page.loaduserInfo();
         },
-        getYzm() {
-			var sjh = document.querySelector("#account").value;
-			if(!isPhoneNum(sjh)){
+		loaduserInfo: function() { //从本地localstorage里加载会员图像
+			var userinfo = localStorage.getItem('userinfo');
+		    userinfo = JSON.parse(decodeURIComponent(userinfo));
+		    base.$('#sjh').value = userinfo.phone;
+		},
+        bind: function () {
+            var muiBack = mui('.mui-back')[0];
+            mui(document).on('tap', '#hqyzm', function () {
+                    getYzm();
+            }).on('tap','#nextStep', function () {
+				    nextstep(); 
+            })
+        }
+    };
+
+    page.init();
+    
+    function nextstep() {
+    	var sjh = document.querySelector("#sjh").value;
+    	if(!base.isPhoneNum(sjh)){
+			return;
+		}
+    	var checkCode = document.querySelector("#yzma").value;
+    	if(checkCode == null || checkCode == "") {
+			mui.toast("请输入验证码");
+			return;
+		}
+        var pageObj = {
+				pageUrl: '../../page/setup/updatePwd.html?sjh='+sjh+'&checkCode='+checkCode
+			};
+		pageChange(pageObj);	
+    }
+    
+    function getYzm() {
+			var sjh = document.querySelector("#sjh").value;
+			if(!base.isPhoneNum(sjh)){
 				return;
 			}
-//			if(sjh == null || sjh == "") {
-//				mui.toast("请输入手机号");
-//				return;
-//			}
-//	
-//			var reg = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-//			if(!reg.test(sjh)) {
-//				mui.toast("手机号格式不正确");
-//				return;
-//			}
 	
 			document.getElementById("hqyzm").disabled = true;
 			document.getElementById("hqyzm").innerHTML = "发送中...";
@@ -41,26 +65,6 @@
 			}, function(status) {
 				//当前ajax错误预留
 			});
-	    },
-        bind: function () {
-            var muiBack = mui('.mui-back')[0];
-            mui(document).on('tap', '#hqyzm', function () {
-                    page.getYzm();
-            }).on('tap', '#nextStep', function () {
-                    var pageObj = {
-							pageUrl: '../../page/setup/updatePwd.html'
-						};
-					pageChange(pageObj);					
-            })
-        }
-    };
+	}
 
-    page.init();
-    
-    function nextstep() {
-    	if(!isPhoneNum(sjh)){
-			return;
-		}
-    	//var code = 
-    }
 })();

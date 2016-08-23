@@ -1,15 +1,19 @@
 (function ($) {
     var trimVal = base.trimVal;
+    var newHousingID='';
     var page = {
         init: function () {
             mui.init();
             base.setPageRem();
             mui('#offCanvasContentScroll').scroll();
-
-            var newHousingID = base.param('newHousingID');
+//          mui.plusReady(function(){
+            	newHousingID = base.param('newHousingID');
+//          	newHousingID=getQueryString('newHousingID');//webview传值
+            	page.queryDetail(newHousingID);
+                page.bind();
+//          });
             //详情
-            page.queryDetail(newHousingID);
-            page.bind();
+            
         },
         queryDetail: function (newHousingID) {
             var querySettings = {
@@ -43,6 +47,34 @@
                     pageUrl: "rent.html?rentid=" + id
                 };
                 pageChange(pageObj);
+            }).on('tap', '#dzan', function () {
+                var dzsetting={
+                	url:Constants.dzan+'/'+newHousingID+'/4',
+                	type:'post'
+                };
+                muiAjax(dzsetting, function (data) {
+                    mui.toast(data.message);
+                }, function (status) {
+
+                });
+            }).on('tap', '#callphone', function () {//拨打电话
+                var btnArray = ['拨打', '取消']; 
+                var Phone =parseInt(this.getAttribute('contact'));
+                mui.confirm('是否拨打 ' + Phone + ' ？', '', btnArray, function(e) { 
+                    if (e.index == 0) { 
+                        plus.device.dial(Phone, true); 
+                    }  
+                }); 
+            }).on('tap', '#fav', function () {//加入收藏
+                var dzsetting={
+                	url:Constants.memberFav+'/'+newHousingID+'/4',
+                	type:'post'
+                };
+                muiAjax(dzsetting, function (data) {
+                    mui.toast(data.message);
+                }, function (status) {
+
+                });
             })
         }
     };

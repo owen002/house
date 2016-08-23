@@ -1,66 +1,86 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
-		<link href="../../css/mui.min.css" rel="stylesheet" />
-		<link href="../../css/base.css" rel="stylesheet" />
-		<link href="../../css/setting.css" rel="stylesheet" />
-	</head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title></title>
+    <link href="../../css/mui.min.css" rel="stylesheet"/>
+    <link href="../../css/base.css" rel="stylesheet"/>
+    <link href="../../css/setting.css" rel="stylesheet"/>
+</head>
 
-	<body>
-		<header id="header" class="mui-bar mui-bar-nav">
-			<a class="mui-action-back left-menu-icon f-left back">
-				<div class="back-img">
-					<img src='../../res/img/login/backico.png' />
-				</div>
-			</a>
-			<div class="page-title">我的资料</div>
-		</header>
-		<div class="mui-content">
-			<ul id="list" class="mui-table-view mui-table-view-chevron">
-				<li class="mui-table-view-cell  right-content">
-					头像
-					<span class="floatRight" id="grtxspan"><img src="../../images/login/head.png" style="height: 2rem;width: 2rem;"/ ></span>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" href="nickname.html">
-						昵称
-						<span class="floatRight rightcontfont">未设置</span>
-					</a>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" href="examples/accordion.html">
-						性别
-						<span class="floatRight rightcontfont">未设置</span>
-					</a>
-				</li>
-				<li class="mui-table-view-cell right-content">
-					<span>帐号</span>
-					<span class="floatRight">17090991669</span>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" href="updatePhonePwdMsg.html">
-						修改密码
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class="mui-content-padded">
-			<button id='reg' class="mui-btn mui-btn-block mui-btn-orange">退出</button>
-		</div>
-		<script id="grtx" type="x-mustache-tmpl">
+<body>
+<article class="bzm-dialog transition-action" id="setsex">
+    <div class="bzm-dialog-back"></div>
+    <div class="bzm-dialog-content">
+        <section style="text-align: center">
+            <div style="margin-bottom:0.7rem;">性别</div>
+            <label for="sexm">
+                <div class="select-item-sex"><input id="sexm" type="radio" name="se-type" value="1">男</div>
+            </label>
+            <label for="sexf">
+                <div class="select-item-sex"><input id="sexf" type="radio" name="se-type" value="2">女</div>
+            </label>
+            <button class="mui-btn mui-btn-block zc-im-go-tz" id="sub2">
+                提交
+            </button>
+        </section>
+    </div>
+</article>
+<header id="header" class="mui-bar mui-bar-nav">
+    <a class="mui-action-back left-menu-icon f-left back">
+        <div class="back-img">
+            <img src='../../res/img/login/backico.png'/>
+        </div>
+    </a>
+    <div class="page-title">我的资料</div>
+</header>
+<div class="mui-content">
+    <ul id="list" class="mui-table-view mui-table-view-chevron">
+        <li class="mui-table-view-cell  right-content">
+            头像
+            <span class="floatRight" id="grtxspan"><img src="../../images/login/head.png"
+                                                        style="height: 2rem;width: 2rem;"/ ></span>
+        </li>
+        <li class="mui-table-view-cell" id="setnickname">
+            <a class="mui-navigate-right" href="nickname.html">
+                <span>昵称</span>
+                <span class="floatRight rightcontfont" id="nickName">未设置</span>
+            </a>
+        </li>
+        <li class="mui-table-view-cell" id="setsex">
+            <a class="mui-navigate-right">
+                       性别
+                <span class="floatRight rightcontfont">未设置</span>
+            </a>
+        </li>
+        <li class="mui-table-view-cell right-content">
+            <span>帐号</span>
+            <span class="floatRight" id="account"></span>
+        </li>
+        <li class="mui-table-view-cell"  id="updatepwd">
+            <a class="mui-navigate-right" href="updatePhonePwdMsg.html">
+                	修改密码
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="mui-content-padded">
+    <button id='reg' class="mui-btn mui-btn-block mui-btn-orange">退出</button>
+</div>
+<script id="grtx" type="x-mustache-tmpl">
 			<img src="{{headerPic}}" style="height: 2rem;width: 2rem;"  oonerror="loadDefaultImg(this)" />
-		</script>
-		<script src="../../js/mui.min.js"></script>
-		<script src="../../js/base.js"></script>
-		<script src="../../js/common/constant.js"></script>
-		<script src="../../js/common/common.js"></script>
-		<script src="../../js/common/mustache.min.js"></script>
-		<script src="../../js/setup/pData.source.js"></script>
-		
-	</body>
+
+</script>
+<script src="../../js/mui.min.js"></script>
+<script src="../../js/base.js"></script>
+<script src="../../js/common/constant.js"></script>
+<script src="../../js/common/common.js"></script>
+<script src="../../js/common/mustache.min.js"></script>
+<script src="../../js/setup/pData.source.js"></script>
+
+</body>
 
 </html>

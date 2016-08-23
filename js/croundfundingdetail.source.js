@@ -1,12 +1,13 @@
 (function ($) {
     var trimVal = base.trimVal;
+    var crowdfundingHousingID ="";
     var page = {
         init: function () {
             mui.init();
             base.setPageRem();
             mui('#offCanvasContentScroll').scroll();
 
-            var crowdfundingHousingID = base.param('crowdfundingHousingID');
+            crowdfundingHousingID = base.param('crowdfundingHousingID');
             page.queryDetail(crowdfundingHousingID);
             page.bind();
         },
@@ -49,6 +50,34 @@
             }).on('tap', '#tzjl', function () {
                 mui('#fyxx')[0].className = 'menu-bar-pub fyxx';
                 mui('#tzjl')[0].className = 'menu-bar-pub tzjl menu-bar-active';
+            }).on('tap', '#dzan', function () {
+                var dzsetting={
+                	url:Constants.dzan+'/'+crowdfundingHousingID+'/3',
+                	type:'post'
+                };
+                muiAjax(dzsetting, function (data) {
+                    mui.toast(data.message);
+                }, function (status) {
+
+                });
+            }).on('tap', '#callphone', function () {//拨打电话
+                var btnArray = ['拨打', '取消']; 
+                var Phone =parseInt(this.getAttribute('contact'));
+                mui.confirm('是否拨打 ' + Phone + ' ？', '', btnArray, function(e) { 
+                    if (e.index == 0) { 
+                        plus.device.dial(Phone, true); 
+                    }  
+                }); 
+            }).on('tap', '#fav', function () {//加入收藏
+                var dzsetting={
+                	url:Constants.memberFav+'/'+crowdfundingHousingID+'/3',
+                	type:'post'
+                };
+                muiAjax(dzsetting, function (data) {
+                    mui.toast(data.message);
+                }, function (status) {
+
+                });
             })
         }
     };

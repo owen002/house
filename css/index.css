@@ -496,8 +496,9 @@ body {
 }
 .bzm-dialog-content .rent-dialog .rent-items .rent-i-inner {
   position: relative;
-  width: 4rem;
+  width: 2.5rem;
   margin: 0 auto;
+  text-align: left;
 }
 .bzm-dialog-content .bzm-navigate-right:after {
   color: #F5844D;

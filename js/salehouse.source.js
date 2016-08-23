@@ -1,12 +1,13 @@
 (function ($) {
     var trimVal = base.trimVal;
+    var saleHousingID='';
     var page = {
         init: function () {
             mui.init();
             base.setPageRem();
             mui('#offCanvasContentScroll').scroll();
 
-            var saleHousingID = base.param('saleHousingID');
+            saleHousingID = base.param('saleHousingID');
             //查询租房详情
             page.queryDetail(saleHousingID);
             page.bind();
@@ -43,6 +44,34 @@
                     pageUrl: "rent.html?rentid=" + id
                 };
                 pageChange(pageObj);
+            }).on('tap', '#dzan', function () {
+                var dzsetting={
+                	url:Constants.dzan+'/'+saleHousingID+'/2',
+                	type:'post'
+                };
+                muiAjax(dzsetting, function (data) {
+                    mui.toast(data.message);
+                }, function (status) {
+
+                });
+            }).on('tap', '#callphone', function () {//拨打电话
+                var btnArray = ['拨打', '取消']; 
+                var Phone =parseInt(this.getAttribute('contact'));
+                mui.confirm('是否拨打 ' + Phone + ' ？', '', btnArray, function(e) { 
+                    if (e.index == 0) { 
+                        plus.device.dial(Phone, true); 
+                    }  
+                }); 
+            }).on('tap', '#fav', function () {//加入收藏
+                var dzsetting={
+                	url:Constants.memberFav+'/'+saleHousingID+'/2',
+                	type:'post'
+                };
+                muiAjax(dzsetting, function (data) {
+                    mui.toast(data.message);
+                }, function (status) {
+
+                });
             })
         }
     };

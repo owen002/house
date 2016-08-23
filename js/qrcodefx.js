@@ -1,0 +1,1 @@
+(function(){mui.init();var page={init:function(){base.setPageRem();page.csqrcode();page.bind()},bind:function(){},csqrcode:function(){jQuery("#qrcode").qrcode({render:"canvas",text:"http://www.xiangshan.rh-ronghe.com/rental_interface/",width:300,height:300})}};page.init()})();

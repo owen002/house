@@ -53,87 +53,16 @@
     </section>
     <section class="mysign-content ms-con2">
         <ul class="mysign-items-ul" id="guessUlike2">
-            <li class="mysign-item-li zuf-mysign-item-li">
-                <div class="f-left house-img">
-                    <img src="../res/img/house.jpg" alt="">
-                </div>
-                <div class="house-content f-left">
-                    <div class="hc-title">
-                        西大街附近900元拎包入住
-                    </div>
-                    <div class="nearby-house-items">
-                        <div>
-                            <span style="font-size: 0.45rem">含光门 迎春小区</span>
-                        </div>
-                        <div>
-                            <span style="font-size: 0.45rem">1室1厅 75平米</span>
-                            <span class="rent-price">900元/月</span>
-                        </div>
-                        <div class="mui-clearfix"></div>
-                        <div>
-                            <span class="f-right">
-                            2016-07-28
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </li>
         </ul>
     </section>
     <section class="mysign-content ms-con3">
         <ul class="mysign-items-ul" id="guessUlike3">
-            <li class="mysign-item-li zuf-mysign-item-li">
-                <div class="f-left house-img">
-                    <img src="../res/img/house.jpg" alt="">
-                </div>
-                <div class="house-content f-left">
-                    <div class="hc-title">
-                        众筹街附近900元拎包入住
-                    </div>
-                    <div class="nearby-house-items">
-                        <div>
-                            <span style="font-size: 0.45rem">含光门 迎春小区</span>
-                        </div>
-                        <div>
-                            <span style="font-size: 0.45rem">1室1厅 75平米</span>
-                            <span class="rent-price">900元/月</span>
-                        </div>
-                        <div>
-                            <span class="f-right">
-                            2016-07-28
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </li>
+
         </ul>
     </section>
     <section class="mysign-content ms-con4">
         <ul class="mysign-items-ul" id="guessUlike4">
-            <li class="mysign-item-li zuf-mysign-item-li">
-                <div class="f-left house-img">
-                    <img src="../res/img/house.jpg" alt="">
-                </div>
-                <div class="house-content f-left">
-                    <div class="hc-title">
-                        众筹街附近900元拎包入住
-                    </div>
-                    <div class="nearby-house-items">
-                        <div>
-                            <span style="font-size: 0.45rem">含光门 迎春小区</span>
-                        </div>
-                        <div>
-                            <span style="font-size: 0.45rem">1室1厅 75平米</span>
-                            <span class="rent-price">900元/月</span>
-                        </div>
-                        <div>
-                            <span class="f-right">
-                            2016-07-28
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </li>
+
         </ul>
     </section>
 </div>
@@ -160,10 +89,10 @@
         </div>
         <div class="nearby-house-items">
             <div>
-                <span style="font-size: 0.45rem">{{platName}} {{villageName}}</span>
+                <span>{{platName}} {{villageName}}</span>
             </div>
             <div>
-                <span style="font-size: 0.45rem">{{rooms}}室{{halls}}厅{{toilet}}卫</span>
+                <span>{{rooms}}室{{halls}}厅{{toilet}}卫</span>
                 <span class="rent-price">{{rental}}元/月</span>
             </div>
             <div class="zan-and-focus">
@@ -181,7 +110,7 @@
             <div class="mui-clearfix"></div>
             <div>
                 <span class="f-right">
-                2016-07-28
+                2016-07-28 09:22
                 </span>
             </div>
         </div>
@@ -206,10 +135,10 @@
         </div>
         <div class="nearby-house-items">
             <div>
-                <span style="font-size: 0.45rem">{{platName}} {{villageName}}</span>
+                <span>{{platName}} {{villageName}}</span>
             </div>
             <div>
-                <span style="font-size: 0.45rem">{{rooms}}室{{halls}}厅{{toilet}}卫</span>
+                <span>{{rooms}}室{{halls}}厅{{toilet}}卫</span>
                 <span class="rent-price">{{rental}}元/月</span>
             </div>
             <div class="zan-and-focus">
@@ -234,9 +163,6 @@
     </div>
 </li>
 {{/rows}}
-
-
-
 </script>
 
 <!--众筹-->
@@ -251,38 +177,41 @@
               {{title}}
         </div>
         <div class="nearby-house-items">
+            <ul class="my-his-zc">
+                <li>{{platName}}</li>
+                <li>{{villageName}}</li>
+                <li>{{rooms}}室{{halls}}厅{{toilet}}卫</li>
+                <li>{{housingArea}}平米</li>
+                <li>期限：{{deadline}}月</li>
+                <li>年租金收益：</li>
+            </ul>
             <div>
-                <span style="font-size: 0.45rem">{{platName}} {{villageName}}</span>
-            </div>
-            <div>
-                <span style="font-size: 0.45rem">{{rooms}}室{{halls}}厅{{toilet}}卫</span>
-                <span class="rent-price">{{rental}}元/月</span>
-            </div>
-            <div class="zan-and-focus">
-                 <div class="zan-focus-area">
-                     <div>
-                        <img class="z-img" src="../res/img/new/zan.png" alt="">
+                <div class="f-left">
+                     剩万/总{{totalPrice}}万
+                </div>
+                <div class="zan-and-focus">
+                     <div class="zan-focus-area">
+                         <div>
+                            <img class="z-img" src="../res/img/new/zan.png" alt="">
+                         </div>
+                         <div>{{supportNum}}</div>
+                         <div>
+                            <img class="f-img" src="../res/img/new/focus.png" alt="">
+                         </div>
+                         <div>{{viewNum}}</div>
                      </div>
-                     <div>{{supportNum}}</div>
-                     <div>
-                        <img class="f-img" src="../res/img/new/focus.png" alt="">
-                     </div>
-                     <div>{{viewNum}}</div>
-                 </div>
+                     <div class="mui-clearfix"></div>
+                </div>
+                <div class="mui-clearfix"></div>
+            </div>
+            <div class="f-right">
+                2016-07-28 09:00
             </div>
             <div class="mui-clearfix"></div>
-            <div>
-                <span class="f-right">
-                2016-07-28
-                </span>
-            </div>
         </div>
     </div>
 </li>
 {{/rows}}
-
-
-
 </script>
 
 <!--新房模板-->
@@ -298,10 +227,10 @@
         </div>
         <div class="nearby-house-items">
             <div>
-                <span style="font-size: 0.45rem">{{platName}} {{villageName}}</span>
+                <span>{{platName}} {{villageName}}</span>
             </div>
             <div>
-                <span style="font-size: 0.45rem">{{rooms}}室{{halls}}厅{{toilet}}卫</span>
+                <span>{{rooms}}室{{halls}}厅{{toilet}}卫</span>
                 <span class="rent-price">{{rental}}元/月</span>
             </div>
             <div class="zan-and-focus">
@@ -326,9 +255,6 @@
     </div>
 </li>
 {{/rows}}
-
-
-
 </script>
 
 </html>

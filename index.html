@@ -91,12 +91,12 @@
         <div class="bzm-dialog-back"></div>
         <div class="bzm-dialog-content">
             <section id="rent1" style="display: none" class="rent-dialog">
-                <div class="rent-items b-bottom ri1">
+                <div class="rent-items b-bottom ri11">
                     <div class="bzm-navigate-right rent-i-inner">
                         我是房东
                     </div>
                 </div>
-                <div class="rent-items ri1">
+                <div class="rent-items ri12">
                     <div class="bzm-navigate-right rent-i-inner">
                         我想租房
                     </div>
@@ -110,7 +110,7 @@
                     <li>
                         <div class="f-left su-title">电话：</div>
                         <div class="f-left bzm-zc-amount-input-wrap">
-                            <input type="text" placeholder="请输入电话号码">
+                            <input type="text" placeholder="请输入电话号码" id='czphone'>
                             <div class="bzm-zc-amount-input-down">
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                     <li>
                         <div class="f-left su-title">区域：</div>
                         <div class="f-left bzm-zc-amount-input-wrap">
-                            <input type="text" placeholder="请输入区域/小区">
+                            <input type="text" placeholder="请输入区域/小区" id='czcontent'>
                             <div class="bzm-zc-amount-input-down">
                             </div>
                         </div>
@@ -130,12 +130,12 @@
                 </button>
             </section>
             <section id="rent3" style="display: none" class="rent-dialog">
-                <div class="rent-items b-bottom ri2">
+                <div class="rent-items b-bottom ri21">
                     <div class="bzm-navigate-right rent-i-inner">
                         我要买房
                     </div>
                 </div>
-                <div class="rent-items ri2">
+                <div class="rent-items ri22">
                     <div class="bzm-navigate-right rent-i-inner">
                         我要卖房
                     </div>
@@ -149,7 +149,7 @@
                     <li>
                         <div class="f-left su-title">区域：</div>
                         <div class="f-left bzm-zc-amount-input-wrap">
-                            <input type="text" placeholder="请输入区域/小区">
+                            <input type="text" placeholder="请输入区域/小区" id='mmcontent'>
                             <div class="bzm-zc-amount-input-down">
                             </div>
                         </div>
@@ -157,7 +157,7 @@
                     <li>
                         <div class="f-left su-title">电话：</div>
                         <div class="f-left bzm-zc-amount-input-wrap">
-                            <input type="text" placeholder="请输入电话号码">
+                            <input type="text" placeholder="请输入电话号码" id='mmphone'>
                             <div class="bzm-zc-amount-input-down">
                             </div>
                         </div>
@@ -220,8 +220,11 @@
                             <div>头条</div>
                         </div>
                         <ul class="f-left marq-content" id="bzttul">
-                            <!--<li><span class="spot">&bull;</span>挑选地铁房看这里 上周西安楼盘TOP10</li>
-                            <li><span class="spot">&bull;</span>华清学府城5套特价房随时秒杀！</li>-->
+                            <!--
+                            	作者：denis-guo@163.com
+                            	时间：2016-08-21
+                            	描述：插入包租头条模板数据
+                            -->
                         </ul>
                     </div>
                 </div>
@@ -301,29 +304,11 @@
                         <div class="f-left tbfy">优质房源</div>
                     </div>
                     <ul class="gus-list-ul" id="gussULikeUl">
-                        <li>
-                            <img class="yzfy-bz" src="res/img/new/new-house-rect.png" alt="">
-                            <div class="f-left house-img">
-                                <img src="res/img/house.jpg" alt="">
-                            </div>
-                            <div class="house-content f-left">
-                                <div class="hc-title">
-                                    坤元TIME
-                                </div>
-                                <div>
-                                    <div class="hc-price-per">8000元/m²</div>
-                                    <div class="hc-name">城南-高新万达现房</div>
-                                </div>
-                                <dl class="house-biaoqian">
-                                    <dd>3号线</dd>
-                                    <dd>交通枢纽</dd>
-                                    <dd>医院</dd>
-                                    <dd>刚需房</dd>
-                                    <dd>学校</dd>
-                                </dl>
-                            </div>
-                            <div class="mui-clearfix"></div>
-                        </li>
+                         <!--
+                         	作者：denis-guo@163.com
+                         	时间：2016-08-21
+                         	描述：插入优质房源模板数据
+                         -->
                     </ul>
                 </section>
                 <section class="index-footer-section">
@@ -358,7 +343,7 @@
 <script src="js/base.js"></script>
 <script src="js/common/constant.js"></script>
 <script src="js/common/common.js"></script>
-<!--<script src="js/common/geo.js"></script>-->
+<script src="js/common/geo.js"></script>
 <script src="js/common/mustache.min.js"></script>
 <script src="js/common/ScrollText.js"></script>
 <script src="js/index.source.js"></script>
@@ -367,8 +352,33 @@
 		{{#rows}}
 		<li><span class="spot">&bull;</span>{{title}}</li>
 		{{/rows}}
-
-
 </script>
-
+<!--
+	描述：优质房源模板
+-->
+<script id="yzfytpl" type="x-mustache-tmpl">
+	   {{#rows}}
+		<li>
+                            <img class="yzfy-bz" src="res/img/new/new-house-rect.png" alt="">
+                            <div class="f-left house-img">
+                                <img src="{{mainImage}}" alt="">
+                            </div>
+                            <div class="house-content f-left">
+                                <div class="hc-title">
+                                    {{title}}
+                                </div>
+                                <div>
+                                    <div class="hc-price-per">{{price}}元/m²</div>
+                                    <div class="hc-name">{{platName}}-{{villageName}}</div>
+                                </div>
+                                <dl class="house-biaoqian">
+                                	{{#labels}}
+                                    <dd>{{.}}</dd>
+                                    {{/labels}}
+                                </dl>
+                            </div>
+                            <div class="mui-clearfix"></div>
+                        </li>
+                        {{/rows}}
+</script>
 </html>

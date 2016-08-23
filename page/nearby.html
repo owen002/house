@@ -54,7 +54,7 @@
     <div id="location1" class="mui-scroll-wrapper choose-left">
         <div class="mui-scroll">
             <ul id="areaList">
-                <li class="choose-left-active">
+                <!--<li class="choose-left-active">
                     <div class="bzm-navigate-right">
                         附近
                     </div>
@@ -143,14 +143,14 @@
                     <div class="bzm-navigate-right">
                         附近
                     </div>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>
     <div id="locationcontent1" class="mui-scroll-wrapper choose-right">
-        <div class="mui-scroll">
-            <ul>
-                <li>1千米</li>
+        <div class="mui-scroll" >
+            <ul id='platList'>
+                <!--<li>1千米</li>
                 <li>2千米</li>
                 <li>3千米</li>
                 <li>1千米</li>
@@ -165,7 +165,7 @@
                 <li>3千米</li>
                 <li>1千米</li>
                 <li>2千米</li>
-                <li>3千米</li>
+                <li>3千米</li>-->
             </ul>
         </div>
     </div>
@@ -175,9 +175,20 @@
 <script src="../js/common/constant.js"></script>
 <script src="../js/common/common.js"></script>
 <script src="../js/base.js"></script>
-<script>
-    base.setPageRem();
-    mui.init();
-    mui('#location1,#locationcontent1').scroll();
+<script src="../js/common/mustache.min.js"></script>
+<script src="../js/nearby.source.js"></script>
+<script id='dsList' type="x-mustache-tmpl">
+{{#rows}}
+               <li >
+                    <div class="bzm-navigate-right" id='{{districtID}}'>
+                        {{districtName}}
+                    </div>
+                </li>
+                {{/rows}}
+</script>
+<script id='ptList' type="x-mustache-tmpl">
+{{#rows}}
+               <li dsid='{{districtID}}' ptid='{{platID}}' >{{platName}}</li>
+                {{/rows}}
 </script>
 </html>

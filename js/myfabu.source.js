@@ -51,7 +51,7 @@ function fabuEvent(){
         var data={
         	content:content,
         	kind:currentid,
-        	contactsNumber:sjh
+        	contactNumber:sjh
         };
         var fburl='';
         //统一修改成我的需求

@@ -22,6 +22,7 @@ function get_loc(options) {
 			dataType: 'json', //服务器返回json格式数据
 			type: 'post', //HTTP请求类型
 			timeout: 10000, //超时时间设置为10秒；
+			async:false,
 			success: function(data) {
 				console.log(JSON.stringify(data));
 				if(data.status == 0) {

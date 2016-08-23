@@ -3,14 +3,15 @@
  */
 var Constants = window.Constants || {};
 Constants.TIMEOUT = 2000;
- // var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
+  // var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
 //var baseUrl = "http://10040.snail.com/rental_interface/";
-   var baseUrl="http://agent.snail.com/rental_interface/";
+  var baseUrl="http://agent.snail.com/rental_interface/";
 // var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
 // var baseUrl = "http://10040.snail.com/rental_interface/";
 //   var baseUrl="http://agent.snail.com/rental_interface/";
-
+//登录
 Constants.login = baseUrl + "front/login";
+Constants.loginbyphone = baseUrl + "front/login_by_phone";
 Constants.getCode = baseUrl + "front/get_checkcode";
 Constants.regAccount = baseUrl + "front/save_member";
 Constants.rentlisttop = baseUrl + "front/json_top_rental_housing";
@@ -22,7 +23,7 @@ Constants.saledetail = baseUrl + "front/view_sale_housing";
 //众筹
 Constants.crowdfundlist = baseUrl + "front/json_crowdfunding_housing";
 Constants.crowdfunddetail = baseUrl + "front/view_crowdfunding_housing";
-Constants.citylist = baseUrl + "front/json_city";
+Constants.citylist = baseUrl + "front/json_all_city";
 Constants.cityArea = baseUrl + "front/json_district";
 //包租头条
 Constants.bztt=baseUrl+"front/json_information";
@@ -39,4 +40,23 @@ Constants.newhousedetail=baseUrl+'front/view_new_housing';
 //上传图像
 Constants.mysctx=baseUrl+'upload_header_portrait';
 //浏览记录
-Constants.browseRecord=baseUrl+'/json_member_browse';
+Constants.browseRecord=baseUrl+'json_member_browse';
+Constants.favRecord=baseUrl+'json_member_favorites';
+//加入收藏/取消收藏
+Constants.memberFav=baseUrl+'member_favorites';
+//我的报名
+Constants.memberSign=baseUrl+'json_member_demand';
+//附近租、新、二手、众筹
+Constants.fjzf=baseUrl+'front/json_nearby_rental_housing';
+Constants.fjesf=baseUrl+'';
+Constants.fjxf=baseUrl+'';
+Constants.fjzcouf=baseUrl+'';
+//点赞
+Constants.dzan=baseUrl+'member_support';
+
+//会员修改
+Constants.updateMember=baseUrl+'update_member';
+//城市分区及分区下的板块
+Constants.dsList=baseUrl+'front/json_district';
+Constants.ptList=baseUrl+'front/json_plat';
+

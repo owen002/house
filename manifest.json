@@ -105,7 +105,7 @@
 	},
 	"plus": {
 		"splashscreen": {
-			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"autoclose": false,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
 			"waiting": true
 		},
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
@@ -222,9 +222,37 @@
 					"page/salehouse.html",
 					"page/salehouseList.html",
 					"page/croudfunding.html",
-					"js/common/geo.js"
+					"js/common/geo.js",
+					"js/index.source.js",
+					"js/common/mustache.min.js",
+					"res/img/message.png",
+					"js/common/jquery-1.10.2.min.js",
+					"js/common/scroll.js",
+					"js/common/ScrollText.js",
+					"res/img/new/new-house-circle-top.png",
+					"res/img/new/guess-u-like-diam.png",
+					"res/img/new/01.png",
+					"res/img/new/rent-circle-top.png",
+					"res/img/new/two-hand-circle-top.png",
+					"res/img/new/fund.png",
+					"res/img/new/rent.png",
+					"res/img/new/two.png",
+					"res/img/new/cross-funding-circle-top.png",
+					"res/img/new/right.png",
+					"res/img/new/new-house-rect.png",
+					"res/img/new/new.png",
+					"res/img/new/sound.png",
+					"res/img/new/02.png",
+					"page/location.html"
 				],
-				"refer": [],
+				"refer": [
+					"page/myfavo.html",
+					"page/myfabu.html",
+					"page/mysign.html",
+					"page/setup/setmain.html",
+					"page/newhouse.html",
+					"page/myhistroy.html"
+				],
 				"priority": 0
 			},
 			"page/rent.html": {
@@ -245,7 +273,9 @@
 					"res/img/house-icons/pz09.png",
 					"res/img/call-contact.png",
 					"index.html",
-					"css/rent.css"
+					"css/rent.css",
+					"js/rent.source.js",
+					"page/rentList.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -303,7 +333,21 @@
 					"res/img/login/backico.png",
 					"css/rentList.css",
 					"css/rent.css",
-					"js/rentList.js"
+					"js/rentList.js",
+					"js/rentList.source.js",
+					"page/rent.html",
+					"css/base.css",
+					"js/common/mui.pullToRefresh.material.js",
+					"res/img/search.png",
+					"fonts/mui.ttf",
+					"js/base.js",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/sp3.png",
+					"css/mui.min.css",
+					"res/img/message.png",
+					"js/common/mui.pullToRefresh.js",
+					"js/common/constant.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -316,7 +360,17 @@
 					"res/img/like.png",
 					"res/img/zsh.png",
 					"res/img/call-contact.png",
-					"page/salehouseList.html"
+					"page/salehouseList.html",
+					"css/base.css",
+					"res/img/login/backico.png",
+					"js/common/mustache.min.js",
+					"js/base.js",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/house.jpg",
+					"res/img/sp3.png",
+					"css/mui.min.css",
+					"js/common/constant.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -340,7 +394,10 @@
 					"css/salehouseList.css",
 					"js/common/mui.pullToRefresh.material.js",
 					"js/common/mui.pullToRefresh.js",
-					"js/common/mustache.min.js"
+					"js/common/mustache.min.js",
+					"js/salehouseList.source.js",
+					"res/img/sp3.png",
+					"res/img/message.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -348,7 +405,206 @@
 			"page/croudfunding.html": {
 				"resources": [
 					"js/croundfunding.js",
+					"index.html",
+					"css/rent.css",
+					"css/base.css",
+					"js/common/mui.pullToRefresh.material.js",
+					"res/img/search.png",
+					"fonts/mui.ttf",
+					"res/img/login/backico.png",
+					"js/common/mustache.min.js",
+					"js/base.js",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/sp3.png",
+					"css/mui.min.css",
+					"js/common/constant.js",
+					"js/common/mui.pullToRefresh.js",
+					"js/croundfunding.source.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/myfavo.html": {
+				"resources": [
+					"css/rent.css",
+					"res/img/login/backico.png",
+					"js/newhousedetail.source.js",
+					"js/base.js",
+					"css/base.css",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/house.jpg",
+					"res/img/sp3.png",
+					"css/mui.min.css",
+					"js/common/constant.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/myfabu.html": {
+				"resources": [
+					"js/common/mui.pullToRefresh.material.js",
+					"css/myfabu.css",
+					"res/img/login/backico.png",
+					"js/mysign.source.js",
+					"js/common/mui.pullToRefresh.js",
+					"js/base.js",
+					"css/base.css",
+					"res/img/login/regico.png",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/common/constant.js",
+					"js/myfabu.js",
+					"js/myfabu.source.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/mysign.html": {
+				"resources": [
+					"css/base.css",
+					"js/common/mui.pullToRefresh.material.js",
+					"res/img/login/backico.png",
+					"css/mysign.css",
+					"js/mysign.source.js",
+					"js/base.js",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/house.jpg",
+					"res/img/sp3.png",
+					"css/mui.min.css",
+					"js/common/mui.pullToRefresh.js",
+					"js/common/constant.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/setup/setmain.html": {
+				"resources": [
+					"js/base.js",
+					"css/base.css",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"res/img/login/backico.png",
+					"css/mui.min.css",
+					"css/setting.css",
+					"page/setup/updatePhone.html",
+					"page/setup/personalData.html",
+					"page/setup/about.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/setup/updatePhone.html": {
+				"resources": [
+					"res/img/login/regico.png",
+					"js/login/reg.js",
+					"css/phone.css",
+					"js/common/constant.js",
+					"page/setup/setmain.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/setup/personalData.html": {
+				"resources": [
+					"images/login/head.png",
+					"page/setup/setmain.html",
+					"page/setup/nickname.html",
+					"js/base.js",
+					"css/base.css",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"res/img/login/backico.png",
+					"css/mui.min.css",
+					"js/setup/pData.source.js",
+					"js/common/constant.js",
+					"css/setting.css",
+					"js/common/mustache.min.js"
+				],
+				"refer": [
+					"page/login/login.html"
+				],
+				"priority": 0
+			},
+			"page/setup/nickname.html": {
+				"resources": [
+					"page/setup/personalData.html",
+					"res/img/login/regico.png",
+					"js/login/reg.js",
+					"css/phone.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/setup/about.html": {
+				"resources": [
+					"css/about.css",
+					"css/mui.css",
+					"page/setup/setmain.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/location.html": {
+				"resources": [
+					"js/common/mui.indexedlist.js",
+					"res/img/login/backico.png",
+					"css/mui.indexedlist.css",
+					"js/base.js",
+					"css/base.css",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/common/constant.js",
+					"js/location.source.js",
 					"index.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/newhouse.html": {
+				"resources": [
+					"js/newhouse.source.js",
+					"css/rent.css",
+					"css/base.css",
+					"js/common/mui.pullToRefresh.material.js",
+					"res/img/search.png",
+					"fonts/mui.ttf",
+					"res/img/login/backico.png",
+					"js/common/mustache.min.js",
+					"js/base.js",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/sp3.png",
+					"css/mui.min.css",
+					"res/img/message.png",
+					"js/common/mui.pullToRefresh.js",
+					"js/common/constant.js",
+					"res/img/house.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/myhistroy.html": {
+				"resources": [
+					"js/base.js",
+					"css/rent.css",
+					"css/base.css",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/house.jpg",
+					"res/img/login/backico.png",
+					"res/img/sp3.png",
+					"css/mui.min.css",
+					"js/common/constant.js",
+					"js/newhousedetail.source.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -356,8 +612,7 @@
 		},
 		"idle": {
 			"resources": [
-				"js/mui.js",
-				"css/mui.css"
+				"js/mui.js"
 			]
 		}
 	}

@@ -10,18 +10,24 @@
     <link href="../css/rent.css" rel="stylesheet"/>
 </head>
 <style>
-.mui-table-view{
-    position: relative;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
-    list-style: none;
-    background-color: #fff;
-}
-.mui-content {
-    color: #000;
-    padding-top:2.4rem!important;
-}
+    .mui-table-view {
+        position: relative;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+        list-style: none;
+        background-color: #fff;
+    }
+
+    .mui-content {
+        color: #000;
+        padding-top: 2.4rem !important;
+    }
+
+    .mui-scroll-wrapper {
+        background-color: #fff;
+        color: #000;
+    }
 </style>
 <body>
 <header id="header" class="mui-bar mui-bar-nav">
@@ -41,39 +47,142 @@
 </header>
 <section class="slider-menu-choose">
     <ul class="header-menu-select">
-        <li style="border:none">
-            区域
-            <div class="mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
+        <li style="border:none" class="slider-choose-li" data-type="1">
+            <div class="header-search-fo" id="quyu">区域</div>
+            <div class="transition-action  mui-icon-arrowdown mui-icon choose-down-arrow"></div>
         </li>
-        <li>
-            租金
-            <div class="mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
+        <li class="slider-choose-li" data-type="2">
+            <div class="header-search-fo" id="zujin">售价</div>
+            <div class="mui-icon-arrowdown transition-action mui-icon choose-down-arrow">&nbsp;</div>
         </li>
-        <li>
-            房型
-            <div class="mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
+        <li class="slider-choose-li" data-type="3">
+            <div class="header-search-fo" id="fangxing">户型</div>
+            <div class="mui-icon-arrowdown mui-icon choose-down-arrow transition-action ">&nbsp;</div>
         </li>
-        <li>
-            更多
-            <div class="mui-icon-arrowdown mui-icon choose-down-arrow">&nbsp;</div>
+        <li class="slider-choose-li" data-type="4">
+            <div class="header-search-fo" id="gengduo">更多</div>
+            <div class="mui-icon-arrowdown mui-icon transition-action choose-down-arrow">&nbsp;</div>
         </li>
     </ul>
-    <div class="choose-location" style="display: none;">
+    <div class="choose-location choose-content1" style="display: none;">
+        <div id="location1" class="mui-scroll-wrapper choose-left">
+            <div class="mui-scroll">
+                <ul id="areaList">
+                    <li class="choose-left-active">
+                        <div class="bzm-navigate-right">
+                            不限
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--<div id="locationcontent1" class="mui-scroll-wrapper choose-right">-->
+        <!--<div class="mui-scroll">-->
+        <!--<ul>-->
+        <!--<li>附近</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+    <div class="choose-location choose-content2" style="display: none;">
+        <div id="choose2Scroll" class="mui-scroll-wrapper choose-content2-inner">
+            <div class="mui-scroll">
+                <ul id="amountArea" class="choose-content2-inner-ul">
+                    <li class="choose-left-active">
+                        不限
+                    </li>
+                    <li data-max="400000">
+                        40万以下
+                    </li>
+                    <li data-min="400000" data-max="800000">
+                        40万-80万
+                    </li>
+                    <li data-min="800000" data-max="1200000">
+                        80万-120万
+                    </li>
+                    <li data-min="1200000" data-max="1600000">
+                        120万-160万
+                    </li>
+                    <li data-min="1600000" data-max="2000000">
+                        160万-200万
+                    </li>
+                    <li data-min="2000000" data-max="2400000">
+                        200万-240万
+                    </li>
+                    <li data-min="2400000" data-max="3000000">
+                        240万-300万
+                    </li>
+                    <li data-min="3000000">
+                        300万以上
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="choose-location choose-content3" style="display: none;">
+        <div id="choose3Scroll" class="mui-scroll-wrapper choose-content3-inner">
+            <div class="mui-scroll">
+                <ul id="sortLiveUl" class="choose-content3-inner-ul">
+                    <li class="choose-left-active">
+                        不限
+                    </li>
+                    <li data-min="1" data-max="1">
+                        1室
+                    </li>
+                    <li data-min="2" data-max="2">
+                        2室
+                    </li>
+                    <li data-min="3" data-max="3">
+                        3室
+                    </li>
+                    <li data-min="4" data-max="4">
+                        4室
+                    </li>
+                    <li data-min="4">
+                        4室以上
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="choose-location choose-content4" style="display: none;">
+        <div id="choose4Scroll" class="mui-scroll-wrapper choose-content4-inner">
+            <div class="mui-scroll">
+                <ul class="choose-content4-inner-ul" id="moreItems">
+                    <li>
+                        <div class="more-rent-title ">
+                            装修
+                        </div>
+                        <div class="more-rent-wrapper zhuangxiu">
+                            <div class="rent-content choose-left-active">不限</div>
+                            <div class="rent-content" data-type="1">毛坯</div>
+                            <div class="rent-content" data-type="2">简装</div>
+                            <div class="rent-content" data-type="3">中装</div>
+                            <div class="rent-content" data-type="4">精装</div>
+                            <div class="rent-content" data-type="5">豪华装</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="confirm-btn">
+                <button class="mui-btn mui-btn-block mui-btn-blue confirm-btn-ac" id="confirmChooseBtn">确定</button>
+            </div>
+        </div>
     </div>
 
     <div class="mui-back"></div>
 </section>
 <div class="mui-content">
-	<div class="mui-slider">
-	    <section class="house-detail-section nearby-section">
-	        <div class="guyl-header">
-	            <div class="device-sales-items-head">
-	                <div class="bzm-fjpz color-orange">猜你喜欢</div>
-	            </div>
-	        </div>
+    <div class="mui-slider">
+        <section class="house-detail-section nearby-section">
+            <div class="guyl-header">
+                <div class="device-sales-items-head">
+                    <div class="bzm-fjpz color-orange">猜你喜欢</div>
+                </div>
+            </div>
             <div class="gueulike-wrapper">
                 <ul class="gus-list-ul" id="guessUlike">
-  
+
                 </ul>
             </div>
         </section>
@@ -113,6 +222,8 @@
          </div>
     </li>
     {{/rows}}
+
+
 </script>
 <script src="../js/mui.min.js"></script>
 <script src="../js/common/mui.pullToRefresh.js"></script>

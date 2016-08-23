@@ -17,7 +17,7 @@
     </a>
     <div class="page-title" id="pageTitle"></div>
     <a class="f-right right-contact-a">
-        <img src="../res/img/like.png" alt="">
+        <img src="../res/img/like.png" alt="" id="fav">
     </a>
 </header>
 <article class="mui-content mui-scroll-wrapper" style="background-color: #efeff4" id="offCanvasContentScroll">
@@ -91,8 +91,8 @@
                     {{newHousing.title}}
                 </div>
                 <div class="f-left detail-op-icon">
-                    <img src="../res/img/call-contact.png" alt="">
-                    <img src="../res/img/zsh.png" alt="">
+                    <img src="../res/img/call-contact.png" alt="" id='callphone' contact="{{newHousing.contactNumber}}"/>
+                    <img src="../res/img/zsh.png" alt="" id='dzan' />
                 </div>
             </div>
         </section>
@@ -188,39 +188,17 @@
                 </div>
             </ul>
         </section>
-        <section class="house-detail-section newhouse-tsfw">
+        <section class="house-detail-section device-items-section">
             <div class="device-items-head">
-                <div class="bzm-fjpz color-orange">特色服务</div>
+                <div class="bzm-fjpz color-orange">房间配置</div>
             </div>
             <ul>
+            	{{#rentalServiceList}}
                 <li>
-                    <div class="new-each-div">
-                        <img src="../res/img/house-icons/pz01.png" alt="">
-                        <div class="items-name">7x24小时管家服务</div>
-                    </div>
-                    <div class="new-each-div">
-                        <img src="../res/img/house-icons/pz02.png" alt="">
-                        <div class="items-name">免中介费</div>
-                    </div>
-                    <div class="new-each-div">
-                        <img src="../res/img/house-icons/pz03.png" alt="">
-                        <div class="items-name">送保洁</div>
-                    </div>
+                    <img src="../res/img/house-icons/pz01.png" alt="">
+                    <div class="items-name">{{serviceName}}</div>
                 </li>
-                <li>
-                    <div class="new-each-div">
-                        <img src="../res/img/house-icons/pz01.png" alt="">
-                        <div class="items-name">抵代金券60</div>
-                    </div>
-                    <div class="new-each-div">
-                        <img src="../res/img/house-icons/pz02.png" alt="">
-                        <div class="items-name">保险</div>
-                    </div>
-                    <div class="new-each-div">
-                        <img src="../res/img/house-icons/pz03.png" alt="">
-                        <div class="items-name">补贴500</div>
-                    </div>
-                </li>
+                {{/rentalServiceList}}
             </ul>
         </section>
         <section class="house-detail-section house-location-section">
@@ -251,5 +229,6 @@
             </ul>
         </section>
         <section class="house-detail-section nearby-section">
+        </section>	
 </script>
 </html>

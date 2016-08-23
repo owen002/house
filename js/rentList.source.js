@@ -2,10 +2,11 @@
     mui.init();
     mui('#location1,#choose2Scroll,#locationcontent1,#choose3Scroll,#choose4Scroll').scroll();
     var pageSize = 10, pageNo = 1, canPull = true, showChooseMenuFlag = false, cityid = 1;
+    var pa = base.param('pa') || '';
+
     var muiBack = mui('.mui-back')[0];
     var trimVal = base.trimVal, $areaList = base.$('#areaList');
     var $guessUlike = base.$('#guessUlike');
-
     var param = {
         'pager.pageSize': pageSize,
         'pager.pageNo': pageNo,
@@ -18,7 +19,8 @@
         'parameters[minRooms]': '',
         'parameters[maxRooms]': '',
         'parameters[rentalMode]': '',
-        'parameters[decoration]': ''
+        'parameters[decoration]': '',
+        'parameters[title]': pa
     };
     var page = {
         init: function () {
@@ -199,6 +201,10 @@
             })
         }
     };
+
+    mui(document).on('tap', '.search-box', function () {
+        base.goSearch();
+    });
 
     function closeSelect() {
         if (showChooseMenuFlag) {

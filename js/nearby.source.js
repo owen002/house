@@ -59,8 +59,8 @@
           	 var pageObj={
           	 	pageUrl:'../page/mynearby.html',
           	 	postData:{
-          	 		dsid:this.getAttribute('districtID'),
-          	 		ptid:this.getAttribute('platID')
+          	 		dsid:this.getAttribute('dsid'),
+          	 		ptid:this.getAttribute('ptid')
           	 	}
           	 };
           	 pageChange(pageObj);

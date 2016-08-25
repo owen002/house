@@ -7,6 +7,7 @@
     <title></title>
     <link href="../css/mui.min.css" rel="stylesheet"/>
     <link href="../css/base.css" rel="stylesheet"/>
+    <link href="../css/rent.css" rel="stylesheet"/>
     <link href="../css/mysign.css" rel="stylesheet"/>
     <style>
         .zan-and-focus .zan-focus-area {
@@ -15,6 +16,18 @@
 
         .zan-and-focus {
             margin-top: 0 !important;
+        }
+        .mysign-content .mysign-items-ul li{
+            overflow: hidden;
+        }
+        .nearby-house-items .newh-detail-adv{
+            width:100%;
+            max-width: none;
+            margin:0.2rem 0;
+        }
+        .bzm-house-detail-header .zc-jdt-wrapper{
+            width:100%;
+            box-shadow: none;
         }
     </style>
 </head>
@@ -26,16 +39,13 @@
         </div>
     </a>
     <div class="f-left" style="position:relative;margin-left:0.3rem;">
-       我的报名
+        我的报名
     </div>
 </header>
 <div class="mui-content">
     <section class="mysign-head-select-section">
         <ul class="ms-header-menu">
-        <li class=" ms-menu-active ms-m" data-type="5">
-                	众筹
-        </li>	
-            <li class="ms-m" data-type="1">
+            <li class="ms-menu-active ms-m" data-type="1">
                 买房
             </li>
             <li class=" ms-m" data-type="2">
@@ -46,6 +56,9 @@
             </li>
             <li class=" ms-m" data-type="4">
                 出租
+            </li>
+            <li class="  ms-m" data-type="5">
+                众筹
             </li>
         </ul>
     </section>
@@ -68,6 +81,11 @@
 
         </ul>
     </section>
+    <section class="mysign-content ms-con5">
+        <ul class="mysign-items-ul" id="guessUlike5">
+
+        </ul>
+    </section>
 </div>
 
 </body>
@@ -83,20 +101,22 @@
 <script id='rows-li-template2' type="x-mustache-tmpl">
 {{#rows}}
 <li class="mysign-item-li zuf-mysign-item-li">
-    <div class="house-content f-left">
+    <div class="house-content">
         <div>
              <span>{{contactNumber}} </span>
         </div>
-        <div style="margin-top: 0.4rem;">
-             <span style="font-size: 0.35rem;color:#716A6A" >{{content}}</span> 
-        </div>
     </div>
-    <div class=" f-right">
-    	<span>{{createTime}}</span> 
+    <div  style="margin-top: 0.4rem;">
+        <div >
+             <span style="font-size: 0.35rem;color:#716A6A;margin-left: 0.3rem;" >{{content}}</span>
+        </div>
+        <div class=" f-right">
+            <span>{{createTime}}</span>
+        </div>
+        <div class="mui-clearfix"></div>
     </div>
 </li>
 {{/rows}}
-
 
 
 </script>
@@ -105,57 +125,130 @@
 <script id='rows-li-template1' type="x-mustache-tmpl">
 {{#rows}}
 <li class="mysign-item-li zuf-mysign-item-li">
-    <div class="house-content f-left">
+    <div class="house-content">
         <div>
              <span>{{contactNumber}} </span>
         </div>
-        <div style="margin-top: 0.4rem;">
-             <span style="font-size: 0.35rem;color:#716A6A" >{{content}}</span> 
-        </div>
     </div>
-    <div class=" f-right">
-    	<span>{{createTime}}</span> 
+    <div  style="margin-top: 0.4rem;">
+        <div class="f-left">
+             <span style="font-size: 0.35rem;color:#716A6A;margin-left: 0.3rem;" >{{content}}</span>
+        </div>
+        <div class=" f-right">
+            <span>{{createTime}}</span>
+        </div>
+        <div class="mui-clearfix"></div>
     </div>
 </li>
 {{/rows}}
+
+
 </script>
 
 <!--卖房-->
 <script id='rows-li-template3' type="x-mustache-tmpl">
 {{#rows}}
 <li class="mysign-item-li zuf-mysign-item-li">
-   <div class="house-content f-left">
+   <div class="house-content">
         <div>
              <span>{{contactNumber}} </span>
         </div>
-        <div style="margin-top: 0.4rem;">
-             <span style="font-size: 0.35rem;color:#716A6A" >{{content}}</span> 
-        </div>
     </div>
-    <div class=" f-right">
-    	<span>{{createTime}}</span> 
+    <div  style="margin-top: 0.4rem;">
+        <div class="f-left">
+              <span style="font-size: 0.35rem;color:#716A6A;margin-left: 0.3rem;" >{{content}}</span>
+        </div>
+        <div class=" f-right">
+            <span>{{createTime}}</span>
+        </div>
+        <div class="mui-clearfix"></div>
     </div>
 </li>
 {{/rows}}
+
+
 </script>
 
 <!--出租模板-->
 <script id='rows-li-template4' type="x-mustache-tmpl">
 {{#rows}}
 <li class="mysign-item-li zuf-mysign-item-li">
-    <div class="house-content f-left">
+    <div class="house-content">
         <div>
              <span>{{contactNumber}} </span>
         </div>
-        <div style="margin-top: 0.4rem;">
-             <span style="font-size: 0.35rem;color:#716A6A" >{{content}}</span> 
-        </div>
     </div>
-    <div class=" f-right">
-    	<span>{{createTime}}</span> 
+    <div  style="margin-top: 0.4rem;">
+        <div class="f-left">
+              <span style="font-size: 0.35rem;color:#716A6A;margin-left: 0.3rem;" >{{content}}</span>
+        </div>
+        <div class=" f-right">
+            <span>{{createTime}}</span>
+        </div>
+        <div class="mui-clearfix"></div>
     </div>
 </li>
 {{/rows}}
+
+
 </script>
 
+
+<!--众筹-->
+<script id="rows-li-template5" type="x-tmpl-mustache">
+	{{#rows}}
+    <li class="croudfunding-li"  data-id="{{crowdfundingHousingID}}">
+        <div class="f-left house-img">
+            <img src="{{mainImage}}" alt="">
+        </div>
+        <div class="house-content f-left">
+            <div class="f-left hc-title">
+                	{{title}}
+            </div>
+            <div class="f-right zc-amount">
+                剩万/总{{totalPrice}}万
+            </div>
+            <div class="mui-clearfix"></div>
+            <div class="nearby-house-items">
+                <div>
+                    <span>{{platName}} &nbsp;</span>
+                    <span>{{rooms}}室{{halls}}厅{{toilet}}卫 &nbsp;</span>
+                    <span>{{housingArea}}平米</span>
+                </div>
+                <section class="bzm-house-detail-header">
+                    <div class="zc-jdt-wrapper jdu-public jdu-public">
+                        <div class='amount-percent'>50%</div>
+                        <div class="zc-jdt grad jdu-public transition-action">
+                            &nbsp;
+                        </div>
+                    </div>
+                </section>
+                <div class="newh-detail-adv">
+                    <span class="newh-adv">代金券</span>
+                    <span class="newh-adv">送保洁</span>
+                    <span class="newh-adv">补贴</span>
+                </div>
+                <div>
+                    <div class="f-left month-price">年收益:<span>{{rentalIncome}}万</span></div>
+                    <div class="f-right">
+                    <div class="zan-focus-area">
+                        <div>
+                            <img class="z-img" src="../res/img/new/zan.png" alt="">
+                        </div>
+                        <div>{{supportNum}}</div>
+                        <div>
+                            <img class="f-img" src="../res/img/new/focus.png" alt="">
+                        </div>
+                        <div>{{viewNum}}</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    {{/rows}}
+
+
+</script>
 </html>

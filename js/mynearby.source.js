@@ -1,5 +1,12 @@
 (function() {
 	mui.init();
+	//阻尼系数
+	var deceleration = mui.os.ios ? 0.003 : 0.0009;
+//  mui('.mui-scroll-wrapper').scroll({
+//	    bounce: false,
+//	   indicators: true, //是否显示滚动条
+//	   deceleration: deceleration
+//    });		
 	var pageSize = 10,
 		pageNos = {
 			pageNo1: 1,
@@ -24,10 +31,11 @@
 				clocation = getQueryString('location');
 				dsid = getQueryString('dsid');
 				ptid = getQueryString('ptid');
-//				page.queryList(1);
+				page.queryList(1);
+				page.bind();
 			});
 
-			page.bind();
+			
 		},
 		queryList: function(type,upOrdown) {
 			var qurl = '';
@@ -35,60 +43,77 @@
 			if(type == 1) { //租房
 				if(clocation == undefined || clocation == null || clocation == '') { //定位失败手动选择
 					qurl = Constants.rentlist;
-					if(upOrdown==2){//向上
-						qdata = {
-						'parameters.cityID': locgetuserinfo('cityid'),
-						'parameters.districtID': dsid,
-						'parameters.platID': ptid,
-						'pager.pageSize': pageSize,
-						'pager.pageNo': pageNos.pageNo1
-					};
-					}else{//向下
-						qdata = {
-						'parameters.cityID': locgetuserinfo('cityid'),
-						'parameters.districtID': dsid,
-						'parameters.platID': ptid,
-						'pager.pageSize': pageSize,
-						'pager.pageNo': 1
-					};
-					}
-					
 				} else { //定位成功
                      qurl = Constants.fjzf;
-					if(upOrdown==2){//向上
-						qdata = {
-						'parameters.longitude': location.lng,
-						'parameters.latitude': location.lat,
-						'pager.pageSize': pageSize,
-						'pager.pageNo': pageNos.pageNo1
-					};
-					}else{//向下
-						qdata = {
-						'parameters.longitude': location.lng,
-						'parameters.latitude': location.lat,
-						'pager.pageSize': pageSize,
-						'pager.pageNo': 1
-					};
-					}
 				}
 			}
 			if(type == 2) { //售房
-
+				if(clocation == undefined || clocation == null || clocation == '') { //定位失败手动选择
+					qurl = Constants.salelist;
+				} else { //定位成功
+                     qurl = Constants.fjesf;
+				}
 			}
 			if(type == 3) { //众筹房
-
+				if(clocation == undefined || clocation == null || clocation == '') { //定位失败手动选择
+					qurl = Constants.crowdfundlist;
+				} else { //定位成功
+                     qurl = Constants.fjzcouf;
+				}
 			}
 			if(type == 4) { //新房
-
+				if(clocation == undefined || clocation == null || clocation == '') { //定位失败手动选择
+					qurl = Constants.newhouselist;
+				} else { //定位成功
+                     qurl = Constants.fjxf;
+				}
 			}
+			if(clocation == undefined || clocation == null || clocation == '') { //定位失败手动选择
+				if(upOrdown==2||upOrdown==undefined){//向上
+						qdata = {
+						'parameters.cityID': locgetuserinfo('cityid'),
+						'parameters.districtID': dsid,
+						'parameters.platID': ptid,
+						'pager.pageSize': pageSize,
+						'pager.pageNo': page.getPageNo(type)
+					};
+					}else{//向下
+						qdata = {
+						'parameters.cityID': locgetuserinfo('cityid'),
+						'parameters.districtID': dsid,
+						'parameters.platID': ptid,
+						'pager.pageSize': pageSize,
+						'pager.pageNo': 1
+					};
+					}
+			}else{
+				if(upOrdown==2||upOrdown==undefined){//向上
+						qdata = {
+						'parameters.longitude': Math.floor(clocation.longitude*1000000)/1000000,
+						'parameters.latitude': Math.floor(clocation.latitude*1000000)/1000000,
+						'pager.pageSize': pageSize,
+						'pager.pageNo': page.getPageNo(type)
+					};
+					}else{//向下
+						qdata = {
+						'parameters.longitude': Math.floor(clocation.longitude*1000000)/1000000,
+						'parameters.latitude': Math.floor(clocation.latitude*1000000)/1000000,
+						'pager.pageSize': pageSize,
+						'pager.pageNo': 1
+					};
+					}
+			}
+			
+			
 
 			var querySettings = {
 				url: qurl,
 				data: qdata,
 				type: 'post'
 			};
-
+            console.log(currentid+':'+JSON.stringify(querySettings));
 			muiAjax(querySettings, function(data) {
+				console.log(JSON.stringify(data));
 				var rows = data.rows;
 				var rentlength = rows.length,
 					totalLength = data.totalRows;
@@ -100,13 +125,23 @@
 					} else {
 						page.setCanPull(type, true);
 					}
-					var obj = {
-						rows: rows
-					};
+					var obj;
 
 					var tmpl = mui('#rows-li-template' + currentid)[0].innerHTML;
 					var fragment = document.createDocumentFragment();
 					var div = document.createElement('div');
+					if(currentid==3){//众筹剩余处理
+						obj = {
+						rows: rows,
+						syz:function(){
+							return (this.totalPrice-this.atualInvestment);
+						}
+					};
+					}else{
+						obj = {
+						rows: rows
+					};
+					}
 					div.innerHTML = Mustache.render(tmpl, obj);
 					while(div.hasChildNodes()) {
 						fragment.appendChild(div.firstChild);
@@ -141,10 +176,10 @@
 				pageNos.pageNo2 += adds;
 			}
 			if(currentid == 3) {
-				pageNos.pageNo3 += ads;
+				pageNos.pageNo3 += adds;
 			}
 			if(currentid == 4) {
-				pageNos.pageNo4 += ads;
+				pageNos.pageNo4 += adds;
 			}
 		},
 		getCanPull: function(currentid) {
@@ -186,7 +221,7 @@
 							callback: function() {
 								var self = this;
 								setTimeout(function() {
-									page.queryList(index,1);
+									page.queryList(currentid,1);
 									self.endPullDownToRefresh();
 								}, 500);
 							}
@@ -195,16 +230,16 @@
 							callback: function() {
 								var self = this;
 								setTimeout(function() {
-									if(page.getCanPull(index)) {
-										page.setCanPull(index,2);
-										page.queryList(index);
+									if(page.getCanPull(currentid)) {
+										page.setPageNo(currentid,1);
+										page.queryList(currentid,2);
 									}
-									self.endPullUpToRefresh(!page.getCanPull(index));
+									self.endPullUpToRefresh(!page.getCanPull(currentid));
 								}, 500);
-							},
-							auto:true//自动触发上拉加载
+							}
 						}
 					});
+					mui(pullRefreshEl).pullToRefresh().pullUpTipsIcon.innerHTML = '';//刚开始时不显示上拉可加载更多提示
 				});
 			var muiBack = mui('.mui-back')[0];
 			mui(document).on('tap', '.slider-menu-choose li', function() {
@@ -227,11 +262,16 @@
 	};
 
 	function switchTab($this) {
-		currentid = $this.getAttribute('data-type');
+		currentid = parseInt($this.getAttribute('data-type'));
 		base.removeClass(base.$s('.ms-m'), 'ms-menu-active');
 		base.addClass($this, 'ms-menu-active');
 		base.removeClass(base.$('.section-active'), 'section-active');
 		base.addClass(base.$('.ms-con' + currentid), 'section-active');
+		if(mui('#guessUlike' + currentid)[0].childNodes.length<2){
+			page.queryList(currentid);
+		}
+		
+		
 	}
 
 	page.init();

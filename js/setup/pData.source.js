@@ -2,6 +2,8 @@
 	mui.init();
 	var currentid = '1';
 	var nickName = '';
+	var userinfo = localStorage.getItem('userinfo');
+	userinfo = JSON.parse(decodeURIComponent(userinfo));
 	var page = {
 		init: function() {
 			base.setPageRem();
@@ -47,11 +49,23 @@
 			getTemplate(txtmpl);
 		},
 		loaduserInfo: function() { //从本地localstorage里加载会员图像
-			var userinfo = localStorage.getItem('userinfo');
-		    userinfo = JSON.parse(decodeURIComponent(userinfo));
 		    base.$('#account').innerHTML = userinfo.phone;
 		    nickName = userinfo.nickName;
+		    if(nickName=='' || nickName==null){
+		    	nickName = '未设置';
+		    }
 		    base.$('#nickName').innerHTML = nickName;
+		    var gender = userinfo.gender;
+		    var genderName='';
+		    if(gender=='1') {
+		    	genderName = '男';
+		    }else if(gender=='2'){
+		    	genderName = '女';
+		    }else{
+		    	genderName = '未设置';
+		    }
+		    base.$('#gender').innerHTML = genderName;
+		    
 		    
 		}
 	};
@@ -288,8 +302,14 @@
 	}
 	
 	function savesex() { 
-		//alert(document.getElementByName("se-type"));return;
-        var gender = 2;
+		var gender = '';
+		var radionum = document.getElementsByName("se-type");
+ 		for(var i=0;i<radionum.length;i++){
+			if(radionum[i].checked){
+				gender = radionum[i].value
+ 			}
+ 		}
+       
 		if(gender == null || gender == "") {
 			mui.toast("请选择性别");
 			return;
@@ -308,7 +328,10 @@
 		
 		muiAjax(setings, function(data) {
 			if(data.status==='200') {
-				mui.alert(data.message);
+				mui.toast(data.message);
+				//更新缓存
+				var newuserinfo = {phone:userinfo.phone,username:userinfo.username,uid:userinfo.uid,headerPic:userinfo.headerPic,nickName:userinfo.nickName,gender:gender};
+				localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(newuserinfo)));
 				var pageObj={
 					pageUrl:'../../page/setup/personalData.html'
 				}

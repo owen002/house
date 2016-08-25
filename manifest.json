@@ -56,9 +56,7 @@
          "Invocation": {
             "description": "使用Native.js能力"
         },
-        "Messaging": {
-            "description": "访问通讯能力"
-        },
+        
         "Orientation": {
             "description": "访问方向感应器"
         },
@@ -84,9 +82,7 @@
         "Barcode": {
             "description": "管理二维码扫描插件"
         },
-        "Maps": {
-            "description": "管理地图插件"
-        },
+        "Maps": {},
         "Speech": {
             "description": "管理语音识别插件"
         },
@@ -110,7 +106,7 @@
 		},
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
 		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
-		"distribute": {"plugins":{"maps":{"baidu":{"appkey_ios":"","appkey_android":"wILCdicbD0gokTVFKFowE1L8VGuDVbtQ","appkey":"","description":"百度地图"}}},
+		"distribute": {"plugins":{"maps":{"amap":{"appkey_ios":"","appkey_android":"78fd41da89b338eb127699b0e973b641","description":""}}},
 			"apple": {
 				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
 				"mobileprovision": "",/*iOS应用打包配置文件*/
@@ -124,7 +120,7 @@
 				"keystore": "",/*Android应用打包使用的密钥库文件*/
 				"password": "",/*Android应用打包使用密钥库中证书的密码*/
 				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
-				"permissions": ["<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"]
+				"permissions": ["<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>"]
 			},
 			"orientation": ["portrait-primary", "portrait-secondary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
 			"icons": {
@@ -243,7 +239,8 @@
 					"res/img/new/new.png",
 					"res/img/new/sound.png",
 					"res/img/new/02.png",
-					"page/location.html"
+					"page/location.html",
+					"page/nearby.html"
 				],
 				"refer": [
 					"page/myfavo.html",
@@ -251,7 +248,9 @@
 					"page/mysign.html",
 					"page/setup/setmain.html",
 					"page/newhouse.html",
-					"page/myhistroy.html"
+					"page/myhistroy.html",
+					"page/mynearby.html",
+					"page/qrcodefx.html"
 				],
 				"priority": 0
 			},
@@ -275,7 +274,19 @@
 					"index.html",
 					"css/rent.css",
 					"js/rent.source.js",
-					"page/rentList.html"
+					"page/rentList.html",
+					"res/img/house.jpg",
+					"res/img/new/focus.png",
+					"css/base.css",
+					"css/mui.min.css",
+					"js/base.js",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"js/common/constant.js",
+					"js/common/mustache.min.js",
+					"js/common/mui.pullToRefresh.material.js",
+					"js/common/mui.pullToRefresh.js",
+					"js/common/geo.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -347,7 +358,9 @@
 					"css/mui.min.css",
 					"res/img/message.png",
 					"js/common/mui.pullToRefresh.js",
-					"js/common/constant.js"
+					"js/common/constant.js",
+					"res/img/new/zan.png",
+					"res/img/new/focus.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -370,7 +383,14 @@
 					"res/img/house.jpg",
 					"res/img/sp3.png",
 					"css/mui.min.css",
-					"js/common/constant.js"
+					"js/common/constant.js",
+					"res/img/house-icons/pz01.png",
+					"js/salehouse.source.js",
+					"js/common/mui.pullToRefresh.material.js",
+					"js/common/mui.pullToRefresh.js",
+					"js/common/geo.js",
+					"res/img/new/zan.png",
+					"res/img/new/focus.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -397,7 +417,9 @@
 					"js/common/mustache.min.js",
 					"js/salehouseList.source.js",
 					"res/img/sp3.png",
-					"res/img/message.png"
+					"res/img/message.png",
+					"res/img/new/zan.png",
+					"res/img/new/focus.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -420,9 +442,14 @@
 					"css/mui.min.css",
 					"js/common/constant.js",
 					"js/common/mui.pullToRefresh.js",
-					"js/croundfunding.source.js"
+					"js/croundfunding.source.js",
+					"res/img/new/zan.png",
+					"res/img/message.png",
+					"res/img/new/focus.png"
 				],
-				"refer": [],
+				"refer": [
+					"page/croudfundingdetail.html"
+				],
 				"priority": 0
 			},
 			"page/myfavo.html": {
@@ -437,7 +464,14 @@
 					"res/img/house.jpg",
 					"res/img/sp3.png",
 					"css/mui.min.css",
-					"js/common/constant.js"
+					"js/common/constant.js",
+					"res/img/new/zan.png",
+					"res/img/new/focus.png",
+					"js/common/mui.pullToRefresh.material.js",
+					"js/myhistroy.source.js",
+					"css/myhistroy.css",
+					"js/common/mui.pullToRefresh.js",
+					"js/common/mustache.min.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -477,7 +511,9 @@
 					"res/img/sp3.png",
 					"css/mui.min.css",
 					"js/common/mui.pullToRefresh.js",
-					"js/common/constant.js"
+					"js/common/constant.js",
+					"res/img/new/zan.png",
+					"res/img/new/focus.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -564,7 +600,8 @@
 					"css/mui.min.css",
 					"js/common/constant.js",
 					"js/location.source.js",
-					"index.html"
+					"index.html",
+					"js/common/mustache.min.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -587,9 +624,13 @@
 					"res/img/message.png",
 					"js/common/mui.pullToRefresh.js",
 					"js/common/constant.js",
-					"res/img/house.jpg"
+					"res/img/house.jpg",
+					"res/img/new/zan.png",
+					"res/img/new/focus.png"
 				],
-				"refer": [],
+				"refer": [
+					"page/newhousedetail.html"
+				],
 				"priority": 0
 			},
 			"page/myhistroy.html": {
@@ -604,9 +645,123 @@
 					"res/img/sp3.png",
 					"css/mui.min.css",
 					"js/common/constant.js",
-					"js/newhousedetail.source.js"
+					"js/newhousedetail.source.js",
+					"js/common/mui.pullToRefresh.material.js",
+					"js/myhistroy.source.js",
+					"css/myhistroy.css",
+					"js/common/mustache.min.js",
+					"js/common/mui.pullToRefresh.js"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"page/mynearby.html": {
+				"resources": [
+					"css/mynearby.css",
+					"js/common/mui.pullToRefresh.material.js",
+					"res/img/new/zan.png",
+					"js/common/mui.pullToRefresh.js",
+					"js/mynearby.source.js",
+					"res/img/new/focus.png",
+					"css/base.css",
+					"res/img/login/backico.png",
+					"js/common/mustache.min.js",
+					"js/base.js",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/house.jpg",
+					"css/mui.min.css",
+					"js/common/constant.js",
+					"css/myhistroy.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/nearby.html": {
+				"resources": [
+					"css/rent.css",
+					"fonts/mui.ttf",
+					"res/img/like.png",
+					"js/base.js",
+					"css/base.css",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/login/backico.png",
+					"css/mui.min.css",
+					"js/common/constant.js",
+					"index.html",
+					"js/nearby.source.js",
+					"js/common/mustache.min.js"
+				],
+				"refer": [
+					"page/mynearby.html"
+				],
+				"priority": 0
+			},
+			"page/newhousedetail.html": {
+				"resources": [
+					"res/img/house-icons/pz03.png",
+					"res/img/house-detail.jpg",
+					"res/img/house-icons/pz01.png",
+					"res/img/house-11.png",
+					"res/img/like.png",
+					"res/img/house-icons/pz02.png",
+					"res/img/zsh.png",
+					"res/img/call-contact.png",
+					"js/newhousedetail.source.js",
+					"js/base.js",
+					"css/rent.css",
+					"css/base.css",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/login/backico.png",
+					"css/mui.min.css",
+					"js/common/constant.js",
+					"js/common/mustache.min.js"
+				],
+				"refer": [
+					"page/login/login.html"
+				],
+				"priority": 0
+			},
+			"page/qrcodefx.html": {
+				"resources": [
+					"js/qrcodefx.source.js",
+					"js/common/jquery-1.10.2.min.js",
+					"res/img/login/backico.png",
+					"js/common/jquery.qrcode.min.js",
+					"css/qrcodefx.css",
+					"js/base.js",
+					"css/base.css",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/common/constant.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"page/croudfundingdetail.html": {
+				"resources": [
+					"res/img/like.png",
+					"res/img/zsh.png",
+					"js/croundfundingdetail.source.js",
+					"res/img/call-contact.png",
+					"js/base.js",
+					"css/rent.css",
+					"css/base.css",
+					"js/common/mui.pullToRefresh.material.js",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/login/backico.png",
+					"css/mui.min.css",
+					"js/common/constant.js",
+					"js/common/mui.pullToRefresh.js",
+					"js/common/mustache.min.js"
+				],
+				"refer": [
+					"page/login/login.html"
+				],
 				"priority": 0
 			}
 		},
@@ -615,5 +770,8 @@
 				"js/mui.js"
 			]
 		}
-	}
+	},
+	"unpackage":[
+	  "js/mui.js"
+	]
 }

@@ -23,7 +23,6 @@
 			};
 
 			muiAjax(querySettings, function(data) {
-				console.log(JSON.stringify(data));
 				var templsetting={
 					container:'#cityList',
 					template:'#cityindexlist',
@@ -40,8 +39,8 @@
 		bind: function() {
 			mui('#cityList').on('tap', '.mui-indexed-list-item', function() {
 				locsaveuserinfo('citycode',this.getAttribute('citycode'));
-				locsaveuserinfo('cityname',this.getAttribute('cityName'));
-				locsaveuserinfo('cityid',this.getAttribute('cityId'));
+				locsaveuserinfo('cityname',this.getAttribute('cityname'));
+				locsaveuserinfo('cityid',this.getAttribute('cityid'));
 				var iwv=plus.webview.getLaunchWebview();
 				mui.fire(iwv,'refreshMe');
 				iwv.show();

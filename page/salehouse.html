@@ -15,7 +15,7 @@
             <img src='../res/img/login/backico.png'/>
         </div>
     </a>
-    <div class="page-title">大华曲江公园世家</div>
+    <div class="page-title" id="pageTitle"></div>
     <a class="f-right right-contact-a">
         <img src="../res/img/like.png" alt="" id="fav">
     </a>
@@ -27,19 +27,22 @@
 </article>
 </body>
 <script src="../js/mui.min.js"></script>
+<script src="../js/common/mui.pullToRefresh.js"></script>
+<script src="../js/common/mui.pullToRefresh.material.js"></script>
 <script src="../js/common/constant.js"></script>
 <script src="../js/common/common.js"></script>
 <script src="../js/base.js"></script>
+<script src="../js/common/geo.js"></script>
 <script src="../js/common/mustache.min.js"></script>
 <script src="../js/salehouse.source.js"></script>
 
 <script id="sale-detail-template" type="x-tmpl-mustache">
 <section class="bzm-house-detail-header">
-    <img class="detail-img" src="../res/img/house-detail.jpg" alt="图片">
+    <div id="detailImg">
+    </div>
     <div class="bzm-house-dh-content">
         <div class="f-left bzm-detail-title">
                     {{saleHousing.villageName}}<br />
-                    准现房  3室通透 可取公积金
         </div>
         <div class="f-left detail-op-icon">
             <img src="../res/img/call-contact.png" alt="" id='callphone' contact="{{saleHousing.contactNumber}}">
@@ -92,112 +95,78 @@
     <div class="device-items-head">
         <div class="bzm-fjpz color-orange">房源概况</div>
     </div>
-    <ul>
-        <li>
-            <div class="dis-inline">房源介绍：</div>
-            <div class="dis-inline">{{saleHousing.housingDesc}}</div>
-        </li>
-        <li>
-            <div class="dis-inline">在售户型：</div>
-            <div class="dis-inline">92平米平层112</div>
-        </li>
-    </ul>
+    <div>
+    	{{&saleHousing.housingDesc}}
+    </div>
 </section>
 <section class="house-detail-section house-location-section">
     <div class="device-items-head">
         <div class="bzm-fjpz color-orange">配套优势</div>
     </div>
-    <ul>
-        <li>
-            <div class="dis-inline">商业：</div>
-            <div class="dis-inline">自带步行街，华润万家，影城，超市等</div>
-        </li>
-        <li>
-            <div class="dis-inline">学校：</div>
-            <div class="dis-inline">小区自带品格幼儿园，曲江一中一小，大华小学</div>
-        </li>
-        <li>
-            <div class="dis-inline">交通：</div>
-            <div class="dis-inline">地铁4号线，903、600公交站</div>
-        </li>
-        <li>
-            <div class="dis-inline">医疗：</div>
-            <div class="dis-inline">社区医疗、西安市人民医院</div>
-        </li>
-         <li>
-            <div class="dis-inline">公园：</div>
-            <div class="dis-inline">自带百亩社区公园、南湖公园</div>
-        </li>               
-    </ul>
+    <div>
+    	{{&saleHousing.advantage}}
+    </div>
 </section>
 <section class="house-detail-section nearby-section">
     <div class="device-items-head">
         <div class="bzm-fjpz color-orange">附近推荐</div>
     </div>
-    <ul class="gus-list-ul">
-        <li>
-            <div class="f-left house-img">
-                <img src="../res/img/house.jpg" alt="">
-            </div>
-            <div class="house-content f-left">
-                <div class="hc-title">
-                    西大街附近900元拎包入住
-                </div>
-                <div class="nearby-house-items">
-                    <div>
-                        <span>含光门 迎春小区</span>
-                    </div>
-                    <div>
-                        <span>1室1厅 整租</span>
-                    </div>
-                </div>
-                <div class="zan-and-focus">
-                    <div class="rent-price">900元/月</div>
-                    <div class="zan-focus-area">
-                        <div>
-                            <img class="z-img" src="../res/img/new/zan.png" alt="">
-                        </div>
-                        <div>23</div>
-                        <div>
-                            <img class="f-img" src="../res/img/new/focus.png" alt="">
-                        </div>
-                        <div>223</div>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="f-left house-img">
-                <img src="../res/img/house.jpg" alt="">
-            </div>
-            <div class="house-content f-left">
-                <div class="hc-title">
-                    西大街附近900元拎包入住
-                </div>
-                <div class="nearby-house-items">
-                    <div>
-                        <span>含光门 迎春小区</span>
-                    </div>
-                    <div>
-                        <span>1室1厅 整租</span>
-                    </div>
-                </div>
-                <div class="zan-and-focus">
-                    <div class="rent-price">900元/月</div>
-                    <div class="zan-focus-area">
-                        <div>
-                            <img class="z-img" src="../res/img/new/zan.png" alt="">
-                        </div>
-                        <div>23</div>
-                        <div>
-                            <img class="f-img" src="../res/img/new/focus.png" alt="">
-                        </div>
-                        <div>223</div>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
+    <div class="gueulike-wrapper">
+                <ul class="gus-list-ul" id="guessUlike">
+                	</ul>
+    </div>
 </section>	
+</script>
+
+<script  id="salehouse-image-template" type="x-tmpl-mustache">
+<section class="mui-slider">
+     <div class="mui-slider-group mui-slider-loop">
+     	 {{#rows}}
+         <div class="mui-slider-item">
+             <a href="#">
+                 <img src="{{attachmentName}}">
+             </a>
+         </div>
+         {{/rows}}
+     </div>
+     <div class="mui-slider-indicator mui-text-right">
+     	 {{#rowsArr}}
+         <div class="mui-indicator"></div>
+         {{/rowsArr}}
+     </div>
+</section>
+</script>
+<script id="fjesftj" type="x-tmpl-mustache">
+	{{#rows}}
+    <li data-id="{{saleHousingID}}">
+         <div class="f-left house-img">
+             <img src="{{mainImage}}">
+         </div>
+         <div class="house-content f-left">
+             <div class="hc-title">{{title}}</div>
+             <div class="nearby-house-items">
+                 <div>
+                     <span>{{villageName}}</span>
+                 </div>
+                 <div>
+                     <span>{{rooms}}室{{halls}}厅 &nbsp;{{housingArea}}平米</span>
+                 </div>
+             </div>
+             <div class="zan-and-focus">
+                 <div class="rent-price">{{totalPrice}} 万</div>
+                 <div class="zan-focus-area">
+                     <div>
+                        <img class="z-img" src="../res/img/new/zan.png" alt="">
+                     </div>
+                     <div>{{supportNum}}</div>
+                     <div>
+                        <img class="f-img" src="../res/img/new/focus.png" alt="">
+                     </div>
+                     <div>{{viewNum}}</div>
+                 </div>
+             </div>
+         </div>
+    </li>
+    {{/rows}}
 </script>
 </html>

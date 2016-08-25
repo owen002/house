@@ -144,6 +144,7 @@
 }
 .device-items-section ul li .items-name {
   float: left;
+  width: 2.1rem;
   margin: 0.02rem 0 0 0.3rem;
 }
 .device-items-section ul li img {
@@ -518,4 +519,16 @@
   background: -o-linear-gradient(top, #8AEE55 0%, #45C123 50%, #29890D 100%);
   background: -ms-linear-gradient(top, #8AEE55 0%, #45C123 50%, #29890D 100%);
   background: linear-gradient(to bottom, #8AEE55 0%, #45C123 50%, #29890D 100%);
+}
+#fundRecord li {
+  width: 100%;
+  text-align: center;
+  color: #707370;
+  overflow: hidden;
+}
+#fundRecord li .col-3 {
+  width: 33.33%;
+}
+.bg-gray {
+  background-color: #EBEBEB;
 }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title></title>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/base.css" rel="stylesheet"/>
+    <link href="../css/myhistroy.css" rel="stylesheet"/>
+    <style>
+        .mysign-head-select-section .ms-header-menu li {
+            width: 5rem;
+        }
+
+        .zuf-mysign-item-li {
+            color: #676966;
+            font-size:0.35rem;
+        }
+
+        .xq-title {
+            color: #000;
+            font-size: 0.45rem;
+            margin-bottom: 0.2rem;
+        }
+        .mysign-content .mysign-items-ul .mysign-item-li{
+            padding: 0.4rem 0.3rem;
+        }
+    </style>
+</head>
+<body>
+<header id="header" class="mui-bar mui-bar-nav">
+    <a class="mui-action-back left-menu-icon f-left back">
+        <div class="back-img">
+            <img src='../res/img/login/backico.png'/>
+        </div>
+    </a>
+    <div class="f-left" style="position:relative;margin-left:0.3rem;">
+        消息
+    </div>
+</header>
+<div class="mui-content">
+    <section class="mysign-head-select-section">
+        <ul class="ms-header-menu">
+            <li class="ms-menu-active ms-m" data-type="1">
+                需求消息 <span style="color:#ff0000;"></span>
+            </li>
+            <li class=" ms-m" data-type="2">
+                系统消息 <span style="color:#ff0000;"></span>
+            </li>
+        </ul>
+    </section>
+    <section class="mysign-content ms-con1 section-active">
+        <ul class="mysign-items-ul" id="guessUlike1">
+
+        </ul>
+    </section>
+    <section class="mysign-content ms-con2">
+        <ul class="mysign-items-ul" id="guessUlike2">
+            <li class="mysign-item-li zuf-mysign-item-li">
+                <div></div>
+            </li>
+        </ul>
+    </section>
+</div>
+
+</body>
+<script src="../js/mui.min.js"></script>
+<script src="../js/common/mui.pullToRefresh.js"></script>
+<script src="../js/common/mui.pullToRefresh.material.js"></script>
+<script src="../js/common/constant.js"></script>
+<script src="../js/common/common.js"></script>
+<script src="../js/base.js"></script>
+<script src="../js/common/mustache.min.js"></script>
+<script src="../js/messages.source.js" type="text/javascript"></script>
+<!---->
+<script id='rows-li-template1' type="x-mustache-tmpl">
+{{#rows}}
+<li class="mysign-item-li zuf-mysign-item-li">
+                <div class="xq-title">{{title}}</div>
+                <div>电话：{{contactNumber}}</div>
+                <div class="f-left">{{content}}</div>
+                <div class="f-right">{{sendTime}}</div>
+                <div class="mui-clearfix"></div>
+            </li>
+{{/rows}}
+</script>
+
+<!---->
+<script id='rows-li-template2' type="x-mustache-tmpl">
+{{#rows}}
+<li class="mysign-item-li zuf-mysign-item-li">
+<div class="xq-title">{{title}}</div>
+                <div>内容：{{message}}</div>
+                <div class="f-right">{{sendTime}}</div>
+                <div class="mui-clearfix"></div>
+</li>
+{{/rows}}
+
+</script>
+
+</html>

@@ -7,7 +7,7 @@
     <title>附近</title>
     <link href="../css/mui.min.css" rel="stylesheet"/>
     <link href="../css/base.css" rel="stylesheet"/>
-    <link href="../css/myhistroy.css" rel="stylesheet"/>
+    <link href="../css/mynearby.css" rel="stylesheet"/>
     <style>
         .zan-and-focus .zan-focus-area {
             margin-top: 0 !important;
@@ -46,9 +46,18 @@
             </li>
         </ul>
     </section>
-    <section class="mysign-content ms-con1 section-active">
+    <div class="current-loc">
+        当前位置：高新区
+    </div>
+    <!--<div class="mui-scroll-wrapper mysign-content ms-con1 section-active">
+    	<div class='mui-scroll'>
         <ul class="mysign-items-ul" id="guessUlike1">
             
+        </ul>
+        </div>
+    </div>-->
+    <section class="mysign-content ms-con1 section-active">
+        <ul class="mysign-items-ul" id="guessUlike1">
         </ul>
     </section>
     <section class="mysign-content ms-con2">
@@ -135,13 +144,13 @@
                 <span>{{platName}}-{{villageName}}</span>
             </div>
             <div>
-                <span class="rent-price">{{rental}}元/月</span>
+                <span class="rent-price">{{totalPrice}}万</span>
                 <div class="mui-clearfix"></div>
             </div>
             <div class="newh-detail-adv">
-                    <span>代金券</span>
-                    <span>送保洁</span>
-                    <span>补贴</span>
+                    {{#labels}}
+                    <span>{{.}}</span>
+                    {{/labels}}
                 </div>
             <div class="zan-and-focus">
                  <div class="zan-focus-area">
@@ -178,13 +187,13 @@
                 <span>{{platName}}-{{villageName}}</span>
             </div>
             <div>
-                <span class="rent-price">{{rental}}元/月</span>
+                <span class="rent-price">剩{{syz}}/总{{totalPrice}}</span>
                 <div class="mui-clearfix"></div>
             </div>
             <div class="newh-detail-adv">
-                    <span>代金券</span>
-                    <span>送保洁</span>
-                    <span>补贴</span>
+                    {{#labels}}
+                    <span>{{.}}</span>
+                    {{/labels}}
                 </div>
             <div class="zan-and-focus">
                  <div class="zan-focus-area">
@@ -221,7 +230,7 @@
                 <span>{{platName}}-{{villageName}}</span>
             </div>
             <div>
-                <span class="rent-price">{{rental}}元/月</span>
+                <span class="rent-price">{{price}}元/平米</span>
                 <div class="mui-clearfix"></div>
             </div>
             <div class="newh-detail-adv">

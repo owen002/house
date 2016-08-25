@@ -9,31 +9,20 @@
             page.bind();
         },
         queryList: function (type) {
-        	var querySettings={};
-        	if(currentid==5){//众筹报名
-        	    querySettings = {
-                url: Constants.mycrowdfunding,
+            var querl;
+            if (currentid == 1) {
+                querl = Constants.messagelistd;
+            } else if (currentid == 2) {
+                querl = Constants.messagelists;
+            }
+            var querySettings = {
+                url: querl,
                 data: {
                     'pager.pageSize': pageSize,
                     'pager.pageNo': pageNo
                 },
                 type: 'post'
-            	};
-        	}else{
-        	    querySettings = {
-                url: Constants.memberSign,
-                data: {
-                    'pager.pageSize': pageSize,
-                    'pager.pageNo': pageNo,
-                    'parameters[kind]':currentid,
-                },
-                type: 'post'
-            	};
-        		
-        	}
-        	
-        	
-            
+            };
 
             muiAjax(querySettings, function (data) {
                 var rows = data.rows;
@@ -46,19 +35,20 @@
                     } else {
                         canPull = true;
                     }
-                    
+
                     var obj = {
-						rows: rows
-				    };
-				    
-				    var tmpl = mui('#rows-li-template'+currentid)[0].innerHTML;
-				    //下拉
-				    if(type ==1)
-						mui('#guessUlike'+currentid)[0].innerHTML += Mustache.render(tmpl, obj);
-					//tab切换
-					else if(type ==2)
-					    mui('#guessUlike'+currentid)[0].innerHTML = Mustache.render(tmpl, obj);
-                    
+                        rows: rows
+                    };
+
+                    var tmpl = mui('#rows-li-template' + currentid)[0].innerHTML;
+                    //下拉
+                    if (type == 1) {
+                        mui('#guessUlike' + currentid)[0].innerHTML += Mustache.render(tmpl, obj);
+                        //tab切换
+                    } else if (type == 2) {
+                        mui('#guessUlike' + currentid)[0].innerHTML = Mustache.render(tmpl, obj);
+                        pageNo = 1;
+                    }
                 } else {
                     canPull = false;
                 }
@@ -87,24 +77,6 @@
                     }
                 }
             });
-
-            var muiBack = mui('.mui-back')[0];
-            mui(document).on('tap', '.slider-menu-choose li', function () {
-                var cLocation = mui('.choose-location')[0];
-                if (cLocation.style.display == 'none') {
-                    base.Slider.slideDown(cLocation, 100);
-                    muiBack.style.display = 'block';
-                } else {
-                    base.Slider.slideUp(cLocation, 100);
-                    muiBack.style.display = 'none';
-                }
-            }).on('tap', '#guessUlike li', function () {
-                var id = this.getAttribute('data-id');
-                var pageObj = {
-                    pageUrl: "newhousedetail.html?houseid=" + id
-                };
-                pageChange(pageObj);
-            })
         }
     };
 

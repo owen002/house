@@ -198,6 +198,12 @@
                 $guessUlike.innerHTML = '';
                 page.queryList();
                 closeSelect();
+            }).on('tap', '#message', function () {
+            		var pageObj = {
+			            pageUrl: "messages.html"
+			        };
+			        pageChange(pageObj);
+            	
             })
         }
     };

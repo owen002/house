@@ -144,3 +144,14 @@ body {
   float: left;
   width: 50%;
 }
+body {
+  line-height: 0.55rem;
+}
+.mui-bar {
+  z-index: 99999;
+}
+.mui-slider-title {
+  background-color: #fff !important;
+  opacity: 0;
+  -moz-opacity: 0;
+}

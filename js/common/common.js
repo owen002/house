@@ -238,6 +238,7 @@ function errorHandler(fn, XMLHttpRequest, textStatus, errorThrown) {
     }
     if (fn instanceof Function) {
         fn.call("", code);
+        console.log(JSON.stringify(errorThrown));
     }
 }
 
@@ -250,7 +251,7 @@ function muiAjax(settings, fuc, errfuc) {
         type: 'get',
         timeout: Constants.TIMEOUT,
         success: function (data) {
-        	if(data.status==='401'){
+        	if(data.status&&data.status==='401'){
         		var logpos='';
         		var durl='';
         		if(mui.os.ios||mui.os.android){
@@ -318,11 +319,13 @@ function locsaveuserinfo(key,value){
 		userinfostr = decodeURIComponent(userinfostr);
 		var userinfo=JSON.parse(userinfostr);
 		userinfo[key]=value;
+		console.log(JSON.stringify(userinfo));
 		localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(userinfo)));
 	}else{
 		var userinfo={
 		};
 		userinfo[key]=value;
+		console.log(JSON.stringify(userinfo));
 		localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(userinfo)));
 	}
 }

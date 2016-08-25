@@ -3,9 +3,9 @@
  */
 var Constants = window.Constants || {};
 Constants.TIMEOUT = 2000;
-  // var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
-//var baseUrl = "http://10040.snail.com/rental_interface/";
-  var baseUrl="http://agent.snail.com/rental_interface/";
+ // var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
+// var baseUrl = "http://10040.snail.com/rental_interface/";
+var baseUrl = "http://agent.snail.com/rental_interface/";
 // var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
 // var baseUrl = "http://10040.snail.com/rental_interface/";
 //   var baseUrl="http://agent.snail.com/rental_interface/";
@@ -25,38 +25,53 @@ Constants.crowdfundlist = baseUrl + "front/json_crowdfunding_housing";
 Constants.crowdfunddetail = baseUrl + "front/view_crowdfunding_housing";
 Constants.citylist = baseUrl + "front/json_all_city";
 Constants.cityArea = baseUrl + "front/json_district";
+//新增众筹报名
+Constants.savememberenroll=baseUrl+'save_member_enroll';
 //包租头条
-Constants.bztt=baseUrl+"front/json_information";
+Constants.bztt = baseUrl + "front/json_information";
+Constants.bzttnews = baseUrl + "front/view_information";
 //我的众筹
-Constants.myenrollList=baseUrl+'json_member_enroll';
+Constants.myenrollList = baseUrl + 'front/json_member_enroll';
 //我的发布
 //Constants.myfabuZf=baseUrl+'save_member_rental';
 //Constants.myfabuMf=baseUrl+'save_member_buy';
 //我的需求[我的发布合并成我的需求]
-Constants.myneed=baseUrl+'save_member_demand';
+Constants.myneed = baseUrl + 'save_member_demand';
 //新房
-Constants.newhouselist=baseUrl+'front/json_new_housing';
-Constants.newhousedetail=baseUrl+'front/view_new_housing';
+Constants.newhouselist = baseUrl + 'front/json_new_housing';
+Constants.newhousedetail = baseUrl + 'front/view_new_housing';
 //上传图像
-Constants.mysctx=baseUrl+'upload_header_portrait';
+Constants.mysctx = baseUrl + 'upload_header_portrait';
 //浏览记录
-Constants.browseRecord=baseUrl+'json_member_browse';
-Constants.favRecord=baseUrl+'json_member_favorites';
+Constants.browseRecord = baseUrl + 'json_member_browse';
+Constants.favRecord = baseUrl + 'json_member_favorites';
 //加入收藏/取消收藏
-Constants.memberFav=baseUrl+'member_favorites';
+Constants.memberFav = baseUrl + 'member_favorites';
 //我的报名
-Constants.memberSign=baseUrl+'json_member_demand';
+Constants.memberSign = baseUrl + 'json_member_demand';
+//我的众筹报名
+Constants.mycrowdfunding=baseUrl+'json_member_enroll_crowdfunding';
+//众筹报名
+Constants.memberenroll=baseUrl+'front/json_member_enroll';
 //附近租、新、二手、众筹
+//附近租、二手、众筹、新房
 Constants.fjzf=baseUrl+'front/json_nearby_rental_housing';
-Constants.fjesf=baseUrl+'';
-Constants.fjxf=baseUrl+'';
-Constants.fjzcouf=baseUrl+'';
+Constants.fjesf=baseUrl+'front/json_nearby_sale_housing';
+Constants.fjzcouf=baseUrl+'front/json_nearby_crowdfunding_housing';
+Constants.fjxf=baseUrl+'front/json_nearby_new_housing';
 //点赞
-Constants.dzan=baseUrl+'member_support';
+Constants.dzan = baseUrl + 'member_support';
 
 //会员修改
-Constants.updateMember=baseUrl+'update_member';
+Constants.updateMember = baseUrl + 'update_member';
 //城市分区及分区下的板块
-Constants.dsList=baseUrl+'front/json_district';
-Constants.ptList=baseUrl+'front/json_plat';
+Constants.dsList = baseUrl + 'front/json_district';
+Constants.ptList = baseUrl + 'front/json_plat';
 
+//消息列表
+Constants.messagelistd = baseUrl + 'json_demand_message_receive';
+Constants.messagelists = baseUrl + 'json_system_message_receive';
+//累计统计信息
+Constants.ljtjxx=baseUrl+'front/json_statistical_information';
+//累计统计信息
+Constants.ljtjxxnews=baseUrl+'front/view_statistical_information';

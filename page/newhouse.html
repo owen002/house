@@ -58,7 +58,7 @@
     </div>
     <div class='message-items-amount f-right'>3</div>
     <a class="f-right right-contact-a message-bzm">
-        <img src="../res/img/message.png" alt="">
+        <img src="../res/img/message.png" alt="" id="message">
     </a>
 </header>
 <section class="slider-menu-choose">
@@ -256,15 +256,19 @@
 			    	{{#labels}}
 			            <span class="newh-adv">{{.}}</span>
 			        {{/labels}}                    
-                    
                 </div>
             </div>
             <div class="zan-and-focus">
                 <div class="zan-focus-area">
-                    <div class="zan-icon zf-icon"></div>
-                    <div>{{supportNum}}</div>
-                    <div class="focus-icon zf-icon"></div>
-                    <div>{{viewNum}}</div>
+                        <div>
+                            <img class="z-img" src="../res/img/new/zan.png" alt="">
+                        </div>
+                        <div>{{supportNum}}</div>
+                        <div>
+                            <img class="f-img" src="../res/img/new/focus.png" alt="">
+                        </div>
+                        <div>{{viewNum}}</div>
+                        </div>
                 </div>
             </div>
         </div>

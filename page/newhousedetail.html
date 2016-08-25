@@ -35,55 +35,6 @@
 <script id="newhouse-detail-template" type="x-tmpl-mustache">
         <section class="bzm-house-detail-header">
             <div id="houseDetailImg">
-                <section class="mui-slider">
-                    <div class="mui-slider-group mui-slider-loop">
-
-                        <div class="mui-slider-item mui-slider-item-duplicate">
-                            <a href="#">
-                                <img src="../res/img/house-detail.jpg">
-                            </a>
-                            <p>1</p>
-                        </div>
-
-                        <div class="mui-slider-item">
-                            <a href="#">
-                                <img src="../res/img/house-detail.jpg">
-                            </a>
-                            <p>1</p>
-                        </div>
-                        <div class="mui-slider-item">
-                            <a href="#">
-                                <img src="../res/img/house-detail.jpg">
-                            </a>
-                            <p>2</p>
-                        </div>
-                        <div class="mui-slider-item">
-                            <a href="#">
-                                <img src="../res/img/house-detail.jpg">
-                            </a>
-                            <p>3</p>
-                        </div>
-                        <div class="mui-slider-item">
-                            <a href="#">
-                                <img src="../res/img/house-detail.jpg">
-                            </a>
-                            <p>4</p>
-                        </div>
-
-                        <div class="mui-slider-item mui-slider-item-duplicate">
-                            <a href="#">
-                                <img src="../res/img/house-detail.jpg">
-                            </a>
-                            <p>1</p>
-                        </div>
-                    </div>
-                    <div class="mui-slider-indicator mui-text-right">
-                        <div class="mui-indicator mui-active"></div>
-                        <div class="mui-indicator"></div>
-                        <div class="mui-indicator"></div>
-                        <div class="mui-indicator"></div>
-                    </div>
-                </section>
             </div>
             <div class="bzm-house-dh-content">
                 <div class="f-left bzm-detail-title" id="houseDesc">
@@ -130,58 +81,16 @@
                     <div class="mui-slider-group">
                         <div class="mui-slider-item">
                             <ul class="mui-grid-view">
+                            	{{#layoutList}}
                                 <li>
                                     <img src="../res/img/house-11.png" alt="">
                                     <div class="new-house-font">
-                                        <div class="nh-titile">户型1</div>
-                                        <div>1室1厅1卫 40平</div>
-                                        <div>约36万元</div>
+                                        <div class="nh-titile">{{layoutName}}</div>
+                                        <div>{{layoutName}}</div>
+                                        <div>{{layoutRemark}}</div>
                                     </div>
                                 </li>
-                                <li>
-                                    <img src="../res/img/house-11.png" alt="">
-                                    <div class="new-house-font">
-                                        <div class="nh-titile">户型1</div>
-                                        <div>1室1厅1卫 40平</div>
-                                        <div>约36万元</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="../res/img/house-11.png" alt="">
-                                    <div class="new-house-font">
-                                        <div class="nh-titile">户型1</div>
-                                        <div>1室1厅1卫 40平</div>
-                                        <div>约36万元</div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mui-slider-item">
-                            <ul class="mui-grid-view">
-                                <li>
-                                    <img src="../res/img/house-11.png" alt="">
-                                    <div class="new-house-font">
-                                        <div class="nh-titile">户型1</div>
-                                        <div>1室1厅1卫 40平</div>
-                                        <div>约36万元</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="../res/img/house-11.png" alt="">
-                                    <div class="new-house-font">
-                                        <div class="nh-titile">户型1</div>
-                                        <div>1室1厅1卫 40平</div>
-                                        <div>约36万元</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img src="../res/img/house-11.png" alt="">
-                                    <div class="new-house-font">
-                                        <div class="nh-titile">户型1</div>
-                                        <div>1室1厅1卫 40平</div>
-                                        <div>约36万元</div>
-                                    </div>
-                                </li>
+                                {{/layoutList}}
                             </ul>
                         </div>
                     </div>
@@ -205,7 +114,14 @@
             <div class="device-items-head">
                 <div class="bzm-fjpz color-orange">配套优势</div>
             </div>
-            <ul>
+            <div>
+            	{{&newHousing.advantage}}
+            </div>
+<!--
+	作者：393568577@qq.com
+	时间：2016-08-24
+	描述：
+          <ul>
                 <li>
                     <div class="dis-inline">商业:</div>
                     <div class="dis-inline" id="addrDesc">自带步行街</div>
@@ -226,9 +142,28 @@
                     <div class="dis-inline">公园:</div>
                     <div class="dis-inline" id="parkDesc">海棠花园位于海棠花园位于海棠位花园位于</div>
                 </li>
-            </ul>
+            </ul>-->  
         </section>
         <section class="house-detail-section nearby-section">
         </section>	
+</script>
+
+<script  id="newhouse-image-template" type="x-tmpl-mustache">
+<section class="mui-slider">
+     <div class="mui-slider-group mui-slider-loop">
+     	 {{#rows}}
+         <div class="mui-slider-item">
+             <a href="#">
+                 <img src="{{attachmentName}}">
+             </a>
+         </div>
+         {{/rows}}
+     </div>
+     <div class="mui-slider-indicator mui-text-right">
+     	 {{#rowsArr}}
+         <div class="mui-indicator"></div>
+         {{/rowsArr}}
+     </div>
+</section>
 </script>
 </html>

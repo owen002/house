@@ -64,13 +64,6 @@
                             <div class="navigate-nums"></div>
                         </a>
                     </li>
-                    <li data-type="5">
-                        <a>
-                            <div class="navigate-item-each navigate-yqhy">&nbsp;</div>
-                            <span>我的优惠券</span>
-                            <div class="navigate-nums"></div>
-                        </a>
-                    </li>
                     <li data-type="6">
                         <a class="bzm-navigate-right">
                             <div class="navigate-item-each navigate-sz">&nbsp;</div>
@@ -176,7 +169,13 @@
             </a>
             <div class='location-city f-left' id="locationCity">
                 <div class='location-city-inner'>
-                    <div class='location-city-name f-left'>西安</div>
+                    <div class='location-city-name f-left' id='dqxzcs'>
+                    	<!--
+                        	作者：denis-guo@163.com
+                        	时间：2016-08-24
+                        	描述：城市
+                        -->
+                    </div>
                     <div class='location-select f-left'><img src='res/img/arrow.png'/></div>
                 </div>
             </div>
@@ -185,33 +184,15 @@
                 <img src="res/img/search.png" class="search-input-icon" alt="">
                 <img src="res/img/arcode.png" class="search-arcode-icon" alt="">
             </div>
-            <div class='message-items-amount f-right'>3</div>
-            <a class="f-right right-contact-a mui-icon ">
+            <div class='message-items-amount f-right messages-icon'>3</div>
+            <a class="f-right right-contact-a mui-icon messages-icon">
                 <img src="res/img/message.png" alt="">
             </a>
         </header>
         <article class="mui-content mui-scroll-wrapper" style="background-color: #efeff4" id="offCanvasContentScroll">
             <div class="mui-scroll">
                 <section id="slider" class="mui-slider">
-                    <script id="index-guangao-template" type="x-tmpl-mustache">
-								<div class="mui-slider-group mui-slider-loop">
-									{{#rows}}
-									<div class="mui-slider-item">
-										<a href="#">
-											<img src="{{imagePath}}">
-											<p class="mui-slider-title">{{advertisementName}}</p>
-										</a>
-									</div>
-									{{/rows}}
-								</div>
-								<div class="mui-slider-indicator mui-text-right">
-									{{#rowsArr}}
-									<div class="mui-indicator"></div>
-									{{/rowsArr}}
-								</div>
-
-
-                    </script>
+                    
                 </section>
                 <div class="header-marq-wrap">
                     <div class="header-mar-inner">
@@ -239,57 +220,54 @@
                                 <img src="res/img/new/two-hand-circle-top.png" alt="">
                                 <div>二手房</div>
                             </li>
-                            <li id="bzmZC">
-                                <img src="res/img/new/cross-funding-circle-top.png" alt="">
-                                <div>众筹</div>
-                            </li>
                             <li id="bzmXF">
                                 <img src="res/img/new/new-house-circle-top.png" alt="">
                                 <div>新房</div>
+                            </li>
+                            <li id="bzmZC">
+                                <img src="res/img/new/cross-funding-circle-top.png" alt="">
+                                <div>众筹</div>
                             </li>
                         </ul>
                     </div>
                     <ul class="menu-item-un-ul">
                         <li>
-                            <div class="item-li b-top b-right b-bottom">
+                            <div class="item-li b-top b-right b-bottom" id="ljtjtz1">
                                 <img src="res/img/new/rent.png" alt="">
                                 <div class="item-li-det">
                                     <div class="tedian">0佣金</div>
-                                    <div class="tedian-dett">
-                                        <div>累计出租房：</div>
-                                        <div>4000,000套</div>
+                                    <div class="tedian-dett" id='ljtjxx1'>
+                                        
                                     </div>
                                 </div>
                             </div>
-                            <div class="item-li b-top b-bottom">
+                            <div class="item-li b-top b-bottom" id="ljtjtz2">
                                 <img src="res/img/new/two.png" alt="">
                                 <div class="item-li-det">
                                     <div class="tedian">0佣金</div>
-                                    <div class="tedian-dett">
-                                        <div>累计出租房：</div>
-                                        <div>4000,000套</div>
+                                    <div class="tedian-dett" id='ljtjxx2'>
+                                        
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <div class="item-li b-bottom b-right">
+                            <div class="item-li b-bottom b-right"  id="ljtjtz3">
                                 <img src="res/img/new/fund.png" alt="">
                                 <div class="item-li-det">
                                     <div class="tedian">0佣金</div>
-                                    <div class="tedian-dett">
-                                        <div>累计出租房：</div>
-                                        <div>4000,000套</div>
+                                    <div class="tedian-dett" id='ljtjxx3'>
+                                        
                                     </div>
                                 </div>
                             </div>
-                            <div class="item-li b-bottom">
+                            <div class="item-li b-bottom"  id="ljtjtz4">
                                 <img src="res/img/new/new.png" alt="">
                                 <div class="item-li-det">
                                     <div class="tedian">0佣金</div>
-                                    <div class="tedian-dett">
-                                        <div>累计出租房：</div>
-                                        <div>4000,000套</div>
+                                    <div class="tedian-dett" id='ljtjxx4'>
+                                    	
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -311,30 +289,30 @@
                          -->
                     </ul>
                 </section>
-                <section class="index-footer-section">
-                    <div class="footer-wrap b-bottom">
-                        <div class="foonter-blank">
-                            <div class="footer-title">
-                                滑动提交需求
-                            </div>
-                            <img src="res/img/new/right.png" alt="" class="swap-right">
-                        </div>
-                    </div>
-                    <div class="slider-wrapper">
-                        <div style="position: relative">
-                            <div class="footer-title-wrap">
-                                <div class="bzm-f-title">包租妹</div>
-                                <div class="zf-f-title">租房</div>
-                                <div class="mf-f-title">买房</div>
-                            </div>
-                            <img class="jdt-img" src="res/img/new/01.png" alt="">
-                            <img id="sliderBlockImg" class="jdt-select-img step1-active" src="res/img/new/02.png"
-                                 alt="">
-                        </div>
-                    </div>
-                </section>
             </div>
         </article>
+        <section class="index-footer-section">
+            <div class="footer-wrap b-bottom">
+                <div class="foonter-blank">
+                    <div class="footer-title">
+                        滑动提交需求
+                    </div>
+                    <img src="res/img/new/right.png" alt="" class="swap-right">
+                </div>
+            </div>
+            <div class="slider-wrapper">
+                <div style="position: relative">
+                    <div class="footer-title-wrap">
+                        <div class="bzm-f-title">包租妹</div>
+                        <div class="zf-f-title">租房</div>
+                        <div class="mf-f-title">买房</div>
+                    </div>
+                    <img class="jdt-img" src="res/img/new/01.png" alt="">
+                    <img id="sliderBlockImg" class="jdt-select-img step1-active" src="res/img/new/02.png"
+                         alt="">
+                </div>
+            </div>
+        </section>
         <div class="mui-off-canvas-backdrop"></div>
     </section>
 </div>
@@ -346,17 +324,93 @@
 <script src="js/common/geo.js"></script>
 <script src="js/common/mustache.min.js"></script>
 <script src="js/common/ScrollText.js"></script>
+<script src="js/common/jquery-1.10.2.min.js"></script>
 <script src="js/index.source.js"></script>
 <!--包租头条模板-->
 <script id="bztttpl" type="x-mustache-tmpl">
 		{{#rows}}
-		<li><span class="spot">&bull;</span>{{title}}</li>
+		<li data-id="{{informationID}}" style="width: 7rem;"><span class="spot">&bull;</span>{{title}}</li>
 		{{/rows}}
 </script>
 <!--
 	描述：优质房源模板
 -->
-<script id="yzfytpl" type="x-mustache-tmpl">
+<script id="yzfytpl1" type="x-mustache-tmpl">
+	   {{#rows}}
+		<li>
+                            <img class="yzfy-bz" src="res/img/new/rent-rect.png" alt="">
+                            <div class="f-left house-img">
+                                <img src="{{mainImage}}" alt="">
+                            </div>
+                            <div class="house-content f-left">
+                                <div class="hc-title">
+                                    {{title}}
+                                </div>
+                                <div>
+                                    <div class="hc-price-per">{{rental}}元/月</div>
+                                    <div class="hc-name">{{platName}}-{{villageName}}</div>
+                                </div>
+                                <dl class="house-biaoqian">
+                                	{{#labels}}
+                                    <dd>{{.}}</dd>
+                                    {{/labels}}
+                                </dl>
+                            </div>
+                            <div class="mui-clearfix"></div>
+                        </li>
+                        {{/rows}}
+</script>
+<script id="yzfytpl2" type="x-mustache-tmpl">
+	   {{#rows}}
+		<li>
+                            <img class="yzfy-bz" src="res/img/new/two-hand-rect.png" alt="">
+                            <div class="f-left house-img">
+                                <img src="{{mainImage}}" alt="">
+                            </div>
+                            <div class="house-content f-left">
+                                <div class="hc-title">
+                                    {{title}}
+                                </div>
+                                <div>
+                                    <div class="hc-price-per">{{totalPrice}}万</div>
+                                    <div class="hc-name">{{platName}}-{{villageName}}</div>
+                                </div>
+                                <dl class="house-biaoqian">
+                                	{{#labels}}
+                                    <dd>{{.}}</dd>
+                                    {{/labels}}
+                                </dl>
+                            </div>
+                            <div class="mui-clearfix"></div>
+                        </li>
+                        {{/rows}}
+</script>
+<script id="yzfytpl3" type="x-mustache-tmpl">
+	   {{#rows}}
+		<li>
+                            <img class="yzfy-bz" src="res/img/new/cross-fund-rect.png" alt="">
+                            <div class="f-left house-img">
+                                <img src="{{mainImage}}" alt="">
+                            </div>
+                            <div class="house-content f-left">
+                                <div class="hc-title">
+                                    {{title}}
+                                </div>
+                                <div>
+                                    <div class="hc-price-per">剩{{syz}}万/总{{totalPrice}}万</div>
+                                    <div class="hc-name">{{platName}}-{{villageName}}</div>
+                                </div>
+                                <dl class="house-biaoqian">
+                                	{{#labels}}
+                                    <dd>{{.}}</dd>
+                                    {{/labels}}
+                                </dl>
+                            </div>
+                            <div class="mui-clearfix"></div>
+                        </li>
+                        {{/rows}}
+</script>
+<script id="yzfytpl4" type="x-mustache-tmpl">
 	   {{#rows}}
 		<li>
                             <img class="yzfy-bz" src="res/img/new/new-house-rect.png" alt="">
@@ -380,5 +434,33 @@
                             <div class="mui-clearfix"></div>
                         </li>
                         {{/rows}}
+</script>
+<script id="index-guangao-template" type="x-tmpl-mustache">
+								<div class="mui-slider-group mui-slider-loop">
+									{{#rows}}
+									<div class="mui-slider-item">
+										<a href="#">
+											<img src="{{imagePath}}">
+											<p class="mui-slider-title">{{advertisementName}}</p>
+										</a>
+									</div>
+									{{/rows}}
+								</div>
+								<div class="mui-slider-indicator mui-text-right">
+									{{#rowsArr}}
+									<div class="mui-indicator"></div>
+									{{/rowsArr}}
+								</div>
+                    </script>
+<script id='ljtj' type='x-mustache-tmpl'>
+    {{#rows}}
+     {{#istrue}}
+	<div>累计{{fzlx}}：</div>
+    <div>{{transactionNumber}}套</div>
+    {{/istrue}}
+    {{/rows}}
+</script>
+<script type="x-mustache-tmpl" id='dqcsname'>
+	{{cityname}}
 </script>
 </html>

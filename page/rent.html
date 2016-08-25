@@ -89,143 +89,76 @@
             <div class="device-items-head">
                 <div class="bzm-fjpz color-orange">房间配置</div>
             </div>
-            <ul>
-                <li>
-                    <img src="../res/img/house-icons/pz01.png" alt="">
-                    <div class="items-name">床</div>
-                </li>
-                <li>
-                    <img src="../res/img/house-icons/pz02.png" alt="">
-                    <div class="items-name">洗衣机</div>
-                </li>
-                <li>
-                    <img src="../res/img/house-icons/pz03.png" alt="">
-                    <div class="items-name">空调</div>
-                </li>
-                <li>
-                    <img src="../res/img/house-icons/pz04.png" alt="">
-                    <div class="items-name">冰箱</div>
-                </li>
-                <li>
-                    <img src="../res/img/house-icons/pz05.png" alt="">
-                    <div class="items-name">热水器</div>
-                </li>
-                <li>
-                    <img src="../res/img/house-icons/pz06.png" alt="">
-                    <div class="items-name">电视</div>
-                </li>
-                <li>
-                    <img src="../res/img/house-icons/pz07.png" alt="">
-                    <div class="items-name">宽带</div>
-                </li>
-                <li>
-                    <img src="../res/img/house-icons/pz08.png" alt="">
-                    <div class="items-name">可做饭</div>
-                </li>
-                <li>
-                    <img src="../res/img/house-icons/pz09.png" alt="">
-                    <div class="items-name">阳台</div>
-                </li>
-                <li>
-                    <img src="../res/img/house-icons/pz10.png" alt="">
-                    <div class="items-name">独立卫生间</div>
-                </li>
+            <ul id="facilityUl">
             </ul>
         </section>
         <section class="house-detail-section house-location-section">
             <div class="device-items-head">
                 <div class="bzm-fjpz color-orange">房间位置</div>
             </div>
-            <ul>
-                <li>
-                    <div class="dis-inline">小区地址：</div>
-                    <div class="dis-inline" id="addrDesc">凤城五路东</div>
-                </li>
-                <li>
-                    <div class="dis-inline">小区交通：</div>
-                    <div class="dis-inline">地铁2号线、212路、17路、603路等</div>
-                </li>
-                <li>
-                    <div class="dis-inline">小区介绍：</div>
-                    <div class="dis-inline" id="villDesc">海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于海棠花园位于</div>
-                </li>
+            <ul id="housePT">
             </ul>
         </section>
         <section class="house-detail-section nearby-section">
             <div class="device-items-head">
                 <div class="bzm-fjpz color-orange">附近推荐</div>
             </div>
-            <ul class="gus-list-ul">
-                <li>
-                    <div class="f-left house-img">
-                        <img src="../res/img/house.jpg" alt="">
-                    </div>
-                    <div class="house-content f-left">
-                        <div class="hc-title">
-                            西大街附近900元拎包入住
-                        </div>
-                        <div class="nearby-house-items">
-                            <div>
-                                <span>含光门 迎春小区</span>
-                            </div>
-                            <div>
-                                <span>1室1厅 整租</span>
-                            </div>
-                        </div>
-                        <div class="zan-and-focus">
-                            <div class="rent-price">900元/月</div>
-                            <div class="zan-focus-area">
-                                <div>
-                                    <img class="f-img" src="../res/img/new/focus.png" alt="">
-                                </div>
-                                <div>23</div>
-                                <div>
-                                    <img class="f-img" src="../res/img/new/focus.png" alt="">
-                                </div>
-                                <div>223</div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="f-left house-img">
-                        <img src="../res/img/house.jpg" alt="">
-                    </div>
-                    <div class="house-content f-left">
-                        <div class="hc-title">
-                            西大街附近900元拎包入住
-                        </div>
-                        <div class="nearby-house-items">
-                            <div>
-                                <span>含光门 迎春小区</span>
-                            </div>
-                            <div>
-                                <span>1室1厅 整租</span>
-                            </div>
-                        </div>
-                        <div class="zan-and-focus">
-                            <div class="rent-price">900元/月</div>
-                            <div class="zan-focus-area">
-                                <div>
-                                    <img class="f-img" src="../res/img/new/focus.png" alt="">
-                                </div>
-                                <div>23</div>
-                                <div>
-                                    <img class="f-img" src="../res/img/new/focus.png" alt="">
-                                </div>
-                                <div>223</div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            <div class="gueulike-wrapper">
+                <ul class="gus-list-ul" id="guessUlike">
+                	</ul>
+            </div>
+            
         </section>
     </div>
 </article>
 </body>
 <script src="../js/mui.min.js"></script>
+<script src="../js/common/mui.pullToRefresh.js"></script>
+<script src="../js/common/mui.pullToRefresh.material.js"></script>
 <script src="../js/common/constant.js"></script>
 <script src="../js/common/common.js"></script>
 <script src="../js/base.js"></script>
+<script src="../js/common/geo.js"></script>
+<script src="../js/common/mustache.min.js"></script>
 <script src="../js/rent.source.js"></script>
+<!--
+	作者：denis-guo@163.com
+	时间：2016-08-23
+	描述：附近推荐模板
+-->
+<script id='fjzftj' type="x-mustache-tmpl">
+   {{#rows}}
+      <li>
+                    <div class="f-left house-img">
+                        <img src="{{mainImage}}" alt="">
+                    </div>
+                    <div class="house-content f-left">
+                        <div class="hc-title">
+                          {{title}}
+                        </div>
+                        <div class="nearby-house-items">
+                            <div>
+                                <span>{{platName}} {{villageName}}</span>
+                            </div>
+                            <div>
+                                <span>{{rooms}}室{{halls}}厅 {{rentalMode}}</span>
+                            </div>
+                        </div>
+                        <div class="zan-and-focus">
+                            <div class="rent-price">{{rental}}元/月</div>
+                            <div class="zan-focus-area">
+                                <div>
+                                    <img class="f-img" src="../res/img/new/focus.png" alt="">
+                                </div>
+                                <div>{{supportNum}}</div>
+                                <div>
+                                    <img class="f-img" src="../res/img/new/focus.png" alt="">
+                                </div>
+                                <div>{{viewNum}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+   {{/rows}}
+   </script>
 </html>

@@ -42,7 +42,7 @@
     </div>
     <div class='message-items-amount f-right'>3</div>
     <a class="f-right right-contact-a message-bzm">
-        <img src="../res/img/message.png" alt="">
+        <img src="../res/img/message.png" alt="" id="message">
     </a>
 </header>
 <section class="slider-menu-choose">
@@ -205,7 +205,13 @@
                  <div>
                      <span>{{rooms}}室{{halls}}厅 &nbsp;{{housingArea}}平米</span>
                  </div>
+                 <div style="font-size: 0.35rem;">
+			    	{{#labels}}
+			            <span class="newh-adv">{{.}}</span>
+			        {{/labels}}                    
+             	</div>
              </div>
+
              <div class="zan-and-focus">
                  <div class="rent-price">{{price}} 万</div>
                  <div class="zan-focus-area">

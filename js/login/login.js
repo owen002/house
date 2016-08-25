@@ -119,7 +119,7 @@ function loginEvent(){
 
 		muiAjax(loginSettings, function(data) {
 			if(data.status=='200'){//登录成功
-				var userinfo = {phone:data.memberPhone,username:data.memberName,uid:data.memberID,headerPic:data.headerPic,nickName:data.nickName};
+				var userinfo = {phone:data.memberPhone,username:data.memberName,uid:data.memberID,headerPic:data.headerPic,nickName:data.nickName,gender:data.gender};
 				localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(userinfo)));
 				var pageObj={
 					 // pageUrl:plus.webview.getLaunchWebview().id

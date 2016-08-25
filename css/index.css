@@ -245,13 +245,14 @@ body {
   padding-left: 0.3rem;
   overflow: hidden;
   color: #555555;
+  width: 7rem;
 }
 .marq-title div {
   height: 0.75rem;
   line-height: 0.75rem;
 }
 .marq-content li {
-  height: 0.75rem;
+  padding: 0.1rem 0;
 }
 .spot {
   color: #7D7D7D;
@@ -262,6 +263,7 @@ body {
 }
 .guess-you-like {
   padding: 0.3rem;
+  padding-bottom: 4.5rem;
   background-color: #fff;
 }
 .like-icon img {
@@ -302,7 +304,7 @@ body {
   width: 5rem;
   overflow: hidden;
   float: left;
-  padding: 0.4rem 0;
+  padding: 0.25rem 0;
 }
 .menu-item-un-ul li .item-li img {
   display: block;
@@ -340,6 +342,11 @@ body {
   top: 0.6rem;
 }
 .index-footer-section {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
   box-shadow: 0 0 0.15rem #bfbfbf;
   background-color: #F7F7F7;
   color: #5F5F6B;
@@ -366,21 +373,21 @@ body {
   display: inline-block;
 }
 .index-footer-section .slider-wrapper {
-  padding: 1.5rem 0 0.8rem;
+  padding: 1.2rem 0 0.4rem;
 }
 .index-footer-section .slider-wrapper .bzm-f-title {
-  left: 0.65rem;
-  top: -1.2rem;
+  left: 0.55rem;
+  top: -1rem;
   position: absolute;
 }
 .index-footer-section .slider-wrapper .zf-f-title {
   left: 4.55rem;
-  top: -1.2rem;
+  top: -1rem;
   position: absolute;
 }
 .index-footer-section .slider-wrapper .mf-f-title {
-  left: 8.36rem;
-  top: -1.2rem;
+  left: 8.2rem;
+  top: -1rem;
   position: absolute;
 }
 .index-footer-section .slider-wrapper .jdt-img {
@@ -389,8 +396,8 @@ body {
 }
 .index-footer-section .slider-wrapper .jdt-select-img {
   position: absolute;
-  width: 1.5rem;
-  top: -0.5rem;
+  width: 1.2rem;
+  top: -0.35rem;
 }
 .index-footer-section .slider-wrapper .step1-active {
   left: 0.5rem;

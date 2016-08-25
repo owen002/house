@@ -23,8 +23,29 @@
 
             if (newHousingID) {
                 muiAjax(querySettings, function (data) {
+                	mui('#pageTitle')[0].innerHTML = data.newHousing.villageName;
                     var tmpl = mui('#newhouse-detail-template')[0].innerHTML;
 					mui('#newhouse-detail-id')[0].innerHTML += Mustache.render(tmpl, data);
+					
+	                var rowsArr = data.attachmentList;
+	                var arr = new Array();
+	                arr[0] = rowsArr[rowsArr.length - 1];
+	                arr[rowsArr.length + 1] = rowsArr[0];
+	                for (var i = 0, j = rowsArr.length; i < j; i++) {
+	                    arr[i + 1] = rowsArr[i];
+	                }
+	
+	                var obj = {
+	                    rowsArr: rowsArr,
+	                    rows: arr
+	                };
+                
+                	var imagetmpl = mui('#newhouse-image-template')[0].innerHTML;
+					mui('#houseDetailImg')[0].innerHTML = Mustache.render(imagetmpl, obj);
+				    mui('.mui-slider-item')[0].className = mui('.mui-slider-item')[0].className + ' mui-slider-item-duplicate';
+                	mui('.mui-slider-item')[rowsArr.length + 1].className = mui('.mui-slider-item')[rowsArr.length + 1].className + ' mui-slider-item-duplicate';
+                	mui('.mui-indicator')[0].className = mui('.mui-indicator')[0].className + ' mui-active';
+					base.startSlider($);
                 }, function (status) {
 
                 });

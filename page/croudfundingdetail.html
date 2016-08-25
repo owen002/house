@@ -9,28 +9,25 @@
     <link href="../css/rent.css" rel="stylesheet"/>
 </head>
 <body>
-
-</body>
-<script id="detail-template" type="x-tmpl-mustache">
 <header id="header" class="mui-bar mui-bar-nav">
     <a class="mui-action-back left-menu-icon f-left back">
         <div class="back-img">
             <img src='../res/img/login/backico.png'/>
         </div>
     </a>
-    <div class="page-title">东方罗马花园二期</div>
+    <div class="page-title" id="title"></div>
     <a class="f-right right-contact-a">
         <img src="../res/img/like.png" alt="" id ="fav">
     </a>
 </header>
-<article class="bzm-dialog transition-action">
+<article class="bzm-dialog transition-action" id="zc_article">
     <div class="bzm-dialog-back"></div>
     <div class="bzm-dialog-content">
         <div class="f-left zc-left-amount">
             众筹金额:
         </div>
         <div class="f-left bzm-zc-amount-input-wrap">
-            <input type="text" placeholder="请输入您的众筹金额">
+            <input type="text" placeholder="请输入您的众筹金额" id='zcje'>
             <div class="bzm-zc-amount-input-down">
             </div>
             <div class="qitzj">
@@ -41,14 +38,20 @@
             </div>
         </div>
         <button class="mui-btn mui-btn-block zc-im-go-tz" id="agreeZc">
-            同意投资
+            同意购买
         </button>
     </div>
 </article>
 <article class="mui-content mui-scroll-wrapper" style="background-color: #efeff4" id="offCanvasContentScroll">
-    <div class="mui-scroll">
+    <div class="mui-scroll" id="detail-id">
+    </div>
+</article>
+</body>
+<script id="detail-template" type="x-tmpl-mustache">
+
         <section class="bzm-house-detail-header">
-            <img class="detail-img" src="../res/img/house-detail.jpg" alt="图片">
+            <div id="houseDetailImg">
+            </div>
             <div class="bzm-house-dh-content">
                 <div class="f-left bzm-detail-title">
                     {{crowdfundingHousing.title}}
@@ -66,10 +69,10 @@
             </div>
             <div class="zc-detail-mondy">
                 <div class="f-left color-F26520">
-                    100元起
+                    {{minInvestment}}元起
                 </div>
                 <div class="f-right">
-                   {{crowdfundingHousing.atualInvestment}}<span class="color-F26520">/{{crowdfundingHousing.totalPrice}}</span>
+                   {{crowdfundingHousing.atualInvestment}}万<span class="color-F26520">/{{crowdfundingHousing.totalPrice}}万</span>
                 </div>
             </div>
         </section>
@@ -78,7 +81,7 @@
                 <div class="menu-bar-pub fyxx menu-bar-active" id="fyxx">房源信息</div>
                 <div class="menu-bar-pub tzjl" id="tzjl">投资记录</div>
             </div>
-            <ul>
+            <ul id="fyxxRecord">
                 <li>
                     价格：<span class="color-orange" style="font-weight: bold">{{crowdfundingHousing.totalPrice}}万元</span>
                 </li>
@@ -86,7 +89,7 @@
                     单价：<span>{{crowdfundingHousing.price}}元/平米</span>
                 </li>
                 <li>
-                    房型：<span>3室2厅1卫</span>
+                    房型：<span>{{crowdfundingHousing.rooms}}室{{crowdfundingHousing.halls}}厅{{crowdfundingHousing.toilet}}卫</span>
                 </li>
                 <li>
                     面积：<span>{{crowdfundingHousing.housingArea}}平米</span>
@@ -104,6 +107,41 @@
                     小区：<span>大华曲江</span>
                 </li>
             </ul>
+            <ul id="fundRecord" style="display:none;">
+               <!-- <li>
+                    <div class="col-3 f-left">
+                        139625******
+                    </div>
+                    <div class="col-3 f-left">
+                        2000000.00元
+                    </div>
+                    <div class="col-3 f-left">
+                        2016-05-66
+                    </div>
+                </li>
+                <li class="bg-gray">
+                    <div class="col-3 f-left">
+                        139625******
+                    </div>
+                    <div class="col-3 f-left">
+                        2000000.00元
+                    </div>
+                    <div class="col-3 f-left">
+                        2016-05-66
+                    </div>
+                </li>
+                 <li class="bg-gray">
+                    <div class="col-3 f-left">
+                        139625******
+                    </div>
+                    <div class="col-3 f-left">
+                        2000000.00元
+                    </div>
+                    <div class="col-3 f-left">
+                        2016-05-66
+                    </div>
+                </li>-->
+            </ul>
         </section>
         <section class="house-detail-section house-location-section">
             <div class="device-items-head">
@@ -112,7 +150,7 @@
             <ul>
                 <li>
                     <div class="dis-inline">众筹资金：</div>
-                    <div class="dis-inline">100万</div>
+                    <div class="dis-inline">{{totalPrice}}万</div>
                 </li>
                 <li>
                     <div class="dis-inline">期限：</div>
@@ -124,7 +162,7 @@
                 </li>
                 <li>
                     <div class="dis-inline">还款方式：</div>
-                    <div class="dis-inline">按月付息，到期还本</div>
+                    <div class="dis-inline">{{repaymentMethod}}</div>
                 </li>
             </ul>
         </section>
@@ -132,51 +170,60 @@
             <div class="device-items-head">
                 <div class="bzm-fjpz color-orange">房源概况</div>
             </div>
-            <ul>
-                <li>
-                    <div class="dis-inline">房源介绍：</div>
-                    <div class="dis-inline">{{crowdfundingHousing.housingDesc}}</div>
-                </li>
-                <li>
-                    <div class="dis-inline">在售户型：</div>
-                    <div class="dis-inline">92平米平层112平</div>
-                </li>
-            </ul>
+            <div>{{&crowdfundingHousing.housingDesc}}</div>
         </section>
         <section class="house-detail-section house-location-section">
             <div class="device-items-head">
                 <div class="bzm-fjpz color-orange">配套优势</div>
             </div>
-            <ul>
-                <li>
-                    <div class="dis-inline">商业：</div>
-                    <div class="dis-inline">自带步行街，华润万家，影城，超市等</div>
-                </li>
-                <li>
-                    <div class="dis-inline">学校：</div>
-                    <div class="dis-inline">小区自带品格幼儿园，曲江一中一小，大华小学</div>
-                </li>
-                <li>
-                    <div class="dis-inline">交通：</div>
-                    <div class="dis-inline">自带步行街，华润万家，影城，超市等</div>
-                </li>
-                <li>
-                    <div class="dis-inline">医疗：</div>
-                    <div class="dis-inline">小区自带品格幼儿园，曲江一中一小，大华小学</div>
-                </li>
-                <li>
-                    <div class="dis-inline">公园：</div>
-                    <div class="dis-inline">小区自带品格幼儿园，曲江一中一小，大华小学</div>
-                </li>
-            </ul>
+            <div>
+            	{{&crowdfundingHousing.advantage}}
+            </div>
         </section>
 
-        <button class="mui-btn mui-btn-block zc-im-go-tz" id="liZc">
+        <button class="mui-btn mui-btn-block zc-im-go-tz" id="ljtz">
             立即投资
         </button>
-    </div>
-</article>
+
 </script>
+
+<script  id="crfoudfunding-image-template" type="x-tmpl-mustache">
+<section class="mui-slider">
+     <div class="mui-slider-group mui-slider-loop">
+     	 {{#rows}}
+         <div class="mui-slider-item">
+             <a href="#">
+                 <img src="{{attachmentName}}">
+             </a>
+         </div>
+         {{/rows}}
+     </div>
+     <div class="mui-slider-indicator mui-text-right">
+     	 {{#rowsArr}}
+         <div class="mui-indicator"></div>
+         {{/rowsArr}}
+     </div>
+</section>
+</script>
+
+<script  id="myenroll-template" type="x-tmpl-mustache">
+{{#rows}}	
+<section class="mui-slider">
+     <li class="">
+        <div class="col-3 f-left">
+            {{memberAccount}}
+        </div>
+        <div class="col-3 f-left">
+            {{amount}}元
+        </div>
+        <div class="col-3 f-left">
+            {{createTime}}
+        </div>
+    </li>
+</section>
+{{/rows}}	
+</script>
+
 <script src="../js/mui.min.js"></script>
 <script src="../js/common/constant.js"></script>
 <script src="../js/common/common.js"></script>

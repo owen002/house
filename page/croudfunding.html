@@ -60,7 +60,7 @@
     </div>
     <div class='message-items-amount f-right'>3</div>
     <a class="f-right right-contact-a mui-icon ">
-        <img src="../res/img/message.png" alt="">
+        <img src="../res/img/message.png" alt="" id="message">
     </a>
 </header>
 <section class="slider-menu-choose">
@@ -216,7 +216,7 @@
                 	{{title}}
             </div>
             <div class="f-right zc-amount">
-                剩万/总{{totalPrice}}万
+                剩万{{atualInvestment}}/总{{totalPrice}}万
             </div>
             <div class="mui-clearfix"></div>
             <div class="nearby-house-items">
@@ -227,16 +227,16 @@
                 </div>
                 <section class="bzm-house-detail-header">
                     <div class="zc-jdt-wrapper jdu-public jdu-public">
-                        <div class='amount-percent'>50%</div>
+                        <div class='amount-percent'>{{progress}}%</div>
                         <div class="zc-jdt grad jdu-public transition-action">
                             &nbsp;
                         </div>
                     </div>
                 </section>
                 <div class="newh-detail-adv">
-                    <span>代金券</span>
-                    <span>送保洁</span>
-                    <span>补贴</span>
+                	{{#labels}}
+                    <span class="newh-adv">{{.}}</span>
+                    {{/labels}}
                 </div>
                 <div>
                     <div class="f-left month-price">年收益:<span>{{rentalIncome}}万</span></div>

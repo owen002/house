@@ -239,12 +239,8 @@
   font-size: 0.42rem;
   color: #f26520;
 }
-.bzm-croudfunding .gus-list-ul {
-  border-top: 1px solid #ccc;
-}
 .bzm-croudfunding .gus-list-ul li {
   position: relative;
-  border: none !important;
 }
 .bzm-croudfunding .gus-list-ul li .zc-house-content {
   padding-left: 0;
@@ -462,7 +458,7 @@
 }
 .bzm-navigate-right:after {
   right: 0.1rem;
-  content: '\e470';
+  content: '';
   font-family: Muiicons;
   font-size: inherit;
   line-height: 1;

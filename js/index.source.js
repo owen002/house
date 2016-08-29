@@ -2,18 +2,17 @@
     var pageSize = 10,
         pageNo = 1;
     var tjxqflag = '';
-    var userinfo = localStorage.getItem('userinfo');
+    var userinfo ='';
     var perRem = 0,
         endPageX = 0;
     var isLogin = false;
-    if (userinfo && userinfo != {}) {
-        isLogin = true;
-        userinfo = JSON.parse(decodeURIComponent(userinfo));
-    }
+    
     var page = {
         init: function () {
             //          mui.init();
             //          perRem = base.setPageRem();
+            base.getMsgCnt();
+            page.loadImg();
             page.getSliderImage();
             page.initSliderMenu();
             page.checkUser();
@@ -24,7 +23,11 @@
             page.getXzcs();
         },
         sxsjbycityid: function () {
+        	page.hidecanvas();
+        	 base.getMsgCnt();
+            page.loadImg();
             page.getSliderImage();
+//          page.initSliderMenu();
             page.checkUser();
             page.getBztt();
             page.getyzfy();
@@ -68,22 +71,34 @@
             });
         },
         checkUser: function () {
-            if (!!userinfo) {
-                userinfo = decodeURIComponent(userinfo);
-                var uid = userinfo.memberID;
-                if (!!uid) {
-                    //已登录
-                    mui('#goToLogin')[0].style.display = 'none';
+        	userinfo=localStorage.getItem('userinfo');
+        	if (userinfo && userinfo != {}) {
+                 userinfo = JSON.parse(decodeURIComponent(userinfo));
+               if(userinfo.memberID){
+        	        isLogin = true;
+                }else{
+                	isLogin=false;
                 }
-            }
-        },
-        initSliderMenu: function () {
-            if (isLogin) {
+              }
+                if (isLogin) {
                 base.$('#goToLogin').style.display = 'none';
                 base.$('#bzm_username').style.display = 'block';
                 base.$('#bzm_username').innerHTML = userinfo.username || '已登录';
                 base.$('#loginBtn').style.display = 'block';
+            }else{
+            	base.$('#goToLogin').style.display = 'block';
+                base.$('#bzm_username').style.display = 'none';
+                base.$('#bzm_username').innerHTML = '';
+                base.$('#loginBtn').style.display = 'none';
             }
+        },
+        initSliderMenu: function () {
+//          if (isLogin) {
+//              base.$('#goToLogin').style.display = 'none';
+//              base.$('#bzm_username').style.display = 'block';
+//              base.$('#bzm_username').innerHTML = userinfo.username || '已登录';
+//              base.$('#loginBtn').style.display = 'block';
+//          }
 
             //侧滑容器父节点
             var offCanvasWrapper = mui('#offCanvasWrapper');
@@ -120,13 +135,18 @@
                 });
             }
         },
+        hidecanvas:function(){
+        	var el=document.getElementById('offCanvasShow');
+        	mui.trigger(el,'tap');
+        },
         bind: function () {
             mui("#gussULikeUl").on('tap', 'li', function () {
+            	return;
                 location.href = 'page/rent.html';
             });
             mui(document).on('tap', '#goToLogin', function () {
                 var pageObj = {
-                    pageUrl: "page/login/login.html"
+                    pageUrl: "page/login/loginbycode.html"
                 };
                 pageChange(pageObj);
             }).on('tap', '#navigateMenus li', function () {
@@ -140,10 +160,16 @@
                         case '4':
                         case '5':
                             pageObj = {
-                                pageUrl: "page/login/login.html"
+                                pageUrl: "page/login/loginbycode.html"
                             };
                             pageChange(pageObj);
                             break;
+                        case '6':
+                            pageObj = {
+                                pageUrl: "page/qrcodefx.html"
+                            };
+                            pageChange(pageObj);
+                            break;    
                     }
                 } else {
                     switch (id) {
@@ -182,7 +208,7 @@
                 }
             }).on('tap', '#myFirstPage', function () {
                 var pageObj = {
-                    pageUrl: "index.html"
+                    pageUrl: plus.webview.getLaunchWebview().id
                 };
                 pageChange(pageObj);
             }).on('tap', '.messages-icon', function () {
@@ -193,6 +219,7 @@
             }).on('tap', '#myNearBy', function () { //定位
                 get_loc({
                     success: function (result) {
+//                  	result={coords:{}};
                         if (result.coords.latitude == null || result.coords.latitude == undefined ||
                             result.coords.latitude == '') { //数据无效
                             var pageObj = {
@@ -203,8 +230,8 @@
                             var pageObj = {
                                 pageUrl: 'page/mynearby.html',
                                 postData: {
-//										location: result.coords
-                                    location: null//测试用
+										location: result.coords
+//                                  location: null//测试用
                                 }
                             };
                             pageChange(pageObj);
@@ -239,16 +266,20 @@
                 };
                 pageChange(pageObj);
             }).on('tap', '#loginBtn', function () {
-                localStorage.setItem('userinfo', '');
-                isLogin = false;
+                locdeluserinfo('phone');
+				locdeluserinfo('username');
+				locdeluserinfo('memberID');
+				locdeluserinfo('headerPic');
+				locdeluserinfo('nickName');
+				locdeluserinfo('gender');
                 var pageObj = {
-                    pageUrl: "index.html"
+                    pageUrl: plus.webview.getLaunchWebview().id
                 };
                 pageChange(pageObj);
             }).on('tap', '#mySetUp', function () {
                 if (!isLogin) {
                     var pageObj = {
-                        pageUrl: "page/login/login.html"
+                        pageUrl: "page/login/loginbycode.html"
                     };
                     pageChange(pageObj);
                 } else {
@@ -329,29 +360,57 @@
                 };
                 pageChange(pageObj);
             }).on('tap', '#ljtjtz1', function () {
-                var id = 1;//this.getAttribute('data-id');
+            	
+                var id = this.querySelector('#infoid').getAttribute('data-id');
                 var pageObj = {
                     pageUrl: "page/news.html?type=2&id=" + id
                 };
                 pageChange(pageObj);
             }).on('tap', '#ljtjtz2', function () {
-                var id = 2;//this.getAttribute('data-id');
+                var id = this.querySelector('#infoid').getAttribute('data-id');
                 var pageObj = {
                     pageUrl: "page/news.html?type=2&id=" + id
                 };
                 pageChange(pageObj);
             }).on('tap', '#ljtjtz3', function () {
-                var id = 3;//this.getAttribute('data-id');
+                var id = this.querySelector('#infoid').getAttribute('data-id');
                 var pageObj = {
                     pageUrl: "page/news.html?type=2&id=" + id
                 };
                 pageChange(pageObj);
             }).on('tap', '#ljtjtz4', function () {
-                var id = 4;//this.getAttribute('data-id');
+                var id = this.querySelector('#infoid').getAttribute('data-id');
                 var pageObj = {
                     pageUrl: "page/news.html?type=2&id=" + id
                 };
                 pageChange(pageObj);
+            }).on('tap','#gussULikeUl li',function(){//优质房源go详细
+            	var dtype=this.getAttribute('dtype');
+            	var fzid=this.getAttribute('fzid');
+            	if(dtype=='1'){
+            		var pageObj = {
+                    pageUrl: "page/rent.html?rentid=" + fzid
+                };
+                pageChange(pageObj);
+            	}
+            	if(dtype=='2'){
+            		var pageObj = {
+                    pageUrl: "page/salehouse.html?saleHousingID=" + fzid
+                };
+                pageChange(pageObj);
+            	}
+            	if(dtype=='3'){
+            		var pageObj = {
+                    pageUrl: "page/croudfundingdetail.html?crowdfundingHousingID=" + fzid
+                };
+                pageChange(pageObj);
+            	}
+            	if(dtype=='4'){
+            		var pageObj = {
+                    pageUrl: "page/newhousedetail.html?newHousingID=" + fzid
+                };
+                pageChange(pageObj);
+            	}
             });
         },
         tjxq: function (flag) {
@@ -412,10 +471,26 @@
             });
         },
         getBztt: function () { //获取包租头条数据
+        	var cityid=locgetuserinfo('cityid');
+        	if(cityid==undefined||cityid==null||cityid==''){
+        		var citycode=locgetuserinfo('citycode');
+        		var setting = {
+                url: Constants.cityTmy+'/'+citycode
+            };
+            muiAjax(setting, function (data) {
+            	if(data!=null&&data!=''){
+                locsaveuserinfo('cityid',data.cityID);
+                locsaveuserinfo('cityname',data.cityName);
+               }
+            }, function (status) {
+                //异常处理
+            });
+        	}
             var setting = {
                 url: Constants.bztt,
                 data: {
-                    'parameters.cityID': locgetuserinfo('cityid'),
+                    'parameters[cityID]': locgetuserinfo('cityid'),
+                    'parameters[kind]':1,
                     'pager.pageSize': pageSize,
                     'pager.pageNo': pageNo
                 }
@@ -447,8 +522,9 @@
                             pageChange(pageObj);
                         } else {
                             plus.navigator.closeSplashscreen(); //关闭启动页面
-                            page.init();
                             locsaveuserinfo('citycode', result.address.cityCode);
+                            locsaveuserinfo('cityname', result.address.city);
+                            page.init();
                         }
                     },
                     error: function (e) {
@@ -467,116 +543,109 @@
         },
         getyzfy: function () { //获取优质房源
             mui('#gussULikeUl')[0].innerHTML = '';
-            if (1 == 1) {//租房
-                var setting = {
-                    url: Constants.rentlist,
+            var setting = {
+                    url: Constants.yzfylb,
                     type: 'post',
                     data: {
-                        'parameters.isTop': 1,
-                        'parameters.cityID': locgetuserinfo('cityid'),
-                        'pager.pageSize': 1,
+                        'parameters[cityID]': locgetuserinfo('cityid'),
+                        'pager.pageSize': 4,
                         'pager.pageNo': 1
                     }
                 };
-                muiAjax(setting, function (data) {
+            muiAjax(setting, function (data) {
+            	if(1==1){
+            	var obj={
+                            rows: data.rows,
+                            istrue: function () {
+                                if (this.kind == '1') {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            }
+                        };
                     var tmpl = mui('#yzfytpl1')[0].innerHTML;
-
                     var fragment = document.createDocumentFragment();
                     var div = document.createElement('div');
-                    div.innerHTML = Mustache.render(tmpl, data);
-                    while (div.hasChildNodes()) {
-                        fragment.appendChild(div.firstChild);
-                    }
-                    mui('#gussULikeUl')[0].appendChild(fragment);
-                }, function (status) {
-                    //异常处理
-                });
-            }
-            if (1 == 1) {//二手房
-                var setting = {
-                    url: Constants.salelist,
-                    type: 'post',
-                    data: {
-                        'parameters.isTop': 1,
-                        'parameters.cityID': locgetuserinfo('cityid'),
-                        'pager.pageSize': 1,
-                        'pager.pageNo': 1
-                    }
-                };
-                muiAjax(setting, function (data) {
-                    var tmpl = mui('#yzfytpl2')[0].innerHTML;
-                    var fragment = document.createDocumentFragment();
-                    var div = document.createElement('div');
-                    div.innerHTML = Mustache.render(tmpl, data);
-                    while (div.hasChildNodes()) {
-                        fragment.appendChild(div.firstChild);
-                    }
-                    mui('#gussULikeUl')[0].appendChild(fragment);
-                }, function (status) {
-                    //异常处理
-                });
-            }
-            if (1 == 1) {//众筹房
-                var setting = {
-                    url: Constants.crowdfundlist,
-                    type: 'post',
-                    data: {
-                        'parameters.isTop': 1,
-                        'parameters.cityID': locgetuserinfo('cityid'),
-                        'pager.pageSize': 1,
-                        'pager.pageNo': 1
-                    }
-                };
-                muiAjax(setting, function (data) {
-                    var tmpl = mui('#yzfytpl3')[0].innerHTML;
-                    var fragment = document.createDocumentFragment();
-                    var div = document.createElement('div');
-                    var obj = {
-                        rows: data.rows,
-                        syz: function () {
-                            return (this.totalPrice - this.atualInvestment);
-                        }
-                    };
                     div.innerHTML = Mustache.render(tmpl, obj);
                     while (div.hasChildNodes()) {
                         fragment.appendChild(div.firstChild);
                     }
                     mui('#gussULikeUl')[0].appendChild(fragment);
-                }, function (status) {
-                    //异常处理
-                });
-            }
-            if (1 == 1) {//新房
-                var setting = {
-                    url: Constants.newhouselist,
-                    type: 'post',
-                    data: {
-                        'parameters.isTop': 1,
-                        'parameters.cityID': locgetuserinfo('cityid'),
-                        'pager.pageSize': 1,
-                        'pager.pageNo': 1
-                    }
-                };
-                muiAjax(setting, function (data) {
-                    var tmpl = mui('#yzfytpl4')[0].innerHTML;
+                   }
+            	if(1==1){
+            		var obj= {
+                            rows: data.rows,
+                            istrue: function () {
+                                if (this.kind == '2') {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            }
+                        };
+            		var tmpl = mui('#yzfytpl2')[0].innerHTML;
                     var fragment = document.createDocumentFragment();
                     var div = document.createElement('div');
-                    div.innerHTML = Mustache.render(tmpl, data);
+                    div.innerHTML = Mustache.render(tmpl, obj);
                     while (div.hasChildNodes()) {
                         fragment.appendChild(div.firstChild);
                     }
                     mui('#gussULikeUl')[0].appendChild(fragment);
+            	}
+            	if(1==1){
+            		var obj= {
+                            rows: data.rows,
+                            istrue: function () {
+                                if (this.kind == '3') {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            },
+                           syz: function () {
+                            return (this.totalPrice - this.atualInvestment);
+                            } 
+                        };
+            		var tmpl = mui('#yzfytpl3')[0].innerHTML;
+                    var fragment = document.createDocumentFragment();
+                    var div = document.createElement('div');
+                    div.innerHTML = Mustache.render(tmpl, obj);
+                    while (div.hasChildNodes()) {
+                        fragment.appendChild(div.firstChild);
+                    }
+                    mui('#gussULikeUl')[0].appendChild(fragment);
+            	}
+            	if(1==1){
+            		var obj={
+                            rows: data.rows,
+                            istrue: function () {
+                                if (this.kind == '4') {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            }
+                        };
+            		var tmpl = mui('#yzfytpl4')[0].innerHTML;
+                    var fragment = document.createDocumentFragment();
+                    var div = document.createElement('div');
+                    div.innerHTML = Mustache.render(tmpl, obj);
+                    while (div.hasChildNodes()) {
+                        fragment.appendChild(div.firstChild);
+                    }
+                    mui('#gussULikeUl')[0].appendChild(fragment);
+            	}
                 }, function (status) {
                     //异常处理
                 });
-            }
         },
         ljtjsj: function () {//累计房源统计信息
             var setting = {
                 url: Constants.ljtjxx,
                 type: 'post',
                 data: {
-                    'parameters.cityID': locgetuserinfo('cityid'),
+                    'parameters[cityID]': locgetuserinfo('cityid'),
                     'pager.pageSize': 4,
                     'pager.pageNo': 1
                 }
@@ -668,7 +737,21 @@
                 }
             };
             getTemplate(ctemp);
-        }
+        },
+        loadImg: function() { //从本地localstorage里加载会员图像
+			var grtx = locgetuserinfo('headerPic');
+			if(grtx==undefined||grtx==null||grtx==''){
+				grtx='res/img/user-photo.png';
+			}
+			var txtmpl = {
+				container: '#dlxs',
+				template: '#hytxsx',
+				obj: {
+					headerPic: grtx
+				}
+			};
+			getTemplate(txtmpl);
+		}
     }
     mui.init();
     perRem = base.setPageRem();
@@ -705,10 +788,30 @@
     window.addEventListener('refreshMe', function () {
         page.sxsjbycityid();
     });
-
+    
     function setSS() {
         var he = document.body.clientHeight;
         var chei = base.$('.bzm-dialog-content').clientHeight;
         base.$('.bzm-dialog-content').style.top = (he - chei) / 2 + 'px';
     }
+    //处理逻辑：1秒内，连续两次按返回键，则退出应用；
+    var first = null;
+    mui.back = function() {
+    //首次按键，提示‘再按一次退出应用’
+    if (!first) {
+      first = new Date().getTime();
+      mui.toast('再按一次退出应用');
+      setTimeout(function() {
+         first = null;
+       }, 1000);
+      } else {
+      if (new Date().getTime() - first < 1000) {
+      	 localStorage.clear();
+         plus.runtime.quit();
+       }
+     }
+    }
 })();
+function loadDefaultImg(element) {
+	element.src = "res/img/user-photo.png";
+}

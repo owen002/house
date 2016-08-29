@@ -15,7 +15,7 @@
 
         .zuf-mysign-item-li {
             color: #676966;
-            font-size:0.35rem;
+            font-size: 0.35rem;
         }
 
         .xq-title {
@@ -23,8 +23,18 @@
             font-size: 0.45rem;
             margin-bottom: 0.2rem;
         }
-        .mysign-content .mysign-items-ul .mysign-item-li{
+
+        .mysign-content .mysign-items-ul .mysign-item-li {
             padding: 0.4rem 0.3rem;
+        }
+
+        .mysign-items-ul > li:nth-last-child(1) {
+            border: none;
+        }
+
+        .unread {
+            font-weight: bold;
+            color: #000;
         }
     </style>
 </head>
@@ -76,7 +86,7 @@
 <!---->
 <script id='rows-li-template1' type="x-mustache-tmpl">
 {{#rows}}
-<li class="mysign-item-li zuf-mysign-item-li">
+<li class="mysign-item-li zuf-mysign-item-li {{#unread}}unread{{/unread}}" data-sid={{messageSendID}} data-rid={{messageReceiveID}}>
                 <div class="xq-title">{{title}}</div>
                 <div>电话：{{contactNumber}}</div>
                 <div class="f-left">{{content}}</div>
@@ -89,14 +99,13 @@
 <!---->
 <script id='rows-li-template2' type="x-mustache-tmpl">
 {{#rows}}
-<li class="mysign-item-li zuf-mysign-item-li">
+<li class="mysign-item-li zuf-mysign-item-li {{#unread}}unread{{/unread}}" data-sid={{messageSendID}} data-rid={{messageReceiveID}}>
 <div class="xq-title">{{title}}</div>
                 <div>内容：{{message}}</div>
                 <div class="f-right">{{sendTime}}</div>
                 <div class="mui-clearfix"></div>
 </li>
 {{/rows}}
-
 </script>
 
 </html>

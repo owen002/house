@@ -28,6 +28,7 @@
             page.queryArea();
             page.queryList();
             page.bind();
+            base.getMsgCnt();
         },
         queryArea: function () {
             var querySettings = {

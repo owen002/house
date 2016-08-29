@@ -24,15 +24,22 @@
 	var clocation = {};
 	var dsid = '';
 	var ptid = '';
+	var dname='';
+	var pname='';
 	var page = {
 		init: function() {
 			base.setPageRem();
+			
 			mui.plusReady(function() {
 				clocation = getQueryString('location');
 				dsid = getQueryString('dsid');
 				ptid = getQueryString('ptid');
+				dname= getQueryString('dname');
+				pname = getQueryString('pname');
+				page.dqwzxs();
 				page.queryList(1);
 				page.bind();
+				
 			});
 
 			
@@ -71,17 +78,17 @@
 			if(clocation == undefined || clocation == null || clocation == '') { //定位失败手动选择
 				if(upOrdown==2||upOrdown==undefined){//向上
 						qdata = {
-						'parameters.cityID': locgetuserinfo('cityid'),
-						'parameters.districtID': dsid,
-						'parameters.platID': ptid,
+						'parameters[cityID]': locgetuserinfo('cityid'),
+						'parameters[districtID]': dsid,
+						'parameters[platID]': ptid,
 						'pager.pageSize': pageSize,
 						'pager.pageNo': page.getPageNo(type)
 					};
 					}else{//向下
 						qdata = {
-						'parameters.cityID': locgetuserinfo('cityid'),
-						'parameters.districtID': dsid,
-						'parameters.platID': ptid,
+						'parameters[cityID]': locgetuserinfo('cityid'),
+						'parameters[districtID]': dsid,
+						'parameters[platID]': ptid,
 						'pager.pageSize': pageSize,
 						'pager.pageNo': 1
 					};
@@ -89,15 +96,15 @@
 			}else{
 				if(upOrdown==2||upOrdown==undefined){//向上
 						qdata = {
-						'parameters.longitude': Math.floor(clocation.longitude*1000000)/1000000,
-						'parameters.latitude': Math.floor(clocation.latitude*1000000)/1000000,
+						'parameters[longitude]': Math.floor(clocation.longitude*1000000)/1000000,
+						'parameters[latitude]': Math.floor(clocation.latitude*1000000)/1000000,
 						'pager.pageSize': pageSize,
 						'pager.pageNo': page.getPageNo(type)
 					};
 					}else{//向下
 						qdata = {
-						'parameters.longitude': Math.floor(clocation.longitude*1000000)/1000000,
-						'parameters.latitude': Math.floor(clocation.latitude*1000000)/1000000,
+						'parameters[longitude]': Math.floor(clocation.longitude*1000000)/1000000,
+						'parameters[latitude]': Math.floor(clocation.latitude*1000000)/1000000,
 						'pager.pageSize': pageSize,
 						'pager.pageNo': 1
 					};
@@ -111,9 +118,9 @@
 				data: qdata,
 				type: 'post'
 			};
-            console.log(currentid+':'+JSON.stringify(querySettings));
+//          console.log(currentid+':'+JSON.stringify(querySettings));
 			muiAjax(querySettings, function(data) {
-				console.log(JSON.stringify(data));
+//				console.log(JSON.stringify(data));
 				var rows = data.rows;
 				var rentlength = rows.length,
 					totalLength = data.totalRows;
@@ -258,6 +265,18 @@
 				};
 				pageChange(pageObj);
 			})
+		},
+		dqwzxs:function(){
+			var tpl={
+				container:'#dqwz',
+				template:'#dqwztmpl',
+				obj:{
+					rows:{pname:pname,
+					dname:dname
+					}
+				}
+			};
+			getTemplate(tpl);
 		}
 	};
 

@@ -33,7 +33,15 @@
                 muiAjax(querySettings, function (data) {
                 	mui('#title')[0].innerHTML = data.crowdfundingHousing.villageName;
                     var tmpl = mui('#detail-template')[0].innerHTML;
-					mui('#detail-id')[0].innerHTML = Mustache.render(tmpl, data);
+                    var obj = {
+                        attachmentList: data.attachmentList,
+                        crowdfundingHousing:data.crowdfundingHousing,
+                        labelsArr:data.labelsArr,
+                        processpercet:function(){
+							return (100-data.crowdfundingHousing.progress);
+						}
+                    };
+					mui('#detail-id')[0].innerHTML = Mustache.render(tmpl, obj);
 					mui('#offCanvasContentScroll').scroll();
 					
 	                var rowsArr = data.attachmentList;

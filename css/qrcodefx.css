@@ -1,181 +1,271 @@
 .mui-bar {
-  background-color: #F26520;
-  overflow: hidden;
-  color: #fff;
+    background-color: #F26520;
+    overflow: hidden;
+    color: #fff;
 }
+
 .mui-content {
-  color: #000;
-  padding-top: 1.2rem !important;
-  background-color: #F2F2F2;
+    color: #000;
+    padding-top: 1.2rem !important;
+    background-color: #F2F2F2;
 }
+
 .right-contact-a img {
-  width: 0.7rem;
-  margin-top: 0.2rem;
+    width: 0.7rem;
+    margin-top: 0.2rem;
 }
+
 .left-menu-icon img {
-  width: 0.7rem;
+    width: 0.7rem;
 }
+
 .back-img {
-  padding-right: 0.25rem;
-  border-right: 1px solid #F5844D;
-  height: 0.8rem;
-  margin-top: 0.2rem;
+    padding-right: 0.25rem;
+    border-right: 1px solid #F5844D;
+    height: 0.8rem;
+    margin-top: 0.2rem;
 }
+
 .mysign-head-select-section {
-  margin: 0.2rem 0 0;
-  color: #717171;
-  background-color: #fff;
+    margin: 0.2rem 0 0;
+    color: #717171;
+    background-color: #fff;
 }
+
 .mysign-head-select-section .ms-header-menu {
-  background-color: #EBEBEB;
-  overflow: hidden;
+    background-color: #EBEBEB;
+    overflow: hidden;
 }
+
 .mysign-head-select-section .ms-header-menu li {
-  float: left;
-  width: 2rem;
-  height: 1.2rem;
-  line-height: 1.2rem;
-  border-left: 1px solid #d6d6d6;
-  border-top: 1px solid #d6d6d6;
-  border-bottom: 1px solid #d6d6d6;
-  text-align: center;
+    float: left;
+    width: 2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    border-left: 1px solid #d6d6d6;
+    border-top: 1px solid #d6d6d6;
+    border-bottom: 1px solid #d6d6d6;
+    text-align: center;
 }
+
 .mysign-head-select-section .ms-menu-active {
-  border-top: 2px solid #F5844D !important;
-  border-bottom: none !important;
-  background-color: #fff !important;
-  color: #000 !important;
-  font-weight: bold;
+    border-top: 2px solid #F5844D !important;
+    border-bottom: none !important;
+    background-color: #fff !important;
+    color: #000 !important;
+    font-weight: bold;
 }
+
 .mysign-content {
-  display: none;
-  background-color: #fff;
+    display: none;
+    background-color: #fff;
 }
+
 .mysign-content .mysign-items-ul {
-  padding: 0.2rem 0.3rem;
+    padding: 0.2rem 0.3rem;
 }
+
 .mysign-content .mysign-items-ul .mysign-item-li {
-  padding: 0.1rem 0;
-  overflow: hidden;
+    padding: 0.1rem 0;
+    overflow: hidden;
 }
+
 .mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-ul {
-  padding: 0 0.2rem;
-  width: 5.9rem;
-  color: #5d5d5d;
+    padding: 0 0.2rem;
+    width: 5.9rem;
+    color: #5d5d5d;
 }
+
 .mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-ul .header-title {
-  font-size: 0.45rem;
-  font-weight: bold;
-  color: #000;
+    font-size: 0.45rem;
+    font-weight: bold;
+    color: #000;
 }
+
 .mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-ul li {
-  overflow: hidden;
+    overflow: hidden;
 }
+
 .mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-ul li div {
-  width: 42%;
-  float: left;
+    width: 42%;
+    float: left;
 }
+
 .mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-ul li div:nth-of-type(2) {
-  width: 58%;
+    width: 58%;
 }
+
 .mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-footer {
-  overflow: hidden;
-  height: 1rem;
-  background-color: #EAEAEA;
+    overflow: hidden;
+    height: 1rem;
+    background-color: #EAEAEA;
 }
+
 .mysign-content .mysign-items-ul .mysign-item-li .mysign-inner-footer .my-sign-amount {
-  font-size: 0.5rem;
-  font-weight: bold;
-  padding: 0 0.3rem;
-  line-height: 1rem;
+    font-size: 0.5rem;
+    font-weight: bold;
+    padding: 0 0.3rem;
+    line-height: 1rem;
 }
+
 .mysign-content .mysign-items-ul .mysign-item-li .mysign-zuf-title {
-  font-size: 0.45rem;
-  font-weight: bold;
-  color: #000;
+    font-size: 0.45rem;
+    font-weight: bold;
+    color: #000;
 }
+
 .mysign-content .mysign-items-ul .mysign-item-li .mysign-zuf-inner-ul {
-  color: #5d5d5d;
-  border-bottom: 1px solid #ccc;
+    color: #5d5d5d;
+    border-bottom: 1px solid #ccc;
 }
+
 .mysign-content .mysign-items-ul .mysign-item-li .mysign-zuf-inner-ul li {
-  overflow: hidden;
-  padding: 0.1rem 0;
+    overflow: hidden;
+    padding: 0.1rem 0;
 }
+
 .mysign-content .mysign-items-ul .mysign-item-li .mysign-zuf-inner-ul li div {
-  float: left;
-  width: 33.33%;
+    float: left;
+    width: 33.33%;
 }
+
 .zan-and-focus {
-  float: left;
+    float: left;
 }
+
 .zan-and-focus .rent-price {
-  color: #F5844D;
-  font-size: 0.45rem;
-  text-align: right;
-  font-weight: bold;
+    color: #F5844D;
+    font-size: 0.45rem;
+    text-align: right;
+    font-weight: bold;
 }
+
 .zan-and-focus .focus-icon {
-  background-position: 0 -1.54rem !important;
+    background-position: 0 -1.54rem !important;
 }
+
 .zan-and-focus .focus-active-icon {
-  background-position: 0 -0.51rem !important;
+    background-position: 0 -0.51rem !important;
 }
+
 .zan-and-focus .zan-active-icon {
-  background-position: 0 0.05rem !important;
+    background-position: 0 0.05rem !important;
 }
+
 .zan-and-focus .zf-icon {
-  width: 0.5rem;
-  height: 0.5rem;
-  background: url("../res/img/sp3.png") no-repeat 0 -1.01rem;
-  background-size: cover;
-  margin: 0 0.2rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: url("../res/img/sp3.png") no-repeat 0 -1.01rem;
+    background-size: cover;
+    margin: 0 0.2rem;
 }
+
 .zan-and-focus .zan-focus-area {
-  overflow: hidden;
-  margin-top: 0.2rem;
+    overflow: hidden;
+    margin-top: 0.2rem;
 }
+
 .zan-and-focus .zan-focus-area div {
-  float: left;
-  overflow: hidden;
+    float: left;
+    overflow: hidden;
 }
+
 .house-content {
-  width: 5.7rem;
-  padding-left: 0.3rem;
+    width: 5.7rem;
+    padding-left: 0.3rem;
 }
+
 .house-content .hc-title {
-  font-size: 0.45rem;
-  font-weight: bold;
+    font-size: 0.45rem;
+    font-weight: bold;
 }
+
 .house-content .nearby-house-items {
-  color: #707070;
-  margin-top: 0.15rem;
+    color: #707070;
+    margin-top: 0.15rem;
 }
+
 .house-content .zan-and-focus {
-  float: right;
-  margin-top: -0.55rem;
+    float: right;
+    margin-top: -0.55rem;
 }
+
 .house-content .zan-and-focus .rent-price {
-  color: #F5844D;
-  font-size: 0.45rem;
-  text-align: right;
-  font-weight: bold;
+    color: #F5844D;
+    font-size: 0.45rem;
+    text-align: right;
+    font-weight: bold;
 }
+
 .house-content .nearby-house-items .zc-detail-right {
-  margin-left: 0.2rem;
+    margin-left: 0.2rem;
 }
+
 .section-active {
-  display: block;
+    display: block;
 }
+
 .house-img img {
-  width: 3.5rem;
+    width: 3.5rem;
 }
+
 .rent-price {
-  font-size: 0.45rem;
-  float: right;
-  font-weight: bold;
-  color: #F5844D;
+    font-size: 0.45rem;
+    float: right;
+    font-weight: bold;
+    color: #F5844D;
 }
+
 .zuf-mysign-item-li {
-  border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.user-pho {
+    height: 1rem;
+    width:1rem;
+}
+
+#usernam {
+    height: 1rem;
+    line-height: 1rem;
+    margin-left: 0.3rem;
+}
+
+.zhmc {
+    margin: 0.5rem 1rem 0;
+}
+
+.mui-content {
+    background-color: #fff;
+}
+
+.my-iiiinfo {
+    text-align: center;
+    padding: 1rem 0;
+    width:100%;
+}
+
+#downqrCode {
+    margin: 0 auto;
+    width: 3.2rem;
+    display: block;
+}
+.fo-tttttt{
+    width:9rem;
+    display: block;
+    margin:1.5rem auto 1rem;
+}
+.zc-im-go-tz {
+    padding: 0.3rem;
+    margin: 0.4rem auto;
+    background-color: #F26520;
+    color: #fff;
+    width: 90% !important;
+    font-size: 0.4rem;
+}
+.mui-content{
+    padding-bottom: 1rem;
+}
+html,body,.mui-content{
+    height: 100%;
 }

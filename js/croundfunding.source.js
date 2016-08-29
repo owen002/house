@@ -26,6 +26,7 @@
             page.queryArea();
             page.queryList();
             page.bind();
+            base.getMsgCnt();
         },
         queryArea: function () {
             var querySettings = {
@@ -67,7 +68,10 @@
                     }
 
                     var obj = {
-                        rows: rows
+                        rows: rows,
+                        processpercet:function(){
+							return (100-this.progress);
+						}
                     };
 
                     var tmpl = mui('#rows-li-template')[0].innerHTML;

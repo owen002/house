@@ -37,7 +37,10 @@
                     }
 
                     var obj = {
-                        rows: rows
+                        rows: rows,
+                        'unread': function () {
+                            return this.isRead == '0'
+                        }
                     };
 
                     var tmpl = mui('#rows-li-template' + currentid)[0].innerHTML;
@@ -50,18 +53,38 @@
                         pageNo = 1;
                     }
                 } else {
+                    mui('#guessUlike' + currentid)[0].innerHTML = '<li style="text-align:center;height:40px;line-height: 40px;color:#ccc;">没有更多了...</li>';
                     canPull = false;
                 }
             }, function (status) {
 
             });
         },
-
+        readMsg: function (msid, mrid, callback) {
+            var querySettings = {
+                url: baseUrl + 'view_message_receive/' + msid + '/' + mrid,
+                type: 'get'
+            };
+            muiAjax(querySettings, function (data) {
+                if (data && data != {}) {
+                    callback();
+                }
+            });
+        },
         bind: function () {
             mui('.ms-header-menu').on('tap', '.ms-m', function () {
                 switchTab(this);
             });
-
+            mui(document).on('tap', '.mysign-items-ul li', function () {
+                var $this = this;
+                var sid = $this.getAttribute('data-sid');
+                var rid = $this.getAttribute('data-rid');
+                if (base.hasClass($this, 'unread')) {
+                    page.readMsg(sid, rid, function () {
+                        base.removeClass($this, 'unread');
+                    });
+                }
+            });
             mui('.gueulike-wrapper').pullToRefresh({
                 //上拉加载更多
                 up: {

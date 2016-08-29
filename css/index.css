@@ -115,9 +115,9 @@ body {
   border-bottom: 1px solid #555555;
   font-size: 0.44rem;
 }
-.bzm-navigate-right:after {
+.arr-fuc-right {
   right: 0.1rem;
-  content: '\e470';
+  height: 0.4rem;
   font-family: Muiicons;
   font-size: inherit;
   line-height: 1;

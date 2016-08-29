@@ -61,9 +61,9 @@
                     <img src="../res/img/zsh.png" alt="" id='dzan'>
                 </div>
             </div>
-            <div class="zc-jdt-wrapper jdu-public jdu-public">
-                <div class='amount-percent'>50%</div>
-                <div class="grad zc-jdt jdu-public transition-action">
+            <div class="zc-jdt-wrapper jdu-public jdu-public" >
+                <div class='amount-percent'>{{crowdfundingHousing.progress}}%</div>
+                <div class="grad zc-jdt jdu-public transition-action"  style="left: -{{processpercet}}%;">
                     &nbsp;
                 </div>
             </div>
@@ -150,7 +150,7 @@
             <ul>
                 <li>
                     <div class="dis-inline">众筹资金：</div>
-                    <div class="dis-inline">{{totalPrice}}万</div>
+                    <div class="dis-inline">{{crowdfundingHousing.totalPrice}}万</div>
                 </li>
                 <li>
                     <div class="dis-inline">期限：</div>
@@ -162,7 +162,7 @@
                 </li>
                 <li>
                     <div class="dis-inline">还款方式：</div>
-                    <div class="dis-inline">{{repaymentMethod}}</div>
+                    <div class="dis-inline">{{crowdfundingHousing.repaymentMethod}}</div>
                 </li>
             </ul>
         </section>

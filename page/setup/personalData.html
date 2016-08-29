@@ -30,19 +30,20 @@
     </div>
 </article>
 <header id="header" class="mui-bar mui-bar-nav">
-    <a class="mui-action-back left-menu-icon f-left back">
-        <div class="back-img">
-            <img src='../../res/img/login/backico.png'/>
-        </div>
-    </a>
-    <div class="page-title">我的资料</div>
-</header>
+<a class="mui-action-back left-menu-icon f-left back">
+	<div class="back-img">
+		<img src='../../res/img/login/backico.png' />
+	</div>
+</a>
+<div class="page-title">我的资料</div>
+</header>	
 <div class="mui-content">
     <ul id="list" class="mui-table-view mui-table-view-chevron">
         <li class="mui-table-view-cell  right-content">
             头像
-            <span class="floatRight" id="grtxspan"><img src="../../images/login/head.png"
-                                                        style="height: 2rem;width: 2rem;"/ ></span>
+            <span class="floatRight" id="grtxspan">
+            	<img src="../../images/login/head.png" style="height: 2rem;width: 2rem;"/ >
+            </span>
         </li>
         <li class="mui-table-view-cell" id="setnickname">
             <a class="mui-navigate-right" href="nickname.html">
@@ -71,7 +72,7 @@
     <button id='reg' class="mui-btn mui-btn-block mui-btn-orange">退出</button>
 </div>
 <script id="grtx" type="x-mustache-tmpl">
-			<img src="{{headerPic}}" style="height: 2rem;width: 2rem;"  oonerror="loadDefaultImg(this)" />
+			<img src="{{headerPic}}" style="height: 2rem;width: 2rem;"  onerror="loadDefaultImg(this)" />
 
 </script>
 <script src="../../js/mui.min.js"></script>

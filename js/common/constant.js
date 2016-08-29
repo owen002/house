@@ -2,8 +2,9 @@
  * 常量
  */
 var Constants = window.Constants || {};
-Constants.TIMEOUT = 2000;
- // var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
+Constants.TIMEOUT = 5000;
+//  var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
+//        var baseUrl="http://www.baozumei.com/rental_interface/";
 // var baseUrl = "http://10040.snail.com/rental_interface/";
 var baseUrl = "http://agent.snail.com/rental_interface/";
 // var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
@@ -75,3 +76,14 @@ Constants.messagelists = baseUrl + 'json_system_message_receive';
 Constants.ljtjxx=baseUrl+'front/json_statistical_information';
 //累计统计信息
 Constants.ljtjxxnews=baseUrl+'front/view_statistical_information';
+
+//定位城市代码和系统对接
+Constants.cityTmy=baseUrl+'front/city_info';
+Constants.arcode=baseUrl+'front/json_qr_code';
+
+//优质房源
+Constants.yzfylb=baseUrl+'front/json_top_housing';
+
+//消息未读数
+Constants.unreadMessage=baseUrl+'count_unread_message';
+

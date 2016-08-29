@@ -17,67 +17,24 @@ mui.init();//初始化
 			 pageChange(pageObj);
 		}
 	};
-	elementBindEvent(regObj);//登录按钮绑定tap事件
-	var yzmObj={
-		eventId:'hqyzm',
+	elementBindEvent(regObj);//注册按钮绑定tap事件
+	
+	//登录切换
+	var yzmdlObj={
+		eventId:'yzmdl',
 		eventFunction:function(){
-			hqyzmEvent();
+			var pageObj={
+			 	 pageUrl:'../../page/login/loginbycode.html'
+			};
+			pageChange(pageObj);
 		}
 	};
-	elementBindEvent(yzmObj);//登录按钮绑定tap事件
-//	var pwdObj={
-//		eventId:'frogetpwd',
-//		eventFunction:function(){
-//			 var pageObj={
-//			 	 pageUrl:'pwd.html'
-//			 };
-//			 pageChange(pageObj);
-//		}
-//	};
-//	elementBindEvent(pwdObj);//登录按钮绑定tap事件
-	
-// });
-// 点击获取验证码事件
-function hqyzmEvent() {
-		var sjh = document.querySelector("#account").value;
-		if(sjh == null || sjh == "") {
-			mui.toast("请输入手机号");
-			return;
-		}
-
-		var reg = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-		if(!reg.test(sjh)) {
-			mui.toast("手机号格式不正确");
-			return;
-		}
-
-		document.getElementById("hqyzm").disabled = true;
-		document.getElementById("hqyzm").innerHTML = "发送中...";
-
-		var codeSettings = {
-			"url": Constants.getCode + "/" + sjh
-		};
-		muiAjax(codeSettings, function(data) {
-			if(data.status==='200') {
-				yzmtime(30);
-				// 取得验证码成功
-				mui.alert(data.message);
-			} else {
-				//错误处理
-				mui.alert(data.message);
-				document.getElementById("hqyzm").innerHTML = "获取验证码";
-				document.getElementById("hqyzm").disabled = false;
-			}
-		}, function(status) {
-			//当前ajax错误预留
-		});
-	}
+	elementBindEvent(yzmdlObj);//获取验证码按钮绑定tap事件
 
 function loginEvent(){
 	document.activeElement.blur(); //关闭键盘
 		var memberAccount = document.querySelector("#account").value;
 		var memberPwd = document.querySelector("#password").value;
-		var logintype = document.querySelector("#logintype").value;
 		var loginurl = Constants.login;
 
 		if(memberAccount == null || memberAccount == "") {
@@ -86,29 +43,15 @@ function loginEvent(){
 		}
 
         var data
-		if(logintype==1) {
-			if(memberPwd == null || memberPwd== "") {
-				mui.toast("请输入登录密码");
-				return;
-			}
-			data={
-	        	memberAccount:memberAccount,
-	        	memberPwd:memberPwd
-	        };
+		if(memberPwd == null || memberPwd== "") {
+			mui.toast("请输入登录密码");
+			return;
 		}
+		data={
+        	memberAccount:memberAccount,
+        	memberPwd:memberPwd
+        };
 
-		else if(logintype==2) {
-			if(memberPwd == null || memberPwd== "") {
-				mui.toast("请输入验证码");
-				return;
-			}
-			loginurl = Constants.loginbyphone
-			data={
-	        	memberPhone:memberAccount,
-	        	checkCode:memberPwd
-	        };
-		}        
-        
 		var loginSettings = {
 			data:data,
 			type: "post",
@@ -119,13 +62,22 @@ function loginEvent(){
 
 		muiAjax(loginSettings, function(data) {
 			if(data.status=='200'){//登录成功
-				var userinfo = {phone:data.memberPhone,username:data.memberName,uid:data.memberID,headerPic:data.headerPic,nickName:data.nickName,gender:data.gender};
-				localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(userinfo)));
+				locsaveuserinfo('phone',data.memberPhone);
+				locsaveuserinfo('username',data.memberName);
+				locsaveuserinfo('memberID',data.memberID);
+				locsaveuserinfo('headerPic',data.headerPic);
+				locsaveuserinfo('nickName',data.nickName);
+				locsaveuserinfo('gender',data.gender);
 				var pageObj={
-					 // pageUrl:plus.webview.getLaunchWebview().id
-					pageUrl:'../../index.html'
+					  pageUrl:plus.webview.getLaunchWebview().id//首页只create一次
+//					pageUrl:'../../index.html'
 				}
 				pageChange(pageObj);
+				//关闭当前页面
+					setTimeout(function() {
+						plus.webview.currentWebview().hide(); //解决close闪屏问题
+						plus.webview.currentWebview().close();
+					}, 1000);
 			}else{//登录失败
 				alert(data.message);
 				mui.toast(data.message);

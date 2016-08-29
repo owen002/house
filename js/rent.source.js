@@ -190,38 +190,38 @@
 					if(result.coords.longitude != null || result.coords.longitude != '') {
 						if(upOrdown == 2 || upOrdown == undefined) { //向上
 							qdata = {
-								'parameters.longitude': result.coords.longitude,
-								'parameters.latitude': result.coords.latitude,
+								'parameters[longitude]': Math.floor(result.coords.longitude*1000000)/1000000,
+								'parameters[latitude]': Math.floor(result.coords.latitude*1000000)/1000000,
 								'pager.pageSize': pageSize,
 								'pager.pageNo': pageNo
 							};
 						} else { //向下
 							qdata = {
-								'parameters.longitude': Math.floor(result.coords.longitude*1000000)/1000000,
-								'parameters.latitude': Math.floor(result.coords.latitude*1000000)/1000000,
+								'parameters[longitude]': Math.floor(result.coords.longitude*1000000)/1000000,
+								'parameters[latitude]': Math.floor(result.coords.latitude*1000000)/1000000,
 								'pager.pageSize': pageSize,
 								'pager.pageNo': 1
 							};
 						}
 						//测试数据
-						qurl=Constants.rentlist;
-						if(upOrdown == 2 || upOrdown == undefined) { //向上
-							qdata = {
-								'parameters.cityID': '1',
-								'parameters.districtID': '1',
-								'parameters.platID': '1',
-								'pager.pageSize': pageSize,
-								'pager.pageNo': pageNo
-							};
-						} else { //向下
-							qdata = {
-								'parameters.cityID': '1',
-								'parameters.districtID': '1',
-								'parameters.platID': '1',
-								'pager.pageSize': pageSize,
-								'pager.pageNo': 1
-							};
-						}
+//						qurl=Constants.rentlist;
+//						if(upOrdown == 2 || upOrdown == undefined) { //向上
+//							qdata = {
+//								'parameters.cityID': '1',
+//								'parameters.districtID': '1',
+//								'parameters.platID': '1',
+//								'pager.pageSize': pageSize,
+//								'pager.pageNo': pageNo
+//							};
+//						} else { //向下
+//							qdata = {
+//								'parameters.cityID': '1',
+//								'parameters.districtID': '1',
+//								'parameters.platID': '1',
+//								'pager.pageSize': pageSize,
+//								'pager.pageNo': 1
+//							};
+//						}
 						//测试数据结束
 						var querySettings = {
 							url: qurl,
@@ -265,60 +265,60 @@
 				error: function(e) {
 					mui.toast('定位异常'+JSON.stringify(e));
 					//测试数据
-					    var qurl=Constants.rentlist;
-					    var qdata;
-						if(upOrdown == 2 || upOrdown == undefined) { //向上
-							qdata = {
-								'parameters.cityID': '1',
-								'parameters.districtID': '1',
-								'parameters.platID': '1',
-								'pager.pageSize': pageSize,
-								'pager.pageNo': pageNo
-							};
-						} else { //向下
-							qdata = {
-								'parameters.cityID': '1',
-								'parameters.districtID': '1',
-								'parameters.platID': '1',
-								'pager.pageSize': pageSize,
-								'pager.pageNo': 1
-							};
-						}
-						var querySettings = {
-							url: qurl,
-							data: qdata,
-							type: 'post'
-						};
-						muiAjax(querySettings, function(data) {
-							var rows = data.rows;
-							var rentlength = rows.length,
-								totalLength = data.totalRows;
-							if(rows.length > 0) {
-								if(rentlength < pageSize) {
-									canPull = false;
-								} else if(totalLength == (pageSize * (pageNo- 1) + rentlength)) {
-									canPull = false;
-								} else {
-									canPull = true;
-								}
-								obj = {
-									rows: rows
-								};
-								var tmpl = mui('#fjzftj')[0].innerHTML;
-								var fragment = document.createDocumentFragment();
-								var div = document.createElement('div');
-
-								div.innerHTML = Mustache.render(tmpl, obj);
-								while(div.hasChildNodes()) {
-									fragment.appendChild(div.firstChild);
-								}
-								mui('#guessUlike')[0].appendChild(fragment);
-							} else {
-								canPull = false;
-							}
-						}, function(status) {
-
-						});
+//					    var qurl=Constants.rentlist;
+//					    var qdata;
+//						if(upOrdown == 2 || upOrdown == undefined) { //向上
+//							qdata = {
+//								'parameters.cityID': '1',
+//								'parameters.districtID': '1',
+//								'parameters.platID': '1',
+//								'pager.pageSize': pageSize,
+//								'pager.pageNo': pageNo
+//							};
+//						} else { //向下
+//							qdata = {
+//								'parameters.cityID': '1',
+//								'parameters.districtID': '1',
+//								'parameters.platID': '1',
+//								'pager.pageSize': pageSize,
+//								'pager.pageNo': 1
+//							};
+//						}
+//						var querySettings = {
+//							url: qurl,
+//							data: qdata,
+//							type: 'post'
+//						};
+//						muiAjax(querySettings, function(data) {
+//							var rows = data.rows;
+//							var rentlength = rows.length,
+//								totalLength = data.totalRows;
+//							if(rows.length > 0) {
+//								if(rentlength < pageSize) {
+//									canPull = false;
+//								} else if(totalLength == (pageSize * (pageNo- 1) + rentlength)) {
+//									canPull = false;
+//								} else {
+//									canPull = true;
+//								}
+//								obj = {
+//									rows: rows
+//								};
+//								var tmpl = mui('#fjzftj')[0].innerHTML;
+//								var fragment = document.createDocumentFragment();
+//								var div = document.createElement('div');
+//
+//								div.innerHTML = Mustache.render(tmpl, obj);
+//								while(div.hasChildNodes()) {
+//									fragment.appendChild(div.firstChild);
+//								}
+//								mui('#guessUlike')[0].appendChild(fragment);
+//							} else {
+//								canPull = false;
+//							}
+//						}, function(status) {
+//
+//						});
 					
 				}
 			});

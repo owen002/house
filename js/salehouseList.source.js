@@ -27,6 +27,7 @@
             //查询租房列表
             page.queryList();
             page.bind();
+            base.getMsgCnt();
         },
         queryArea: function () {
             var querySettings = {

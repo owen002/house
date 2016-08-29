@@ -38,6 +38,9 @@
 		},
 		bind: function() {
 			mui('#cityList').on('tap', '.mui-indexed-list-item', function() {
+				if(unsafe_tap()){
+					return;
+				}
 				locsaveuserinfo('citycode',this.getAttribute('citycode'));
 				locsaveuserinfo('cityname',this.getAttribute('cityname'));
 				locsaveuserinfo('cityid',this.getAttribute('cityid'));

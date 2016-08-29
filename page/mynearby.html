@@ -46,8 +46,12 @@
             </li>
         </ul>
     </section>
-    <div class="current-loc">
-        当前位置：高新区
+    <div class="current-loc" id='dqwz'>
+        <!--
+        	作者：denis-guo@163.com
+        	时间：2016-08-27
+        	描述：当前位置模板
+        -->
     </div>
     <!--<div class="mui-scroll-wrapper mysign-content ms-con1 section-active">
     	<div class='mui-scroll'>
@@ -256,5 +260,10 @@
 </li>
 {{/rows}}
 </script>
-
+<script id='dqwztmpl' type="x-mustache-tmpl">
+	当前位置:
+	{{#rows}}
+	{{dname}}-{{pname}}
+	{{/rows}}
+</script>
 </html>

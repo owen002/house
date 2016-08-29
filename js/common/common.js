@@ -126,8 +126,10 @@ if(!mui.os.ios&&!mui.os.android){
                 	}
                 }
                 if(viewId==plus.webview.getLaunchWebview().id){//首页不重复创建
-                	plus.webview.getLaunchWebview().reload();
-                	plus.webview.getLaunchWebview().show();
+                	var sywv=plus.webview.getLaunchWebview();
+                	mui.fire(sywv,'refreshMe');
+                	
+                	sywv.show();
                 	return;
                 }
                 	mui.openWindow({
@@ -238,7 +240,7 @@ function errorHandler(fn, XMLHttpRequest, textStatus, errorThrown) {
     }
     if (fn instanceof Function) {
         fn.call("", code);
-        console.log(JSON.stringify(errorThrown));
+        console.log(code);
     }
 }
 
@@ -251,7 +253,7 @@ function muiAjax(settings, fuc, errfuc) {
         type: 'get',
         timeout: Constants.TIMEOUT,
         success: function (data) {
-        	if(data.status&&data.status==='401'){
+        	if(data!=null&&data.status&&data.status==='401'){
         		var logpos='';
         		var durl='';
         		if(mui.os.ios||mui.os.android){
@@ -260,14 +262,14 @@ function muiAjax(settings, fuc, errfuc) {
         			durl=window.location.href;
         		}
         		if(durl.indexOf('page/login/')>-1){
-        				logpos='login.html';
+        				logpos='loginbycode.html';
         			}
         			else if(durl.indexOf('page/setup/')>-1){
-        				logpos='../login/login.html';
+        				logpos='../login/loginbycode.html';
         			}else if(durl.indexOf('page/')>-1){
-        				logpos='login/login.html';
+        				logpos='login/loginbycode.html';
         			}else{
-        				logpos='page/login/login.html';
+        				logpos='page/login/loginbycode.html';
         			}
         		var pageObj={
         			pageUrl:logpos
@@ -335,8 +337,23 @@ function locgetuserinfo(key){
 	if(userinfostr!=undefined&&userinfostr!=null&&userinfostr!=''&&userinfostr!='null'){
 		userinfostr = decodeURIComponent(userinfostr);
 		var userinfo=JSON.parse(userinfostr);
+		console.log('获取:'+JSON.stringify(userinfo));
 		return userinfo[key];
 	}else{
 		return '';
 	}
 }
+
+//删除userinfo
+function locdeluserinfo(key){
+	var userinfostr = localStorage.getItem('userinfo');
+	if(userinfostr!=undefined&&userinfostr!=null&&userinfostr!=''&&userinfostr!='null'){
+		userinfostr = decodeURIComponent(userinfostr);
+		var userinfo=JSON.parse(userinfostr);
+		if(userinfo[key]!=undefined){
+			delete userinfo[key];
+		}
+		localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(userinfo)));
+	}
+}
+

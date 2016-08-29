@@ -58,7 +58,7 @@
         <input class='search-box' type="text" placeholder="好房尽在包租妹"/>
         <img src="../res/img/search.png" class="search-input-icon" alt="">
     </div>
-    <div class='message-items-amount f-right'>3</div>
+    <div class='message-items-amount f-right' id="msgCnt"></div>
     <a class="f-right right-contact-a mui-icon ">
         <img src="../res/img/message.png" alt="" id="message">
     </a>
@@ -228,7 +228,7 @@
                 <section class="bzm-house-detail-header">
                     <div class="zc-jdt-wrapper jdu-public jdu-public">
                         <div class='amount-percent'>{{progress}}%</div>
-                        <div class="zc-jdt grad jdu-public transition-action">
+                        <div class="zc-jdt grad jdu-public transition-action" style="left: -{{processpercet}}%;">
                             &nbsp;
                         </div>
                     </div>

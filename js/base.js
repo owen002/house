@@ -184,7 +184,7 @@ var base = (function () {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
         if (r != null) {
-            return unescape(r[2]);
+            return decodeURIComponent(r[2]);
         } else {
             return '';
         }
@@ -242,6 +242,21 @@ var base = (function () {
         return str.replace(/\s*/g, '');
     }
 
+    function getMsgCnt() {
+        var setting = {
+            url: Constants.unreadMessage,
+            type: 'get',
+            contentType: "application/json"
+        };
+        muiAjax(setting, function (data) {
+            //添加第一个和最后一个
+            mui('#msgCnt')[0].innerHTML = data.count;
+        }, function (status) {
+            //异常处理
+        });
+    }
+
+
     return {
         setPageRem: setPageRem,
         hasClass: hasClass,
@@ -258,6 +273,16 @@ var base = (function () {
         isPhoneNum: isPhoneNum,
         goSearch: goSearch,
         toggle: toggle,
-        trimBlank:trimBlank
+        trimBlank: trimBlank,
+        getMsgCnt: getMsgCnt
     }
 })();
+
+(function () {
+    var top = ''
+    mui(document).on('tap', '.fk-change', function () {
+        this.focus();
+        top = base.$('.bzm-dialog-content').style.top;
+        base.$('.bzm-dialog-content').style.top = '12%;';
+    });
+})()

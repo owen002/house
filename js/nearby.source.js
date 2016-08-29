@@ -11,7 +11,7 @@
             var querySettings = {
                 url: Constants.dsList,
                 data: {
-                    'parameters.cityID':locgetuserinfo('cityid')
+                    'parameters[cityID]':locgetuserinfo('cityid')
                 },
                 type: 'post'
             };
@@ -31,7 +31,7 @@
             var querySettings = {
                 url: Constants.ptList,
                 data: {
-                    'parameters.districtID':dsid
+                    'parameters[districtID]':dsid
                 },
                 type: 'post'
             };
@@ -60,7 +60,9 @@
           	 	pageUrl:'../page/mynearby.html',
           	 	postData:{
           	 		dsid:this.getAttribute('dsid'),
-          	 		ptid:this.getAttribute('ptid')
+          	 		ptid:this.getAttribute('ptid'),
+          	 		dname:this.getAttribute('dname'),
+          	 		pname:this.getAttribute('pname')
           	 	}
           	 };
           	 pageChange(pageObj);

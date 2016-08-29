@@ -16,12 +16,8 @@
     <aside id="offCanvasSide" class="mui-off-canvas-left">
         <div id="offCanvasSideScroll" class="mui-scroll-wrapper">
             <div class="mui-scroll">
-                <div class="bzm-user-wrap">
-                    <img src="res/img/user-photo.png" alt=""/>
-                    <div class='bzm-user-name' id="bzm_username"></div>
-                    <button class='go-to-login mui-btn-block' id="goToLogin">
-                        登录
-                    </button>
+                <div class="bzm-user-wrap" id='dlxs'>
+                    
                 </div>
                 <ul class='bzm-user-menu'>
                     <li id="myFirstPage" style="border:none;">
@@ -42,12 +38,14 @@
                         <a class="bzm-navigate-right">
                             <div class="navigate-item-each navigate-mybm">&nbsp;</div>
                             <span>我的需求</span>
+                            <img src="res/img/arrow-right.png" class="arr-fuc-right" alt="">
                         </a>
                     </li>
                     <li data-type="2">
                         <a class="bzm-navigate-right">
                             <div class="navigate-item-each navigate-mysc">&nbsp;</div>
                             <span>我的报名</span>
+                            <img src="res/img/arrow-right.png" class="arr-fuc-right" alt="">
                         </a>
                     </li>
                     <li data-type="3">
@@ -68,6 +66,7 @@
                         <a class="bzm-navigate-right">
                             <div class="navigate-item-each navigate-sz">&nbsp;</div>
                             <span>邀请好友下载包租妹APP</span>
+                            <img src="res/img/arrow-right.png" class="arr-fuc-right" alt="">
                         </a>
                     </li>
                 </ul>
@@ -87,11 +86,13 @@
                 <div class="rent-items b-bottom ri11">
                     <div class="bzm-navigate-right rent-i-inner">
                         我是房东
+                        <img src="res/img/arrow-right.png" class="arr-fuc-right" alt="">
                     </div>
                 </div>
                 <div class="rent-items ri12">
                     <div class="bzm-navigate-right rent-i-inner">
                         我想租房
+                        <img src="res/img/arrow-right.png" class="arr-fuc-right" alt="">
                     </div>
                 </div>
             </section>
@@ -103,7 +104,7 @@
                     <li>
                         <div class="f-left su-title">电话：</div>
                         <div class="f-left bzm-zc-amount-input-wrap">
-                            <input type="text" placeholder="请输入电话号码" id='czphone'>
+                            <input class="fk-change" type="text" placeholder="请输入电话号码" id='czphone'>
                             <div class="bzm-zc-amount-input-down">
                             </div>
                         </div>
@@ -111,7 +112,7 @@
                     <li>
                         <div class="f-left su-title">区域：</div>
                         <div class="f-left bzm-zc-amount-input-wrap">
-                            <input type="text" placeholder="请输入区域/小区" id='czcontent'>
+                            <input class="fk-change" type="text" placeholder="请输入区域/小区" id='czcontent'>
                             <div class="bzm-zc-amount-input-down">
                             </div>
                         </div>
@@ -126,11 +127,13 @@
                 <div class="rent-items b-bottom ri21">
                     <div class="bzm-navigate-right rent-i-inner">
                         我要买房
+                        <img src="res/img/arrow-right.png" class="arr-fuc-right" alt="">
                     </div>
                 </div>
                 <div class="rent-items ri22">
                     <div class="bzm-navigate-right rent-i-inner">
                         我要卖房
+                        <img src="res/img/arrow-right.png" class="arr-fuc-right" alt="">
                     </div>
                 </div>
             </section>
@@ -142,7 +145,7 @@
                     <li>
                         <div class="f-left su-title">区域：</div>
                         <div class="f-left bzm-zc-amount-input-wrap">
-                            <input type="text" placeholder="请输入区域/小区" id='mmcontent'>
+                            <input class="fk-change" type="text" placeholder="请输入区域/小区" id='mmcontent'>
                             <div class="bzm-zc-amount-input-down">
                             </div>
                         </div>
@@ -150,7 +153,7 @@
                     <li>
                         <div class="f-left su-title">电话：</div>
                         <div class="f-left bzm-zc-amount-input-wrap">
-                            <input type="text" placeholder="请输入电话号码" id='mmphone'>
+                            <input class="fk-change" type="text" placeholder="请输入电话号码" id='mmphone'>
                             <div class="bzm-zc-amount-input-down">
                             </div>
                         </div>
@@ -184,7 +187,7 @@
                 <img src="res/img/search.png" class="search-input-icon" alt="">
                 <img src="res/img/arcode.png" class="search-arcode-icon" alt="">
             </div>
-            <div class='message-items-amount f-right messages-icon'>3</div>
+            <div class='message-items-amount f-right messages-icon' id="msgCnt"></div>
             <a class="f-right right-contact-a mui-icon messages-icon">
                 <img src="res/img/message.png" alt="">
             </a>
@@ -234,7 +237,7 @@
                         <li>
                             <div class="item-li b-top b-right b-bottom" id="ljtjtz1">
                                 <img src="res/img/new/rent.png" alt="">
-                                <div class="item-li-det">
+                                <div class="item-li-det" >
                                     <div class="tedian">0佣金</div>
                                     <div class="tedian-dett" id='ljtjxx1'>
                                         
@@ -318,8 +321,8 @@
 </div>
 </body>
 <script src="js/mui.min.js"></script>
-<script src="js/base.js"></script>
 <script src="js/common/constant.js"></script>
+<script src="js/base.js"></script>
 <script src="js/common/common.js"></script>
 <script src="js/common/geo.js"></script>
 <script src="js/common/mustache.min.js"></script>
@@ -333,11 +336,12 @@
 		{{/rows}}
 </script>
 <!--
-	描述：优质房源模板
+	描述：优质房源模板租、二手、众筹、新
 -->
 <script id="yzfytpl1" type="x-mustache-tmpl">
 	   {{#rows}}
-		<li>
+	   {{#istrue}}
+		<li dtype='1' fzid='{{rentalHousingID}}'>
                             <img class="yzfy-bz" src="res/img/new/rent-rect.png" alt="">
                             <div class="f-left house-img">
                                 <img src="{{mainImage}}" alt="">
@@ -358,11 +362,13 @@
                             </div>
                             <div class="mui-clearfix"></div>
                         </li>
+                        {{/istrue}}
                         {{/rows}}
 </script>
 <script id="yzfytpl2" type="x-mustache-tmpl">
 	   {{#rows}}
-		<li>
+	   {{#istrue}}
+		<li dtype='2' fzid='{{saleHousingID}}'>
                             <img class="yzfy-bz" src="res/img/new/two-hand-rect.png" alt="">
                             <div class="f-left house-img">
                                 <img src="{{mainImage}}" alt="">
@@ -383,11 +389,13 @@
                             </div>
                             <div class="mui-clearfix"></div>
                         </li>
+                        {{/istrue}}
                         {{/rows}}
 </script>
 <script id="yzfytpl3" type="x-mustache-tmpl">
 	   {{#rows}}
-		<li>
+	   {{#istrue}}
+		<li dtype='3' fzid='{{crowdfundingHousingID}}'>
                             <img class="yzfy-bz" src="res/img/new/cross-fund-rect.png" alt="">
                             <div class="f-left house-img">
                                 <img src="{{mainImage}}" alt="">
@@ -408,11 +416,13 @@
                             </div>
                             <div class="mui-clearfix"></div>
                         </li>
+                        {{/istrue}}
                         {{/rows}}
 </script>
 <script id="yzfytpl4" type="x-mustache-tmpl">
 	   {{#rows}}
-		<li>
+	   {{#istrue}}
+		<li dtype='4' fzid='{{newHousingID}}'>
                             <img class="yzfy-bz" src="res/img/new/new-house-rect.png" alt="">
                             <div class="f-left house-img">
                                 <img src="{{mainImage}}" alt="">
@@ -433,6 +443,7 @@
                             </div>
                             <div class="mui-clearfix"></div>
                         </li>
+                        {{/istrue}}
                         {{/rows}}
 </script>
 <script id="index-guangao-template" type="x-tmpl-mustache">
@@ -455,12 +466,19 @@
 <script id='ljtj' type='x-mustache-tmpl'>
     {{#rows}}
      {{#istrue}}
-	<div>累计{{fzlx}}：</div>
+	<div id='infoid' data-id='{{statisticalInformationID}}'>累计{{fzlx}}：</div>
     <div>{{transactionNumber}}套</div>
     {{/istrue}}
     {{/rows}}
 </script>
 <script type="x-mustache-tmpl" id='dqcsname'>
 	{{cityname}}
+</script>
+<script type='x-mustache-tmpl' id='hytxsx'>
+	<img src="{{headerPic}}" alt="" onerror="loadDefaultImg(this)"/>
+                    <div class='bzm-user-name' id="bzm_username"></div>
+                    <button class='go-to-login mui-btn-block' id="goToLogin">
+                        登录
+                    </button>
 </script>
 </html>

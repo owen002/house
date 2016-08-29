@@ -35,7 +35,7 @@
 	        })
 		},
 		loadImg: function() { //从本地localstorage里加载会员图像
-			var grtx = locgetuserinfo(headerPic);
+			var grtx = locgetuserinfo('headerPic');
 			if(grtx==undefined||grtx==null||grtx==''){
 				grtx='../../images/login/head.png';
 			}
@@ -149,7 +149,7 @@
 						
 					} else if(data.status === '401') {//未登录
 						var pageObj = {
-							pageUrl: '../../page/login/login.html'
+							pageUrl: '../../page/login/loginbycode.html'
 						};
 						pageChange(pageObj);
 					} else {
@@ -330,8 +330,7 @@
 			if(data.status==='200') {
 				mui.toast(data.message);
 				//更新缓存
-				var newuserinfo = {phone:userinfo.phone,username:userinfo.username,uid:userinfo.uid,headerPic:userinfo.headerPic,nickName:userinfo.nickName,gender:gender};
-				localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(newuserinfo)));
+				locsaveuserinfo('gender',gender);
 				var pageObj={
 					pageUrl:'../../page/setup/personalData.html'
 				}

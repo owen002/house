@@ -252,8 +252,9 @@
 }
 .fo-tttttt{
     width:9rem;
+    height:0.5rem;
     display: block;
-    margin:1.5rem auto 1rem;
+    margin:40px auto 20px;
 }
 .zc-im-go-tz {
     padding: 0.3rem;

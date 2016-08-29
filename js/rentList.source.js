@@ -10,7 +10,7 @@
     var param = {
         'pager.pageSize': pageSize,
         'pager.pageNo': pageNo,
-        'parameters[cityID]': '',
+        'parameters[cityID]': locgetuserinfo('cityid'),
         'parameters[minRental]': '',
         'parameters[maxRental]': '',
         'parameters[residentialProperty]': '',

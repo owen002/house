@@ -5,6 +5,8 @@
     var userinfo ='';
     var perRem = 0,
         endPageX = 0;
+        var scroll2;
+        
     var isLogin = false;
     
     var page = {
@@ -136,7 +138,7 @@
             }
         },
         hidecanvas:function(){
-        	var el=document.getElementById('offCanvasShow');
+        	var el=document.querySelector('.mui-off-canvas-backdrop');
         	mui.trigger(el,'tap');
         },
         bind: function () {
@@ -411,6 +413,8 @@
                 };
                 pageChange(pageObj);
             	}
+            }).on('tap','#mndjyc',function(){
+            	
             });
         },
         tjxq: function (flag) {
@@ -502,8 +506,11 @@
                     obj: data
                 };
                 getTemplate(tplsetting);
-                var scroll2 = new ScrollText("bzttul", "pre2", "next2", true, 70, true);
+                if(scroll2==undefined||scroll2==null||scroll2==''){
+                scroll2= new ScrollText("bzttul", "pre2", "next2", true, 100, true);
                 scroll2.LineHeight = 60;
+                }
+                 
             }, function (status) {
                 //异常处理
             });
@@ -780,6 +787,7 @@
         base.$('#rent3').style.display = 'none';
         base.$('#rent4').style.display = 'none';
         base.$('.bzm-dialog').style.display = 'none';
+        setSS();
     }
 
     mui(document).on('tap', '.search-box', function () {

@@ -51,6 +51,15 @@
 						rows: rows
 				    };
 				    
+				    if(currentid ==5) {
+				    	obj = {
+	                        rows: rows,
+	                        processpercet:function(){
+								return (100-this.progress);
+							}
+	                    };
+				    }				    
+				    
 				    var tmpl = mui('#rows-li-template'+currentid)[0].innerHTML;
 				    //下拉
 				    if(type ==1)

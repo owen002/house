@@ -2,8 +2,6 @@
 	mui.init();
 	var currentid = '1';
 	var nickName = '';
-	var userinfo = localStorage.getItem('userinfo');
-	userinfo = JSON.parse(decodeURIComponent(userinfo));
 	var page = {
 		init: function() {
 			base.setPageRem();
@@ -49,13 +47,13 @@
 			getTemplate(txtmpl);
 		},
 		loaduserInfo: function() { //从本地localstorage里加载会员图像
-		    base.$('#account').innerHTML = userinfo.phone;
-		    nickName = userinfo.nickName;
+		    base.$('#account').innerHTML = locgetuserinfo('phone');
+		    nickName = locgetuserinfo('nickName');
 		    if(nickName=='' || nickName==null){
 		    	nickName = '未设置';
 		    }
 		    base.$('#nickName').innerHTML = nickName;
-		    var gender = userinfo.gender;
+		    var gender = locgetuserinfo('gender');
 		    var genderName='';
 		    if(gender=='1') {
 		    	genderName = '男';
@@ -303,6 +301,7 @@
 	
 	function savesex() { 
 		var gender = '';
+		var genderName = ''
 		var radionum = document.getElementsByName("se-type");
  		for(var i=0;i<radionum.length;i++){
 			if(radionum[i].checked){
@@ -327,14 +326,19 @@
 		};
 		
 		muiAjax(setings, function(data) {
+			base.$('#setsex').style.display="none";
 			if(data.status==='200') {
 				mui.toast(data.message);
+			    if(gender=='1') {
+			    	genderName = '男';
+			    }else if(gender=='2'){
+			    	genderName = '女';
+			    }else{
+			    	genderName = '未设置';
+			    }
+				base.$('#gender').innerHTML = genderName;
 				//更新缓存
-				locsaveuserinfo('gender',gender);
-				var pageObj={
-					pageUrl:'../../page/setup/personalData.html'
-				}
-				pageChange(pageObj);
+				locsaveuserinfo('gender',gender)
 			} else {
 				//错误处理
 				mui.toast(data.message);
@@ -345,6 +349,12 @@
 	}
 	
 	page.init();
+	
+	    
+    window.addEventListener('personMain', function() {
+    	base.$('#nickName').innerHTML = locgetuserinfo('nickName');
+		//page.sxsjbycityid();
+	});
 })();
 
 function loadDefaultImg(element) {

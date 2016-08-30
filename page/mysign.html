@@ -206,7 +206,7 @@
                 	{{title}}
             </div>
             <div class="f-right zc-amount">
-                剩万/总{{totalPrice}}万
+                剩{{atualInvestment}}万/总{{totalPrice}}万
             </div>
             <div class="mui-clearfix"></div>
             <div class="nearby-house-items">
@@ -217,8 +217,8 @@
                 </div>
                 <section class="bzm-house-detail-header">
                     <div class="zc-jdt-wrapper jdu-public jdu-public">
-                        <div class='amount-percent'>50%</div>
-                        <div class="zc-jdt grad jdu-public transition-action">
+                        <div class='amount-percent'>{{progress}}%</div>
+                        <div class="zc-jdt grad jdu-public transition-action" style="left: -{{processpercet}}%;">                    	
                             &nbsp;
                         </div>
                     </div>

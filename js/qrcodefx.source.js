@@ -28,13 +28,20 @@
                 if (rows) {
                     var url = rows[0].imagePath;
                     base.$('#downqrCode').setAttribute('src', url);
-                    base.$('#downLoadAr').setAttribute('href', rows[0].downloadAddress || '');
+                    mui(document).on('tap', '#downLoadAr', function () {
+                        location.href = (rows[0].downloadAddress || '');
+                    });
                     base.$('#counum').innerHTML = rows[0].couponCount || '';
                     base.$('#frendsnum').innerHTML = rows[0].invitationCount || '';
                 }
             });
         },
         bind: function () {
+            mui.plusReady(function () {
+                mui(document).on('tap', '.zc-im-go-tz', function () {
+                    wrhShare.sendShare('包租妹', '卖房、买房、租房找包租妹！', 'http://www.baozumei.com/rental_interface/res/img/brand-img.png', 'http://www.baozumei.com');
+                })
+            })
         }
     };
     page.init();

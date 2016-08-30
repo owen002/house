@@ -4,9 +4,9 @@
 var Constants = window.Constants || {};
 Constants.TIMEOUT = 5000;
 //  var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
-//        var baseUrl="http://www.baozumei.com/rental_interface/";
+          var baseUrl="http://www.baozumei.com/rental_interface/";
 // var baseUrl = "http://10040.snail.com/rental_interface/";
-var baseUrl = "http://agent.snail.com/rental_interface/";
+//var baseUrl = "http://agent.snail.com/rental_interface/";
 // var baseUrl="http://www.xiangshan.rh-ronghe.com/rental_interface/";
 // var baseUrl = "http://10040.snail.com/rental_interface/";
 //   var baseUrl="http://agent.snail.com/rental_interface/";

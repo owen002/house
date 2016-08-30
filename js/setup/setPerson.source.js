@@ -2,8 +2,6 @@
 (function () {
     mui.init();
     base.setPageRem();
-    var userinfo = localStorage.getItem('userinfo');
-	userinfo = JSON.parse(decodeURIComponent(userinfo));
     var page = {
         init: function () {
             base.setPageRem();
@@ -14,7 +12,7 @@
           
         },
         loaduserInfo: function() { //从本地localstorage里加载会员图像
-		    base.$('#nickName').value = userinfo.nickName;
+		    base.$('#nickName').value = locgetuserinfo('nickName');
 		},
         bind: function () {
 	        var muiBack = mui('.mui-back')[0];
@@ -46,12 +44,12 @@
 			if(data.status==='200') {
 				mui.toast(data.message);
 				//更新缓存
-				var newuserinfo = {phone:userinfo.phone,username:userinfo.username,uid:userinfo.uid,headerPic:userinfo.headerPic,nickName:nickName,gender:userinfo.gender};
-				localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(newuserinfo)));
-				var pageObj={
-					pageUrl:'../../page/setup/personalData.html'
-				}
-				pageChange(pageObj);
+				locsaveuserinfo('nickName',nickName)
+				zdRefresh('personalData.html','personMain');
+				setTimeout(function() {
+					plus.webview.currentWebview().hide(); //解决close闪屏问题
+					plus.webview.currentWebview().close();
+				}, 1000);
 			} else {
 				//错误处理
 				mui.toast(data.message);

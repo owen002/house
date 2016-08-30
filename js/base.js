@@ -248,12 +248,17 @@ var base = (function () {
             type: 'get',
             contentType: "application/json"
         };
-        muiAjax(setting, function (data) {
+        muiAjax1(setting, function (data) {
             //添加第一个和最后一个
-            mui('#msgCnt')[0].innerHTML = data.count;
+            if(data!=null&&data.status&&data.status==='401'){
+            	mui('#msgCnt')[0].innerHTML = '';
+            } else {
+            	mui('#msgCnt')[0].innerHTML = data.count;
+            }
         }, function (status) {
             //异常处理
         });
+		mui('#msgCnt')[0].innerHTML = 4;
     }
 
 
@@ -283,6 +288,6 @@ var base = (function () {
     mui(document).on('tap', '.fk-change', function () {
         this.focus();
         top = base.$('.bzm-dialog-content').style.top;
-        base.$('.bzm-dialog-content').style.top = '12%;';
+        base.$('.bzm-dialog-content').style.top = '12%';
     });
 })()

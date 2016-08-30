@@ -97,7 +97,7 @@
         },
         "NativeObj":{
         	"description": "原生对象"
-        }
+        },"Share":{}
 	},
 	"plus": {
 		"splashscreen": {
@@ -106,7 +106,7 @@
 		},
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
 		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
-		"distribute": {"plugins":{"maps":{"amap":{"appkey_ios":"78fd41da89b338eb127699b0e973b641","appkey_android":"78fd41da89b338eb127699b0e973b641","description":""}}},
+		"distribute": {"plugins":{"share":{"weixin":{"appid":"wx3a746ff0c5a564de","appsecret":"wx3a746ff0c5a564de","description":"可选，微信分享"},"qq":{"appid":"wx3a746ff0c5a564de","description":"QQ分享"},"sina":{"appkey":"wx3a746ff0c5a564de","appsecret":"wx3a746ff0c5a564de","redirect_uri":"wx3a746ff0c5a564de","description":"可选，新浪微博分享"}},"maps":{"amap":{"appkey_ios":"78fd41da89b338eb127699b0e973b641","appkey_android":"78fd41da89b338eb127699b0e973b641","description":""}}},
 			"apple": {
 				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
 				"mobileprovision": "",/*iOS应用打包配置文件*/
@@ -240,7 +240,8 @@
 					"res/img/new/sound.png",
 					"res/img/new/02.png",
 					"page/location.html",
-					"page/nearby.html"
+					"page/nearby.html",
+					"res/img/arrow-right.png"
 				],
 				"refer": [
 					"page/myfavo.html",
@@ -601,7 +602,8 @@
 					"js/common/constant.js",
 					"js/location.source.js",
 					"index.html",
-					"js/common/mustache.min.js"
+					"js/common/mustache.min.js",
+					"js/share.js"
 				],
 				"refer": [],
 				"priority": 0

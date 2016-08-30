@@ -40,12 +40,20 @@
 		};
 		muiAjax(dataSettings, function(data) {
 			if(data.status==='200') {
-				mui.alert(data.message);
-				var pageObj={
-					//pageUrl:plus.webview.getLaunchWebview().id
-					pageUrl:'../../page/login/login.html'
-				}
-				pageChange(pageObj);
+//				mui.alert(data.message);
+//				var pageObj={
+//					//pageUrl:plus.webview.getLaunchWebview().id
+//					pageUrl:'../../page/login/login.html'
+//				}
+//				pageChange(pageObj);
+				mui.toast(data.message);
+				//更新缓存
+				locsaveuserinfo('phone',sjh)
+				zdRefresh('personalData.html','personMain');
+				setTimeout(function() {
+					plus.webview.currentWebview().hide(); //解决close闪屏问题
+					plus.webview.currentWebview().close();
+				}, 1000);
 			} else {
 				mui.toast(data.message);
 			}

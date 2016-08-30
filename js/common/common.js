@@ -103,8 +103,20 @@ if(!mui.os.ios&&!mui.os.android){
                 	var viewId;
                 	if(pos <= -1) {
                 		viewId = settings.pageUrl;
+                		var pos2=settings.pageUrl.lastIndexOf("/");
+                		if(pos2<=1){
+                			viewId=settings.pageUrl;
+                		}else{
+                			viewId=settings.pageUrl.substring(pos2+1);
+                		}
                 	} else {
-                		viewId = settings.pageUrl.substr(0, pos);
+                		var pg=settings.pageUrl.substr(0, pos);
+                		var pos2=pg.lastIndexOf("/");
+                		if(pos2<=1){
+                			viewId=pg;
+                		}else{
+                			viewId=pg.substring(pos2+1);
+                		}
                 	}
                 settings.id=viewId;
                 var ycjwvnums=localStorage.getItem('bzmcjwv');
@@ -279,6 +291,30 @@ function muiAjax(settings, fuc, errfuc) {
         		if (fuc instanceof Function) fuc(data);
         	}
             
+        },
+        error: function (xhr, type, errorThrown) {
+            // 系统级别错误处理
+            errorHandler(function (status) {
+                if (errfuc instanceof Function) {
+                    errfuc(status);
+                }
+            }, xhr, type, errorThrown);
+        }
+    };
+    settings = extendSettings(dataAjax, settings);
+    mui.ajax(settings.url, settings);
+}
+
+/*
+ * mui ajax请求封装 不带跳转登录页的
+ */
+function muiAjax1(settings, fuc, errfuc) {
+    var dataAjax = {
+        dataType: 'json',
+        type: 'get',
+        timeout: Constants.TIMEOUT,
+        success: function (data) {       	
+        	if (fuc instanceof Function) fuc(data);           
         },
         error: function (xhr, type, errorThrown) {
             // 系统级别错误处理

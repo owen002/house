@@ -71,6 +71,9 @@
                         rows: rows,
                         processpercet:function(){
 							return (100-this.progress);
+						},
+						syz:function(){
+							return this.totalPrice-this.atualInvestment;
 						}
                     };
 
@@ -229,6 +232,6 @@
             showChooseMenuFlag = false;
         }
     }
-
-    page.init();
+mui.plusReady(page.init);
+//  page.init();
 })();

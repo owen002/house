@@ -85,5 +85,10 @@ Constants.arcode=baseUrl+'front/json_qr_code';
 Constants.yzfylb=baseUrl+'front/json_top_housing';
 
 //消息未读数
-Constants.unreadMessage=baseUrl+'count_unread_message';
+Constants.unreadMessage=baseUrl+'front/count_unread_message';
+
+//退出
+Constants.logout=baseUrl+'logout';
+//关于我们
+Constants.aboutus=baseUrl+'/front/view_web_column/6';
 

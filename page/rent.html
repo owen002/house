@@ -94,11 +94,18 @@
         </section>
         <section class="house-detail-section house-location-section">
             <div class="device-items-head">
-                <div class="bzm-fjpz color-orange">房间位置</div>
+                <div class="bzm-fjpz color-orange">小区介绍</div>
             </div>
-            <ul id="housePT">
-            </ul>
+            <div id="houseJS">
+            </div>
         </section>
+        <section class="house-detail-section house-location-section">
+            <div class="device-items-head">
+                <div class="bzm-fjpz color-orange">小区配套</div>
+            </div>
+            <div id="housePT">
+            </div>
+        </section>  
         <section class="house-detail-section nearby-section">
             <div class="device-items-head">
                 <div class="bzm-fjpz color-orange">附近推荐</div>
@@ -128,7 +135,7 @@
 -->
 <script id='fjzftj' type="x-mustache-tmpl">
    {{#rows}}
-      <li>
+      <li fzid='{{rentalHousingID}}'>
                     <div class="f-left house-img">
                         <img src="{{mainImage}}" alt="">
                     </div>

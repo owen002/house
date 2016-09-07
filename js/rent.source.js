@@ -53,7 +53,7 @@
 				bdom = '<div class="mui-slider-indicator mui-text-right">';
 			if(j > 0) {
 				ldom += '<div class="mui-slider-group mui-slider-loop">';
-				ldom += '<div class="mui-slider-item mui-slider-item-duplicate"><img src="' + picPub + imgArr[j - 1].attachmentName + '"></div>';
+				ldom += '<div class="mui-slider-item mui-slider-item-duplicate"><img src="' + picPub + imgArr[j - 1].attachmentName + '" style="height: 5rem;"></div>';
 				ldom += '<div class="mui-slider-item"><img src="' + picPub + data.rentalHousing.mainImage + '"></div>';
 				for(var i = 0; i < j; i++) {
 					var img = imgArr[i];
@@ -104,10 +104,12 @@
 			base.$('#facilityUl').innerHTML = dom;
 		},
 		setVilige: function(vi) {
-			var dom = '<li><div class="dis-inline">小区地址：</div><div class="dis-inline" id="addrDesc">' + (vi.address || '') + '</div></li><li><div class="dis-inline">小区交通：</div>' +
-				'<div class="dis-inline">' + (vi.peripheralEquipment || '') + '</div></li><li><div class="dis-inline">小区介绍：</div>' +
-				'<div class="dis-inline" id="villDesc">' + (vi.projectIntroduction || '') + '</div></li>';
-			base.$('#housePT').innerHTML = dom;
+//			var dom = '<li><div class="dis-inline">小区地址：</div><div class="dis-inline" id="addrDesc">' + (vi.address || '') + '</div></li><li><div class="dis-inline">小区交通：</div>' +
+//				'<div class="dis-inline">' + (vi.peripheralEquipment || '') + '</div></li><li><div class="dis-inline">小区介绍：</div>' +
+//				'<div class="dis-inline" id="villDesc">' + (vi.projectIntroduction || '') + '</div></li>';
+//			base.$('#housePT').innerHTML = dom;
+			base.$('#houseJS').innerHTML = vi.peripheralEquipment;
+			base.$('#housePT').innerHTML = vi.projectIntroduction;
 		},
 		bind: function() {
 			mui.each(document.querySelectorAll('.gueulike-wrapper'),
@@ -147,7 +149,7 @@
 					muiBack.style.display = 'none';
 				}
 			}).on('tap', '#guessUlike li', function() {
-				var id = this.getAttribute('data-id');
+				var id = this.getAttribute('fzid');
 				var pageObj = {
 					pageUrl: "rent.html?rentid=" + id
 				};
@@ -335,6 +337,6 @@
 		}
 		return time;
 	}
-
-	page.init();
+mui.plusReady(page.init);
+//	page.init();
 })(mui);

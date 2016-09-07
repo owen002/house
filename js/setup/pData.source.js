@@ -347,8 +347,8 @@
 			//当前ajax错误预留
 		});
 	}
-	
-	page.init();
+	mui.plusReady(page.init);
+//	page.init();
 	
 	    
     window.addEventListener('personMain', function() {

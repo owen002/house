@@ -280,6 +280,6 @@
         }
         return time;
     }
-
-    page.init();
+mui.plusReady(page.init);
+//  page.init();
 })(mui);

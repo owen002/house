@@ -82,10 +82,28 @@
                     base.Slider.slideUp(cLocation, 100);
                     muiBack.style.display = 'none';
                 }
-            }).on('tap', '#guessUlike li', function () {
+            }).on('tap', '#guessUlike1 li', function () {
                 var id = this.getAttribute('data-id');
                 var pageObj = {
-                    pageUrl: "newhousedetail.html?houseid=" + id
+                    pageUrl: "rent.html?rentid=" + id
+                };
+                pageChange(pageObj);
+            }).on('tap', '#guessUlike2 li', function () {
+                var id = this.getAttribute('data-id');
+                var pageObj = {
+                    pageUrl: "salehouse.html?saleHousingID=" + id
+                };
+                pageChange(pageObj);
+            }).on('tap', '#guessUlike3 li', function () {
+                var id = this.getAttribute('data-id');
+                var pageObj = {
+                    pageUrl: "croudfundingdetail.html?crowdfundingHousingID=" + id
+                };
+                pageChange(pageObj);
+            }).on('tap', '#guessUlike4 li', function () {
+                var id = this.getAttribute('data-id');
+                var pageObj = {
+                    pageUrl: "newhousedetail.html?newHousingID=" + id
                 };
                 pageChange(pageObj);
             })
@@ -100,6 +118,6 @@
         base.addClass(base.$('.ms-con' + currentid), 'section-active');
         page.queryList(2);
     }
-
-    page.init();
+ mui.plusReady(page.init);
+//  page.init();
 })();

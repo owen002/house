@@ -60,7 +60,31 @@
         </ul>
         </div>
     </div>-->
-    <section class="mysign-content ms-con1 section-active">
+    <section class="mui-scroll-wrapper mysign-content ms-con1  section-active">
+    	<div class='mui-scroll'>
+        <ul class="mysign-items-ul" id="guessUlike1">
+        </ul>
+       </div>
+    </section>
+    <section class="mui-scroll-wrapper mysign-content ms-con1  section-active">
+    	<div class='mui-scroll'>
+        <ul class="mysign-items-ul" id="guessUlike2">
+        </ul>
+       </div>
+    </section>
+    <section class="mui-scroll-wrapper mysign-content ms-con1  section-active">
+    	<div class='mui-scroll'>
+        <ul class="mysign-items-ul" id="guessUlike3">
+        </ul>
+       </div>
+    </section>
+    <section class="mui-scroll-wrapper mysign-content ms-con1  section-active">
+    	<div class='mui-scroll'>
+        <ul class="mysign-items-ul" id="guessUlike4">
+        </ul>
+       </div>
+    </section>
+    <!--<section class="mysign-content ms-con1  section-active">
         <ul class="mysign-items-ul" id="guessUlike1">
         </ul>
     </section>
@@ -78,8 +102,13 @@
 
         </ul>
     </section>
+    -->
 </div>
-
+<div id="loading" class="mui-loading ajaxLoading none">
+				<div class="mui-spinner">
+					
+				</div>
+			</div>
 </body>
 <script src="../js/mui.min.js"></script>
 <script src="../js/common/mui.pullToRefresh.js"></script>
@@ -92,7 +121,7 @@
 <!--租房模板-->
 <script id='rows-li-template1' type="x-mustache-tmpl">
 {{#rows}}
-<li class="mysign-item-li zuf-mysign-item-li">
+<li class="mysign-item-li zuf-mysign-item-li" fzid='{{rentalHousingID}}>
     <div class="f-left house-img">
         <img src="{{mainImage}}">
     </div>
@@ -135,7 +164,7 @@
 <!--售房模板-->
 <script id='rows-li-template2' type="x-mustache-tmpl">
 {{#rows}}
-<li class="mysign-item-li zuf-mysign-item-li">
+<li class="mysign-item-li zuf-mysign-item-li" fzid='{{saleHousingID}}'>
     <div class="f-left house-img">
         <img src="{{mainImage}}">
     </div>
@@ -178,7 +207,7 @@
 <!--众筹-->
 <script id='rows-li-template3' type="x-mustache-tmpl">
 {{#rows}}
-<li class="mysign-item-li zuf-mysign-item-li">
+<li class="mysign-item-li zuf-mysign-item-li" fzid='{{crowdfundingHousingID}}'>
     <div class="f-left house-img">
         <img src="{{mainImage}}">
     </div>
@@ -221,7 +250,7 @@
 <!--新房模板-->
 <script id='rows-li-template4' type="x-mustache-tmpl">
 {{#rows}}
-<li class="mysign-item-li zuf-mysign-item-li">
+<li class="mysign-item-li zuf-mysign-item-li" fzid='{{newHousingID}}'>
     <div class="f-left house-img">
         <img src="{{mainImage}}">
     </div>

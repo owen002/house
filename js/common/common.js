@@ -88,9 +88,9 @@ function unsafe_tap() {
 // settings.postData：目标页面参数
 // settings.aniShow：页面加载动态效果,默认为slide-in-right
 function pageChange(settings) {
-if(!mui.os.ios&&!mui.os.android){
-    location.href = settings.pageUrl;//浏览器模式
-}else{
+//if(!mui.os.ios&&!mui.os.android){
+//  location.href = settings.pageUrl;//浏览器模式
+//}else{
                 settings.postData = settings.postData || {};
                 settings.postData.webViewId = plus.webview.currentWebview().id;
                 var defaults = {
@@ -161,7 +161,7 @@ if(!mui.os.ios&&!mui.os.android){
                 		createNew:true //是否重复创建同样id的webview，默认为false:不重复创建，直接显示，此处设为true，主要是考虑回退
                 	});
                 	localStorage.setItem('bzmcjwv',plus.webview.all().length+1);
-                	}
+//              	}
 };
 
 // 获取请求参数
@@ -265,11 +265,13 @@ function muiAjax(settings, fuc, errfuc) {
         type: 'get',
         timeout: Constants.TIMEOUT,
         success: function (data) {
+//      	console.log(JSON.stringify(data));
         	if(data!=null&&data.status&&data.status==='401'){
         		var logpos='';
         		var durl='';
         		if(mui.os.ios||mui.os.android){
-        			durl=plus.webview.currentWebview().getURL();
+        			durl=window.location.href;
+//      			durl=plus.webview.currentWebview().getURL();
         		}else{
         			durl=window.location.href;
         		}
@@ -357,13 +359,13 @@ function locsaveuserinfo(key,value){
 		userinfostr = decodeURIComponent(userinfostr);
 		var userinfo=JSON.parse(userinfostr);
 		userinfo[key]=value;
-		console.log(JSON.stringify(userinfo));
+//		console.log(JSON.stringify(userinfo));
 		localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(userinfo)));
 	}else{
 		var userinfo={
 		};
 		userinfo[key]=value;
-		console.log(JSON.stringify(userinfo));
+//		console.log(JSON.stringify(userinfo));
 		localStorage.setItem('userinfo',encodeURIComponent(JSON.stringify(userinfo)));
 	}
 }
@@ -373,8 +375,13 @@ function locgetuserinfo(key){
 	if(userinfostr!=undefined&&userinfostr!=null&&userinfostr!=''&&userinfostr!='null'){
 		userinfostr = decodeURIComponent(userinfostr);
 		var userinfo=JSON.parse(userinfostr);
-		console.log('获取:'+JSON.stringify(userinfo));
-		return userinfo[key];
+//		console.log('获取:'+JSON.stringify(userinfo));
+		if(userinfo[key]!=undefined&&userinfo[key]!=''&&userinfo[key]!=null){
+			return userinfo[key];
+		}else{
+			return '';
+		}
+		
 	}else{
 		return '';
 	}

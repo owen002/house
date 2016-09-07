@@ -14,8 +14,8 @@
             })
         }
     };
-
-    page.init();
+mui.plusReady(page.init);
+//  page.init();
     
     function savephone() {
     	var sjh = document.querySelector("#sjh").value;

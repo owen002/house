@@ -54,7 +54,7 @@
                         var li = document.createElement('li'), liDom = '';
                         var rent = rentArr[i];
                         // rent.mainImage
-                        liDom += '<div class="f-left house-img"><img src="' + rent.mainImage + '"></div><div class="house-content f-left">' +
+                        liDom += '<div class="f-left house-img"><img src="' + rent.mainImage + '" style="height: 2.3rem;"></div><div class="house-content f-left">' +
                             '<div class="hc-title">' + trimVal(rent.title) + '</div><div class="nearby-house-items"><div><span>' + trimVal(rent.platName) + ' ' + trimVal(rent.villageName) + '</span></div>' +
                             '<div><span>' + trimVal(rent.rooms) + '室' + trimVal(rent.halls) + '厅' + ' ' + trimVal(rent.rentalMode) + '</span><div class="rent-price">' + trimVal(rent.rental) + '元/月</div></div></div>' +
                             '<div class="zan-and-focus">' +
@@ -224,6 +224,6 @@
             showChooseMenuFlag = false;
         }
     }
-
-    page.init();
+mui.plusReady(page.init);
+//  page.init();
 })();

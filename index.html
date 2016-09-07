@@ -73,7 +73,7 @@
                 <section class="navigator-footer">
                     <div class="logout-btn" id="loginBtn">退出账号</div>
                     <div class="n-footer nf-version">当前版本<span id="currentVersion">1.0</span></div>
-                    <div class="n-footer nf-about">关于我们</div>
+                    <div class="n-footer nf-about" id="aboutus">关于我们</div>
                 </section>
             </div>
         </div>
@@ -85,13 +85,13 @@
             <section id="rent1" style="display: none" class="rent-dialog">
                 <div class="rent-items b-bottom ri11">
                     <div class="bzm-navigate-right rent-i-inner">
-                        我是房东
+                        我要出租
                         <img src="res/img/arrow-right.png" class="arr-fuc-right" alt="">
                     </div>
                 </div>
                 <div class="rent-items ri12">
                     <div class="bzm-navigate-right rent-i-inner">
-                        我想租房
+                        我要租房
                         <img src="res/img/arrow-right.png" class="arr-fuc-right" alt="">
                     </div>
                 </div>
@@ -236,18 +236,18 @@
                     <ul class="menu-item-un-ul">
                         <li>
                             <div class="item-li b-top b-right b-bottom" id="ljtjtz1">
-                                <img src="res/img/new/rent.png" alt="">
+                                <img src="res/img/new/rent-circle-top.png" alt="">
                                 <div class="item-li-det" >
-                                    <div class="tedian">0佣金</div>
+                                    <div class="tedian" id="ljtj-title1"></div>
                                     <div class="tedian-dett" id='ljtjxx1'>
                                         
                                     </div>
                                 </div>
                             </div>
                             <div class="item-li b-top b-bottom" id="ljtjtz2">
-                                <img src="res/img/new/two.png" alt="">
+                                <img src="res/img/new/two-hand-circle-top.png" alt="">
                                 <div class="item-li-det">
-                                    <div class="tedian">0佣金</div>
+                                    <div class="tedian" id="ljtj-title2"></div>
                                     <div class="tedian-dett" id='ljtjxx2'>
                                         
                                     </div>
@@ -255,21 +255,20 @@
                             </div>
                         </li>
                         <li>
-                            <div class="item-li b-bottom b-right"  id="ljtjtz3">
-                                <img src="res/img/new/fund.png" alt="">
+                            <div class="item-li b-bottom b-right"  id="ljtjtz4">
+                                <img src="res/img/new/new-house-circle-top.png" alt="">
                                 <div class="item-li-det">
-                                    <div class="tedian">0佣金</div>
-                                    <div class="tedian-dett" id='ljtjxx3'>
+                                    <div class="tedian" id="ljtj-title4"></div>
+                                    <div class="tedian-dett" id='ljtjxx4'>
                                         
                                     </div>
                                 </div>
                             </div>
-                            <div class="item-li b-bottom"  id="ljtjtz4">
-                                <img src="res/img/new/new.png" alt="">
+                            <div class="item-li b-bottom"  id="ljtjtz3">
+                                <img src="res/img/new/cross-funding-circle-top.png" alt="">
                                 <div class="item-li-det">
-                                    <div class="tedian">0佣金</div>
-                                    <div class="tedian-dett" id='ljtjxx4'>
-                                    	
+                                    <div class="tedian" id="ljtj-title3"></div>
+                                    <div class="tedian-dett" id='ljtjxx3'>
                                         
                                     </div>
                                 </div>
@@ -344,7 +343,7 @@
 		<li dtype='1' fzid='{{rentalHousingID}}'>
                             <img class="yzfy-bz" src="res/img/new/rent-rect.png" alt="">
                             <div class="f-left house-img">
-                                <img src="{{mainImage}}" alt="">
+                                <img src="{{mainImage}}" alt="" style="height: 2.3rem;">
                             </div>
                             <div class="house-content f-left">
                                 <div class="hc-title">
@@ -371,7 +370,7 @@
 		<li dtype='2' fzid='{{saleHousingID}}'>
                             <img class="yzfy-bz" src="res/img/new/two-hand-rect.png" alt="">
                             <div class="f-left house-img">
-                                <img src="{{mainImage}}" alt="">
+                                <img src="{{mainImage}}" alt="" style="height: 2.3rem;">
                             </div>
                             <div class="house-content f-left">
                                 <div class="hc-title">
@@ -398,7 +397,7 @@
 		<li dtype='3' fzid='{{crowdfundingHousingID}}'>
                             <img class="yzfy-bz" src="res/img/new/cross-fund-rect.png" alt="">
                             <div class="f-left house-img">
-                                <img src="{{mainImage}}" alt="">
+                                <img src="{{mainImage}}" alt="" style="height: 2.3rem;">
                             </div>
                             <div class="house-content f-left">
                                 <div class="hc-title">
@@ -425,7 +424,7 @@
 		<li dtype='4' fzid='{{newHousingID}}'>
                             <img class="yzfy-bz" src="res/img/new/new-house-rect.png" alt="">
                             <div class="f-left house-img">
-                                <img src="{{mainImage}}" alt="">
+                                <img src="{{mainImage}}" alt="" style="height: 2.3rem;">
                             </div>
                             <div class="house-content f-left">
                                 <div class="hc-title">
@@ -451,7 +450,7 @@
 									{{#rows}}
 									<div class="mui-slider-item">
 										<a href="#">
-											<img src="{{imagePath}}">
+											<img src="{{imagePath}}" style="height: 5rem;">
 											<p class="mui-slider-title">{{advertisementName}}</p>
 										</a>
 									</div>
@@ -466,7 +465,7 @@
 <script id='ljtj' type='x-mustache-tmpl'>
     {{#rows}}
      {{#istrue}}
-	<div id='infoid' data-id='{{statisticalInformationID}}'>累计{{fzlx}}：</div>
+	<div id='infoid' data-id='{{statisticalInformationID}}'>{{fzlx}}：</div>
     <div>{{transactionNumber}}套</div>
     {{/istrue}}
     {{/rows}}

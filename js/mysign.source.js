@@ -56,6 +56,9 @@
 	                        rows: rows,
 	                        processpercet:function(){
 								return (100-this.progress);
+							},
+							syz:function(){
+								return this.totalPrice-this.atualInvestment;
 							}
 	                    };
 				    }				    
@@ -125,6 +128,6 @@
         base.addClass(base.$('.ms-con' + currentid), 'section-active');
         page.queryList(2);
     }
-
-    page.init();
+   mui.plusReady(page.init);
+//  page.init();
 })();

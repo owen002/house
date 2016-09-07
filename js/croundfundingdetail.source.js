@@ -1,7 +1,7 @@
 (function ($) {
     var trimVal = base.trimVal;
     var crowdfundingHousingID ="";
-    var pageSize = 5, pageNo = 1, canPull = true;
+    var pageSize = 15, pageNo = 1, canPull = true;
     mui('#location1,#choose2Scroll,#locationcontent1,#choose3Scroll,#choose4Scroll').scroll();
     var pa = base.param('pa') || '';
 
@@ -24,6 +24,8 @@
             page.bind();
         },
         queryDetail: function (crowdfundingHousingID) {
+        	mui('#idMinInvestment')[0].innerHTML = '';
+        	mui('#idRentalIncome')[0].innerHTML = '';
             var querySettings = {
                 url: Constants.crowdfunddetail + '/' + crowdfundingHousingID,
                 type: 'get'
@@ -39,9 +41,14 @@
                         labelsArr:data.labelsArr,
                         processpercet:function(){
 							return (100-data.crowdfundingHousing.progress);
+						},
+						syz:function(){
+							return data.crowdfundingHousing.totalPrice-data.crowdfundingHousing.atualInvestment;
 						}
                     };
 					mui('#detail-id')[0].innerHTML = Mustache.render(tmpl, obj);
+					mui('#idMinInvestment')[0].innerHTML = '最低起投资金为'+data.crowdfundingHousing.minInvestment+'元';
+        			mui('#idRentalIncome')[0].innerHTML = '项目年收益'+data.crowdfundingHousing.atualInvestment+'万元';					
 					mui('#offCanvasContentScroll').scroll();
 					
 	                var rowsArr = data.attachmentList;
@@ -89,13 +96,21 @@
                     } else {
                         canPull = true;
                     }
-
-                    var obj = {
+                    
+				    for(var i=0;i<rentlength;i++){
+                    	if(i%2==1){
+                    		rows[i].className='';
+                    	}else{
+                    		rows[i].className='bg-gray';
+                    	}						
+					}
+					
+					var obj = {
                         rows: rows
                     };
-
                     var tmpl = mui('#myenroll-template')[0].innerHTML;
                     mui('#fundRecord')[0].innerHTML += Mustache.render(tmpl, obj);
+                    
                 } else {
                     canPull = false;
                 }
@@ -124,11 +139,13 @@
                 mui('#fyxx')[0].className = 'menu-bar-pub fyxx menu-bar-active';
                 mui('#tzjl')[0].className = 'menu-bar-pub tzjl';
                 mui('#fyxxRecord')[0].style.display="block";
+                mui('#fyxxRecord1')[0].style.display="block";
                 mui('#fundRecord')[0].style.display="none";
             }).on('tap', '#tzjl', function () {
                 mui('#fyxx')[0].className = 'menu-bar-pub fyxx';
                 mui('#tzjl')[0].className = 'menu-bar-pub tzjl menu-bar-active';
                 mui('#fyxxRecord')[0].style.display="none";
+                mui('#fyxxRecord1')[0].style.display="none";
                 mui('#fundRecord')[0].style.display="block";
             }).on('tap', '#dzan', function () {
                 var dzsetting={
@@ -206,6 +223,6 @@
         }
         return time;
     }
-
-    page.init();
+mui.plusReady(page.init);
+//  page.init();
 })(mui);

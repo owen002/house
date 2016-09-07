@@ -8,8 +8,9 @@ function ScrollText(content,btnPrevious,btnNext,autoStart,timeout,isSmoothScroll
     this.NextButton = this.$(btnNext);
     this.PreviousButton = this.$(btnPrevious);
     this.ScrollContent = this.$(content);
-    this.ScrollContent.innerHTML += this.ScrollContent.innerHTML;
-
+    if(this.ScrollContent.offsetHeight<this.ScrollContent.scrollHeight){
+    	this.ScrollContent.innerHTML += this.ScrollContent.innerHTML;
+    }
 	if(this.PreviousButton)
 
 	{

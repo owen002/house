@@ -30,15 +30,15 @@
             <input type="text" placeholder="请输入您的众筹金额" id='zcje'>
             <div class="bzm-zc-amount-input-down">
             </div>
-            <div class="qitzj">
-                起投资金为50万元
+            <div class="qitzj" id="idMinInvestment">
+                	<!--资金为*元 -->
             </div>
-            <div class="one-year-sy">
-                一年收益：10万元
+            <div class="one-year-sy" id="idRentalIncome">
+                	<!--项目年收益*万元-->
             </div>
         </div>
         <button class="mui-btn mui-btn-block zc-im-go-tz" id="agreeZc">
-            同意购买
+            	报名参与
         </button>
     </div>
 </article>
@@ -69,10 +69,10 @@
             </div>
             <div class="zc-detail-mondy">
                 <div class="f-left color-F26520">
-                    {{minInvestment}}元起
+                    {{crowdfundingHousing.minInvestment}}元起
                 </div>
                 <div class="f-right">
-                   {{crowdfundingHousing.atualInvestment}}万<span class="color-F26520">/{{crowdfundingHousing.totalPrice}}万</span>
+                  	 剩{{syz}}万<span class="color-F26520">/总{{crowdfundingHousing.totalPrice}}万</span>
                 </div>
             </div>
         </section>
@@ -83,31 +83,31 @@
             </div>
             <ul id="fyxxRecord">
                 <li>
-                    价格：<span class="color-orange" style="font-weight: bold">{{crowdfundingHousing.totalPrice}}万元</span>
-                </li>
-                <li>
-                    单价：<span>{{crowdfundingHousing.price}}元/平米</span>
-                </li>
-                <li>
-                    房型：<span>{{crowdfundingHousing.rooms}}室{{crowdfundingHousing.halls}}厅{{crowdfundingHousing.toilet}}卫</span>
-                </li>
-                <li>
-                    面积：<span>{{crowdfundingHousing.housingArea}}平米</span>
-                </li>
-                <li>
-                    朝向：<span>{{crowdfundingHousing.orientation}}</span>
-                </li>
-                <li>
-                    楼层：<span>{{crowdfundingHousing.locationFloor}}层/{{crowdfundingHousing.totalFloor}}层</span>
-                </li>
-                <li>
-                    年代：<span>{{crowdfundingHousing.years}}年</span>
-                </li>
-                <li>
-                    小区：<span>大华曲江</span>
+		                    价格：<span class="color-orange" style="font-weight: bold">{{crowdfundingHousing.totalPrice}}万元</span>
+		                </li>
+		                <li>
+		                    单价：<span>{{crowdfundingHousing.price}}元/平米</span>
+		                </li>
+		                <li>
+		                    房型：<span>{{crowdfundingHousing.rooms}}室{{crowdfundingHousing.halls}}厅{{crowdfundingHousing.toilet}}卫</span>
+		                </li>
+		                <li>
+		                    面积：<span>{{crowdfundingHousing.housingArea}}平米</span>
+		                </li>
+		                <li>
+		                    朝向：<span>{{crowdfundingHousing.orientation}}</span>
+		                </li>
+		                <li>
+		                    楼层：<span>{{crowdfundingHousing.locationFloor}}层/{{crowdfundingHousing.totalFloor}}层</span>
+		                </li>
+		                <li>
+		                    年代：<span>{{crowdfundingHousing.years}}年</span>
+		                </li>
+		                <li>
+		                    小区：<span>{{crowdfundingHousing.villageName}}</span>
                 </li>
             </ul>
-            <ul id="fundRecord" style="display:none;">
+            <ul id="fundRecord" style="display:none;padding: 0.3rem 0rem;">
                <!-- <li>
                     <div class="col-3 f-left">
                         139625******
@@ -119,68 +119,48 @@
                         2016-05-66
                     </div>
                 </li>
-                <li class="bg-gray">
-                    <div class="col-3 f-left">
-                        139625******
-                    </div>
-                    <div class="col-3 f-left">
-                        2000000.00元
-                    </div>
-                    <div class="col-3 f-left">
-                        2016-05-66
-                    </div>
-                </li>
-                 <li class="bg-gray">
-                    <div class="col-3 f-left">
-                        139625******
-                    </div>
-                    <div class="col-3 f-left">
-                        2000000.00元
-                    </div>
-                    <div class="col-3 f-left">
-                        2016-05-66
-                    </div>
                 </li>-->
             </ul>
         </section>
-        <section class="house-detail-section house-location-section">
-            <div class="device-items-head">
-                <div class="bzm-fjpz color-orange">众筹介绍</div>
-            </div>
-            <ul>
-                <li>
-                    <div class="dis-inline">众筹资金：</div>
-                    <div class="dis-inline">{{crowdfundingHousing.totalPrice}}万</div>
-                </li>
-                <li>
-                    <div class="dis-inline">期限：</div>
-                    <div class="dis-inline">{{crowdfundingHousing.deadline}}月</div>
-                </li>
-                <li>
-                    <div class="dis-inline">年租金收益：</div>
-                    <div class="dis-inline">{{crowdfundingHousing.rentalIncome}}万</div>
-                </li>
-                <li>
-                    <div class="dis-inline">还款方式：</div>
-                    <div class="dis-inline">{{crowdfundingHousing.repaymentMethod}}</div>
-                </li>
-            </ul>
-        </section>
-        <section class="house-detail-section house-location-section">
-            <div class="device-items-head">
-                <div class="bzm-fjpz color-orange">房源概况</div>
-            </div>
-            <div>{{&crowdfundingHousing.housingDesc}}</div>
-        </section>
-        <section class="house-detail-section house-location-section">
-            <div class="device-items-head">
-                <div class="bzm-fjpz color-orange">配套优势</div>
-            </div>
-            <div>
-            	{{&crowdfundingHousing.advantage}}
-            </div>
-        </section>
-
+        <section id="fyxxRecord1">
+	        <section class="house-detail-section house-location-section">
+	            <div class="device-items-head">
+	                <div class="bzm-fjpz color-orange">众筹介绍</div>
+	            </div>
+	            <ul>
+	                <li>
+	                    <div class="dis-inline">众筹资金：</div>
+	                    <div class="dis-inline">{{crowdfundingHousing.totalPrice}}万</div>
+	                </li>
+	                <li>
+	                    <div class="dis-inline">期限：</div>
+	                    <div class="dis-inline">{{crowdfundingHousing.deadline}}月</div>
+	                </li>
+	                <li>
+	                    <div class="dis-inline">年租金收益：</div>
+	                    <div class="dis-inline">{{crowdfundingHousing.rentalIncome}}万</div>
+	                </li>
+	                <li>
+	                    <div class="dis-inline">还款方式：</div>
+	                    <div class="dis-inline">{{crowdfundingHousing.repaymentMethod}}</div>
+	                </li>
+	            </ul>
+	        </section>
+	        <section class="house-detail-section house-location-section">
+	            <div class="device-items-head">
+	                <div class="bzm-fjpz color-orange">房源概况</div>
+	            </div>
+	            <div>{{&crowdfundingHousing.housingDesc}}</div>
+	        </section>
+	        <section class="house-detail-section house-location-section">
+	            <div class="device-items-head">
+	                <div class="bzm-fjpz color-orange">配套优势</div>
+	            </div>
+	            <div>
+	            	{{&crowdfundingHousing.advantage}}
+	            </div>
+	        </section>
+		</section>
         <button class="mui-btn mui-btn-block zc-im-go-tz" id="ljtz">
             报名众筹
         </button>
@@ -193,7 +173,7 @@
      	 {{#rows}}
          <div class="mui-slider-item">
              <a href="#">
-                 <img src="{{attachmentName}}">
+                 <img src="{{attachmentName}}" style="height: 5rem;">
              </a>
          </div>
          {{/rows}}
@@ -209,7 +189,7 @@
 <script  id="myenroll-template" type="x-tmpl-mustache">
 {{#rows}}	
 <section class="mui-slider">
-     <li class="">
+     <li class="{{className}}">
         <div class="col-3 f-left">
             {{memberAccount}}
         </div>

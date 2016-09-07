@@ -102,11 +102,11 @@
 	"plus": {
 		"splashscreen": {
 			"autoclose": false,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
-			"waiting": true
+			"waiting": false
 		},
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
 		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
-		"distribute": {"plugins":{"share":{"weixin":{"appid":"wx3a746ff0c5a564de","appsecret":"wx3a746ff0c5a564de","description":"可选，微信分享"},"qq":{"appid":"wx3a746ff0c5a564de","description":"QQ分享"},"sina":{"appkey":"wx3a746ff0c5a564de","appsecret":"wx3a746ff0c5a564de","redirect_uri":"wx3a746ff0c5a564de","description":"可选，新浪微博分享"}},"maps":{"amap":{"appkey_ios":"78fd41da89b338eb127699b0e973b641","appkey_android":"78fd41da89b338eb127699b0e973b641","description":""}}},
+		"distribute": {"plugins":{"share":{"weixin":{"appid":"wx735de4ebba3d66b7","appsecret":"0a3bca7f3d53c1d0367bcd5a240db97","description":"可选，微信分享"},"qq":{"appid":"1105593603","description":"QQ分享"},"sina":{"appkey":"wx3a746ff0c5a564de","appsecret":"wx3a746ff0c5a564de","redirect_uri":"wx3a746ff0c5a564de","description":"可选，新浪微博分享"}},"maps":{"amap":{"appkey_ios":"364109e8d4a7f5300eda3732e60b85e1","appkey_android":"2ae3b197b766ff16f70bbcebc0cb4bcf","description":""}}},
 			"apple": {
 				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
 				"mobileprovision": "",/*iOS应用打包配置文件*/
@@ -128,34 +128,34 @@
 					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
 					"auto": "", /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
 					"iphone": {
-						"normal": "",/*iPhone普通屏幕程序图标，分辨率：57x57*/
-						"retina": "",/*iPhone高分屏程序图标，分辨率：114x114*/
-						"retina7": "",/*iPhone iOS7高分屏程序图标，分辨率：120x120*/
-						"spotlight-normal": "", /*iPhone Spotlight搜索程序图标，分辨率：29x29*/
-						"spotlight-retina": "", /*iPhone高分屏Spotlight搜索程序图标，分辨率：58x58*/
-						"spotlight-retina7": "",/*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
-						"settings-normal": "", /*iPhone设置页面程序图标，分辨率：29x29*/
-						"settings-retina": ""
+						"normal": "unpackage/res/icons/57x57.png",/*iPhone普通屏幕程序图标，分辨率：57x57*/
+						"retina": "unpackage/res/icons/114x114.png",/*iPhone高分屏程序图标，分辨率：114x114*/
+						"retina7": "unpackage/res/icons/120x120.png",/*iPhone iOS7高分屏程序图标，分辨率：120x120*/
+						"spotlight-normal": "unpackage/res/icons/29x29.png", /*iPhone Spotlight搜索程序图标，分辨率：29x29*/
+						"spotlight-retina": "unpackage/res/icons/58x58.png", /*iPhone高分屏Spotlight搜索程序图标，分辨率：58x58*/
+						"spotlight-retina7": "unpackage/res/icons/80x80.png",/*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "unpackage/res/icons/29x29.png", /*iPhone设置页面程序图标，分辨率：29x29*/
+						"settings-retina": "unpackage/res/icons/58x58.png","retina8":"unpackage/res/icons/180x180.png","settings-retina8":"unpackage/res/icons/87x87.png"
 					},
 					"ipad": {
-						"normal": "", /*iPad普通屏幕程序图标，分辨率：72x72*/
-						"retina": "", /*iPad高分屏程序图标，分辨率：144x144*/
-						"normal7": "", /*iPad iOS7程序图标，分辨率：76x76*/
-						"retina7": "", /*iPad iOS7高分屏程序图标，分辨率：152x152*/
-						"spotlight-normal": "", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
-						"spotlight-retina": "", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
-						"spotlight-normal7": "",/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
-						"spotlight-retina7": "",/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
-						"settings-normal": "",/*iPad设置页面程序图标，分辨率：29x29*/
-						"settings-retina": ""
+						"normal": "unpackage/res/icons/72x72.png", /*iPad普通屏幕程序图标，分辨率：72x72*/
+						"retina": "unpackage/res/icons/144x144.png", /*iPad高分屏程序图标，分辨率：144x144*/
+						"normal7": "unpackage/res/icons/76x76.png", /*iPad iOS7程序图标，分辨率：76x76*/
+						"retina7": "unpackage/res/icons/152x152.png", /*iPad iOS7高分屏程序图标，分辨率：152x152*/
+						"spotlight-normal": "unpackage/res/icons/50x50.png", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
+						"spotlight-retina": "unpackage/res/icons/100x100.png", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
+						"spotlight-normal7": "unpackage/res/icons/40x40.png",/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
+						"spotlight-retina7": "unpackage/res/icons/80x80.png",/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "unpackage/res/icons/29x29.png",/*iPad设置页面程序图标，分辨率：29x29*/
+						"settings-retina": "unpackage/res/icons/58x58.png"
 					}
 				},
 				"android": {
-					"mdpi": "", /*普通屏程序图标，分辨率：48x48*/
-					"ldpi": "", /*大屏程序图标，分辨率：48x48*/
-					"hdpi": "", /*高分屏程序图标，分辨率：72x72*/
-					"xhdpi": "",/*720P高分屏程序图标，分辨率：96x96*/
-					"xxhdpi": ""
+					"mdpi": "unpackage/res/icons/48x48.png", /*普通屏程序图标，分辨率：48x48*/
+					"ldpi": "unpackage/res/icons/48x48.png", /*大屏程序图标，分辨率：48x48*/
+					"hdpi": "unpackage/res/icons/72x72.png", /*高分屏程序图标，分辨率：72x72*/
+					"xhdpi": "unpackage/res/icons/96x96.png",/*720P高分屏程序图标，分辨率：96x96*/
+					"xxhdpi": "unpackage/res/icons/144x144.png"
 				}
 			},
 			"splashscreen": {
@@ -177,11 +177,11 @@
 					}
 				},
 				"android": {
-					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
-					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
-					"hdpi": "", /*高分屏启动图片，分辨率：480x762*/
-					"xhdpi": "", /*720P高分屏启动图片，分辨率：720x1242*/
-					"xxhdpi": ""
+					"mdpi": "F:/房产项目/00启动.png", /*普通屏启动图片，分辨率：240x282*/
+					"ldpi": "F:/房产项目/00启动.png", /*大屏启动图片，分辨率：320x442*/
+					"hdpi": "F:/房产项目/00启动.png", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "F:/房产项目/00启动.png", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": "F:/房产项目/00启动.png"
 				}
 			}
 		}
@@ -241,7 +241,10 @@
 					"res/img/new/02.png",
 					"page/location.html",
 					"page/nearby.html",
-					"res/img/arrow-right.png"
+					"res/img/arrow-right.png",
+					"res/img/new/rent-rect.png",
+					"res/img/new/cross-fund-rect.png",
+					"res/img/new/two-hand-rect.png"
 				],
 				"refer": [
 					"page/myfavo.html",
@@ -251,7 +254,10 @@
 					"page/newhouse.html",
 					"page/myhistroy.html",
 					"page/mynearby.html",
-					"page/qrcodefx.html"
+					"page/qrcodefx.html",
+					"page/login/loginbycode.html",
+					"page/messages.html",
+					"guide.html"
 				],
 				"priority": 0
 			},
@@ -361,7 +367,8 @@
 					"js/common/mui.pullToRefresh.js",
 					"js/common/constant.js",
 					"res/img/new/zan.png",
-					"res/img/new/focus.png"
+					"res/img/new/focus.png",
+					"res/img/arrow-fuc-down.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -420,7 +427,8 @@
 					"res/img/sp3.png",
 					"res/img/message.png",
 					"res/img/new/zan.png",
-					"res/img/new/focus.png"
+					"res/img/new/focus.png",
+					"res/img/arrow-fuc-down.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -446,7 +454,8 @@
 					"js/croundfunding.source.js",
 					"res/img/new/zan.png",
 					"res/img/message.png",
-					"res/img/new/focus.png"
+					"res/img/new/focus.png",
+					"res/img/arrow-fuc-down.png"
 				],
 				"refer": [
 					"page/croudfundingdetail.html"
@@ -472,9 +481,17 @@
 					"js/myhistroy.source.js",
 					"css/myhistroy.css",
 					"js/common/mui.pullToRefresh.js",
-					"js/common/mustache.min.js"
+					"js/common/mustache.min.js",
+					"js/myfavo.source.js",
+					"css/myfavo.css",
+					"res/img/cancel_fav.png"
 				],
-				"refer": [],
+				"refer": [
+					"page/croudfundingdetail.html",
+					"page/rent.html",
+					"page/salehouse.html",
+					"page/newhousedetail.html"
+				],
 				"priority": 0
 			},
 			"page/myfabu.html": {
@@ -514,9 +531,13 @@
 					"js/common/mui.pullToRefresh.js",
 					"js/common/constant.js",
 					"res/img/new/zan.png",
-					"res/img/new/focus.png"
+					"res/img/new/focus.png",
+					"css/rent.css",
+					"js/common/mustache.min.js"
 				],
-				"refer": [],
+				"refer": [
+					"page/login/loginbycode.html"
+				],
 				"priority": 0
 			},
 			"page/setup/setmain.html": {
@@ -628,7 +649,8 @@
 					"js/common/constant.js",
 					"res/img/house.jpg",
 					"res/img/new/zan.png",
-					"res/img/new/focus.png"
+					"res/img/new/focus.png",
+					"res/img/arrow-fuc-down.png"
 				],
 				"refer": [
 					"page/newhousedetail.html"
@@ -652,9 +674,14 @@
 					"js/myhistroy.source.js",
 					"css/myhistroy.css",
 					"js/common/mustache.min.js",
-					"js/common/mui.pullToRefresh.js"
+					"js/common/mui.pullToRefresh.js",
+					"res/img/new/zan.png",
+					"res/img/new/focus.png"
 				],
-				"refer": [],
+				"refer": [
+					"page/croudfundingdetail.html",
+					"page/rent.html"
+				],
 				"priority": 0
 			},
 			"page/mynearby.html": {
@@ -676,7 +703,9 @@
 					"js/common/constant.js",
 					"css/myhistroy.css"
 				],
-				"refer": [],
+				"refer": [
+					"page/newhousedetail.html"
+				],
 				"priority": 0
 			},
 			"page/nearby.html": {
@@ -719,7 +748,9 @@
 					"res/img/login/backico.png",
 					"css/mui.min.css",
 					"js/common/constant.js",
-					"js/common/mustache.min.js"
+					"js/common/mustache.min.js",
+					"js/common/mui.previewimage.js",
+					"js/common/mui.zoom.js"
 				],
 				"refer": [
 					"page/login/login.html"
@@ -738,7 +769,9 @@
 					"js/common/common.js",
 					"js/mui.min.js",
 					"css/mui.min.css",
-					"js/common/constant.js"
+					"js/common/constant.js",
+					"js/share.js",
+					"res/img/fo-tititi.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -764,6 +797,47 @@
 				"refer": [
 					"page/login/login.html"
 				],
+				"priority": 0
+			},
+			"page/login/loginbycode.html": {
+				"resources": [
+					"css/login.css",
+					"js/login/loginbycode.js",
+					"res/img/login/head.png",
+					"images/login/toppic.png",
+					"res/img/login/backico.png"
+				],
+				"refer": [
+					"page/login/login.html"
+				],
+				"priority": 0
+			},
+			"page/messages.html": {
+				"resources": [
+					"js/base.js",
+					"css/base.css",
+					"js/common/mui.pullToRefresh.material.js",
+					"js/messages.source.js",
+					"js/common/common.js",
+					"js/mui.min.js",
+					"res/img/login/backico.png",
+					"css/mui.min.css",
+					"css/myhistroy.css",
+					"js/common/constant.js",
+					"js/common/mui.pullToRefresh.js",
+					"js/common/mustache.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"guide.html": {
+				"resources": [
+					"res/img/guide4.jpg",
+					"res/img/guide1.jpg",
+					"res/img/guide3.jpg",
+					"res/img/guide2.jpg"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},

@@ -111,6 +111,6 @@
         base.addClass(base.$('.ms-con' + currentid), 'section-active');
         page.queryList(2);
     }
-
-    page.init();
+mui.plusReady(page.init);
+//  page.init();
 })();

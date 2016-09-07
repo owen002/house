@@ -79,7 +79,8 @@ function fabuEvent(){
 			
 		});
 }
-    page.init();
+ mui.plusReady(page.init);
+//  page.init();
 })();
 
 

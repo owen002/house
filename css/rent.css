@@ -141,6 +141,7 @@
   float: left;
   overflow: hidden;
   margin-bottom: 0.4rem;
+  height: 1rem;
 }
 .device-items-section ul li .items-name {
   float: left;

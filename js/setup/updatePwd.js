@@ -20,8 +20,8 @@
             })
         }
     };
-
-    page.init();
+mui.plusReady(page.init);
+//  page.init();
     
     function nextstep() {
     	var sjh = document.querySelector("#sjh").value;

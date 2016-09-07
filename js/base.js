@@ -250,6 +250,7 @@ var base = (function () {
         };
         muiAjax1(setting, function (data) {
             //添加第一个和最后一个
+//          console.log("消息"+JSON.stringify(data));
             if(data!=null&&data.status&&data.status==='401'){
             	mui('#msgCnt')[0].innerHTML = '';
             } else {
@@ -258,7 +259,6 @@ var base = (function () {
         }, function (status) {
             //异常处理
         });
-		mui('#msgCnt')[0].innerHTML = 4;
     }
 
 

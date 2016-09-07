@@ -40,11 +40,15 @@ var wrhShare = function () {
             }
         },
         shareShow: function () {
-            var ids = [{id: "sinaweibo"}, {id: "weixin", ex: "WXSceneSession"}, {
-                    id: "weixin",
-                    ex: "WXSceneTimeline"
-                }, {id: "qq"}],
-                bts = [{title: "分享到新浪微博"}, {title: "发送给微信好友"}, {title: "分享到微信朋友圈"}, {title: "分享到QQ"}];
+            var ids = [{id: "sinaweibo"}, 
+//          {id: "weixin", ex: "WXSceneSession"}, {
+//                  id: "weixin",
+//                  ex: "WXSceneTimeline"
+//              },
+                {id: "qq"}],
+                bts = [{title: "分享到新浪微博"}, 
+//              {title: "发送给微信好友"}, {title: "分享到微信朋友圈"}, 
+                {title: "分享到QQ"}];
             plus.nativeUI.actionSheet({cancel: "取消", buttons: bts},
                 function (e) {
                     var i = e.index;

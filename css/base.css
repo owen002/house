@@ -155,3 +155,27 @@ body {
   opacity: 0;
   -moz-opacity: 0;
 }
+
+/*转圈*/
+.mui-loading.ajaxLoading{
+	position: absolute;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    margin-top: -24px;
+    z-index: 100;
+}
+.mui-loading.ajaxLoading .mui-spinner{
+	margin-top: 11px;
+    width: 26px;
+    height: 26px;
+}
+
+.none{
+	display: none !important;
+	}
+	/*转圈结束*/

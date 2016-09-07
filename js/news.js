@@ -20,6 +20,12 @@
 	                type: 'get'
             	};
             }
+            else if(type==3) {
+            	querySettings = {
+	                url: Constants.aboutus,
+	                type: 'get'
+            	};
+            }
             page.queryNews();
             page.bind();
         },
@@ -37,6 +43,6 @@
             var muiBack = mui('.mui-back')[0];
         }
     };
-
-    page.init();
+mui.plusReady(page.init);
+//  page.init();
 })();

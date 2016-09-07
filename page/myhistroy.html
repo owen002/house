@@ -79,9 +79,9 @@
 <!--租房模板-->
 <script id='rows-li-template1' type="x-mustache-tmpl">
 {{#rows}}
-<li class="mysign-item-li zuf-mysign-item-li">
+<li class="mysign-item-li zuf-mysign-item-li" data-id="{{rentalHousingID}}">
     <div class="f-left house-img">
-        <img src="{{mainImage}}">
+        <img src="{{mainImage}}" style="height: 2.5rem;">
     </div>
     <div class="house-content f-left">
         <div class="hc-title">
@@ -110,7 +110,7 @@
             <div class="mui-clearfix"></div>
             <div>
                 <span class="f-right">
-                 {{createTime}}
+                {{createTime}}
                 </span>
             </div>
         </div>
@@ -125,9 +125,9 @@
 <!--售房模板-->
 <script id='rows-li-template2' type="x-mustache-tmpl">
 {{#rows}}
-<li class="mysign-item-li zuf-mysign-item-li">
+<li class="mysign-item-li zuf-mysign-item-li" data-id="{{saleHousingID}}">
     <div class="f-left house-img">
-        <img src="{{mainImage}}">
+        <img src="{{mainImage}}" style="height: 2.5rem;">
     </div>
     <div class="house-content f-left">
         <div class="hc-title">
@@ -156,7 +156,7 @@
             <div class="mui-clearfix"></div>
             <div>
                 <span class="f-right">
-                 {{createTime}}
+               {{createTime}}
                 </span>
             </div>
         </div>
@@ -166,11 +166,11 @@
 </script>
 
 <!--众筹-->
-<script id='rows-li-template3' type="x-mustache-tmpl">
+<script id='rows-li-template3' type="x-mustache-tmpl" >
 {{#rows}}
-<li class="mysign-item-li zuf-mysign-item-li">
+<li class="mysign-item-li zuf-mysign-item-li" data-id="{{crowdfundingHousingID}}">
     <div class="f-left house-img">
-        <img src="{{mainImage}}">
+        <img src="{{mainImage}}" style="height: 2.5rem;">
     </div>
     <div class="house-content f-left">
         <div class="hc-title">
@@ -217,9 +217,9 @@
 <!--新房模板-->
 <script id='rows-li-template4' type="x-mustache-tmpl">
 {{#rows}}
-<li class="mysign-item-li zuf-mysign-item-li">
+<li class="mysign-item-li zuf-mysign-item-li" data-id="{{newHousingID}}">
     <div class="f-left house-img">
-        <img src="{{mainImage}}">
+        <img src="{{mainImage}}" style="height: 2.5rem;">
     </div>
     <div class="house-content f-left">
         <div class="hc-title">
@@ -230,25 +230,28 @@
                 <span>{{platName}} {{villageName}}</span>
             </div>
             <div>
-                <span>{{rooms}}室{{halls}}厅{{toilet}}卫</span>
-                <span class="rent-price">{{rental}}元/月</span>
-            </div>
-            <div class="zan-and-focus">
-                 <div class="zan-focus-area">
-                     <div>
-                        <img class="z-img" src="../res/img/new/zan.png" alt="">
-                     </div>
-                     <div>{{supportNum}}</div>
-                     <div>
-                        <img class="f-img" src="../res/img/new/focus.png" alt="">
-                     </div>
-                     <div>{{viewNum}}</div>
-                 </div>
+                <span></span>
+                <span class="rent-price">{{price}}元/平米</span>
             </div>
             <div class="mui-clearfix"></div>
             <div>
+                <div class="zan-and-focus">
+                     <div class="zan-focus-area">
+                         <div>
+                            <img class="z-img" src="../res/img/new/zan.png" alt="">
+                         </div>
+                         <div>{{supportNum}}</div>
+                         <div>
+                            <img class="f-img" src="../res/img/new/focus.png" alt="">
+                         </div>
+                         <div>{{viewNum}}</div>
+                     </div>
+                </div>
+                <div class="mui-clearfix"></div>
+            </div>
+            <div>
                 <span class="f-right">
-                 {{createTime}}
+                {{createTime}}
                 </span>
             </div>
         </div>

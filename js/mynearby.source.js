@@ -39,7 +39,6 @@
 				page.dqwzxs();
 				page.queryList(1);
 				page.bind();
-				
 			});
 
 			
@@ -149,11 +148,18 @@
 						rows: rows
 					};
 					}
+					
 					div.innerHTML = Mustache.render(tmpl, obj);
 					while(div.hasChildNodes()) {
 						fragment.appendChild(div.firstChild);
 					}
-					mui('#guessUlike' + currentid)[0].appendChild(fragment);
+					if(upOrdown==2||upOrdown==undefined){//向上
+						mui('#guessUlike' + currentid)[0].appendChild(fragment);
+					}else{
+						mui('#guessUlike' + currentid)[0].innerHTML='';
+						mui('#guessUlike' + currentid)[0].appendChild(fragment);
+					}
+					
 				} else {
 					page.setCanPull(false);
 				}
@@ -221,7 +227,7 @@
 			mui('.ms-header-menu').on('tap', '.ms-m', function() {
 				switchTab(this);
 			});
-			mui.each(document.querySelectorAll('.mysign-content'),
+			mui.each(document.querySelectorAll('.mui-scroll'),
 				function(index, pullRefreshEl) {
 					mui(pullRefreshEl).pullToRefresh({
 						down: {
@@ -258,10 +264,28 @@
 					base.Slider.slideUp(cLocation, 100);
 					muiBack.style.display = 'none';
 				}
-			}).on('tap', '#guessUlike li', function() {
-				var id = this.getAttribute('data-id');
+			}).on('tap', '#guessUlike1 li', function() {
+				var fzid = this.getAttribute('fzid');
 				var pageObj = {
-					pageUrl: "newhousedetail.html?houseid=" + id
+					pageUrl: "rent.html?rentid=" + fzid
+				};
+				pageChange(pageObj);
+			}).on('tap', '#guessUlike2 li', function() {
+				var fzid = this.getAttribute('fzid');
+				var pageObj = {
+					pageUrl: "salehouse.html?saleHousingID=" + fzid
+				};
+				pageChange(pageObj);
+			}).on('tap', '#guessUlike3 li', function() {
+				var fzid = this.getAttribute('fzid');
+				var pageObj = {
+					pageUrl: "croudfundingdetail.html?crowdfundingHousingID=" + fzid
+				};
+				pageChange(pageObj);
+			}).on('tap', '#guessUlike4 li', function() {
+				var fzid = this.getAttribute('fzid');
+				var pageObj = {
+					pageUrl: "newhousedetail.html?newHousingID=" + fzid
 				};
 				pageChange(pageObj);
 			})
@@ -287,11 +311,13 @@
 		base.removeClass(base.$('.section-active'), 'section-active');
 		base.addClass(base.$('.ms-con' + currentid), 'section-active');
 		if(mui('#guessUlike' + currentid)[0].childNodes.length<2){
+			mui("#loading")[0].classList.toggle('none');
 			page.queryList(currentid);
+			mui("#loading")[0].classList.toggle('none');
 		}
 		
 		
 	}
-
-	page.init();
+ mui.plusReady(page.init);
+//	page.init();
 })();

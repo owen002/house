@@ -1,5 +1,5 @@
 mui.init();//初始化
-// mui.plusReady(function() {//plus基座准备好后执行
+   mui.plusReady(function() {//plus基座准备好后执行
 	// 点击登录按钮事件
 	var loginObj={
 		eventId:'login',
@@ -30,7 +30,7 @@ mui.init();//初始化
 		}
 	};
 	elementBindEvent(yzmdlObj);//获取验证码按钮绑定tap事件
-
+});
 function loginEvent(){
 	document.activeElement.blur(); //关闭键盘
 		var memberAccount = document.querySelector("#account").value;
@@ -62,6 +62,9 @@ function loginEvent(){
 
 		muiAjax(loginSettings, function(data) {
 			if(data.status=='200'){//登录成功
+				console.log(JSON.stringify(data));
+				locsaveuserinfo('memberPwd',memberPwd);
+				locsaveuserinfo('memberAccount',memberAccount);
 				locsaveuserinfo('phone',data.memberPhone);
 				locsaveuserinfo('username',data.memberName);
 				locsaveuserinfo('memberID',data.memberID);

@@ -13,13 +13,14 @@
         init: function () {
             //          mui.init();
             //          perRem = base.setPageRem();
+            page.autoLoad();
             base.getMsgCnt();
+            page.getBztt();
             page.loadImg();
             page.getSliderImage();
             page.initSliderMenu();
             page.checkUser();
             page.bind();
-            page.getBztt();
             page.getyzfy();
             page.ljtjsj();
             page.getXzcs();
@@ -27,20 +28,24 @@
         sxsjbycityid: function () {
         	page.hidecanvas();
         	 base.getMsgCnt();
+        	 page.getBztt();
             page.loadImg();
             page.getSliderImage();
-//          page.initSliderMenu();
             page.checkUser();
-            page.getBztt();
             page.getyzfy();
             page.ljtjsj();
             page.getXzcs();
         },
         //获取轮播图片
         getSliderImage: function () {
+        	var param = {
+            	'parameters[position]': 1,
+            	'parameters[cityID]': locgetuserinfo('cityid')
+        	};
             var setting = {
                 url: baseUrl + 'front/json_advertisement',
                 type: 'get',
+                data: param,
                 contentType: "application/json"
             };
             muiAjax(setting, function (data) {
@@ -85,7 +90,7 @@
                 if (isLogin) {
                 base.$('#goToLogin').style.display = 'none';
                 base.$('#bzm_username').style.display = 'block';
-                base.$('#bzm_username').innerHTML = userinfo.username || '已登录';
+                base.$('#bzm_username').innerHTML = userinfo.nickName||userinfo.username || '已登录';
                 base.$('#loginBtn').style.display = 'block';
             }else{
             	base.$('#goToLogin').style.display = 'block';
@@ -138,8 +143,12 @@
             }
         },
         hidecanvas:function(){
-        	var el=document.querySelector('.mui-off-canvas-backdrop');
-        	mui.trigger(el,'tap');
+        	var canvas=document.querySelector('#offCanvasSide');
+        	if(canvas.classList.contains('mui-active')){
+        		var el=document.querySelector('.mui-off-canvas-backdrop');
+        	    mui.trigger(el,'tap');
+        	}
+        	
         },
         bind: function () {
             mui("#gussULikeUl").on('tap', 'li', function () {
@@ -268,12 +277,23 @@
                 };
                 pageChange(pageObj);
             }).on('tap', '#loginBtn', function () {
-                locdeluserinfo('phone');
+            	var setting={
+                	url:Constants.logout
+                }
+                muiAjax(setting,function(){
+                	mui.toast('成功退出');
+                },function(status){
+                	
+                });
+                locdeluserinfo('memberAccount');
+				locdeluserinfo('memberPwd');
+				locdeluserinfo('phone');
 				locdeluserinfo('username');
 				locdeluserinfo('memberID');
 				locdeluserinfo('headerPic');
 				locdeluserinfo('nickName');
 				locdeluserinfo('gender');
+//				plus.navigator.removeAllCookie();
                 var pageObj = {
                     pageUrl: plus.webview.getLaunchWebview().id
                 };
@@ -386,6 +406,11 @@
                     pageUrl: "page/news.html?type=2&id=" + id
                 };
                 pageChange(pageObj);
+            }).on('tap', '#aboutus', function () {
+                var pageObj = {
+                    pageUrl: "page/news.html?type=3"
+                };
+                pageChange(pageObj);
             }).on('tap','#gussULikeUl li',function(){//优质房源go详细
             	var dtype=this.getAttribute('dtype');
             	var fzid=this.getAttribute('fzid');
@@ -479,7 +504,8 @@
         	if(cityid==undefined||cityid==null||cityid==''){
         		var citycode=locgetuserinfo('citycode');
         		var setting = {
-                url: Constants.cityTmy+'/'+citycode
+                url: Constants.cityTmy+'/'+citycode,
+                async:false
             };
             muiAjax(setting, function (data) {
             	if(data!=null&&data!=''){
@@ -509,6 +535,11 @@
                 if(scroll2==undefined||scroll2==null||scroll2==''){
                 scroll2= new ScrollText("bzttul", "pre2", "next2", true, 100, true);
                 scroll2.LineHeight = 60;
+                }else{
+                	scroll2.Stop();
+                	scroll2=null;
+                	scroll2= new ScrollText("bzttul", "pre2", "next2", true, 100, true);
+                    scroll2.LineHeight = 60;
                 }
                  
             }, function (status) {
@@ -523,6 +554,9 @@
                     success: function (result) {
                         if (result.address.cityCode == null || result.address.cityCode == undefined ||
                             result.address.cityCode == '') {
+                            page.getSliderImage();
+                            page.initSliderMenu();
+                            page.bind();
                             var pageObj = {
                                 pageUrl: 'page/location.html'
                             };
@@ -536,6 +570,9 @@
                     },
                     error: function (e) {
                         console.log('地址获取异常:' + JSON.stringify(e));
+                        page.getSliderImage();
+                        page.initSliderMenu();
+                        page.bind();
                         var pageObj = {
                             pageUrl: 'page/location.html'
                         };
@@ -658,6 +695,10 @@
                 }
             };
             muiAjax(setting, function (data) {
+            	mui('#ljtj-title1')[0].innerHTML = '';
+            	mui('#ljtj-title2')[0].innerHTML = '';
+            	mui('#ljtj-title3')[0].innerHTML = '';
+            	mui('#ljtj-title4')[0].innerHTML = '';
                 if (1 == 1) {
                     var tplsetting = {
                         container: '#ljtjxx1',
@@ -666,12 +707,13 @@
                             rows: data.rows,
                             istrue: function () {
                                 if (this.kind == '0') {
+                                	mui('#ljtj-title1')[0].innerHTML = this.title;
                                     return true;
                                 } else {
                                     return false;
                                 }
                             },
-                            fzlx: '租房'
+                            fzlx: '租房房源'
                         }
                     };
                     getTemplate(tplsetting);
@@ -684,12 +726,13 @@
                             rows: data.rows,
                             istrue: function () {
                                 if (this.kind == '1') {
+                                	mui('#ljtj-title2')[0].innerHTML = this.title;
                                     return true;
                                 } else {
                                     return false;
                                 }
                             },
-                            fzlx: '二手房'
+                            fzlx: '二手房房源'
                         }
                     };
                     getTemplate(tplsetting);
@@ -702,12 +745,13 @@
                             rows: data.rows,
                             istrue: function () {
                                 if (this.kind == '2') {
+                                	mui('#ljtj-title3')[0].innerHTML = this.title;
                                     return true;
                                 } else {
                                     return false;
                                 }
                             },
-                            fzlx: '众筹房'
+                            fzlx: '众筹房源'
                         }
                     };
                     getTemplate(tplsetting);
@@ -720,12 +764,13 @@
                             rows: data.rows,
                             istrue: function () {
                                 if (this.kind == '3') {
+                                	mui('#ljtj-title4')[0].innerHTML = this.title;
                                     return true;
                                 } else {
                                     return false;
                                 }
                             },
-                            fzlx: '新房'
+                            fzlx: '新房房源'
                         }
                     };
                     getTemplate(tplsetting);
@@ -758,19 +803,89 @@
 				}
 			};
 			getTemplate(txtmpl);
+		},
+		autoLoad: function() {//自动登录
+			var memberAccount = locgetuserinfo('memberAccount');
+			var memberPwd = locgetuserinfo('memberPwd');
+			if(memberAccount != undefined && memberAccount != null && memberAccount != '') {
+				data = {
+					memberAccount: memberAccount,
+					memberPwd: memberPwd
+				};
+
+				var loginSettings = {
+					data: data,
+					type: "post",
+					url: Constants.login
+				};
+				muiAjax(loginSettings, function(data) {
+					if(data.status == '200') { //登录成功
+						console.log('登录'+JSON.stringify(data));
+						locsaveuserinfo('memberPwd', memberPwd);
+						locsaveuserinfo('memberAccount', memberAccount);
+						locsaveuserinfo('phone', data.memberPhone);
+						locsaveuserinfo('username', data.memberName);
+						locsaveuserinfo('memberID', data.memberID);
+						locsaveuserinfo('headerPic', data.headerPic);
+						locsaveuserinfo('nickName', data.nickName);
+						locsaveuserinfo('gender', data.gender);
+						isLogin=true;
+					} else { //登录失败
+						mui.toast(data.message);
+						locdeluserinfo('memberAccount');
+				        locdeluserinfo('memberPwd');
+				        locdeluserinfo('phone');
+				        locdeluserinfo('username');
+				        locdeluserinfo('memberID');
+				        locdeluserinfo('headerPic');
+				        locdeluserinfo('nickName');
+				        locdeluserinfo('gender');
+					}
+				}, function(status) {
+
+				});
+			}
+
 		}
-    }
+   }
     mui.init();
     perRem = base.setPageRem();
-    if (mui.os.ios || mui.os.android) {
-        mui.plusReady( //先执行定位
-            function () {
-                page.getGpsPos();
-            }
-        );
-    } else {
-        page.init();
-    }
+    
+    mui.plusReady(function() {
+	    //读取本地存储，检查是否为首次启动
+	    var showGuide = plus.storage.getItem("lauchFlag");
+		if(showGuide){
+			//有值，说明已经显示过了，无需显示；
+			//首页定位
+			page.getGpsPos();
+		}else{
+			mui.openWindow({
+				id:'guide',
+				url:'guide.html',
+				show:{
+					aniShow:'none'
+				},
+				waiting:{
+					autoShow:false
+				}
+			});
+			//延迟加载，避免资源争夺
+			setTimeout(function () {
+				page.getGpsPos();
+			},200);
+		}    	
+    });	
+
+    
+//  if (mui.os.ios || mui.os.android) {
+//      mui.plusReady( //先执行定位
+//          function () {
+//              page.getGpsPos();
+//          }
+//      );
+//  } else {
+//      page.init();
+//  }
 
     function step(type) {
         base.$('#rent1').style.display = 'none';
@@ -814,7 +929,17 @@
        }, 1000);
       } else {
       if (new Date().getTime() - first < 1000) {
-      	 localStorage.clear();
+//    	 localStorage.clear();
+         var setting={
+                	url:Constants.logout,
+                	async:false
+                }
+                muiAjax(setting,function(){
+                	mui.toast('成功退出');
+                },function(status){
+                	
+                });
+//    	 plus.navigator.removeAllCookie();
          plus.runtime.quit();
        }
      }

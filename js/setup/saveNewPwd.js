@@ -16,8 +16,8 @@
             })
         }
     };
-
-    page.init();
+    mui.plusReady(page.init);
+//  page.init();
     
     function updatePwd() {
 		var mima = document.querySelector("#mima").value;
